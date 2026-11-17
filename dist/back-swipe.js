@@ -17,6 +17,8 @@ function performFasDialogBack(dialog) {
   if (dialog.id === 'category-picker') return activate(dialog.querySelector('[data-category-back]'));
   if (dialog.querySelector('[data-auction-history-back]') && activate(dialog.querySelector('[data-auction-history-back]'))) return true;
   if (dialog.querySelector('[data-my-bids-back]') && activate(dialog.querySelector('[data-my-bids-back]'))) return true;
+  // A cabinet section such as Notifications returns to the cabinet, not to the catalogue.
+  if (dialog.querySelector('[data-cabinet-return]') && activate(dialog.querySelector('[data-cabinet-return]'))) return true;
   if (dialog.querySelector('[data-seller-confirm-buy]') && activate(dialog.querySelector('[data-seller-view]'))) return true;
   if (dialog.querySelector('#seller-listing-form') && activate(dialog.querySelector('[data-seller-dashboard]'))) return true;
   if (dialog.querySelector('#seller-profile-form') && typeof window.FasSellerUI?.openDashboard === 'function') {
