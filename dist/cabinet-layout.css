@@ -74,3 +74,13 @@ html.cabinet-layout-on .seller-shell[data-cabinet-view="all"] .cabinet-drafts:ha
  #modal.cabinet-subpage:not(.lot-dialog):not(.seller-dialog){width:calc(100% - 24px);max-width:1040px;min-height:min(620px,calc(100dvh - 40px))}
  #modal.cabinet-subpage:not(.lot-dialog):not(.seller-dialog)>:not(.close){max-width:760px;margin-left:auto;margin-right:auto}
 }
+/* Phone: cabinet sub-pages fill the screen like the cabinet itself, so moving between sections does not resize the window. */
+html.mobile-cabinet #modal.cabinet-subpage:not(.lot-dialog):not(.seller-dialog){width:calc(100% - 12px);max-height:calc(100dvh - 16px);min-height:calc(100dvh - 16px);border-radius:17px}
+@media(max-width:699px){
+ /* The whole logo stays visible, at a size that leaves the screen to the content. */
+ html.mobile-cabinet #modal .dialog-brand{min-height:0;padding-top:14px}
+ html.mobile-cabinet #modal .dialog-brand .brand-logo{width:92px;max-height:56px}
+ /* Four listing statuses fit as a 2×2 grid instead of a row cut off at the edge. */
+ html.mobile-cabinet #modal .seller-mobile-simple:not([data-cabinet-section="draft"]) .seller-tabs:not([hidden]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible;flex-wrap:wrap}
+ html.mobile-cabinet #modal .seller-mobile-simple .seller-tabs>button{grid-column:auto;min-width:0;width:100%;justify-content:space-between}
+}
