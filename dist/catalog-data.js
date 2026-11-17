@@ -69,7 +69,10 @@ function describeDemoLot(c){
  if(c.demoVehicleSample==='kamaz-5490')return describeKamazDemo(c);
  const leaf=demoLeaf(c),item=DEMO_LEAF_INDEX.get(leaf);if(!item)return c;
  c.subcategory=leaf;c.demoCatalogVersion=3;c.specsDemo=true;
+ // Curated demo lots carry their own mileage; category defaults must not overwrite it or invent identical engine power for every model.
+ const curated=!c.demoCatalogLeaf,ownMileage=c.km?Number(String(c.km).replace(/\D/g,''))||null:null,ownPower=c.powerHp??null;
  Object.assign(c,item.values);
+ if(curated){if(ownMileage!=null)c.mileage=ownMileage;c.powerHp=ownPower}
  const vehicle=['cars','trucks','motorcycles','snowmobiles','atvs'].includes(leaf);
  if(vehicle&&c.mileage!=null)c.km=c.mileage.toLocaleString('ru-RU');
  if(!vehicle){c.km='';c.mileage=null}

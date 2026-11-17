@@ -27,7 +27,9 @@
  function word(value,forms){const last=value%100;return forms[last>=11&&last<=14?2:value%10===1?0:value%10>=2&&value%10<=4?1:2]}
  function label(value){if(!value.valid)return 'Срок окончания не указан';if(value.expired)return 'Торги завершены';return 'До завершения: '+UNITS.map(([key,,forms])=>value[key]+' '+word(value[key],forms)).join(', ')}
  function text(end,now=Date.now()){const value=parts(end,now);return UNITS.map(([key,short])=>digits(key,value[key])+' '+short).join(' ')}
- function markup(value){return '<span class="countdown-units" role="timer" aria-live="off" aria-label="'+label(value)+'">'+UNITS.map(([key,short])=>'<span class="countdown-unit"><b class="countdown-number" data-countdown-part="'+key+'" aria-hidden="true">'+digits(key,value[key])+'</b><small aria-hidden="true">'+short+'</small></span>').join('')+'</span>'}
+ // Leading month/day units that are zero add no information; they stay in the DOM so update() keeps stable nodes.
+ function idle(key,value){return key==='months'?value.months===0:key==='days'?value.months===0&&value.days===0:false}
+ function markup(value){return '<span class="countdown-units" role="timer" aria-live="off" aria-label="'+label(value)+'">'+UNITS.map(([key,short])=>'<span class="countdown-unit"'+(idle(key,value)?' data-idle':'')+'><b class="countdown-number" data-countdown-part="'+key+'" aria-hidden="true">'+digits(key,value[key])+'</b><small aria-hidden="true">'+short+'</small></span>').join('')+'</span>'}
  function html(end,now=Date.now()){return markup(parts(end,now))}
  function update(node,end,now=Date.now()){
   if(!node||typeof node.querySelector!=='function')return false;
@@ -39,7 +41,7 @@
    entry={wrapper,numbers,label:wrapper.getAttribute('aria-label')};cache.set(node,entry);
   }
   let changed=false;
-  UNITS.forEach(([key],index)=>{const next=digits(key,value[key]);if(entry.numbers[index].textContent!==next){entry.numbers[index].textContent=next;changed=true}});
+  UNITS.forEach(([key],index)=>{const next=digits(key,value[key]),unit=entry.numbers[index].parentNode,quiet=idle(key,value);if(entry.numbers[index].textContent!==next){entry.numbers[index].textContent=next;changed=true}if(unit&&typeof unit.toggleAttribute==='function'&&unit.hasAttribute('data-idle')!==quiet){unit.toggleAttribute('data-idle',quiet);changed=true}});
   const nextLabel=label(value);if(entry.label!==nextLabel){entry.wrapper.setAttribute('aria-label',nextLabel);entry.label=nextLabel;changed=true}return changed;
  }
  window.FasCountdown=Object.freeze({parts,text,html,update});
