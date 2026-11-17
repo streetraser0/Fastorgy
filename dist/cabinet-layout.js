@@ -43,9 +43,25 @@
   const activeStatus=s.shell.querySelector('.seller-tabs [aria-pressed="true"]')?.dataset?.sellerTab;
   text(s.compact.title,view==='draft'?'Мои черновики':view==='profile'?'Мой профиль':({live:'На торгах',scheduled:'Запланировано',archive:'Архив и пауза'}[activeStatus]||'Мои объявления'));
  }
+ // Desktop: the drafts section gets its own heading and hides listing status filters, like the phone layout.
+ function view(s){const nav=s.shell.querySelector('.seller-account-tabs');return s.draftButton.getAttribute('aria-pressed')==='true'?'draft':nav?.querySelector('[data-seller-tab="profile"]')?.getAttribute('aria-pressed')==='true'?'profile':'all'}
+ function section(s){
+  const current=view(s);if(s.shell.getAttribute('data-cabinet-view')!==current)s.shell.setAttribute('data-cabinet-view',current);
+  if(s.compact)return;
+  const title=s.shell.querySelector('.seller-list-title');if(!title)return;
+  if(title!==s.viewTitle){s.viewTitle=title;s.viewTitleText=title.textContent}
+  text(title,current==='draft'?'Мои черновики':s.viewTitleText);
+ }
+ // Same geometry and stroke as the shared sidebar icons: a page with text lines.
+ function draftIcon(){
+  const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg'),path=document.createElementNS(ns,'path');
+  for(const [k,v] of Object.entries({class:'ui-icon',width:'20',height:'20',viewBox:'0 0 24 24',fill:'none',stroke:'currentColor','stroke-width':'1.8','stroke-linecap':'round','stroke-linejoin':'round','aria-hidden':'true',focusable:'false'}))svg.setAttribute(k,v);
+  path.setAttribute('d','M13 3H5v18h14V9l-6-6Zm0 0v6h6M8 13h8M8 17h5');svg.appendChild(path);return svg;
+ }
  function restore(){
   if(!state)return;const s=state;state=null;
   restoreCompact(s);
+  s.shell.removeAttribute('data-cabinet-view');if(s.viewTitle?.isConnected)text(s.viewTitle,s.viewTitleText);s.draftIcon?.remove();
   if(s.details){
    const list=s.details.parentElement;
    if(list){for(const row of s.rowOrder)if(row.parentElement===list||s.details.contains(row))list.insertBefore(row,s.details);for(const row of Array.from(s.details.querySelectorAll('.seller-row')))list.insertBefore(row,s.details);s.details.remove()}
@@ -86,10 +102,11 @@
    const label=button.querySelector('span'),all=nav.querySelector('[data-seller-tab="all"]'),createLabel=shell.querySelector('.seller-create-button > span');
    state={shell,draftButton:button,draftLabel:label,label:label?.textContent,originalParent:button.parentElement,next:button.nextElementSibling,accountAll:all,allPressed:all?.getAttribute('aria-pressed'),createLabel,createText:createLabel?.textContent,details:null,rowOrder:[]};
    nav.insertBefore(button,all?.nextElementSibling||null);
+   if(!button.querySelector('.ui-icon')&&typeof document.createElementNS==='function'){state.draftIcon=draftIcon();button.insertBefore(state.draftIcon,button.firstChild)}
    text(label,'Мои черновики');text(createLabel,'Разместить');
    if(all&&button.getAttribute('aria-pressed')==='true')all.setAttribute('aria-pressed','false');
   }
-  drafts(state);compact(state);
+  drafts(state);compact(state);section(state);
  }
  window.FasCabinetLayout=Object.freeze({active,refresh});
  function ready(){refresh();const content=document.querySelector('#modal-content');if(content){const observer=new MutationObserver(refresh);observer.observe(content,{childList:true,subtree:true})}const classes=new MutationObserver(refresh);classes.observe(root,{attributes:true,attributeFilter:['class']});window.addEventListener('resize',refresh);window.addEventListener('pageshow',refresh)}

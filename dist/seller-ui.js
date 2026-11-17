@@ -176,6 +176,11 @@
   return true;
  }
  function navigate(action){if(!prepareNavigation())return false;action();return true}
+  function subpage(action,returnTab=dashboardTab){return ()=>{action();const modal=qs('#modal');if(!modal)return;modal.classList?.add('cabinet-subpage');
+   const historyBack=modal.querySelector?.('[data-auction-history-back]');if(historyBack)historyBack.textContent='В кабинет';
+   const heading=modal.querySelector?.('.subscriptions-body > h2');
+   if(heading&&!modal.querySelector('[data-cabinet-return]')&&typeof document.createElement==='function'){const back=document.createElement('button');back.type='button';back.className='seller-action-link seller-dashboard-return';back.dataset.cabinetReturn=returnTab;back.textContent='← В кабинет';heading.parentElement.insertBefore(back,heading.previousElementSibling||heading)}
+  }}
  function requestClose(){const modal=qs('#modal');if(!modal?.open||!prepareNavigation())return false;modal.close();return true}
  function saveDraft(showFeedback=false){
   if(!editor)return false;const data=rawFromForm();if(!data)return false;
@@ -202,9 +207,9 @@
   modal.close();return true;
  }
  const originalShow=showModalContent;
- showModalContent=function(...args){leave();qs('#modal').classList.remove('seller-dialog');return originalShow.apply(this,args)};
- qs('#modal').addEventListener('close',()=>{leave();qs('#modal').classList.remove('seller-dialog')});
- function show(html){showModalContent('<div class="seller-shell">'+html+'</div>');qs('#modal').classList.remove('seller-editor-dialog');qs('#modal').classList.add('seller-dialog');qs('#modal').scrollTop=0}
+ showModalContent=function(...args){leave();qs('#modal').classList.remove('seller-dialog','cabinet-subpage');return originalShow.apply(this,args)};
+ qs('#modal').addEventListener('close',()=>{leave();qs('#modal').classList.remove('seller-dialog','cabinet-subpage')});
+ function show(html){showModalContent('<div class="seller-shell">'+html+'</div>');qs('#modal').classList.remove('seller-editor-dialog','cabinet-subpage');qs('#modal').classList.add('seller-dialog');qs('#modal').scrollTop=0}
  function profileReady(){return typeof workspace.profile.displayName==='string'&&workspace.profile.displayName.trim().length>=2&&!!normalizePhone(workspace.profile.phone)&&window.FasUserAgreement?.isCurrent(workspace.profile.agreementAcceptance)===true}
  function refreshCatalog(preserve=true){
   window.FasSubscriptionCache?.invalidate();window.FasKeywordSearch?.invalidate();
@@ -419,8 +424,9 @@
   if(target.matches('[data-seller-open],[data-seller-dashboard]')){event.preventDefault();if(target.matches('[data-seller-dashboard]'))back();else navigate(()=>openDashboard());return}
   if(target.matches('[data-seller-new]')){navigate(()=>openEditor());return}
   if(target.matches('[data-category-form="seller"]')&&editor&&window.FasCategoryUI){if(identityLocked(currentEditorLot())){toast('После ставки или сохранённого результата предмет продажи сохраняется. Уточните описание, фото или документы.');return}const currentEditor=editor,form=qs('#seller-listing-form');window.FasCategoryUI.open({purpose:'sell',value:form.elements.namedItem('subcategory')?.value||form.elements.namedItem('category').value,onSelect:(id,node)=>{if(editor!==currentEditor)return;if(identityLocked(currentEditorLot())){syncIdentityControls(form);toast('Уже подана ставка: предмет продажи сохраняется. Уточнения, фото и документы доступны.');return}form.elements.namedItem('category').value=node.legacyCategory;form.elements.namedItem('subcategory').value=id;target.querySelector('span').textContent=node.label;target.parentElement.querySelector('.category-path').textContent=window.FasCategories.groupOf(id).label;syncCategoryFields(form);syncEditor();saveDraft(false)}});return}
-  if(target.matches('[data-seller-purchases]')){event.preventDefault();const module=window.FasAuctionHistory;if(typeof module?.openPurchases!=='function'){toast('Раздел покупок загружается. Попробуйте ещё раз.');return}const returnTab=dashboardTab;navigate(()=>module.openPurchases({onBack:()=>openDashboard(returnTab)}));return}
-  if(target.matches('[data-seller-bids]')){event.preventDefault();const module=window.FasAuctionNotifications;if(typeof module?.openMyBids==='function'){const returnTab=dashboardTab;navigate(()=>module.openMyBids({onBack:()=>openDashboard(returnTab)}))}else toast('Раздел ставок загружается. Попробуйте ещё раз.');return}
+  if(target.matches('[data-seller-purchases]')){event.preventDefault();const module=window.FasAuctionHistory;if(typeof module?.openPurchases!=='function'){toast('Раздел покупок загружается. Попробуйте ещё раз.');return}const returnTab=dashboardTab;navigate(subpage(()=>module.openPurchases({onBack:()=>openDashboard(returnTab)})));return}
+  if(target.matches('[data-cabinet-return]')){event.preventDefault();const tab=target.dataset.cabinetReturn;navigate(()=>openDashboard(tab));return}
+  if(target.matches('[data-seller-bids]')){event.preventDefault();const module=window.FasAuctionNotifications;if(typeof module?.openMyBids==='function'){const returnTab=dashboardTab;navigate(subpage(()=>module.openMyBids({onBack:()=>openDashboard(returnTab)})))}else toast('Раздел ставок загружается. Попробуйте ещё раз.');return}
   if(target.matches('[data-seller-tab]')){if(dashboardTab==='profile'&&target.dataset.sellerTab==='all')back();else navigate(()=>openDashboard(target.dataset.sellerTab));return}
   if(target.matches('[data-seller-edit]')){navigate(()=>openEditor(target.dataset.sellerEdit));return}
   if(target.matches('[data-seller-copy]')){navigate(()=>openEditor(target.dataset.sellerCopy,true));return}
@@ -431,7 +437,7 @@
   if(target.matches('[data-seller-status]')){changeStatus(target.dataset.sellerStatus,target.dataset.nextStatus);return}
   if(target.matches('[data-seller-archive]')){event.preventDefault();archiveLot(target.dataset.sellerArchive);return}
   if(target.matches('[data-seller-favorites]')){navigate(()=>{qs('#modal').close();setTab('fav');qs('#lot-results').scrollIntoView?.({block:'start'})});return}
-  if(target.matches('[data-seller-subscriptions]')){navigate(()=>openSubscriptions());return}
+  if(target.matches('[data-seller-subscriptions]')){navigate(subpage(()=>openSubscriptions()));return}
   if(target.matches('[data-seller-sms]')){navigate(()=>openPhoneAuth());return}
   if(target.matches('[data-seller-buy-now]')){buyNow(target.dataset.sellerBuyNow);return}
   if(target.matches('[data-seller-confirm-buy]')){const lot=cars.find(c=>c.id===Number(target.dataset.sellerConfirmBuy));if(own(lot)){toast('Это ваше объявление. Купить собственный лот нельзя.');return}if(lot?.sellerOwnerId&&state(lot)==='live'&&buyNowAvailable(lot)){try{writeLots(cars.map(c=>c.id===lot.id?{...c,status:'sold',soldPrice:lot.buyNowPrice,soldAt:stamp()}:c));try{window.FasAuctionHistory?.recordDemoPurchase(cars.find(item=>item.id===lot.id))}catch{}qs('#modal').close();toast('Демопокупка завершена на этом устройстве. Деньги не списаны.')}catch(error){setError(['stale-auction-storage','seller-workspace-conflict','auction-storage-unavailable'].includes(error?.code)?error.message:'Не удалось сохранить демопокупку')}}return}

@@ -65,3 +65,12 @@ html.mobile-cabinet #modal.seller-dialog .seller-desktop-main .seller-actions > 
  html.mobile-cabinet .seller-desktop-sidebar .seller-account-tabs > button {flex-direction:row;justify-content:flex-start;text-align:left;gap:8px;padding:10px;font-size:12px}
  html.mobile-cabinet .seller-desktop-main .seller-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+/* Desktop drafts view: status filters belong to published listings only. */
+html.cabinet-layout-on .seller-shell[data-cabinet-view="draft"] .seller-tabs{display:none}
+/* An empty drafts group adds noise under "Мои лоты"; the sidebar item already leads to drafts. */
+html.cabinet-layout-on .seller-shell[data-cabinet-view="all"] .cabinet-drafts:has(.cabinet-drafts-empty:not([hidden])){display:none}
+/* Bids, purchases and notifications opened from the cabinet keep the cabinet's window width, so the dialog does not jump. */
+@media(min-width:700px){
+ #modal.cabinet-subpage:not(.lot-dialog):not(.seller-dialog){width:calc(100% - 24px);max-width:1040px;min-height:min(620px,calc(100dvh - 40px))}
+ #modal.cabinet-subpage:not(.lot-dialog):not(.seller-dialog)>:not(.close){max-width:760px;margin-left:auto;margin-right:auto}
+}

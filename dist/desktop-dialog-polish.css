@@ -88,3 +88,5 @@
  html.desktop-web .property-map-origin>.property-map-region-label select{font-size:14px}
  html.desktop-web :is(.property-map-maparea,.property-map-results){border-color:#C4D6EE;box-shadow:var(--desk-shadow)}
 }
+/* The bordered empty state needs inner space; without it the text touches the frame. */
+html.desktop-web #modal .my-bids-empty{padding:28px 28px 24px;border-radius:16px}
