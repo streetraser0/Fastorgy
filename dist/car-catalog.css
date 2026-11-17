@@ -1,0 +1,12 @@
+/* Search within long native make/model lists; custom values remain ordinary form fields. */
+:is(.seller-form,#lot-form) .car-catalog-search{display:flex;flex-direction:column;gap:5px;min-width:0;margin:3px 0}
+:is(.seller-form,#lot-form) .car-catalog-search>label{font-size:11px;color:#53697D;font-weight:500}
+:is(.seller-form,#lot-form) .car-catalog-search>input{min-width:0;min-height:43px;background:#F5F8FE}
+:is(.seller-form,#lot-form) .car-catalog-status{margin:2px 0;color:#53697D;font-size:11px;line-height:1.7;overflow-wrap:anywhere}
+:is(.seller-form,#lot-form) .car-catalog-credit{display:block;max-width:100%;color:#60758D;font-size:10px;font-weight:400;line-height:1.8;overflow-wrap:anywhere}
+:is(.seller-form,#lot-form) .car-catalog-credit>a{color:#315F9B;text-decoration:underline;text-underline-offset:3px}
+:is(.seller-form,#lot-form) .car-catalog-retry{align-self:flex-start;min-height:44px;padding:9px 12px;border:1px solid #B8CBE1;border-radius:9px;background:#F1F6FF;color:#0D4CD3;font:700 11px/1.6 Manrope,Arial,sans-serif;white-space:normal;text-align:left;cursor:pointer}
+:is(.seller-form,#lot-form) .car-model-field>[hidden],:is(.seller-form,#lot-form) .car-catalog-search[hidden],:is(.seller-form,#lot-form) .car-catalog-retry[hidden],:is(.seller-form,#lot-form) .car-catalog-credit[hidden]{display:none!important}
+@media(max-width:700px){:is(.seller-form,#lot-form) .car-catalog-search>input{font-size:16px;min-height:46px}:is(.seller-form,#lot-form) .car-catalog-credit{font-size:10px}:is(.seller-form,#lot-form) .car-catalog-search>label{font-size:11px}}
+
+#lot-form .car-brand-field>[hidden]{display:none!important}

@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "profileCount": 100,
+  "sameTotals": true,
+  "differences": [],
+  "fullCatalog": {
+    "elapsedMs": 78421,
+    "resources": {
+      "maxRssKiB": 258260,
+      "heapUsedBytes": 21194576,
+      "rssBytes": 252841984
+    }
+  },
+  "isolatedFixtures": {
+    "elapsedMs": 11673,
+    "resources": {
+      "maxRssKiB": 129420,
+      "heapUsedBytes": 15912016,
+      "rssBytes": 132526080
+    }
+  },
+  "sourceDigest": "c03b9b697f28c86268b766e0c5d34b7a35e03fde378dc59f8967fba7a4c0929d",
+  "sameSourceDigest": true,
+  "timingNote": "These two local functional runs overlapped; elapsed time is descriptive and is not browser/server capacity."
+}

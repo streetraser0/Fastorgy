@@ -1,0 +1,37 @@
+const assert=require('node:assert/strict');
+const {boot}=require('./helpers/category-seller-harness.cjs');
+const h=boot({noMedia:true}),run=h.run,now=Date.now();
+const base={category:'cars',subcategory:'cars',city:'Москва',regionCode:'77',bank:'Тестовый продавец',price:100000,start:100000,step:1000,deposit:0,status:'live',startsAt:new Date(now-3600000).toISOString(),ends:new Date(now+86400000).toISOString(),latitude:55.756,longitude:37.617,bids:0,demo:false};
+const fixtures=[{...base,id:999652001,name:'Toyota RAV4',brand:'Toyota',model:'RAV4'},{...base,id:999652002,name:'Mitsubishi Pajero',brand:'Mitsubishi',model:'Pajero',ends:new Date(now-3600000).toISOString()}];
+run('cars='+JSON.stringify(fixtures)+';ends.length=0;cars.forEach(lot=>ends.push(Date.parse(lot.ends)));invalidateSubscriptionInventory();window.FasKeywordSearch.invalidate();');
+const search=query=>run('applyKeywordSearch('+JSON.stringify(query)+',{criteria:{}})');
+search('Митсубиси');
+assert.equal(run('visibleLots.length'),0,'an ended listing cannot become a positive search result');
+assert(h.node('#grid').innerHTML.includes('По этому запросу лотов пока нет'));
+assert(h.node('#grid').innerHTML.includes('нет действующих лотов'));
+assert(h.node('#grid').innerHTML.includes('всем категориям и регионам'));
+assert(h.node('#grid').innerHTML.includes('data-follow-current-search'),'absent inventory offers the existing saved-search flow');
+assert(!h.node('#grid').innerHTML.includes('data-keyword-without-filters'),'removing filters cannot manufacture absent inventory');
+assert(h.node('#keyword-search-feedback').innerHTML.includes('нет действующих лотов'));
+
+search('Toyota');h.node('#region-filter').value='36';h.node('#budget').value='50000';run('render()');
+assert.equal(run('visibleLots.length'),0);
+assert(h.node('#grid').innerHTML.includes('Лоты по запросу «Toyota» есть'));
+assert(h.node('#grid').innerHTML.includes('data-keyword-without-filters'));
+assert(h.node('#keyword-search-feedback').innerHTML.includes('не подходят под выбранные условия'));
+assert.equal(h.node('#region-filter').value,'36','explaining a hidden match preserves the user filters');
+assert.equal(h.node('#budget').value,'50000');
+const target={closest(selector){return selector==='[data-keyword-without-filters]'?this:null}};
+h.dispatchClick({target,preventDefault(){}});
+assert.equal(h.node('#search').value,'Toyota','recovery preserves the requested make');
+assert.equal(h.node('#region-filter').value,'');assert.equal(h.node('#budget').value,'');
+assert.deepEqual(Array.from(run('visibleLots.map(lot=>lot.id)')),[999652001],'explicit filter recovery shows only genuine matching live inventory');
+assert(!h.node('#grid').innerHTML.includes('нет действующих лотов'));
+
+search('Toyota');h.node('#category').value='property';h.node('#category').onchange();
+assert.equal(run('visibleLots.length'),0,'a manually selected incompatible asset category stays strict');
+assert(h.node('#grid').innerHTML.includes('их скрывают выбранные условия'));
+assert.equal(h.node('#category').value,'property');
+run("tab='fav';saved=[];render()");
+assert(h.node('#grid').innerHTML.includes('Ваше избранное пока пусто'),'favorites retain their own empty state');
+console.log('PASS: empty search distinguishes absent active inventory from hidden matches, keeps constraints until explicit recovery, preserves the query and excludes ended listings.');

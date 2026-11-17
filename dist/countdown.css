@@ -1,0 +1,15 @@
+/* Five labeled time units get their own row, separate from the lot price. */
+#grid .bidrow,.reels #grid .bidrow{display:grid;grid-template-columns:minmax(0,1fr);gap:9px;align-items:start}
+#grid .bidrow>div,#grid .time{min-width:0;max-width:100%}
+#grid .time{width:100%;text-align:left}
+#grid .time>.caption{display:block;margin:0 0 6px;font-size:10px;line-height:1.4}
+#grid .time>[data-time]{display:block;min-width:0;width:100%;white-space:normal}
+.countdown-units{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;width:100%;min-width:0;max-width:100%;font-variant-numeric:tabular-nums}
+.countdown-unit{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-width:0;padding:5px 2px;border:1px solid #DDE6F2;border-radius:8px;background:#F4F7FC}
+.countdown-number{display:block;max-width:100%;font:800 17px/1.15 Manrope,Arial,sans-serif;letter-spacing:0;overflow-wrap:anywhere}
+.countdown-unit>small{display:block;max-width:100%;font:500 9px/1.3 Manrope,Arial,sans-serif;color:#53697D;white-space:normal}
+.reels #grid .time>.caption{margin-bottom:5px;font-size:9px}
+.reels #grid .countdown-unit{padding:4px 2px;border-color:#D6E4FF2E;background:#FFFFFF0C}
+.reels #grid .countdown-number{font-size:16px;color:#fff}
+.reels #grid .countdown-unit>small{color:#D7E5F8;font-size:8px}
+@media(max-width:360px){.countdown-units{gap:4px}.countdown-number{font-size:15px}.countdown-unit>small{font-size:8px}.reels #grid .countdown-number{font-size:15px}}

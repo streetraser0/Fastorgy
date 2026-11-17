@@ -1,0 +1,89 @@
+/* Shared depth: quiet surfaces, clear actions and an untouched photo canvas. */
+:root{
+  --fas-focus-color:#0D4CD3;
+  --fas-shadow-soft:0 1px 3px #183C6510;
+  --fas-shadow-card:0 1px 2px #102D4E06,0 8px 24px #17478E0A;
+  --fas-shadow-raised:0 3px 8px #123B6810,0 14px 34px #17478E12;
+  --fas-shadow-action:0 2px 4px #073EAE12,0 7px 18px #0D4CD326;
+  --fas-shadow-dock:0 3px 10px #12345312,0 14px 38px #0B24452B;
+  --fas-shadow-dialog:0 8px 26px #09264B1F,0 32px 80px #071B3A35;
+}
+body:not(.reels) .top{box-shadow:0 1px 0 #DCE6F480,0 4px 18px #173D6C05}
+body:not(.reels) .home-search-panel{border-color:#D7E3F2;box-shadow:var(--fas-shadow-card)}
+body:not(.reels) #grid .card{border-color:#D8E3F1;box-shadow:var(--fas-shadow-card)}
+.seller-row,.home-app-promo{box-shadow:var(--fas-shadow-card)}
+.seller-section{box-shadow:var(--fas-shadow-soft)}
+.seller-advanced>.seller-section{box-shadow:none}
+.category-discovery .home-category{box-shadow:inset 0 1px 0 #FFFFFFA6,0 2px 5px #173D6C05}
+.plan-card:not(.premium){box-shadow:var(--fas-shadow-card)}
+.primary:not(:disabled){box-shadow:var(--fas-shadow-action)}
+.market-intro .hero-feed:not(:disabled),.seller-create-button:not(:disabled){box-shadow:0 2px 4px #073EAE12,0 9px 24px #0D4CD32B}
+:is(.header-right,.seller-shell,.home-app-promo,.footer-contact) .outline:not(:disabled){box-shadow:inset 0 1px 0 #FFFFFFBF,var(--fas-shadow-soft)}
+.seller-tabs button.on{box-shadow:0 2px 6px #0D4CD31A}
+.quick-access,.reels .quick-access{border-color:#D5E2F1;box-shadow:var(--fas-shadow-dock)}
+.quick-access-button.active{box-shadow:inset 0 1px 0 #FFFFFFCC,0 1px 3px #0D4CD308}
+.quick-access-sell .quick-access-icon{box-shadow:0 3px 8px #0D4CD326}
+.lot-quick-access{box-shadow:0 1px 0 #DCE5F180,0 5px 18px #123B680A}
+.lot-quick-access .lot-quick-bid:not(:disabled){box-shadow:0 3px 9px #0D4CD323}
+.seller-actions{box-shadow:0 -6px 20px #123B6806}
+.reels-logo-wrap,.lot-brand-logo{background:#fff;border-color:#fff;box-shadow:0 2px 7px #071B3A16}
+#modal[open],#voice-dialog[open],#payment-dialog[open],dialog.category-dialog[open],#support-dialog[open],#seller-rating-dialog[open],#sales-analytics-dialog[open]{box-shadow:var(--fas-shadow-dialog)}
+body:not(.reels) :is(.home-search-panel,.seller-form,.seller-profile-form) :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea):focus-visible:not([aria-invalid="true"]){border-color:var(--fas-focus-color);outline-color:var(--fas-focus-color);box-shadow:0 0 0 4px #0D4CD318}
+/* Shared interaction cues leave specialized photo and dialog controls intact. */
+:where(button,a[href],summary,[tabindex]):focus-visible{outline:3px solid var(--fas-focus-color);outline-offset:3px}
+/* Programmatic headings announce a destination; controls keep the keyboard ring. */
+:where(h1,h2,h3,h4,h5,h6)[tabindex="-1"]:focus{outline:none;box-shadow:none}
+.subscription-tab:focus-visible,.top nav .nav-subscription:focus-visible{outline-color:var(--fas-focus-color)}
+.primary:not(:disabled):active{box-shadow:none}
+.outline:not(:disabled):active{border-color:#9EB8DC;background:#E8EEF8;box-shadow:inset 0 1px 3px #123B6810}
+.tab:not(:disabled):active{box-shadow:inset 0 1px 3px #123B681C}
+:where(button):disabled{cursor:not-allowed}
+
+/* Search and catalogue controls share a comfortable target and text rhythm. */
+body:not(.reels) .toolbar .tab,
+body:not(.reels) .toolbar #sort,
+body:not(.reels) .toolbar #open-reels,
+body:not(.reels) .toolbar .property-map-launch,
+body.search-results-active:not(.reels) .toolbar button.tab,
+body.search-results-active:not(.reels) .toolbar select#sort,
+body.search-results-active:not(.reels) .toolbar button#open-reels,
+body.search-results-active:not(.reels) .toolbar button.property-map-launch,
+body:not(.reels) button#result-edit,
+body:not(.reels) .featured-modes>button,
+body:not(.reels) .featured-name,
+.keyword-search-feedback>button,
+.home-map-button{min-height:44px}
+.search-voice-wrap>[data-voice-open]{width:44px;min-height:44px}
+.keyword-search-feedback{border-radius:12px;font-size:12px;line-height:1.7}
+.keyword-search-feedback>button{flex-shrink:1;font-size:12px;overflow-wrap:anywhere}
+.home-search-panel .advanced-grid>label{color:#53697D;font-size:12px}
+.home-search-panel :is(.advanced-hint,.advanced-error){font-size:12px;line-height:1.7;overflow-wrap:anywhere}
+body:not(.reels) #grid .spec{flex-wrap:wrap;gap:3px 10px}
+body:not(.reels) #grid .spec>span,
+body:not(.reels) #grid .bids{min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;line-height:1.5}
+.footer-contact{min-width:0}
+.footer-contact .car-data-credit{margin-top:0;font-size:11px;line-height:1.7;overflow-wrap:anywhere}
+.footer-contact .car-data-credit>a{color:#53697D;font:inherit;letter-spacing:normal;text-decoration:underline;text-underline-offset:3px}
+@media(hover:hover) and (pointer:fine){
+  body:not(.reels) #grid .card:hover,.seller-row:hover{border-color:#B6CDEA;box-shadow:var(--fas-shadow-raised)}
+  .category-discovery .home-category:hover{border-color:#B8CFEF;box-shadow:0 2px 6px #123B680A,0 9px 23px #17478E10}
+  .primary:not(:disabled):hover{box-shadow:0 3px 7px #073EAE17,0 10px 24px #0D4CD333}
+  :is(.header-right,.seller-shell,.home-app-promo,.footer-contact) .outline:not(:disabled):hover{box-shadow:0 2px 7px #123B6812}
+  .tab:not(.on):not(:disabled):hover,.keyword-search-feedback>button:not(:disabled):hover{background:#EEF4FC;color:#0D4CD3}
+  .home-map-button:hover{text-decoration:underline;text-underline-offset:3px}
+}
+@media(hover:none),(pointer:coarse){
+  body:not(.reels) #grid .card:hover{transform:none;box-shadow:var(--fas-shadow-card)}
+  .market-intro .hero-feed:hover,.category-discovery .home-category:hover{transform:none}
+}
+@media(max-width:700px){
+  #modal.seller-dialog[open],dialog.category-dialog[open]{box-shadow:none}
+  body:not(.reels) #grid .card{box-shadow:0 1px 3px #123B6808,0 6px 18px #17478E09}
+  body:not(.reels) .toolbar #sort{font-size:16px}
+}
+@media(forced-colors:active){
+  :root{--fas-focus-color:Highlight}
+}
+@media(prefers-reduced-motion:reduce){
+  .primary,.outline,.card,.home-category,.seller-row,.quick-access-button{transition:none}
+}

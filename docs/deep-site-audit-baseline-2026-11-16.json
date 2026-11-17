@@ -1,0 +1,1426 @@
+{
+  "started": "2026-11-16T09:57:07.016Z",
+  "elapsedMs": 809531,
+  "total": 236,
+  "passed": 228,
+  "sourceDiffUnchanged": true,
+  "results": [
+    {
+      "file": "advanced-filter-pass.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1854
+    },
+    {
+      "file": "agreement-revision.cjs",
+      "status": 1,
+      "signal": null,
+      "ms": 503
+    },
+    {
+      "file": "appearance-lazy-work.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 274
+    },
+    {
+      "file": "appearance-search.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2727
+    },
+    {
+      "file": "asset-reports.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 362
+    },
+    {
+      "file": "assistant-events-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3439
+    },
+    {
+      "file": "assistant-personalization.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 209
+    },
+    {
+      "file": "assistant-preferences.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 451
+    },
+    {
+      "file": "auction-cards-mobile.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 415
+    },
+    {
+      "file": "auction-clock-boundaries.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 9992
+    },
+    {
+      "file": "auction-direction-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 5722
+    },
+    {
+      "file": "auction-ending-window-boundaries.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 14467
+    },
+    {
+      "file": "auction-history-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 5175
+    },
+    {
+      "file": "auction-history.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 18715
+    },
+    {
+      "file": "auction-integrity.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 10246
+    },
+    {
+      "file": "auction-modes.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 175
+    },
+    {
+      "file": "auction-notifications-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3928
+    },
+    {
+      "file": "auction-notifications.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3471
+    },
+    {
+      "file": "auction-renewal-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 10665
+    },
+    {
+      "file": "auction-renewal.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 6027
+    },
+    {
+      "file": "auth-dialog.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1703
+    },
+    {
+      "file": "back-swipe.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 324
+    },
+    {
+      "file": "bank-editor-state.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1987
+    },
+    {
+      "file": "bank-identity-lock.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3084
+    },
+    {
+      "file": "brand-logo.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3947
+    },
+    {
+      "file": "brand-origin-search.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2664
+    },
+    {
+      "file": "buyer-native-descending.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1561
+    },
+    {
+      "file": "buyer-share-return.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1887
+    },
+    {
+      "file": "buyer-tools.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 178
+    },
+    {
+      "file": "cabinet-swipe-close.cjs",
+      "status": 1,
+      "signal": null,
+      "ms": 808
+    },
+    {
+      "file": "car-catalog-data.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 141
+    },
+    {
+      "file": "car-catalog-ui.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 288
+    },
+    {
+      "file": "catalog-counters.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 137
+    },
+    {
+      "file": "catalog-page-scroll.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 122
+    },
+    {
+      "file": "catalog-performance.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 26385
+    },
+    {
+      "file": "catalog-search.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3228
+    },
+    {
+      "file": "catalog-sort-dropdown.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 121
+    },
+    {
+      "file": "category-browse-roundtrip.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 48476
+    },
+    {
+      "file": "category-csv.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 9227
+    },
+    {
+      "file": "category-dropdown.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 264
+    },
+    {
+      "file": "category-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 33257
+    },
+    {
+      "file": "category-keyword-search.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 383
+    },
+    {
+      "file": "category-multi-select.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 11128
+    },
+    {
+      "file": "category-native-back.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 129
+    },
+    {
+      "file": "category-picker.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 212
+    },
+    {
+      "file": "category-tree.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1159
+    },
+    {
+      "file": "change-trigger-diagnostics.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3313
+    },
+    {
+      "file": "chinese-model-aliases.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 267
+    },
+    {
+      "file": "commercial-smart-search.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 9613
+    },
+    {
+      "file": "countdown.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 165
+    },
+    {
+      "file": "cross-tab-auctions.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 20818
+    },
+    {
+      "file": "demo-catalog-coverage.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 12752
+    },
+    {
+      "file": "demo-catalog-preservation.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3926
+    },
+    {
+      "file": "demo-description.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1511
+    },
+    {
+      "file": "demo-photo-consistency.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2301
+    },
+    {
+      "file": "demo-seeding-performance.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 121
+    },
+    {
+      "file": "desktop-cabinet-layout.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 201
+    },
+    {
+      "file": "desktop-category-selection.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 4012
+    },
+    {
+      "file": "desktop-dialogs.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 181
+    },
+    {
+      "file": "desktop-featured-personalization.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 665
+    },
+    {
+      "file": "desktop-photo-hover.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 151
+    },
+    {
+      "file": "dialog-blank-back.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 272
+    },
+    {
+      "file": "dialog-four-way.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 859
+    },
+    {
+      "file": "dialog-journey-regressions.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 205
+    },
+    {
+      "file": "dialog-lifecycle.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3598
+    },
+    {
+      "file": "dialog-media.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 311
+    },
+    {
+      "file": "dialog-stack.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2158
+    },
+    {
+      "file": "distance-reuse.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 6893
+    },
+    {
+      "file": "distance-search.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2300
+    },
+    {
+      "file": "doubletap-recommendations.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1943
+    },
+    {
+      "file": "draft-delete.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 283
+    },
+    {
+      "file": "editor-draft-delete.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 719
+    },
+    {
+      "file": "ending-soon.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1545
+    },
+    {
+      "file": "featured-cheap-intent.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2278
+    },
+    {
+      "file": "featured-combinations.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 4745
+    },
+    {
+      "file": "featured-desktop-drag.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 840
+    },
+    {
+      "file": "featured-desktop-wheel.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 245
+    },
+    {
+      "file": "featured-empty-feed.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 250
+    },
+    {
+      "file": "featured-ending-interest.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 214
+    },
+    {
+      "file": "featured-feed-return.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1548
+    },
+    {
+      "file": "featured-for-you-city.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 315
+    },
+    {
+      "file": "featured-horizontal.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 177
+    },
+    {
+      "file": "featured-hot.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2967
+    },
+    {
+      "file": "featured-live-fallback.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 310
+    },
+    {
+      "file": "featured-lots.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2559
+    },
+    {
+      "file": "featured-participate.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1909
+    },
+    {
+      "file": "featured-performance-cache.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 344
+    },
+    {
+      "file": "featured-photo-carousel.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1019
+    },
+    {
+      "file": "featured-recommendations.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 273
+    },
+    {
+      "file": "featured-settings.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 271
+    },
+    {
+      "file": "featured-share.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 167
+    },
+    {
+      "file": "feed-buy-action.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2011
+    },
+    {
+      "file": "feed-close-gesture.cjs",
+      "status": 1,
+      "signal": null,
+      "ms": 136
+    },
+    {
+      "file": "feed-motion.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 164
+    },
+    {
+      "file": "feed-return-gestures.cjs",
+      "status": 1,
+      "signal": null,
+      "ms": 130
+    },
+    {
+      "file": "feed-share.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1523
+    },
+    {
+      "file": "feed-tutorial.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 142
+    },
+    {
+      "file": "footer-navigation.cjs",
+      "status": 1,
+      "signal": null,
+      "ms": 125
+    },
+    {
+      "file": "gallery-performance.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1548
+    },
+    {
+      "file": "home-navigation.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 5009
+    },
+    {
+      "file": "identifier-input-boundaries.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2144
+    },
+    {
+      "file": "integration-contracts.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 163
+    },
+    {
+      "file": "kamaz-search.cjs",
+      "status": 1,
+      "signal": null,
+      "ms": 3716
+    },
+    {
+      "file": "keyword-index-lifecycle.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1585
+    },
+    {
+      "file": "keyword-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 26070
+    },
+    {
+      "file": "keyword-search-prepare.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 852
+    },
+    {
+      "file": "keyword-search.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 519
+    },
+    {
+      "file": "keyword-work.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 310
+    },
+    {
+      "file": "layout-safety.cjs",
+      "status": 1,
+      "signal": null,
+      "ms": 119
+    },
+    {
+      "file": "live-auction-price.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1520
+    },
+    {
+      "file": "local-ai.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 183
+    },
+    {
+      "file": "local-feed.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1553
+    },
+    {
+      "file": "lot-action-pair.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2028
+    },
+    {
+      "file": "lot-close-return-routes.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 123
+    },
+    {
+      "file": "lot-detail-decorators.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 361
+    },
+    {
+      "file": "lot-detail-layout.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 309
+    },
+    {
+      "file": "lot-discovery-integration.cjs",
+      "status": 1,
+      "signal": null,
+      "ms": 1463
+    },
+    {
+      "file": "lot-discovery.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 144
+    },
+    {
+      "file": "lot-gestures.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 142
+    },
+    {
+      "file": "lot-map-entry.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1461
+    },
+    {
+      "file": "lot-photo-viewer.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 380
+    },
+    {
+      "file": "lot-presentation-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1500
+    },
+    {
+      "file": "lot-presentation.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 129
+    },
+    {
+      "file": "lot-price-direction.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 306
+    },
+    {
+      "file": "lot-thumbnails.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 127
+    },
+    {
+      "file": "lot-touch-semantics.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 254
+    },
+    {
+      "file": "map-feed-resume.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2082
+    },
+    {
+      "file": "map-lot-return.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 7522
+    },
+    {
+      "file": "map-projection-work.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2850
+    },
+    {
+      "file": "market-normalization.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1549
+    },
+    {
+      "file": "marketplace-summary.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 576
+    },
+    {
+      "file": "messages.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 11907
+    },
+    {
+      "file": "metrics-backend.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 5339
+    },
+    {
+      "file": "mitsubishi-search.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1722
+    },
+    {
+      "file": "mobile-cabinet-simple.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 171
+    },
+    {
+      "file": "model-marketplace-scale.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 836
+    },
+    {
+      "file": "motion.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 127
+    },
+    {
+      "file": "native-back-routing.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 101
+    },
+    {
+      "file": "native-share-boundary.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 105
+    },
+    {
+      "file": "natural-typed-search.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1615
+    },
+    {
+      "file": "notification-click.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 160
+    },
+    {
+      "file": "own-lot-transactions.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 4411
+    },
+    {
+      "file": "owner-auction-policy.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 63828
+    },
+    {
+      "file": "partner-branding-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1527
+    },
+    {
+      "file": "partner-branding.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 115
+    },
+    {
+      "file": "payment-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1737
+    },
+    {
+      "file": "payment-presentation.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 359
+    },
+    {
+      "file": "payment-ui.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 312
+    },
+    {
+      "file": "performance-followup-regressions.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3635
+    },
+    {
+      "file": "photo-delivery.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1713
+    },
+    {
+      "file": "photo-viewer-warm.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 183
+    },
+    {
+      "file": "profile-voice-settings.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 370
+    },
+    {
+      "file": "property-map-multi.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 301
+    },
+    {
+      "file": "property-map.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1124
+    },
+    {
+      "file": "pwa-install.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 108
+    },
+    {
+      "file": "quickbar-labels.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 140
+    },
+    {
+      "file": "quickbar.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 203
+    },
+    {
+      "file": "recommendation-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 5377
+    },
+    {
+      "file": "recommendations.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1181
+    },
+    {
+      "file": "region-geolocation-recovery.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 108
+    },
+    {
+      "file": "region-multiselect.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 8538
+    },
+    {
+      "file": "render-work.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2929
+    },
+    {
+      "file": "responsive-media.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3952
+    },
+    {
+      "file": "right-swipe-close.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 316
+    },
+    {
+      "file": "sales-analytics.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 5316
+    },
+    {
+      "file": "sales-local-privacy.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1743
+    },
+    {
+      "file": "saved-search-subscription-form.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 11184
+    },
+    {
+      "file": "search-auto-scope.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 15645
+    },
+    {
+      "file": "search-city-select.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1517
+    },
+    {
+      "file": "search-context-return.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 5882
+    },
+    {
+      "file": "search-empty-availability.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1524
+    },
+    {
+      "file": "search-filter-conflict.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 10815
+    },
+    {
+      "file": "search-fresh-start.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 12210
+    },
+    {
+      "file": "search-identifiers.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 181
+    },
+    {
+      "file": "search-intent.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 316
+    },
+    {
+      "file": "search-nearest.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1555
+    },
+    {
+      "file": "search-night-regressions.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 930
+    },
+    {
+      "file": "search-numeric-validation.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1634
+    },
+    {
+      "file": "search-persona-ranges.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1898
+    },
+    {
+      "file": "search-preferences.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 129
+    },
+    {
+      "file": "search-preparation-ui.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 167
+    },
+    {
+      "file": "search-results-layout.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1594
+    },
+    {
+      "file": "search-sort-feedback.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1544
+    },
+    {
+      "file": "search-typos.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 113
+    },
+    {
+      "file": "security-boundaries.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 158
+    },
+    {
+      "file": "security-csp.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1495
+    },
+    {
+      "file": "security-dom.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1593
+    },
+    {
+      "file": "security-followup-regressions.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 209
+    },
+    {
+      "file": "security-inputs.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3879
+    },
+    {
+      "file": "security-local-ai-boundary.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 147
+    },
+    {
+      "file": "security-metrics-work.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 747
+    },
+    {
+      "file": "security-payment-boundaries.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1926
+    },
+    {
+      "file": "security-rate-limits.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 4979
+    },
+    {
+      "file": "security-server-resources.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 3054
+    },
+    {
+      "file": "seller-async-navigation.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 12993
+    },
+    {
+      "file": "seller-auction-modes.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 9608
+    },
+    {
+      "file": "seller-back-gesture.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 9320
+    },
+    {
+      "file": "seller-branding.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 764
+    },
+    {
+      "file": "seller-contact-privacy.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 9105
+    },
+    {
+      "file": "seller-current-state.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 6308
+    },
+    {
+      "file": "seller-dashboard.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2953
+    },
+    {
+      "file": "seller-exit-guards.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 11794
+    },
+    {
+      "file": "seller-following.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2191
+    },
+    {
+      "file": "seller-identity-priority.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1906
+    },
+    {
+      "file": "seller-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 21046
+    },
+    {
+      "file": "seller-listing-quotas.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1375
+    },
+    {
+      "file": "seller-location.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 5321
+    },
+    {
+      "file": "seller-media.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 175
+    },
+    {
+      "file": "seller-options.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 7288
+    },
+    {
+      "file": "seller-profile-agreement.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1169
+    },
+    {
+      "file": "seller-profile-cancel.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2935
+    },
+    {
+      "file": "seller-ratings.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 207
+    },
+    {
+      "file": "seller-rules.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 170
+    },
+    {
+      "file": "seller-storefront-return-routes.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 6740
+    },
+    {
+      "file": "seller-storefront.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2101
+    },
+    {
+      "file": "seller-workspace-recovery.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 14940
+    },
+    {
+      "file": "service-worker.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 172
+    },
+    {
+      "file": "smart-fill.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 193
+    },
+    {
+      "file": "static-delivery.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 237
+    },
+    {
+      "file": "storage-favorites.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 15750
+    },
+    {
+      "file": "subscription-durability.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2089
+    },
+    {
+      "file": "support.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 123
+    },
+    {
+      "file": "up-swipe-close.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 130
+    },
+    {
+      "file": "user-agreement.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 638
+    },
+    {
+      "file": "vehicle-engine-facts.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 129
+    },
+    {
+      "file": "vehicle-engine-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 452
+    },
+    {
+      "file": "vehicle-search-roundtrip.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2401
+    },
+    {
+      "file": "virtual-feed.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1633
+    },
+    {
+      "file": "voice-assistant.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1199
+    },
+    {
+      "file": "voice-core-actions.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2619
+    },
+    {
+      "file": "voice-intelligence-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1782
+    },
+    {
+      "file": "voice-invocation-auto.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 195
+    },
+    {
+      "file": "voice-natural-scenarios.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 2168
+    },
+    {
+      "file": "voice-personalization-integration.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 239
+    },
+    {
+      "file": "voice-quick-listen.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 497
+    },
+    {
+      "file": "voice-search-criteria.cjs",
+      "status": 0,
+      "signal": null,
+      "ms": 1590
+    }
+  ],
+  "sourceCommit": "66100174a5849c1db99d402b0bb1b00a8b41d1f5"
+}

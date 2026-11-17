@@ -1,0 +1,1299 @@
+{
+  "date": "2026-11-15",
+  "baseline": "e9646bf9e1fb6058a392fa2ca83836c489010036",
+  "scope": "Desktop browser controls/categories/recommendations/dialogs and desktop+iOS-web cabinet. Android/native assets unchanged.",
+  "suite": {
+    "passed": 218,
+    "total": 218,
+    "started": "2026-11-15T13:09:11.741Z",
+    "finished": "2026-11-15T13:16:34.486Z",
+    "sourceUnchanged": true,
+    "sourceDigest": "09e3ae09f88c90917ca8753c85d5352ef559a4fc7e452f9d0713a27d5a76ad56",
+    "checks": [
+      {
+        "file": "tests/agreement-revision.cjs",
+        "status": 0,
+        "ms": 1661
+      },
+      {
+        "file": "tests/appearance-lazy-work.cjs",
+        "status": 0,
+        "ms": 398
+      },
+      {
+        "file": "tests/advanced-filter-pass.cjs",
+        "status": 0,
+        "ms": 3316
+      },
+      {
+        "file": "tests/asset-reports.cjs",
+        "status": 0,
+        "ms": 172
+      },
+      {
+        "file": "tests/appearance-search.cjs",
+        "status": 0,
+        "ms": 2529
+      },
+      {
+        "file": "tests/assistant-personalization.cjs",
+        "status": 0,
+        "ms": 227
+      },
+      {
+        "file": "tests/assistant-preferences.cjs",
+        "status": 0,
+        "ms": 397
+      },
+      {
+        "file": "tests/auction-cards-mobile.cjs",
+        "status": 0,
+        "ms": 397
+      },
+      {
+        "file": "tests/assistant-events-integration.cjs",
+        "status": 0,
+        "ms": 3117
+      },
+      {
+        "file": "tests/auction-direction-integration.cjs",
+        "status": 0,
+        "ms": 7571
+      },
+      {
+        "file": "tests/auction-clock-boundaries.cjs",
+        "status": 0,
+        "ms": 13094
+      },
+      {
+        "file": "tests/auction-history-integration.cjs",
+        "status": 0,
+        "ms": 7593
+      },
+      {
+        "file": "tests/auction-ending-window-boundaries.cjs",
+        "status": 0,
+        "ms": 20827
+      },
+      {
+        "file": "tests/auction-integrity.cjs",
+        "status": 0,
+        "ms": 9898
+      },
+      {
+        "file": "tests/auction-modes.cjs",
+        "status": 0,
+        "ms": 160
+      },
+      {
+        "file": "tests/auction-history.cjs",
+        "status": 0,
+        "ms": 21048
+      },
+      {
+        "file": "tests/auction-notifications-integration.cjs",
+        "status": 0,
+        "ms": 3736
+      },
+      {
+        "file": "tests/auction-notifications.cjs",
+        "status": 0,
+        "ms": 3561
+      },
+      {
+        "file": "tests/auction-renewal.cjs",
+        "status": 0,
+        "ms": 7407
+      },
+      {
+        "file": "tests/auth-dialog.cjs",
+        "status": 0,
+        "ms": 1965
+      },
+      {
+        "file": "tests/auction-renewal-integration.cjs",
+        "status": 0,
+        "ms": 11510
+      },
+      {
+        "file": "tests/back-swipe.cjs",
+        "status": 0,
+        "ms": 630
+      },
+      {
+        "file": "tests/bank-editor-state.cjs",
+        "status": 0,
+        "ms": 2866
+      },
+      {
+        "file": "tests/bank-identity-lock.cjs",
+        "status": 0,
+        "ms": 5565
+      },
+      {
+        "file": "tests/brand-origin-search.cjs",
+        "status": 0,
+        "ms": 3441
+      },
+      {
+        "file": "tests/buyer-native-descending.cjs",
+        "status": 0,
+        "ms": 2203
+      },
+      {
+        "file": "tests/buyer-tools.cjs",
+        "status": 0,
+        "ms": 316
+      },
+      {
+        "file": "tests/buyer-share-return.cjs",
+        "status": 0,
+        "ms": 2697
+      },
+      {
+        "file": "tests/car-catalog-data.cjs",
+        "status": 0,
+        "ms": 195
+      },
+      {
+        "file": "tests/car-catalog-ui.cjs",
+        "status": 0,
+        "ms": 452
+      },
+      {
+        "file": "tests/catalog-page-scroll.cjs",
+        "status": 0,
+        "ms": 216
+      },
+      {
+        "file": "tests/cabinet-swipe-close.cjs",
+        "status": 0,
+        "ms": 1960
+      },
+      {
+        "file": "tests/catalog-search.cjs",
+        "status": 0,
+        "ms": 4656
+      },
+      {
+        "file": "tests/catalog-performance.cjs",
+        "status": 0,
+        "ms": 40114
+      },
+      {
+        "file": "tests/category-csv.cjs",
+        "status": 0,
+        "ms": 7488
+      },
+      {
+        "file": "tests/category-browse-roundtrip.cjs",
+        "status": 0,
+        "ms": 70787
+      },
+      {
+        "file": "tests/category-keyword-search.cjs",
+        "status": 0,
+        "ms": 544
+      },
+      {
+        "file": "tests/category-integration.cjs",
+        "status": 0,
+        "ms": 37394
+      },
+      {
+        "file": "tests/category-native-back.cjs",
+        "status": 0,
+        "ms": 122
+      },
+      {
+        "file": "tests/category-picker.cjs",
+        "status": 0,
+        "ms": 256
+      },
+      {
+        "file": "tests/category-tree.cjs",
+        "status": 0,
+        "ms": 1501
+      },
+      {
+        "file": "tests/change-trigger-diagnostics.cjs",
+        "status": 0,
+        "ms": 4029
+      },
+      {
+        "file": "tests/category-multi-select.cjs",
+        "status": 0,
+        "ms": 14248
+      },
+      {
+        "file": "tests/chinese-model-aliases.cjs",
+        "status": 0,
+        "ms": 328
+      },
+      {
+        "file": "tests/countdown.cjs",
+        "status": 0,
+        "ms": 149
+      },
+      {
+        "file": "tests/commercial-smart-search.cjs",
+        "status": 0,
+        "ms": 12558
+      },
+      {
+        "file": "tests/cross-tab-auctions.cjs",
+        "status": 0,
+        "ms": 21378
+      },
+      {
+        "file": "tests/demo-catalog-preservation.cjs",
+        "status": 0,
+        "ms": 4325
+      },
+      {
+        "file": "tests/demo-catalog-coverage.cjs",
+        "status": 0,
+        "ms": 14741
+      },
+      {
+        "file": "tests/demo-description.cjs",
+        "status": 0,
+        "ms": 1778
+      },
+      {
+        "file": "tests/demo-seeding-performance.cjs",
+        "status": 0,
+        "ms": 152
+      },
+      {
+        "file": "tests/desktop-cabinet-layout.cjs",
+        "status": 0,
+        "ms": 178
+      },
+      {
+        "file": "tests/demo-photo-consistency.cjs",
+        "status": 0,
+        "ms": 2919
+      },
+      {
+        "file": "tests/desktop-dialogs.cjs",
+        "status": 0,
+        "ms": 213
+      },
+      {
+        "file": "tests/desktop-featured-personalization.cjs",
+        "status": 0,
+        "ms": 764
+      },
+      {
+        "file": "tests/dialog-blank-back.cjs",
+        "status": 0,
+        "ms": 318
+      },
+      {
+        "file": "tests/desktop-category-selection.cjs",
+        "status": 0,
+        "ms": 4349
+      },
+      {
+        "file": "tests/dialog-four-way.cjs",
+        "status": 0,
+        "ms": 1118
+      },
+      {
+        "file": "tests/dialog-journey-regressions.cjs",
+        "status": 0,
+        "ms": 243
+      },
+      {
+        "file": "tests/dialog-media.cjs",
+        "status": 0,
+        "ms": 148
+      },
+      {
+        "file": "tests/dialog-stack.cjs",
+        "status": 0,
+        "ms": 1849
+      },
+      {
+        "file": "tests/dialog-lifecycle.cjs",
+        "status": 0,
+        "ms": 3271
+      },
+      {
+        "file": "tests/distance-search.cjs",
+        "status": 0,
+        "ms": 1776
+      },
+      {
+        "file": "tests/doubletap-recommendations.cjs",
+        "status": 0,
+        "ms": 1964
+      },
+      {
+        "file": "tests/draft-delete.cjs",
+        "status": 0,
+        "ms": 409
+      },
+      {
+        "file": "tests/distance-reuse.cjs",
+        "status": 0,
+        "ms": 5945
+      },
+      {
+        "file": "tests/ending-soon.cjs",
+        "status": 0,
+        "ms": 1871
+      },
+      {
+        "file": "tests/featured-cheap-intent.cjs",
+        "status": 0,
+        "ms": 2743
+      },
+      {
+        "file": "tests/featured-desktop-drag.cjs",
+        "status": 0,
+        "ms": 935
+      },
+      {
+        "file": "tests/featured-desktop-wheel.cjs",
+        "status": 0,
+        "ms": 297
+      },
+      {
+        "file": "tests/featured-ending-interest.cjs",
+        "status": 0,
+        "ms": 269
+      },
+      {
+        "file": "tests/featured-feed-return.cjs",
+        "status": 0,
+        "ms": 1808
+      },
+      {
+        "file": "tests/featured-for-you-city.cjs",
+        "status": 0,
+        "ms": 306
+      },
+      {
+        "file": "tests/featured-horizontal.cjs",
+        "status": 0,
+        "ms": 181
+      },
+      {
+        "file": "tests/featured-combinations.cjs",
+        "status": 0,
+        "ms": 5318
+      },
+      {
+        "file": "tests/featured-live-fallback.cjs",
+        "status": 0,
+        "ms": 387
+      },
+      {
+        "file": "tests/featured-performance-cache.cjs",
+        "status": 0,
+        "ms": 496
+      },
+      {
+        "file": "tests/featured-photo-carousel.cjs",
+        "status": 0,
+        "ms": 1119
+      },
+      {
+        "file": "tests/featured-recommendations.cjs",
+        "status": 0,
+        "ms": 317
+      },
+      {
+        "file": "tests/featured-settings.cjs",
+        "status": 0,
+        "ms": 306
+      },
+      {
+        "file": "tests/feed-close-gesture.cjs",
+        "status": 0,
+        "ms": 140
+      },
+      {
+        "file": "tests/feed-motion.cjs",
+        "status": 0,
+        "ms": 166
+      },
+      {
+        "file": "tests/feed-return-gestures.cjs",
+        "status": 0,
+        "ms": 134
+      },
+      {
+        "file": "tests/featured-lots.cjs",
+        "status": 0,
+        "ms": 3348
+      },
+      {
+        "file": "tests/feed-tutorial.cjs",
+        "status": 0,
+        "ms": 168
+      },
+      {
+        "file": "tests/footer-navigation.cjs",
+        "status": 0,
+        "ms": 143
+      },
+      {
+        "file": "tests/feed-share.cjs",
+        "status": 0,
+        "ms": 1819
+      },
+      {
+        "file": "tests/gallery-performance.cjs",
+        "status": 0,
+        "ms": 1818
+      },
+      {
+        "file": "tests/identifier-input-boundaries.cjs",
+        "status": 0,
+        "ms": 2155
+      },
+      {
+        "file": "tests/integration-contracts.cjs",
+        "status": 0,
+        "ms": 170
+      },
+      {
+        "file": "tests/home-navigation.cjs",
+        "status": 0,
+        "ms": 4358
+      },
+      {
+        "file": "tests/keyword-index-lifecycle.cjs",
+        "status": 0,
+        "ms": 2465
+      },
+      {
+        "file": "tests/kamaz-search.cjs",
+        "status": 0,
+        "ms": 25356
+      },
+      {
+        "file": "tests/keyword-search-prepare.cjs",
+        "status": 0,
+        "ms": 894
+      },
+      {
+        "file": "tests/keyword-search.cjs",
+        "status": 0,
+        "ms": 561
+      },
+      {
+        "file": "tests/keyword-work.cjs",
+        "status": 0,
+        "ms": 413
+      },
+      {
+        "file": "tests/layout-safety.cjs",
+        "status": 0,
+        "ms": 1720
+      },
+      {
+        "file": "tests/live-auction-price.cjs",
+        "status": 0,
+        "ms": 1646
+      },
+      {
+        "file": "tests/local-ai.cjs",
+        "status": 0,
+        "ms": 250
+      },
+      {
+        "file": "tests/local-feed.cjs",
+        "status": 0,
+        "ms": 1628
+      },
+      {
+        "file": "tests/lot-close-return-routes.cjs",
+        "status": 0,
+        "ms": 145
+      },
+      {
+        "file": "tests/lot-discovery-integration.cjs",
+        "status": 0,
+        "ms": 1598
+      },
+      {
+        "file": "tests/lot-discovery.cjs",
+        "status": 0,
+        "ms": 141
+      },
+      {
+        "file": "tests/lot-gestures.cjs",
+        "status": 0,
+        "ms": 112
+      },
+      {
+        "file": "tests/lot-map-entry.cjs",
+        "status": 0,
+        "ms": 1442
+      },
+      {
+        "file": "tests/lot-photo-viewer.cjs",
+        "status": 0,
+        "ms": 142
+      },
+      {
+        "file": "tests/keyword-integration.cjs",
+        "status": 0,
+        "ms": 32457
+      },
+      {
+        "file": "tests/lot-presentation.cjs",
+        "status": 0,
+        "ms": 140
+      },
+      {
+        "file": "tests/lot-touch-semantics.cjs",
+        "status": 0,
+        "ms": 217
+      },
+      {
+        "file": "tests/lot-presentation-integration.cjs",
+        "status": 0,
+        "ms": 1507
+      },
+      {
+        "file": "tests/map-feed-resume.cjs",
+        "status": 0,
+        "ms": 2002
+      },
+      {
+        "file": "tests/map-projection-work.cjs",
+        "status": 0,
+        "ms": 2916
+      },
+      {
+        "file": "tests/market-normalization.cjs",
+        "status": 0,
+        "ms": 1467
+      },
+      {
+        "file": "tests/marketplace-summary.cjs",
+        "status": 0,
+        "ms": 590
+      },
+      {
+        "file": "tests/map-lot-return.cjs",
+        "status": 0,
+        "ms": 7673
+      },
+      {
+        "file": "tests/metrics-backend.cjs",
+        "status": 0,
+        "ms": 5456
+      },
+      {
+        "file": "tests/mitsubishi-search.cjs",
+        "status": 0,
+        "ms": 1748
+      },
+      {
+        "file": "tests/model-marketplace-scale.cjs",
+        "status": 0,
+        "ms": 859
+      },
+      {
+        "file": "tests/motion.cjs",
+        "status": 0,
+        "ms": 111
+      },
+      {
+        "file": "tests/native-back-routing.cjs",
+        "status": 0,
+        "ms": 120
+      },
+      {
+        "file": "tests/native-share-boundary.cjs",
+        "status": 0,
+        "ms": 101
+      },
+      {
+        "file": "tests/natural-typed-search.cjs",
+        "status": 0,
+        "ms": 1620
+      },
+      {
+        "file": "tests/notification-click.cjs",
+        "status": 0,
+        "ms": 158
+      },
+      {
+        "file": "tests/messages.cjs",
+        "status": 0,
+        "ms": 12155
+      },
+      {
+        "file": "tests/own-lot-transactions.cjs",
+        "status": 0,
+        "ms": 4359
+      },
+      {
+        "file": "tests/partner-branding-integration.cjs",
+        "status": 0,
+        "ms": 1490
+      },
+      {
+        "file": "tests/partner-branding.cjs",
+        "status": 0,
+        "ms": 109
+      },
+      {
+        "file": "tests/payment-integration.cjs",
+        "status": 0,
+        "ms": 1514
+      },
+      {
+        "file": "tests/payment-presentation.cjs",
+        "status": 0,
+        "ms": 334
+      },
+      {
+        "file": "tests/payment-ui.cjs",
+        "status": 0,
+        "ms": 313
+      },
+      {
+        "file": "tests/performance-followup-regressions.cjs",
+        "status": 0,
+        "ms": 3033
+      },
+      {
+        "file": "tests/photo-delivery.cjs",
+        "status": 0,
+        "ms": 1630
+      },
+      {
+        "file": "tests/photo-viewer-warm.cjs",
+        "status": 0,
+        "ms": 173
+      },
+      {
+        "file": "tests/profile-voice-settings.cjs",
+        "status": 0,
+        "ms": 342
+      },
+      {
+        "file": "tests/property-map-multi.cjs",
+        "status": 0,
+        "ms": 275
+      },
+      {
+        "file": "tests/property-map.cjs",
+        "status": 0,
+        "ms": 1171
+      },
+      {
+        "file": "tests/pwa-install.cjs",
+        "status": 0,
+        "ms": 104
+      },
+      {
+        "file": "tests/quickbar-labels.cjs",
+        "status": 0,
+        "ms": 132
+      },
+      {
+        "file": "tests/quickbar.cjs",
+        "status": 0,
+        "ms": 192
+      },
+      {
+        "file": "tests/recommendation-integration.cjs",
+        "status": 0,
+        "ms": 5245
+      },
+      {
+        "file": "tests/recommendations.cjs",
+        "status": 0,
+        "ms": 1214
+      },
+      {
+        "file": "tests/region-geolocation-recovery.cjs",
+        "status": 0,
+        "ms": 108
+      },
+      {
+        "file": "tests/render-work.cjs",
+        "status": 0,
+        "ms": 2744
+      },
+      {
+        "file": "tests/responsive-media.cjs",
+        "status": 0,
+        "ms": 3770
+      },
+      {
+        "file": "tests/right-swipe-close.cjs",
+        "status": 0,
+        "ms": 263
+      },
+      {
+        "file": "tests/sales-analytics.cjs",
+        "status": 0,
+        "ms": 3923
+      },
+      {
+        "file": "tests/sales-local-privacy.cjs",
+        "status": 0,
+        "ms": 1070
+      },
+      {
+        "file": "tests/saved-search-subscription-form.cjs",
+        "status": 0,
+        "ms": 6738
+      },
+      {
+        "file": "tests/search-auto-scope.cjs",
+        "status": 0,
+        "ms": 13461
+      },
+      {
+        "file": "tests/search-city-select.cjs",
+        "status": 0,
+        "ms": 1466
+      },
+      {
+        "file": "tests/owner-auction-policy.cjs",
+        "status": 0,
+        "ms": 59320
+      },
+      {
+        "file": "tests/search-context-return.cjs",
+        "status": 0,
+        "ms": 5296
+      },
+      {
+        "file": "tests/search-empty-availability.cjs",
+        "status": 0,
+        "ms": 1498
+      },
+      {
+        "file": "tests/search-filter-conflict.cjs",
+        "status": 0,
+        "ms": 9877
+      },
+      {
+        "file": "tests/search-identifiers.cjs",
+        "status": 0,
+        "ms": 184
+      },
+      {
+        "file": "tests/search-intent.cjs",
+        "status": 0,
+        "ms": 308
+      },
+      {
+        "file": "tests/search-nearest.cjs",
+        "status": 0,
+        "ms": 1533
+      },
+      {
+        "file": "tests/search-night-regressions.cjs",
+        "status": 0,
+        "ms": 969
+      },
+      {
+        "file": "tests/search-fresh-start.cjs",
+        "status": 0,
+        "ms": 12146
+      },
+      {
+        "file": "tests/search-numeric-validation.cjs",
+        "status": 0,
+        "ms": 1881
+      },
+      {
+        "file": "tests/search-preferences.cjs",
+        "status": 0,
+        "ms": 129
+      },
+      {
+        "file": "tests/search-preparation-ui.cjs",
+        "status": 0,
+        "ms": 165
+      },
+      {
+        "file": "tests/search-persona-ranges.cjs",
+        "status": 0,
+        "ms": 2391
+      },
+      {
+        "file": "tests/search-results-layout.cjs",
+        "status": 0,
+        "ms": 1636
+      },
+      {
+        "file": "tests/search-typos.cjs",
+        "status": 0,
+        "ms": 125
+      },
+      {
+        "file": "tests/search-sort-feedback.cjs",
+        "status": 0,
+        "ms": 1577
+      },
+      {
+        "file": "tests/security-boundaries.cjs",
+        "status": 0,
+        "ms": 166
+      },
+      {
+        "file": "tests/security-csp.cjs",
+        "status": 0,
+        "ms": 1514
+      },
+      {
+        "file": "tests/security-followup-regressions.cjs",
+        "status": 0,
+        "ms": 206
+      },
+      {
+        "file": "tests/security-dom.cjs",
+        "status": 0,
+        "ms": 1618
+      },
+      {
+        "file": "tests/security-local-ai-boundary.cjs",
+        "status": 0,
+        "ms": 153
+      },
+      {
+        "file": "tests/security-metrics-work.cjs",
+        "status": 0,
+        "ms": 797
+      },
+      {
+        "file": "tests/security-payment-boundaries.cjs",
+        "status": 0,
+        "ms": 1782
+      },
+      {
+        "file": "tests/security-inputs.cjs",
+        "status": 0,
+        "ms": 3928
+      },
+      {
+        "file": "tests/security-rate-limits.cjs",
+        "status": 0,
+        "ms": 5017
+      },
+      {
+        "file": "tests/security-server-resources.cjs",
+        "status": 0,
+        "ms": 4407
+      },
+      {
+        "file": "tests/seller-auction-modes.cjs",
+        "status": 0,
+        "ms": 9170
+      },
+      {
+        "file": "tests/seller-async-navigation.cjs",
+        "status": 0,
+        "ms": 12821
+      },
+      {
+        "file": "tests/seller-branding.cjs",
+        "status": 0,
+        "ms": 795
+      },
+      {
+        "file": "tests/seller-back-gesture.cjs",
+        "status": 0,
+        "ms": 9791
+      },
+      {
+        "file": "tests/seller-contact-privacy.cjs",
+        "status": 0,
+        "ms": 8922
+      },
+      {
+        "file": "tests/seller-dashboard.cjs",
+        "status": 0,
+        "ms": 3222
+      },
+      {
+        "file": "tests/seller-current-state.cjs",
+        "status": 0,
+        "ms": 6375
+      },
+      {
+        "file": "tests/seller-following.cjs",
+        "status": 0,
+        "ms": 2988
+      },
+      {
+        "file": "tests/seller-exit-guards.cjs",
+        "status": 0,
+        "ms": 12707
+      },
+      {
+        "file": "tests/seller-listing-quotas.cjs",
+        "status": 0,
+        "ms": 1366
+      },
+      {
+        "file": "tests/seller-location.cjs",
+        "status": 0,
+        "ms": 5011
+      },
+      {
+        "file": "tests/seller-media.cjs",
+        "status": 0,
+        "ms": 171
+      },
+      {
+        "file": "tests/seller-integration.cjs",
+        "status": 0,
+        "ms": 20968
+      },
+      {
+        "file": "tests/seller-profile-agreement.cjs",
+        "status": 0,
+        "ms": 1338
+      },
+      {
+        "file": "tests/seller-options.cjs",
+        "status": 0,
+        "ms": 7379
+      },
+      {
+        "file": "tests/seller-ratings.cjs",
+        "status": 0,
+        "ms": 136
+      },
+      {
+        "file": "tests/seller-rules.cjs",
+        "status": 0,
+        "ms": 158
+      },
+      {
+        "file": "tests/seller-profile-cancel.cjs",
+        "status": 0,
+        "ms": 2943
+      },
+      {
+        "file": "tests/seller-storefront.cjs",
+        "status": 0,
+        "ms": 2168
+      },
+      {
+        "file": "tests/seller-storefront-return-routes.cjs",
+        "status": 0,
+        "ms": 7481
+      },
+      {
+        "file": "tests/service-worker.cjs",
+        "status": 0,
+        "ms": 195
+      },
+      {
+        "file": "tests/smart-fill.cjs",
+        "status": 0,
+        "ms": 182
+      },
+      {
+        "file": "tests/static-delivery.cjs",
+        "status": 0,
+        "ms": 246
+      },
+      {
+        "file": "tests/seller-workspace-recovery.cjs",
+        "status": 0,
+        "ms": 15614
+      },
+      {
+        "file": "tests/subscription-durability.cjs",
+        "status": 0,
+        "ms": 2107
+      },
+      {
+        "file": "tests/support.cjs",
+        "status": 0,
+        "ms": 123
+      },
+      {
+        "file": "tests/up-swipe-close.cjs",
+        "status": 0,
+        "ms": 136
+      },
+      {
+        "file": "tests/user-agreement.cjs",
+        "status": 0,
+        "ms": 670
+      },
+      {
+        "file": "tests/vehicle-search-roundtrip.cjs",
+        "status": 0,
+        "ms": 2566
+      },
+      {
+        "file": "tests/storage-favorites.cjs",
+        "status": 0,
+        "ms": 16843
+      },
+      {
+        "file": "tests/voice-assistant.cjs",
+        "status": 0,
+        "ms": 1093
+      },
+      {
+        "file": "tests/virtual-feed.cjs",
+        "status": 0,
+        "ms": 1653
+      },
+      {
+        "file": "tests/voice-intelligence-integration.cjs",
+        "status": 0,
+        "ms": 1806
+      },
+      {
+        "file": "tests/voice-invocation-auto.cjs",
+        "status": 0,
+        "ms": 198
+      },
+      {
+        "file": "tests/voice-core-actions.cjs",
+        "status": 0,
+        "ms": 2713
+      },
+      {
+        "file": "tests/voice-personalization-integration.cjs",
+        "status": 0,
+        "ms": 248
+      },
+      {
+        "file": "tests/voice-quick-listen.cjs",
+        "status": 0,
+        "ms": 471
+      },
+      {
+        "file": "tests/voice-natural-scenarios.cjs",
+        "status": 0,
+        "ms": 1950
+      },
+      {
+        "file": "integrations/telegram/adapter.test.cjs",
+        "status": 0,
+        "ms": 158
+      },
+      {
+        "file": "integrations/max/adapter.test.cjs",
+        "status": 0,
+        "ms": 163
+      },
+      {
+        "file": "integrations/listing-quotas/adapter.test.cjs",
+        "status": 0,
+        "ms": 132
+      },
+      {
+        "file": "tests/voice-search-criteria.cjs",
+        "status": 0,
+        "ms": 1526
+      }
+    ]
+  },
+  "models": {
+    "totals": {
+      "completed": 100,
+      "passed": 100,
+      "failed": 0,
+      "sellers": 40,
+      "bidders": 40,
+      "buyers": 20,
+      "published": 40,
+      "acceptedBids": 40,
+      "demoPurchases": 16,
+      "watcherChecks": 1924
+    },
+    "sourceUnchanged": true,
+    "sourceDigest": "05e31350c8bc898dec252e162ab34ff55bc6396cf333a5e76c60d59c527b2ae6"
+  },
+  "browser": [
+    {
+      "report": "desktop-browser-final/report.json",
+      "method": "Local isolated Chrome; baseline files from pinned source commit; mobile/touch is emulation, not a real phone.",
+      "cases": [
+        {
+          "name": "baseline-iphone",
+          "passed": true,
+          "checks": [],
+          "readyMs": 2591
+        },
+        {
+          "name": "baseline-android",
+          "passed": true,
+          "checks": [],
+          "readyMs": 2323
+        },
+        {
+          "name": "desktop1366",
+          "passed": true,
+          "checks": [
+            "Desktop labels, hidden Торги, CTA sizing, no overflow",
+            "Outer mouse drag both directions without unintended click",
+            "Nested album mouse drag keeps outer rail stationary",
+            "Ordinary click after album drag opens dialog",
+            "Favorite control clicks without dragging",
+            "Vertical wheel and both desktop edge arrows move rail without page scrolling",
+            "Outside mouse click closes dialog; inside-to-outside drag does not",
+            "Unsaved invalid profile stays open; backdrop closes only top nested dialog",
+            "Photo Back returns to lot; second backdrop click returns to catalog",
+            "Feed outside return restores filters and scroll (normal motion, 359 ms observed including wait)",
+            "Feed outside return restores filters and scroll (reduced motion, 419 ms observed including wait)",
+            "Three desktop group clicks apply immediately; child refinement, back/close and keyword search remain filtered"
+          ],
+          "readyMs": 2246
+        },
+        {
+          "name": "resize-native-transition",
+          "passed": true,
+          "checks": [
+            "Resize labels restore; late native class disables desktop"
+          ],
+          "readyMs": 2546
+        }
+      ]
+    },
+    {
+      "report": "desktop-category-final/report.json",
+      "method": "Local isolated Chrome; baseline files from pinned source commit; mobile/touch is emulation, not a real phone.",
+      "cases": [
+        {
+          "name": "baseline-iphone",
+          "passed": true,
+          "checks": [],
+          "readyMs": 2611
+        },
+        {
+          "name": "baseline-android",
+          "passed": true,
+          "checks": [],
+          "readyMs": 2442
+        },
+        {
+          "name": "desktop1366",
+          "passed": true,
+          "checks": [
+            "Three desktop group clicks apply immediately; child refinement, back/close and keyword search remain filtered"
+          ],
+          "readyMs": 2388
+        },
+        {
+          "name": "resize-native-transition",
+          "passed": true,
+          "checks": [
+            "Resize labels restore; late native class disables desktop"
+          ],
+          "readyMs": 2305
+        }
+      ]
+    },
+    {
+      "report": "cabinet-browser-final/report.json",
+      "method": "Local isolated Chrome; baseline files from pinned source commit; mobile/touch is emulation, not a real phone.",
+      "cases": [
+        {
+          "name": "baseline-iphone",
+          "passed": true,
+          "checks": [],
+          "readyMs": 3002
+        },
+        {
+          "name": "baseline-android",
+          "passed": true,
+          "checks": [],
+          "readyMs": 2712
+        },
+        {
+          "name": "desktop1366",
+          "passed": true,
+          "checks": [
+            "Cabinet left navigation, compact CTA, one draft row in bottom disclosure, draft tab/edit and invalid-profile/nested return guards; no overflow"
+          ],
+          "readyMs": 2931
+        },
+        {
+          "name": "iphone",
+          "passed": true,
+          "checks": [
+            "Mobile/native/iPad gate excludes desktop changes",
+            "Cabinet left navigation, compact CTA, one draft row in bottom disclosure, draft tab/edit and invalid-profile/nested return guards; no overflow"
+          ],
+          "readyMs": 3351
+        },
+        {
+          "name": "iphone320",
+          "passed": true,
+          "checks": [
+            "Mobile/native/iPad gate excludes desktop changes",
+            "Cabinet left navigation, compact CTA, one draft row in bottom disclosure, draft tab/edit and invalid-profile/nested return guards; no overflow"
+          ],
+          "readyMs": 2933
+        },
+        {
+          "name": "iphone375",
+          "passed": true,
+          "checks": [
+            "Mobile/native/iPad gate excludes desktop changes",
+            "Cabinet left navigation, compact CTA, one draft row in bottom disclosure, draft tab/edit and invalid-profile/nested return guards; no overflow"
+          ],
+          "readyMs": 2762
+        },
+        {
+          "name": "android",
+          "passed": true,
+          "checks": [
+            "Mobile/native/iPad gate excludes desktop changes",
+            "Cabinet enhancement excluded for Android/native"
+          ],
+          "readyMs": 3464
+        },
+        {
+          "name": "native1440",
+          "passed": true,
+          "checks": [
+            "Mobile/native/iPad gate excludes desktop changes",
+            "Cabinet enhancement excluded for Android/native"
+          ],
+          "readyMs": 2698
+        },
+        {
+          "name": "ipad1366",
+          "passed": true,
+          "checks": [
+            "Mobile/native/iPad gate excludes desktop changes",
+            "Cabinet left navigation, compact CTA, one draft row in bottom disclosure, draft tab/edit and invalid-profile/nested return guards; no overflow"
+          ],
+          "readyMs": 2888
+        },
+        {
+          "name": "resize-native-transition",
+          "passed": true,
+          "checks": [
+            "Resize labels restore; late native class disables desktop"
+          ],
+          "readyMs": 2675
+        }
+      ]
+    }
+  ],
+  "artifact": {
+    "assets": 275,
+    "gzipBytes": 9857884
+  },
+  "limits": [
+    "Browser iOS checks use Chromium with iOS UA, viewport and touch; not real Safari or a physical phone.",
+    "100 models are isolated functional users, not concurrent live traffic or a capacity benchmark.",
+    "No migration, real shared auction backend, payments, Android/iOS package build, or Timeweb deployment was performed."
+  ]
+}

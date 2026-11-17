@@ -1,0 +1,289 @@
+{
+  "generated_utc": "2026-11-14T21:01:29.029929+00:00",
+  "baseline_version": 63,
+  "baseline_source_commit": "e14d5ccd616f555bbdaff528b69b8090e76776b7",
+  "state": "Published as v64; subsequent native-scroll correction is a separate release.",
+  "changes": [
+    "Independent per-lot photo navigation in the horizontal featured rail.",
+    "The same swipe threshold for ordinary and demo/cropped images; no duration cutoff.",
+    "Outer rail keeps native movement outside multi-photo surfaces; a single photo keeps outer native movement.",
+    "Only one image element per card; only the selected photo is requested, with existing responsive preview and loading priority rules.",
+    "Selected photo restored by URL on price redraw/reordering; obsolete media, profile context and detached gestures are rejected.",
+    "Canonical trusted media order, allowlisted crop transforms and escaped explanatory demo labels preserved.",
+    "Keyboard arrows and 44px sibling navigation buttons with counter; photo drag does not activate the lot or favorite."
+  ],
+  "validation": {
+    "base_commit": "6d556859d86600dcb8aa59c97331e8606da3f251",
+    "source_sha256": "873b78c3ae9629911fcf1d04d1854c853a79602b556ce90a2d8aaf604832cf42",
+    "started_utc": "2026-11-14T20:59:02.244749+00:00",
+    "completed": 36,
+    "total": 36,
+    "source_sha256_end": "873b78c3ae9629911fcf1d04d1854c853a79602b556ce90a2d8aaf604832cf42",
+    "source_changed_during_run": false,
+    "passed": 36,
+    "failed": 0,
+    "seconds": 17.7
+  },
+  "test_results": [
+    {
+      "test": "featured-lots.cjs",
+      "exit_code": 0,
+      "seconds": 3.69,
+      "passed": true
+    },
+    {
+      "test": "featured-cheap-intent.cjs",
+      "exit_code": 0,
+      "seconds": 4.71,
+      "passed": true
+    },
+    {
+      "test": "featured-combinations.cjs",
+      "exit_code": 0,
+      "seconds": 7.45,
+      "passed": true
+    },
+    {
+      "test": "security-inputs.cjs",
+      "exit_code": 0,
+      "seconds": 7.77,
+      "passed": true
+    },
+    {
+      "test": "security-payment-boundaries.cjs",
+      "exit_code": 0,
+      "seconds": 4.12,
+      "passed": true
+    },
+    {
+      "test": "security-rate-limits.cjs",
+      "exit_code": 0,
+      "seconds": 3.26,
+      "passed": true
+    },
+    {
+      "test": "featured-feed-return.cjs",
+      "exit_code": 0,
+      "seconds": 2.63,
+      "passed": true
+    },
+    {
+      "test": "photo-delivery.cjs",
+      "exit_code": 0,
+      "seconds": 3.37,
+      "passed": true
+    },
+    {
+      "test": "demo-photo-consistency.cjs",
+      "exit_code": 0,
+      "seconds": 4.32,
+      "passed": true
+    },
+    {
+      "test": "map-feed-resume.cjs",
+      "exit_code": 0,
+      "seconds": 4.39,
+      "passed": true
+    },
+    {
+      "test": "security-server-resources.cjs",
+      "exit_code": 0,
+      "seconds": 3.41,
+      "passed": true
+    },
+    {
+      "test": "security-dom.cjs",
+      "exit_code": 0,
+      "seconds": 2.65,
+      "passed": true
+    },
+    {
+      "test": "local-feed.cjs",
+      "exit_code": 0,
+      "seconds": 2.38,
+      "passed": true
+    },
+    {
+      "test": "gallery-performance.cjs",
+      "exit_code": 0,
+      "seconds": 3.06,
+      "passed": true
+    },
+    {
+      "test": "auction-cards-mobile.cjs",
+      "exit_code": 0,
+      "seconds": 0.61,
+      "passed": true
+    },
+    {
+      "test": "featured-performance-cache.cjs",
+      "exit_code": 0,
+      "seconds": 0.46,
+      "passed": true
+    },
+    {
+      "test": "security-csp.cjs",
+      "exit_code": 0,
+      "seconds": 1.76,
+      "passed": true
+    },
+    {
+      "test": "featured-for-you-city.cjs",
+      "exit_code": 0,
+      "seconds": 0.4,
+      "passed": true
+    },
+    {
+      "test": "layout-safety.cjs",
+      "exit_code": 0,
+      "seconds": 2.6,
+      "passed": true
+    },
+    {
+      "test": "photo-viewer-warm.cjs",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "passed": true
+    },
+    {
+      "test": "featured-recommendations.cjs",
+      "exit_code": 0,
+      "seconds": 0.51,
+      "passed": true
+    },
+    {
+      "test": "security-metrics-work.cjs",
+      "exit_code": 0,
+      "seconds": 1.11,
+      "passed": true
+    },
+    {
+      "test": "featured-ending-interest.cjs",
+      "exit_code": 0,
+      "seconds": 0.54,
+      "passed": true
+    },
+    {
+      "test": "featured-live-fallback.cjs",
+      "exit_code": 0,
+      "seconds": 0.36,
+      "passed": true
+    },
+    {
+      "test": "security-local-ai-boundary.cjs",
+      "exit_code": 0,
+      "seconds": 0.31,
+      "passed": true
+    },
+    {
+      "test": "feed-close-gesture.cjs",
+      "exit_code": 0,
+      "seconds": 0.2,
+      "passed": true
+    },
+    {
+      "test": "featured-horizontal.cjs",
+      "exit_code": 0,
+      "seconds": 0.22,
+      "passed": true
+    },
+    {
+      "test": "security-boundaries.cjs",
+      "exit_code": 0,
+      "seconds": 0.33,
+      "passed": true
+    },
+    {
+      "test": "featured-settings.cjs",
+      "exit_code": 0,
+      "seconds": 0.58,
+      "passed": true
+    },
+    {
+      "test": "feed-tutorial.cjs",
+      "exit_code": 0,
+      "seconds": 0.18,
+      "passed": true
+    },
+    {
+      "test": "lot-photo-viewer.cjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "passed": true
+    },
+    {
+      "test": "feed-return-gestures.cjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "passed": true
+    },
+    {
+      "test": "pwa-install.cjs",
+      "exit_code": 0,
+      "seconds": 0.22,
+      "passed": true
+    },
+    {
+      "test": "feed-motion.cjs",
+      "exit_code": 0,
+      "seconds": 0.28,
+      "passed": true
+    },
+    {
+      "test": "security-followup-regressions.cjs",
+      "exit_code": 0,
+      "seconds": 0.25,
+      "passed": true
+    },
+    {
+      "test": "featured-photo-carousel.cjs",
+      "exit_code": 0,
+      "seconds": 0.57,
+      "passed": true
+    }
+  ],
+  "validation_scope": "36 targeted files, including all 12 featured-* tests and all 10 security-* tests; not a complete rerun of the 204 available test files.",
+  "build": {
+    "assets": 261,
+    "all_embedded_assets_match_dist": true,
+    "worker_gzip_bytes": 9771969,
+    "worker_gzip_change_from_v63_bytes": 3720,
+    "budget_bytes": 10485760,
+    "worker_validator": "passed",
+    "native_checks": 1077,
+    "native_failed": 0,
+    "android_apk": {
+      "path": "/workspace/sites/drive-lot/releases/fas-torgi-android-demo-debug.apk",
+      "bytes": 15837860,
+      "sha256": "a8fedbc060f866664f1ce2835bf542f7fbe80ab76aee2f306a8767913e400050"
+    },
+    "android_signature": "APK v2 verified, one signer; demo debug build.",
+    "native_proof": "docs/native-featured-photo-verification-2026-11-14.json"
+  },
+  "fixed_during_review": "The responsive pipeline resolves demo ?view=1/2 variants to the same small preview. Preserving allowlisted crop/label metadata restores the distinct left/detail views and identifies them as fragments of one demo image.",
+  "preserved": [
+    "Two complete mobile cards, square photo dimensions, current price, bid/buy routes, external rail position and favorites.",
+    "Existing custom Site audience, protected API boundaries and explicit bid/payment confirmation.",
+    "No new dependencies, third-party requests beyond selected existing images, auto-rotation, scheduled monitoring, fake users or data."
+  ],
+  "limits": [
+    "No physical iPhone/Safari touch, native permission, acoustic speech or visual device QA in this environment.",
+    "These are local functional/security models, not a load test of simultaneous real visitors or a guarantee against all vulnerabilities.",
+    "Shared protected auction identities, bank payments/escrow, independent failover and external backups remain disconnected."
+  ],
+  "publication": {
+    "version_number": 64,
+    "version_id": "appgprj_6af4e219966481919933881aab8d0232~appgver_54528358f3dc8191b899c65bfec0c4df",
+    "source_commit": "6c0df52d7bc8cc77e4b3f6bf7082fabdf42c9696",
+    "deployment_id": "appgdep_6af8cc8eedb481919cea69749fef6f21",
+    "status": "succeeded",
+    "published_utc": "2026-11-14T21:03:25.702297+00:00",
+    "access": {
+      "mode": "custom",
+      "revision": 2,
+      "unchanged": true,
+      "automations": 0
+    },
+    "http_proof": "docs/publication-64-http-verification-2026-11-14.json"
+  }
+}

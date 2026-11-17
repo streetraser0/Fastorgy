@@ -1,0 +1,300 @@
+{
+  "generated_utc": "2026-11-14T21:41:01.892329+00:00",
+  "baseline_version": 64,
+  "baseline_source_commit": "6c0df52d7bc8cc77e4b3f6bf7082fabdf42c9696",
+  "state": "Verified and published as version65.",
+  "changes": [
+    "Replace custom photo steps and all photo overlay arrows with a nested native horizontal scroll-snap carousel. Passive touch observation never prevents defaults or changes index on touchend.",
+    "One animated indicator per photo, including a single photo and larger albums. Active opacity/scale follows native scroll; reduced-motion disables transitions.",
+    "Initial one image per card; adjacent slides warm only upon explicit interaction, floor/ceil slides load during native scroll.",
+    "Price-only updates preserve DOM, fractional offsets and browser inertia. Selected URL restores after resize, hidden rendering and inventory identity changes.",
+    "Current owner and bounded current inventory entry/media validated per coalesced animation frame; stale profiles, media, sold lots and detached callbacks rejected.",
+    "Mixed pointerup/touchend order preserves normal taps; outside mouse release cannot leave resize blocked.",
+    "Prepare disabled server-only Telegram/MAX notification adapters, no live bots, webhook endpoints or outbound messages."
+  ],
+  "validation": {
+    "base_commit": "6c0df52d7bc8cc77e4b3f6bf7082fabdf42c9696",
+    "source_sha256": "6427a7d080c102b22100fb7aa3e62e78ad8dbf1e60ca375bd499b7e8d11dcfb5",
+    "started_utc": "2026-11-14T21:34:05.919767+00:00",
+    "completed": 36,
+    "total": 36,
+    "source_sha256_end": "6427a7d080c102b22100fb7aa3e62e78ad8dbf1e60ca375bd499b7e8d11dcfb5",
+    "source_changed_during_run": false,
+    "passed": 36,
+    "failed": 0,
+    "seconds": 18.7
+  },
+  "test_results": [
+    {
+      "test": "featured-cheap-intent.cjs",
+      "exit_code": 0,
+      "seconds": 3.71,
+      "passed": true
+    },
+    {
+      "test": "featured-combinations.cjs",
+      "exit_code": 0,
+      "seconds": 5.31,
+      "passed": true
+    },
+    {
+      "test": "security-payment-boundaries.cjs",
+      "exit_code": 0,
+      "seconds": 2.55,
+      "passed": true
+    },
+    {
+      "test": "featured-lots.cjs",
+      "exit_code": 0,
+      "seconds": 6.57,
+      "passed": true
+    },
+    {
+      "test": "security-inputs.cjs",
+      "exit_code": 0,
+      "seconds": 9.01,
+      "passed": true
+    },
+    {
+      "test": "security-rate-limits.cjs",
+      "exit_code": 0,
+      "seconds": 4.14,
+      "passed": true
+    },
+    {
+      "test": "featured-feed-return.cjs",
+      "exit_code": 0,
+      "seconds": 3.99,
+      "passed": true
+    },
+    {
+      "test": "security-server-resources.cjs",
+      "exit_code": 0,
+      "seconds": 1.46,
+      "passed": true
+    },
+    {
+      "test": "map-feed-resume.cjs",
+      "exit_code": 0,
+      "seconds": 3.14,
+      "passed": true
+    },
+    {
+      "test": "demo-photo-consistency.cjs",
+      "exit_code": 0,
+      "seconds": 5.75,
+      "passed": true
+    },
+    {
+      "test": "photo-delivery.cjs",
+      "exit_code": 0,
+      "seconds": 4.31,
+      "passed": true
+    },
+    {
+      "test": "security-dom.cjs",
+      "exit_code": 0,
+      "seconds": 2.83,
+      "passed": true
+    },
+    {
+      "test": "gallery-performance.cjs",
+      "exit_code": 0,
+      "seconds": 2.68,
+      "passed": true
+    },
+    {
+      "test": "auction-cards-mobile.cjs",
+      "exit_code": 0,
+      "seconds": 0.53,
+      "passed": true
+    },
+    {
+      "test": "local-feed.cjs",
+      "exit_code": 0,
+      "seconds": 3.34,
+      "passed": true
+    },
+    {
+      "test": "featured-performance-cache.cjs",
+      "exit_code": 0,
+      "seconds": 0.59,
+      "passed": true
+    },
+    {
+      "test": "security-csp.cjs",
+      "exit_code": 0,
+      "seconds": 1.72,
+      "passed": true
+    },
+    {
+      "test": "featured-for-you-city.cjs",
+      "exit_code": 0,
+      "seconds": 0.56,
+      "passed": true
+    },
+    {
+      "test": "layout-safety.cjs",
+      "exit_code": 0,
+      "seconds": 2.91,
+      "passed": true
+    },
+    {
+      "test": "featured-recommendations.cjs",
+      "exit_code": 0,
+      "seconds": 0.48,
+      "passed": true
+    },
+    {
+      "test": "featured-ending-interest.cjs",
+      "exit_code": 0,
+      "seconds": 0.31,
+      "passed": true
+    },
+    {
+      "test": "security-metrics-work.cjs",
+      "exit_code": 0,
+      "seconds": 1.19,
+      "passed": true
+    },
+    {
+      "test": "photo-viewer-warm.cjs",
+      "exit_code": 0,
+      "seconds": 0.26,
+      "passed": true
+    },
+    {
+      "test": "security-local-ai-boundary.cjs",
+      "exit_code": 0,
+      "seconds": 0.18,
+      "passed": true
+    },
+    {
+      "test": "featured-horizontal.cjs",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "passed": true
+    },
+    {
+      "test": "featured-live-fallback.cjs",
+      "exit_code": 0,
+      "seconds": 0.48,
+      "passed": true
+    },
+    {
+      "test": "security-boundaries.cjs",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "passed": true
+    },
+    {
+      "test": "featured-settings.cjs",
+      "exit_code": 0,
+      "seconds": 0.46,
+      "passed": true
+    },
+    {
+      "test": "feed-tutorial.cjs",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "passed": true
+    },
+    {
+      "test": "feed-close-gesture.cjs",
+      "exit_code": 0,
+      "seconds": 0.14,
+      "passed": true
+    },
+    {
+      "test": "lot-photo-viewer.cjs",
+      "exit_code": 0,
+      "seconds": 0.18,
+      "passed": true
+    },
+    {
+      "test": "feed-return-gestures.cjs",
+      "exit_code": 0,
+      "seconds": 0.05,
+      "passed": true
+    },
+    {
+      "test": "feed-motion.cjs",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "passed": true
+    },
+    {
+      "test": "pwa-install.cjs",
+      "exit_code": 0,
+      "seconds": 0.17,
+      "passed": true
+    },
+    {
+      "test": "security-followup-regressions.cjs",
+      "exit_code": 0,
+      "seconds": 0.25,
+      "passed": true
+    },
+    {
+      "test": "featured-photo-carousel.cjs",
+      "exit_code": 0,
+      "seconds": 1.17,
+      "passed": true
+    }
+  ],
+  "integration_tests": {
+    "telegram": "node integrations/telegram/adapter.test.cjs PASS with fake transport only",
+    "max": "node integrations/max/adapter.test.cjs PASS with fake transport only",
+    "independent_review": "Old /stop after relinking and MAX arbitrary text forwarding reproduced independently, fixed and rechecked; paused/sent delivery claims and unknown outcomes constrained by repository contract."
+  },
+  "validation_scope": "36 targeted top-level files (all featured-* and security-*), plus 2 isolated server-adapter test files. Not all 204 top-level test files were rerun.",
+  "build": {
+    "assets": 261,
+    "all_embedded_assets_match_dist": true,
+    "worker_gzip_bytes": 9773826,
+    "budget_bytes": 10485760,
+    "worker_validator": "passed",
+    "native_checks": 1077,
+    "native_failed": 0,
+    "native_proof": "docs/native-carousel-mobile-verification-2026-11-14.json",
+    "android_apk": {
+      "path": "/workspace/sites/drive-lot/releases/fas-torgi-android-demo-debug.apk",
+      "bytes": 15837865,
+      "sha256": "b855afdcb83e4796e1c13f66a7d9833baacb582d4ffa1307c617da26a65e77c9"
+    },
+    "android_signature": "APK v2 verified; demo debug build."
+  },
+  "references": [
+    "https://playbook.ebay.com/design-system/components/item-tile#media-carousel",
+    "https://www.w3.org/TR/css-scroll-snap-1/",
+    "https://webkit.org/blog/13152/webkit-features-in-safari-16-0/",
+    "https://web.dev/articles/browser-level-image-lazy-loading"
+  ],
+  "first_attempt_failures": "Three failures were resolved: skip needless gallery lookup for one-photo cards in two lightweight fixtures, and assert visible price DOM rather than static mock innerHTML after price-only patch. Repeated suite passed 36/36 on unchanged source.",
+  "next_stages": [
+    "Messages UI and local drafts, listing entitlements, public bank following and legal copyright revision are being prepared in separate worktrees. They are not included in this runtime."
+  ],
+  "limits": [
+    "No physical iPhone/Android or emulator is available: actual browser/OS RAM and physical gestures were not measured. Device evidence: docs/device-memory-audit-2026-11-14.md.",
+    "Official eBay/W3C references inform the pattern; no live marketplace browser/device QA was performed.",
+    "This is an authenticated demo with browser-local auction state, not protected shared bank accounts/real payment escrow/live chat or a tested high-concurrency auction backend.",
+    "Telegram/MAX modules are disabled scaffolding. Real provider onboarding, secrets, server identity, durable store/outbox and confirmed bot URLs are still required; no QR is fabricated.",
+    "No end-to-end encryption is planned per user; TLS, access control, storage/backups and key protection remain separate requirements."
+  ],
+  "publication": {
+    "site": "https://drive-lot-auction.familiarchord.chatgpt.site",
+    "version_number": 65,
+    "version_id": "appgprj_6af4e219966481919933881aab8d0232~appgver_f86d2f5c4de0819188db0c1e554f255a",
+    "source_commit": "cdcec4f63d2a4f0c6d90a5ddf5d4c457efbdcd52",
+    "deployment_id": "appgdep_6af8d662f7308191ac91e08dc7f21e13",
+    "status": "succeeded",
+    "published_utc": "2026-11-14T21:45:21.687356+00:00",
+    "access": {
+      "mode": "custom",
+      "revision": 2,
+      "unchanged": true,
+      "automations": 0
+    },
+    "http_proof": "docs/publication-65-http-verification-2026-11-14.json"
+  }
+}

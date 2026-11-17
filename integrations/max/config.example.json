@@ -1,0 +1,12 @@
+{
+  "state": "disabled",
+  "reviewReference": "",
+  "publicOrigin": "https://drive-lot-auction.familiarchord.chatgpt.site",
+  "botUrl": null,
+  "displayName": "Фаст Торги",
+  "brand": "ФАС торги",
+  "avatarSource": "dist/assets/app/icon-512.png",
+  "originalLogoSource": "dist/assets/brand/fas-torgi-logo.png",
+  "tokenEnvironmentVariable": "MAX_BOT_TOKEN",
+  "webhookSecretEnvironmentVariable": "MAX_WEBHOOK_SECRET"
+}

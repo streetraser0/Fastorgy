@@ -1,0 +1,1194 @@
+{
+  "generated_utc": "2026-11-14T12:26:45.384603+00:00",
+  "base_commit": "429e373694a440066553abe6526844c4b92c936c",
+  "published_baseline_commit": "ce3cba34980e1c74ecaaa7c2b6714ac08fc36dce",
+  "published_baseline_release": 58,
+  "method": "Source review, actual registered event handlers in VM DOM, isolated 100-profile client flows, local Worker/SQLite tests and bounded read-only live gateway probes. No physical-browser or external penetration-test claim.",
+  "interaction_changes": [
+    {
+      "issue": "A first movement under 10px could be handed to native scrolling before the recognizer claimed it.",
+      "change": "Reserve the first single-finger header/grip movement, while native photo/map/form stages remain excluded."
+    },
+    {
+      "issue": "Slow deliberate drags and noncancelable final touch events were rejected.",
+      "change": "Use deliberate distance/direction and claimed gesture state, rather than a universal 900ms/cancelable gate."
+    },
+    {
+      "issue": "Price/gallery-counter text mutations reset a drag.",
+      "change": "Track actual lot/body identity; harmless text updates stay valid, new lots and top overlays cancel stale gestures."
+    },
+    {
+      "issue": "Only some modal headers offered the four-way return route.",
+      "change": "Shared header/grip recognition for all dialogs, including photo/payment/support/category/map/seller, normal toolbar buttons and logos."
+    },
+    {
+      "issue": "Long-press text selection could be mistaken for return.",
+      "change": "Native selection, context menus, photo zoom, gallery navigation, map movement, inputs and reading retain priority."
+    },
+    {
+      "issue": "Inline delete confirmation and unsaved forms needed their own Back step.",
+      "change": "First return cancels delete confirmation; subsequent navigation follows the existing seller validation/quota/media/conflict guards."
+    }
+  ],
+  "security_changes": [
+    {
+      "id": "explicit-local-file-owner",
+      "classification": "Local privacy/integrity hardening; not a demonstrated remote file-read exploit.",
+      "before": "getMedia allowed omitted owner; an ownerless malformed lot could hydrate a saved media reference without checking its owner.",
+      "after": "A nonempty file read requires explicit valid owner identity; missing/malformed/different lot owners get no private file URL.",
+      "regression": "seller-media.cjs",
+      "limit": "Same-browser local storage is not a server-authenticated account boundary."
+    },
+    {
+      "id": "metrics-historical-scan",
+      "classification": "Resource-abuse hardening, not an authentication bypass.",
+      "before": "Every metrics request performed per-row historical aggregation to count active users.",
+      "after": "Exact total count and indexed active-window count preserve results without per-row aggregation of all inactive history.",
+      "evidence": "At 100000 local SQLite fixture users with 5 active, prior query 600019 VM steps vs indexed query 41; this does not establish constant physical database work.",
+      "regression": "security-metrics-work.cjs"
+    },
+    {
+      "id": "stale-purchase-recovery",
+      "classification": "Correct recovery guidance; storage already rejected the conflicting purchase.",
+      "after": "The four stale-buy profiles receive explicit other-tab/reload guidance; quota retains its previous message.",
+      "regression": "model-marketplace-100.cjs"
+    }
+  ],
+  "access_probe": {
+    "created_utc": "2026-11-14T11:54:08.350656+00:00",
+    "site": "https://drive-lot-auction.familiarchord.chatgpt.site",
+    "tested_release": 58,
+    "method": "Read-only GET through the published platform gateway; no visits, sales, user records or financial data written. Response content not retained.",
+    "checks": [
+      {
+        "request": "anonymous page /",
+        "status": 403
+      },
+      {
+        "request": "anonymous /api/analytics/sales",
+        "status": 403
+      },
+      {
+        "request": "site service access, no user identity, /api/analytics/sales",
+        "status": 401
+      },
+      {
+        "request": "site service access plus client-supplied user identity header, /api/analytics/sales",
+        "status": 401
+      }
+    ],
+    "limitation": "These probes confirm only these requests and the retained custom audience; they are not a comprehensive external penetration test."
+  },
+  "dependency_check": {
+    "command": "npm audit --omit=dev --json",
+    "production_dependencies": 11,
+    "known_reported_vulnerabilities": 0,
+    "limits": "npm production packages only; not Maven/Swift, all development tooling, or unknown vulnerabilities."
+  },
+  "on_change_diagnostics": {
+    "trigger": "pre-push only when sent code differs from remote; no hourly schedule and no external notifications",
+    "files": [
+      "AGENTS.md",
+      "scripts/git-hooks/pre-push",
+      "scripts/diagnostics-on-change.cjs"
+    ],
+    "runs": [
+      "100 isolated profiles",
+      "all tests/security-*.cjs"
+    ],
+    "skips": [
+      "unchanged code",
+      "documentation-only changes",
+      "deleted refs"
+    ],
+    "blocks": [
+      "failed or incomplete diagnostics",
+      "not all 100 profiles passed",
+      "source changed during models",
+      "working code differs from pushed SHA before or after checks",
+      "untracked code when sending a changed-code version"
+    ],
+    "existing_hook_policy": "Do not replace other hooks; current checkout had no pre-push/core.hooksPath and now uses the tracked hook.",
+    "regression": "change-trigger-diagnostics.cjs"
+  },
+  "automation_integration_fix": {
+    "before": "The pre-push consumer required sourceUnchangedDuringRun, but the actual runner did not write that field; the real push was correctly blocked.",
+    "after": "The real CLI records both source fingerprints and their equality, and the regression executes its real report contract with one isolated model.",
+    "regression": "change-trigger-diagnostics.cjs"
+  },
+  "validation": {
+    "files": 168,
+    "passed": 168,
+    "failed": 0,
+    "source_sha256": "f41737ba27adc84fa855552bab2ab5150a61fc5a0a3ddf2493d26128f5ac3a7d",
+    "source_sha256_end": "f41737ba27adc84fa855552bab2ab5150a61fc5a0a3ddf2493d26128f5ac3a7d",
+    "unchanged_during_run": true,
+    "areas": [
+      "dist public assets",
+      "tests",
+      "worker",
+      "mobile/scripts",
+      "scripts"
+    ],
+    "seconds": 321.93,
+    "checks": [
+      {
+        "test": "appearance-lazy-work.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.29
+      },
+      {
+        "test": "appearance-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.62
+      },
+      {
+        "test": "asset-reports.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.16
+      },
+      {
+        "test": "auction-clock-boundaries.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 17.27
+      },
+      {
+        "test": "auction-direction-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 9.54
+      },
+      {
+        "test": "auction-ending-window-boundaries.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 26.02
+      },
+      {
+        "test": "auction-history-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 12.0
+      },
+      {
+        "test": "auction-history.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 26.98
+      },
+      {
+        "test": "auction-integrity.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 21.96
+      },
+      {
+        "test": "auction-modes.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.08
+      },
+      {
+        "test": "auction-notifications-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 8.08
+      },
+      {
+        "test": "auction-notifications.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.5
+      },
+      {
+        "test": "auction-renewal-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 25.01
+      },
+      {
+        "test": "auction-renewal.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 12.61
+      },
+      {
+        "test": "auth-dialog.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.69
+      },
+      {
+        "test": "back-swipe.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.55
+      },
+      {
+        "test": "bank-editor-state.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.68
+      },
+      {
+        "test": "brand-origin-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.82
+      },
+      {
+        "test": "buyer-native-descending.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.07
+      },
+      {
+        "test": "buyer-share-return.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.8
+      },
+      {
+        "test": "buyer-tools.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.12
+      },
+      {
+        "test": "car-catalog-data.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.19
+      },
+      {
+        "test": "car-catalog-ui.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.36
+      },
+      {
+        "test": "catalog-page-scroll.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.03
+      },
+      {
+        "test": "catalog-performance.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 56.15
+      },
+      {
+        "test": "catalog-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.07
+      },
+      {
+        "test": "category-browse-roundtrip.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 98.53
+      },
+      {
+        "test": "category-csv.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 13.5
+      },
+      {
+        "test": "category-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 86.23
+      },
+      {
+        "test": "category-keyword-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.41
+      },
+      {
+        "test": "category-multi-select.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 27.98
+      },
+      {
+        "test": "category-native-back.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.1
+      },
+      {
+        "test": "category-picker.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.33
+      },
+      {
+        "test": "category-tree.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.53
+      },
+      {
+        "test": "change-trigger-diagnostics.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.04
+      },
+      {
+        "test": "chinese-model-aliases.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.36
+      },
+      {
+        "test": "commercial-smart-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 18.88
+      },
+      {
+        "test": "countdown.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.07
+      },
+      {
+        "test": "cross-tab-auctions.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 29.31
+      },
+      {
+        "test": "demo-catalog-coverage.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 6.96
+      },
+      {
+        "test": "demo-catalog-preservation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.96
+      },
+      {
+        "test": "demo-description.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.63
+      },
+      {
+        "test": "demo-photo-consistency.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.0
+      },
+      {
+        "test": "demo-seeding-performance.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.09
+      },
+      {
+        "test": "dialog-four-way.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.93
+      },
+      {
+        "test": "dialog-lifecycle.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.65
+      },
+      {
+        "test": "dialog-media.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.07
+      },
+      {
+        "test": "dialog-stack.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.6
+      },
+      {
+        "test": "distance-reuse.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 8.98
+      },
+      {
+        "test": "distance-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.98
+      },
+      {
+        "test": "doubletap-recommendations.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.16
+      },
+      {
+        "test": "draft-delete.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.48
+      },
+      {
+        "test": "ending-soon.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.7
+      },
+      {
+        "test": "featured-cheap-intent.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 6.46
+      },
+      {
+        "test": "featured-combinations.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 9.47
+      },
+      {
+        "test": "featured-ending-interest.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.2
+      },
+      {
+        "test": "featured-feed-return.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.97
+      },
+      {
+        "test": "featured-for-you-city.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.15
+      },
+      {
+        "test": "featured-horizontal.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.07
+      },
+      {
+        "test": "featured-live-fallback.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.16
+      },
+      {
+        "test": "featured-lots.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 5.99
+      },
+      {
+        "test": "featured-recommendations.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.19
+      },
+      {
+        "test": "featured-settings.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.44
+      },
+      {
+        "test": "feed-close-gesture.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.12
+      },
+      {
+        "test": "feed-motion.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.05
+      },
+      {
+        "test": "feed-share.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.11
+      },
+      {
+        "test": "feed-tutorial.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.13
+      },
+      {
+        "test": "footer-navigation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.08
+      },
+      {
+        "test": "gallery-performance.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.07
+      },
+      {
+        "test": "home-navigation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 6.6
+      },
+      {
+        "test": "identifier-input-boundaries.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.89
+      },
+      {
+        "test": "kamaz-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 37.46
+      },
+      {
+        "test": "keyword-index-lifecycle.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.21
+      },
+      {
+        "test": "keyword-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 55.99
+      },
+      {
+        "test": "keyword-search-prepare.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.13
+      },
+      {
+        "test": "keyword-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.92
+      },
+      {
+        "test": "keyword-work.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.5
+      },
+      {
+        "test": "layout-safety.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.21
+      },
+      {
+        "test": "live-auction-price.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.77
+      },
+      {
+        "test": "local-feed.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.29
+      },
+      {
+        "test": "lot-close-return-routes.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.11
+      },
+      {
+        "test": "lot-discovery-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.53
+      },
+      {
+        "test": "lot-discovery.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.24
+      },
+      {
+        "test": "lot-gestures.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.09
+      },
+      {
+        "test": "lot-map-entry.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.95
+      },
+      {
+        "test": "lot-photo-viewer.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.2
+      },
+      {
+        "test": "lot-presentation-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.87
+      },
+      {
+        "test": "lot-presentation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.05
+      },
+      {
+        "test": "lot-touch-semantics.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.37
+      },
+      {
+        "test": "map-feed-resume.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.02
+      },
+      {
+        "test": "map-lot-return.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 13.04
+      },
+      {
+        "test": "map-projection-work.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.7
+      },
+      {
+        "test": "market-normalization.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.64
+      },
+      {
+        "test": "metrics-backend.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.21
+      },
+      {
+        "test": "mitsubishi-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.61
+      },
+      {
+        "test": "motion.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.18
+      },
+      {
+        "test": "native-back-routing.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.06
+      },
+      {
+        "test": "native-share-boundary.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.08
+      },
+      {
+        "test": "natural-typed-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.7
+      },
+      {
+        "test": "notification-click.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.2
+      },
+      {
+        "test": "own-lot-transactions.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.29
+      },
+      {
+        "test": "partner-branding-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.96
+      },
+      {
+        "test": "partner-branding.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.07
+      },
+      {
+        "test": "payment-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.68
+      },
+      {
+        "test": "payment-presentation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.62
+      },
+      {
+        "test": "payment-ui.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.51
+      },
+      {
+        "test": "property-map-multi.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.35
+      },
+      {
+        "test": "property-map.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.32
+      },
+      {
+        "test": "pwa-install.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.1
+      },
+      {
+        "test": "quickbar-labels.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.09
+      },
+      {
+        "test": "quickbar.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.35
+      },
+      {
+        "test": "recommendation-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 10.83
+      },
+      {
+        "test": "recommendations.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.31
+      },
+      {
+        "test": "region-geolocation-recovery.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.09
+      },
+      {
+        "test": "render-work.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.72
+      },
+      {
+        "test": "right-swipe-close.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.57
+      },
+      {
+        "test": "sales-analytics.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 6.71
+      },
+      {
+        "test": "sales-local-privacy.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.84
+      },
+      {
+        "test": "saved-search-subscription-form.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 13.42
+      },
+      {
+        "test": "search-auto-scope.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 30.4
+      },
+      {
+        "test": "search-city-select.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.19
+      },
+      {
+        "test": "search-context-return.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 12.87
+      },
+      {
+        "test": "search-empty-availability.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.02
+      },
+      {
+        "test": "search-filter-conflict.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 21.22
+      },
+      {
+        "test": "search-fresh-start.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 31.02
+      },
+      {
+        "test": "search-identifiers.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.12
+      },
+      {
+        "test": "search-intent.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.31
+      },
+      {
+        "test": "search-nearest.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.77
+      },
+      {
+        "test": "search-numeric-validation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.54
+      },
+      {
+        "test": "search-persona-ranges.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.96
+      },
+      {
+        "test": "search-preferences.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.11
+      },
+      {
+        "test": "search-preparation-ui.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.1
+      },
+      {
+        "test": "search-results-layout.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.29
+      },
+      {
+        "test": "search-sort-feedback.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.19
+      },
+      {
+        "test": "search-typos.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.08
+      },
+      {
+        "test": "security-boundaries.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.15
+      },
+      {
+        "test": "security-csp.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.41
+      },
+      {
+        "test": "security-dom.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.65
+      },
+      {
+        "test": "security-inputs.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 11.1
+      },
+      {
+        "test": "security-metrics-work.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.56
+      },
+      {
+        "test": "security-server-resources.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.76
+      },
+      {
+        "test": "seller-async-navigation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 34.8
+      },
+      {
+        "test": "seller-auction-modes.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 27.7
+      },
+      {
+        "test": "seller-back-gesture.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 16.53
+      },
+      {
+        "test": "seller-contact-privacy.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 10.91
+      },
+      {
+        "test": "seller-current-state.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 8.67
+      },
+      {
+        "test": "seller-dashboard.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.68
+      },
+      {
+        "test": "seller-exit-guards.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 23.89
+      },
+      {
+        "test": "seller-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 30.16
+      },
+      {
+        "test": "seller-location.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.63
+      },
+      {
+        "test": "seller-media.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.28
+      },
+      {
+        "test": "seller-options.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 18.95
+      },
+      {
+        "test": "seller-profile-cancel.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 6.91
+      },
+      {
+        "test": "seller-ratings.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.13
+      },
+      {
+        "test": "seller-rules.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.2
+      },
+      {
+        "test": "seller-workspace-recovery.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 37.11
+      },
+      {
+        "test": "service-worker.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.31
+      },
+      {
+        "test": "smart-fill.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.17
+      },
+      {
+        "test": "storage-favorites.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 37.43
+      },
+      {
+        "test": "subscription-durability.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.89
+      },
+      {
+        "test": "support.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.05
+      },
+      {
+        "test": "up-swipe-close.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.13
+      },
+      {
+        "test": "vehicle-search-roundtrip.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.95
+      },
+      {
+        "test": "virtual-feed.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.96
+      },
+      {
+        "test": "voice-assistant.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.61
+      },
+      {
+        "test": "voice-intelligence-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.89
+      },
+      {
+        "test": "voice-natural-scenarios.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.64
+      },
+      {
+        "test": "voice-search-criteria.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.58
+      }
+    ]
+  },
+  "model_validation": {
+    "profiles": {
+      "completed": 100,
+      "passed": 100,
+      "failed": 0,
+      "sellers": 40,
+      "bidders": 40,
+      "buyers": 20,
+      "published": 40,
+      "acceptedBids": 40,
+      "demoPurchases": 16,
+      "watcherChecks": 1109
+    },
+    "elapsed_ms": 294269,
+    "source_digest": "8ab709f9049fcca30bab53f4e040fc979b5dab8f883c07e14b02e4fdbce47daf",
+    "source_unchanged": true,
+    "details": "diagnostics-100-2026-11-14.json",
+    "independent_from": "Gesture and media-codec tests are separate; the model runner uses a mock media adapter."
+  },
+  "build": {
+    "worker_public_assets": 197,
+    "worker_bytes": 11231055,
+    "worker_gzip_bytes": 6845946,
+    "native_passed": 821,
+    "native_failed": 0,
+    "apk_signature_verified": true,
+    "artifacts": {
+      "android_build_apk": {
+        "path": "/workspace/sites/drive-lot/mobile/android/app/build/outputs/apk/debug/app-debug.apk",
+        "bytes": 12960184,
+        "sha256": "bc2920ca298634e5385e47b837006a5dad7ad1ea674a690ef24804917667db0a"
+      },
+      "android_release_apk": {
+        "path": "/workspace/sites/drive-lot/releases/fas-torgi-android-demo-debug.apk",
+        "bytes": 12960184,
+        "sha256": "bc2920ca298634e5385e47b837006a5dad7ad1ea674a690ef24804917667db0a"
+      }
+    }
+  },
+  "material_limits": [
+    "No system can be certified free of all vulnerabilities by these checks.",
+    "No physical iPhone/Safari/WebKit browser QA or external penetration test was performed.",
+    "The 100 models are sequential isolated functional contexts, not 100 concurrent authenticated live users or a server capacity test.",
+    "Real shared auctions, server-side seller/buyer roles, verified local-account login/SMS and money transfers are not connected.",
+    "Browser-local profile/drafts/media remain readable to a person with access to that same browser profile; client ownership checks do not replace server authorization.",
+    "Identity headers depend on the hosting gateway contract; bounded live probes rejected anonymous and client-supplied identity attempts.",
+    "Frame-ancestor policy was not tightened without the required embedding contract.",
+    "Legal compliance or absence of legal liability is not established by code tests."
+  ]
+}

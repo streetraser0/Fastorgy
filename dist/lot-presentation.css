@@ -1,0 +1,43 @@
+/* Flow-based facts leave the photo, price and primary action easy to scan. */
+.lot-presentation{min-width:0;max-width:100%;margin:11px 0 13px;font:500 12px/1.5 'Golos Text',Arial,sans-serif}
+.lot-presentation-facts{display:flex;flex-wrap:wrap;gap:6px;min-width:0;max-width:100%;margin:0;padding:0;list-style:none}
+.lot-fact{display:block;min-width:0;max-width:100%;margin:0;padding:5px 9px;border:1px solid #DFE7F1;border-radius:8px;background:#F5F8FC;color:#36516E;white-space:normal;overflow-wrap:anywhere}
+.lot-fact-warning{border-color:#E7C48C;background:#FFF3DD;color:#805012;font-weight:700}
+.lot-presentation-terms{display:flex;flex-wrap:wrap;gap:5px 12px;min-width:0;max-width:100%;margin:8px 0 0;color:#2D6953;font-size:11px;font-weight:600}
+.lot-presentation-terms>span{min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.lot-presentation-disclosure{margin:7px 0 0;color:#795A31;font-size:11px;line-height:1.5;overflow-wrap:anywhere}
+.lot-presentation-demo{display:block;max-width:100%;margin-top:6px;color:#78889B;font-size:10px;line-height:1.5;overflow-wrap:anywhere}
+.lot-presentation-compact{margin:8px 0;font-size:10px}
+.lot-presentation-compact .lot-presentation-facts{gap:4px}
+.lot-presentation-compact .lot-fact{padding:3px 6px;border-radius:6px}
+.lot-presentation-compact .lot-presentation-terms,.lot-presentation-compact .lot-presentation-disclosure{font-size:10px}
+
+body:not(.reels) #grid .card{border-color:#DBE4F0;box-shadow:0 8px 24px #163A6309;transition:box-shadow .18s ease,border-color .18s ease}
+body:not(.reels) #grid .card h3{color:#122D4E;font-weight:800}
+body:not(.reels) #grid .card .price{color:#0D2E56;font-weight:800}
+body:not(.reels) #grid .card-bottom .primary{box-shadow:0 5px 13px #0D4CD31A}
+.purchase-body>.lot-presentation{margin:14px 0 17px;padding:13px;border:1px solid #E0E8F2;border-radius:13px;background:#FBFCFE}
+body.reels #grid .lot-presentation{margin:7px 0;font-size:10px}
+body.reels #grid .lot-fact{padding:3px 7px;border-color:#D4E5FA25;background:#E7F0FF12;color:#EDF5FF}
+body.reels #grid .lot-fact-warning{border-color:#F2C58380;background:#815A253D;color:#FFE0AE}
+body.reels #grid .lot-presentation-terms{margin-top:5px;color:#BDE2CE;font-size:10px}
+body.reels #grid .lot-presentation-disclosure{color:#F6DDB6;font-size:10px}
+body.reels #grid .lot-presentation-demo{color:#C0D0E2}
+@media(hover:hover) and (pointer:fine){body:not(.reels) #grid .card:hover{border-color:#B5CAE5;box-shadow:0 12px 30px #163A6312}}
+@media(max-height:650px){
+ body.reels #grid .lot-presentation:not(.has-essential-facts){display:none}
+ body.reels #grid .lot-fact:not([data-essential-fact]),body.reels #grid .lot-presentation-terms,body.reels #grid .lot-presentation-demo{display:none}
+ body.reels #grid .lot-presentation{margin:4px 0}
+ body.reels #grid .lot-presentation-disclosure{margin-top:4px}
+}
+@media(max-height:480px) and (orientation:landscape){body.reels #grid .lot-presentation{grid-column:1;margin:0}}
+@media(prefers-reduced-motion:reduce){body:not(.reels) #grid .card{transition:none}}
+
+/* Keep distance beside the linked region in both the feed and the open lot. */
+.lot-location-distance,.purchase-location{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;width:100%}
+.lot-location-distance>.lot-map-link,.purchase-location>.lot-map-link{flex:1;min-width:0;max-width:100%;white-space:normal;text-align:left}
+.lot-location-distance>.distance-tag,.purchase-location>.distance-tag{display:inline-flex!important;align-items:center;flex:0 0 auto;max-width:42%;margin:0;white-space:normal;line-height:1.4;visibility:visible;opacity:1;overflow-wrap:anywhere}
+body.reels #grid .lot-location-distance>.distance-tag{display:inline-flex!important;background:#ffffff17;color:#fff;border:1px solid #ffffff25;padding:5px 8px;font-size:11px}
+body.reels #grid .lot-location-distance{align-items:center}
+
+.purchase-deposit-help{margin:0 0 18px;color:#52647a;font-size:14px;line-height:1.5;overflow-wrap:anywhere}.purchase-deposit-help summary{min-height:44px;display:list-item;align-content:center;cursor:pointer;color:#28539b;font-weight:650}.purchase-deposit-help p{margin:4px 0 0}

@@ -1,0 +1,5216 @@
+{
+  "source": "ce3cba3 + working tree",
+  "sourceFiles": [
+    "index.html:inline-main",
+    "seller-ui.js",
+    "seller-rules.js",
+    "auction-history.js"
+  ],
+  "sourceDigest": "8ab709f9049fcca30bab53f4e040fc979b5dab8f883c07e14b02e4fdbce47daf",
+  "seed": 58001114,
+  "requestedProfiles": 100,
+  "method": "Sequential isolated V8 browser-model contexts using actual client click/submit handlers and auction APIs. Three controlled initial lots per model; no shared auction backend, network, public publication, real payment or visitor counter mutation.",
+  "limits": [
+    "This is not 100 concurrent live clients or a load/capacity test.",
+    "The existing seller-form harness supplies a mock image storage adapter; this runner does not prove browser codec/IndexedDB security.",
+    "No account authentication or shared real auction/payment backend is connected. Local storage conflict guards are tested, not distributed transaction atomicity."
+  ],
+  "profiles": [
+    {
+      "number": 1,
+      "id": "model-owner-001",
+      "role": "seller",
+      "experience": "beginner",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794657600000,
+          "category": "cars",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 2,
+      "id": "model-owner-002",
+      "role": "seller",
+      "experience": "regular",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid form rejected; corrected"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794657700000,
+          "category": "trucks",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-publication-keeps-form": 1,
+        "invalid-publication-saves-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 3,
+      "id": "model-owner-003",
+      "role": "seller",
+      "experience": "expert",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid form rejected; corrected"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794657800000,
+          "category": "property",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-publication-keeps-form": 1,
+        "invalid-publication-saves-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 4,
+      "id": "model-owner-004",
+      "role": "seller",
+      "experience": "keyboard-oriented",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "lot-write quota failure retains editor and draft; retry"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794657900000,
+          "category": "other",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "quota-no-false-publication": 1,
+        "quota-retains-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 5,
+      "id": "model-owner-005",
+      "role": "seller",
+      "experience": "beginner",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "concurrent unrelated draft added"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794658000000,
+          "category": "equipment",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "other-tab-draft-preserved": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 6,
+      "id": "model-owner-006",
+      "role": "seller",
+      "experience": "regular",
+      "scenario": 5,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794658100000,
+          "category": "commercial",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 7,
+      "id": "model-owner-007",
+      "role": "seller",
+      "experience": "expert",
+      "scenario": 6,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794658200000,
+          "category": "cars",
+          "durationMinutes": 60
+        },
+        {
+          "step": 4,
+          "action": "descriptive edit preserves locked auction terms"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "published-auction-terms-immutable": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Изменения сохранены на устройстве"
+    },
+    {
+      "number": 8,
+      "id": "model-owner-008",
+      "role": "seller",
+      "experience": "keyboard-oriented",
+      "scenario": 7,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794658300000,
+          "category": "trucks",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 9,
+      "id": "model-owner-009",
+      "role": "seller",
+      "experience": "beginner",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794658400000,
+          "category": "property",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 10,
+      "id": "model-owner-010",
+      "role": "seller",
+      "experience": "regular",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid form rejected; corrected"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794658500000,
+          "category": "other",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-publication-keeps-form": 1,
+        "invalid-publication-saves-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 11,
+      "id": "model-owner-011",
+      "role": "seller",
+      "experience": "expert",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid form rejected; corrected"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794658600000,
+          "category": "equipment",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-publication-keeps-form": 1,
+        "invalid-publication-saves-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 12,
+      "id": "model-owner-012",
+      "role": "seller",
+      "experience": "keyboard-oriented",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "lot-write quota failure retains editor and draft; retry"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794658700000,
+          "category": "commercial",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "quota-no-false-publication": 1,
+        "quota-retains-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 13,
+      "id": "model-owner-013",
+      "role": "seller",
+      "experience": "beginner",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "concurrent unrelated draft added"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794658800000,
+          "category": "cars",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "other-tab-draft-preserved": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 14,
+      "id": "model-owner-014",
+      "role": "seller",
+      "experience": "regular",
+      "scenario": 5,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794658900000,
+          "category": "trucks",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 15,
+      "id": "model-owner-015",
+      "role": "seller",
+      "experience": "expert",
+      "scenario": 6,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794659000000,
+          "category": "property",
+          "durationMinutes": 60
+        },
+        {
+          "step": 4,
+          "action": "descriptive edit preserves locked auction terms"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "published-auction-terms-immutable": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Изменения сохранены на устройстве"
+    },
+    {
+      "number": 16,
+      "id": "model-owner-016",
+      "role": "seller",
+      "experience": "keyboard-oriented",
+      "scenario": 7,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794659100000,
+          "category": "other",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 17,
+      "id": "model-owner-017",
+      "role": "seller",
+      "experience": "beginner",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794659200000,
+          "category": "equipment",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 18,
+      "id": "model-owner-018",
+      "role": "seller",
+      "experience": "regular",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid form rejected; corrected"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794659300000,
+          "category": "commercial",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-publication-keeps-form": 1,
+        "invalid-publication-saves-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 19,
+      "id": "model-owner-019",
+      "role": "seller",
+      "experience": "expert",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid form rejected; corrected"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794659400000,
+          "category": "cars",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-publication-keeps-form": 1,
+        "invalid-publication-saves-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 20,
+      "id": "model-owner-020",
+      "role": "seller",
+      "experience": "keyboard-oriented",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "lot-write quota failure retains editor and draft; retry"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794659500000,
+          "category": "trucks",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "quota-no-false-publication": 1,
+        "quota-retains-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 21,
+      "id": "model-owner-021",
+      "role": "seller",
+      "experience": "beginner",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "concurrent unrelated draft added"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794659600000,
+          "category": "property",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "other-tab-draft-preserved": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 22,
+      "id": "model-owner-022",
+      "role": "seller",
+      "experience": "regular",
+      "scenario": 5,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794659700000,
+          "category": "other",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 23,
+      "id": "model-owner-023",
+      "role": "seller",
+      "experience": "expert",
+      "scenario": 6,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794659800000,
+          "category": "equipment",
+          "durationMinutes": 60
+        },
+        {
+          "step": 4,
+          "action": "descriptive edit preserves locked auction terms"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "published-auction-terms-immutable": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Изменения сохранены на устройстве"
+    },
+    {
+      "number": 24,
+      "id": "model-owner-024",
+      "role": "seller",
+      "experience": "keyboard-oriented",
+      "scenario": 7,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794659900000,
+          "category": "commercial",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 25,
+      "id": "model-owner-025",
+      "role": "seller",
+      "experience": "beginner",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794660000000,
+          "category": "cars",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 26,
+      "id": "model-owner-026",
+      "role": "seller",
+      "experience": "regular",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid form rejected; corrected"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794660100000,
+          "category": "trucks",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-publication-keeps-form": 1,
+        "invalid-publication-saves-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 27,
+      "id": "model-owner-027",
+      "role": "seller",
+      "experience": "expert",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid form rejected; corrected"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794660200000,
+          "category": "property",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-publication-keeps-form": 1,
+        "invalid-publication-saves-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 28,
+      "id": "model-owner-028",
+      "role": "seller",
+      "experience": "keyboard-oriented",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "lot-write quota failure retains editor and draft; retry"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794660300000,
+          "category": "other",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "quota-no-false-publication": 1,
+        "quota-retains-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 29,
+      "id": "model-owner-029",
+      "role": "seller",
+      "experience": "beginner",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "concurrent unrelated draft added"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794660400000,
+          "category": "equipment",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "other-tab-draft-preserved": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 30,
+      "id": "model-owner-030",
+      "role": "seller",
+      "experience": "regular",
+      "scenario": 5,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794660500000,
+          "category": "commercial",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 31,
+      "id": "model-owner-031",
+      "role": "seller",
+      "experience": "expert",
+      "scenario": 6,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794660600000,
+          "category": "cars",
+          "durationMinutes": 60
+        },
+        {
+          "step": 4,
+          "action": "descriptive edit preserves locked auction terms"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "published-auction-terms-immutable": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Изменения сохранены на устройстве"
+    },
+    {
+      "number": 32,
+      "id": "model-owner-032",
+      "role": "seller",
+      "experience": "keyboard-oriented",
+      "scenario": 7,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794660700000,
+          "category": "trucks",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 33,
+      "id": "model-owner-033",
+      "role": "seller",
+      "experience": "beginner",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794660800000,
+          "category": "property",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 34,
+      "id": "model-owner-034",
+      "role": "seller",
+      "experience": "regular",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid form rejected; corrected"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794660900000,
+          "category": "other",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-publication-keeps-form": 1,
+        "invalid-publication-saves-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 35,
+      "id": "model-owner-035",
+      "role": "seller",
+      "experience": "expert",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid form rejected; corrected"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794661000000,
+          "category": "equipment",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-publication-keeps-form": 1,
+        "invalid-publication-saves-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 36,
+      "id": "model-owner-036",
+      "role": "seller",
+      "experience": "keyboard-oriented",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "lot-write quota failure retains editor and draft; retry"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794661100000,
+          "category": "commercial",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "quota-no-false-publication": 1,
+        "quota-retains-draft": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 37,
+      "id": "model-owner-037",
+      "role": "seller",
+      "experience": "beginner",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "concurrent unrelated draft added"
+        },
+        {
+          "step": 4,
+          "action": "actual seller form published",
+          "lotId": 1794661200000,
+          "category": "cars",
+          "durationMinutes": 60
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "other-tab-draft-preserved": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 38,
+      "id": "model-owner-038",
+      "role": "seller",
+      "experience": "regular",
+      "scenario": 5,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794661300000,
+          "category": "trucks",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 39,
+      "id": "model-owner-039",
+      "role": "seller",
+      "experience": "expert",
+      "scenario": 6,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794661400000,
+          "category": "property",
+          "durationMinutes": 60
+        },
+        {
+          "step": 4,
+          "action": "descriptive edit preserves locked auction terms"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "published-auction-terms-immutable": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Изменения сохранены на устройстве"
+    },
+    {
+      "number": 40,
+      "id": "model-owner-040",
+      "role": "seller",
+      "experience": "keyboard-oriented",
+      "scenario": 7,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "actual seller form published",
+          "lotId": 1794661500000,
+          "category": "other",
+          "durationMinutes": 43200
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "actual-publication-committed": 1,
+        "phone-opt-in-preserved": 1,
+        "auction-duration-bound": 1,
+        "stored-text-html-escaped": 1,
+        "private-phone-not-rendered": 1,
+        "owner-has-no-bid-form": 1,
+        "owner-has-no-purchase-button": 1,
+        "foreign-owner-unchanged-after-publish": 1
+      },
+      "counts": {
+        "published": 1,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-seller-workspace-v1",
+        "fas-lots"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 4,
+      "finalFeedback": "Лот добавлен в демокаталог этого устройства"
+    },
+    {
+      "number": 41,
+      "id": "model-owner-041",
+      "role": "bidder",
+      "experience": "beginner",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 1
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 42,
+      "id": "model-owner-042",
+      "role": "bidder",
+      "experience": "regular",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "outbid quote raises current price and minimum"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "market-price-accepted": 1,
+        "stale-input-rejected": 1,
+        "stale-input-retained": 1,
+        "fresh-min-visible": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1",
+        "fas-bids"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 151 000 ₽ принята"
+    },
+    {
+      "number": 43,
+      "id": "model-owner-043",
+      "role": "bidder",
+      "experience": "expert",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "bid-write quota failure retained amount; retry"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "bid-quota-retains-form": 1,
+        "bid-quota-no-history": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 44,
+      "id": "model-owner-044",
+      "role": "bidder",
+      "experience": "keyboard-oriented",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "concurrent financial write rejected with reload guidance"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "stale-tab-no-overwrite": 1,
+        "stale-tab-clear-guidance": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+    },
+    {
+      "number": 45,
+      "id": "model-owner-045",
+      "role": "bidder",
+      "experience": "beginner",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "auction expires while form is open; submission rejected"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "ended-auction-no-ghost-bid": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Аукцион сейчас не принимает ставки."
+    },
+    {
+      "number": 46,
+      "id": "model-owner-046",
+      "role": "bidder",
+      "experience": "regular",
+      "scenario": 5,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 1
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 47,
+      "id": "model-owner-047",
+      "role": "bidder",
+      "experience": "expert",
+      "scenario": 6,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid numeric bids rejected before valid retry"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-money-not-committed": 4,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 48,
+      "id": "model-owner-048",
+      "role": "bidder",
+      "experience": "keyboard-oriented",
+      "scenario": 7,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 3
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 3,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 103 000 ₽ принята"
+    },
+    {
+      "number": 49,
+      "id": "model-owner-049",
+      "role": "bidder",
+      "experience": "beginner",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 1
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 50,
+      "id": "model-owner-050",
+      "role": "bidder",
+      "experience": "regular",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "outbid quote raises current price and minimum"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "market-price-accepted": 1,
+        "stale-input-rejected": 1,
+        "stale-input-retained": 1,
+        "fresh-min-visible": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1",
+        "fas-bids"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 151 000 ₽ принята"
+    },
+    {
+      "number": 51,
+      "id": "model-owner-051",
+      "role": "bidder",
+      "experience": "expert",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "bid-write quota failure retained amount; retry"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "bid-quota-retains-form": 1,
+        "bid-quota-no-history": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 52,
+      "id": "model-owner-052",
+      "role": "bidder",
+      "experience": "keyboard-oriented",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "concurrent financial write rejected with reload guidance"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "stale-tab-no-overwrite": 1,
+        "stale-tab-clear-guidance": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+    },
+    {
+      "number": 53,
+      "id": "model-owner-053",
+      "role": "bidder",
+      "experience": "beginner",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "auction expires while form is open; submission rejected"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "ended-auction-no-ghost-bid": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Аукцион сейчас не принимает ставки."
+    },
+    {
+      "number": 54,
+      "id": "model-owner-054",
+      "role": "bidder",
+      "experience": "regular",
+      "scenario": 5,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 1
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 55,
+      "id": "model-owner-055",
+      "role": "bidder",
+      "experience": "expert",
+      "scenario": 6,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid numeric bids rejected before valid retry"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-money-not-committed": 4,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 56,
+      "id": "model-owner-056",
+      "role": "bidder",
+      "experience": "keyboard-oriented",
+      "scenario": 7,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 3
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 3,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 103 000 ₽ принята"
+    },
+    {
+      "number": 57,
+      "id": "model-owner-057",
+      "role": "bidder",
+      "experience": "beginner",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 1
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 58,
+      "id": "model-owner-058",
+      "role": "bidder",
+      "experience": "regular",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "outbid quote raises current price and minimum"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "market-price-accepted": 1,
+        "stale-input-rejected": 1,
+        "stale-input-retained": 1,
+        "fresh-min-visible": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1",
+        "fas-bids"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 151 000 ₽ принята"
+    },
+    {
+      "number": 59,
+      "id": "model-owner-059",
+      "role": "bidder",
+      "experience": "expert",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "bid-write quota failure retained amount; retry"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "bid-quota-retains-form": 1,
+        "bid-quota-no-history": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 60,
+      "id": "model-owner-060",
+      "role": "bidder",
+      "experience": "keyboard-oriented",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "concurrent financial write rejected with reload guidance"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "stale-tab-no-overwrite": 1,
+        "stale-tab-clear-guidance": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+    },
+    {
+      "number": 61,
+      "id": "model-owner-061",
+      "role": "bidder",
+      "experience": "beginner",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "auction expires while form is open; submission rejected"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "ended-auction-no-ghost-bid": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Аукцион сейчас не принимает ставки."
+    },
+    {
+      "number": 62,
+      "id": "model-owner-062",
+      "role": "bidder",
+      "experience": "regular",
+      "scenario": 5,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 1
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 63,
+      "id": "model-owner-063",
+      "role": "bidder",
+      "experience": "expert",
+      "scenario": 6,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid numeric bids rejected before valid retry"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-money-not-committed": 4,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 64,
+      "id": "model-owner-064",
+      "role": "bidder",
+      "experience": "keyboard-oriented",
+      "scenario": 7,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 3
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 3,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 103 000 ₽ принята"
+    },
+    {
+      "number": 65,
+      "id": "model-owner-065",
+      "role": "bidder",
+      "experience": "beginner",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 1
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 66,
+      "id": "model-owner-066",
+      "role": "bidder",
+      "experience": "regular",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "outbid quote raises current price and minimum"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "market-price-accepted": 1,
+        "stale-input-rejected": 1,
+        "stale-input-retained": 1,
+        "fresh-min-visible": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1",
+        "fas-bids"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 151 000 ₽ принята"
+    },
+    {
+      "number": 67,
+      "id": "model-owner-067",
+      "role": "bidder",
+      "experience": "expert",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "bid-write quota failure retained amount; retry"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "bid-quota-retains-form": 1,
+        "bid-quota-no-history": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 68,
+      "id": "model-owner-068",
+      "role": "bidder",
+      "experience": "keyboard-oriented",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "concurrent financial write rejected with reload guidance"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "stale-tab-no-overwrite": 1,
+        "stale-tab-clear-guidance": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+    },
+    {
+      "number": 69,
+      "id": "model-owner-069",
+      "role": "bidder",
+      "experience": "beginner",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "auction expires while form is open; submission rejected"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "ended-auction-no-ghost-bid": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Аукцион сейчас не принимает ставки."
+    },
+    {
+      "number": 70,
+      "id": "model-owner-070",
+      "role": "bidder",
+      "experience": "regular",
+      "scenario": 5,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 1
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 71,
+      "id": "model-owner-071",
+      "role": "bidder",
+      "experience": "expert",
+      "scenario": 6,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid numeric bids rejected before valid retry"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-money-not-committed": 4,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 72,
+      "id": "model-owner-072",
+      "role": "bidder",
+      "experience": "keyboard-oriented",
+      "scenario": 7,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 3
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 3,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 103 000 ₽ принята"
+    },
+    {
+      "number": 73,
+      "id": "model-owner-073",
+      "role": "bidder",
+      "experience": "beginner",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 1
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 74,
+      "id": "model-owner-074",
+      "role": "bidder",
+      "experience": "regular",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "outbid quote raises current price and minimum"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "market-price-accepted": 1,
+        "stale-input-rejected": 1,
+        "stale-input-retained": 1,
+        "fresh-min-visible": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1",
+        "fas-bids"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 151 000 ₽ принята"
+    },
+    {
+      "number": 75,
+      "id": "model-owner-075",
+      "role": "bidder",
+      "experience": "expert",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "bid-write quota failure retained amount; retry"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "bid-quota-retains-form": 1,
+        "bid-quota-no-history": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 76,
+      "id": "model-owner-076",
+      "role": "bidder",
+      "experience": "keyboard-oriented",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "concurrent financial write rejected with reload guidance"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "stale-tab-no-overwrite": 1,
+        "stale-tab-clear-guidance": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+    },
+    {
+      "number": 77,
+      "id": "model-owner-077",
+      "role": "bidder",
+      "experience": "beginner",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "auction expires while form is open; submission rejected"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "ended-auction-no-ghost-bid": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Аукцион сейчас не принимает ставки."
+    },
+    {
+      "number": 78,
+      "id": "model-owner-078",
+      "role": "bidder",
+      "experience": "regular",
+      "scenario": 5,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 1
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 79,
+      "id": "model-owner-079",
+      "role": "bidder",
+      "experience": "expert",
+      "scenario": 6,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "invalid numeric bids rejected before valid retry"
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "invalid-money-not-committed": 4,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 1,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 101 000 ₽ принята"
+    },
+    {
+      "number": 80,
+      "id": "model-owner-080",
+      "role": "bidder",
+      "experience": "keyboard-oriented",
+      "scenario": 7,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "valid bid submitted",
+          "repetitions": 3
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "duplicate-form-no-second-bid": 1,
+        "accepted-history-present": 1,
+        "ascending-price-monotone": 1,
+        "no-fabricated-purchase": 1,
+        "bidding-does-not-buy": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 3,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-bids",
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Ваша демоставка 103 000 ₽ принята"
+    },
+    {
+      "number": 81,
+      "id": "model-owner-081",
+      "role": "buyer",
+      "experience": "beginner",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 82,
+      "id": "model-owner-082",
+      "role": "buyer",
+      "experience": "regular",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 83,
+      "id": "model-owner-083",
+      "role": "buyer",
+      "experience": "expert",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "purchase quota failure; explicit retry"
+        },
+        {
+          "step": 5,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "buy-quota-no-sale": 1,
+        "buy-quota-keeps-confirmation": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 84,
+      "id": "model-owner-084",
+      "role": "buyer",
+      "experience": "keyboard-oriented",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "other buyer already sold this lot; stale local purchase rejected",
+          "feedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "stale-buy-does-not-overwrite": 1,
+        "stale-buy-no-fake-purchase-history": 1,
+        "stale-buy-clear-reload-guidance": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+    },
+    {
+      "number": 85,
+      "id": "model-owner-085",
+      "role": "buyer",
+      "experience": "beginner",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 86,
+      "id": "model-owner-086",
+      "role": "buyer",
+      "experience": "regular",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 87,
+      "id": "model-owner-087",
+      "role": "buyer",
+      "experience": "expert",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 88,
+      "id": "model-owner-088",
+      "role": "buyer",
+      "experience": "keyboard-oriented",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "purchase quota failure; explicit retry"
+        },
+        {
+          "step": 5,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "buy-quota-no-sale": 1,
+        "buy-quota-keeps-confirmation": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 89,
+      "id": "model-owner-089",
+      "role": "buyer",
+      "experience": "beginner",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "other buyer already sold this lot; stale local purchase rejected",
+          "feedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "stale-buy-does-not-overwrite": 1,
+        "stale-buy-no-fake-purchase-history": 1,
+        "stale-buy-clear-reload-guidance": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+    },
+    {
+      "number": 90,
+      "id": "model-owner-090",
+      "role": "buyer",
+      "experience": "regular",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 91,
+      "id": "model-owner-091",
+      "role": "buyer",
+      "experience": "expert",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 92,
+      "id": "model-owner-092",
+      "role": "buyer",
+      "experience": "keyboard-oriented",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 93,
+      "id": "model-owner-093",
+      "role": "buyer",
+      "experience": "beginner",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "purchase quota failure; explicit retry"
+        },
+        {
+          "step": 5,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "buy-quota-no-sale": 1,
+        "buy-quota-keeps-confirmation": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 94,
+      "id": "model-owner-094",
+      "role": "buyer",
+      "experience": "regular",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "other buyer already sold this lot; stale local purchase rejected",
+          "feedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "stale-buy-does-not-overwrite": 1,
+        "stale-buy-no-fake-purchase-history": 1,
+        "stale-buy-clear-reload-guidance": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+    },
+    {
+      "number": 95,
+      "id": "model-owner-095",
+      "role": "buyer",
+      "experience": "expert",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 96,
+      "id": "model-owner-096",
+      "role": "buyer",
+      "experience": "keyboard-oriented",
+      "scenario": 0,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 97,
+      "id": "model-owner-097",
+      "role": "buyer",
+      "experience": "beginner",
+      "scenario": 1,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 98,
+      "id": "model-owner-098",
+      "role": "buyer",
+      "experience": "regular",
+      "scenario": 2,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "purchase quota failure; explicit retry"
+        },
+        {
+          "step": 5,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "buy-quota-no-sale": 1,
+        "buy-quota-keeps-confirmation": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    },
+    {
+      "number": 99,
+      "id": "model-owner-099",
+      "role": "buyer",
+      "experience": "expert",
+      "scenario": 3,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "other buyer already sold this lot; stale local purchase rejected",
+          "feedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "stale-buy-does-not-overwrite": 1,
+        "stale-buy-no-fake-purchase-history": 1,
+        "stale-buy-clear-reload-guidance": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 0
+      },
+      "pass": true,
+      "writeKeys": [],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Данные торгов изменились в другой вкладке. Обновите страницу перед повторной попыткой; введённые данные оставлены в форме."
+    },
+    {
+      "number": 100,
+      "id": "model-owner-100",
+      "role": "buyer",
+      "experience": "keyboard-oriented",
+      "scenario": 4,
+      "trace": [
+        {
+          "step": 1,
+          "action": "foreign edit/status attempt denied"
+        },
+        {
+          "step": 2,
+          "action": "own bid and buy rejected"
+        },
+        {
+          "step": 3,
+          "action": "explicit demonstration purchase confirmation opened"
+        },
+        {
+          "step": 4,
+          "action": "one demo purchase persisted; duplicate ignored",
+          "soldPrice": 200000
+        }
+      ],
+      "watchers": {
+        "foreign-draft-hidden": 1,
+        "foreign-owner-write-blocked": 1,
+        "own-bid-blocked": 1,
+        "own-buy-blocked": 1,
+        "purchase-explicit-demo-disclosure": 1,
+        "one-explicit-demo-sale": 1,
+        "duplicate-purchase-no-resale": 1,
+        "only-confirmed-demo-purchase-recorded": 1,
+        "no-real-paid-claim": 1
+      },
+      "counts": {
+        "published": 0,
+        "acceptedBids": 0,
+        "demoPurchases": 1
+      },
+      "pass": true,
+      "writeKeys": [
+        "fas-lots",
+        "fas-auction-history-v1",
+        "fas-auction-history-status-v1"
+      ],
+      "localOnly": true,
+      "fixtureInventory": 3,
+      "finalInventory": 3,
+      "finalFeedback": "Демопокупка завершена на этом устройстве. Деньги не списаны."
+    }
+  ],
+  "totals": {
+    "completed": 100,
+    "passed": 100,
+    "failed": 0,
+    "sellers": 40,
+    "bidders": 40,
+    "buyers": 20,
+    "published": 40,
+    "acceptedBids": 40,
+    "demoPurchases": 16,
+    "watcherChecks": 1109
+  },
+  "findings": [],
+  "sourceDigestAfterRun": "8ab709f9049fcca30bab53f4e040fc979b5dab8f883c07e14b02e4fdbce47daf",
+  "sourceUnchangedDuringRun": true,
+  "finished": true,
+  "elapsedMs": 294269
+}

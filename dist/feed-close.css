@@ -1,0 +1,18 @@
+/* A full-width free strip makes the return handle reachable beside the actions. */
+.reels .reels-header{pointer-events:auto;touch-action:pinch-zoom}
+#modal.lot-dialog .lot-quick-access,#modal.lot-dialog .dialog-brand,#modal.lot-dialog .lot-modal-header,#modal.lot-dialog .fas-dialog-grip,#modal.lot-dialog [data-dialog-swipe-header]{touch-action:pinch-zoom}
+.reels .reels-header{padding-top:calc(32px + env(safe-area-inset-top,0px))}
+#modal.lot-dialog .lot-quick-access{padding-top:23px}
+.reels .reels-header::before,#modal.lot-dialog .lot-quick-access::before{content:'';position:absolute;top:8px;left:50%;width:44px;height:4px;transform:translateX(-50%);border-radius:9px;background:#758BA3;pointer-events:none}
+.reels .reels-header::before{top:calc(10px + env(safe-area-inset-top,0px));background:#FFFFFFB3}
+/* Horizontal photos and upward reading stay native; only a pull down at the top returns. */
+#modal.lot-dialog .lot-swipe-surface,#modal.lot-dialog .gallery-track,#modal.lot-dialog .lot-swipe-surface img{touch-action:pan-x pan-y pinch-zoom}
+/* Directional panning is optional. Older WebKit keeps native reading/gallery
+   scrolling and uses the early single-finger touchmove guard for a pull down. */
+@supports(touch-action:pan-up){#modal.lot-dialog.lot-at-top .lot-swipe-surface,#modal.lot-dialog.lot-at-top .gallery-track,#modal.lot-dialog.lot-at-top .lot-swipe-surface img{touch-action:pan-x pan-up pinch-zoom}}
+.reels-header .feed-close-hint{display:none}
+/* The footer already explains lot swipes. Keep duplicate hints off the photo. */
+.reels .reels-header .feed-close-hint,.reels #grid .gallery-hint{display:none}
+/* Metadata starts below the logo and controls, leaving the right action column clear. */
+.reels #grid .tag{top:calc(96px + env(safe-area-inset-top,0px));left:20px;max-width:calc(100% - 126px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4}
+.reels #grid .lot{top:calc(132px + env(safe-area-inset-top,0px));bottom:auto;left:20px;max-width:calc(100% - 126px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4}

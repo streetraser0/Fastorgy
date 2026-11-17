@@ -1,0 +1,8 @@
+/* A visible flame without continuous animation; the existing mode row wraps on phones. */
+#featured-lots .featured-modes button[data-featured-mode="hot"]{display:inline-flex;align-items:center;justify-content:center;gap:6px;line-height:1.4}
+#featured-lots .featured-hot-icon{flex:0 0 20px;width:20px;height:20px;fill:none;stroke-linejoin:round}
+#featured-lots .featured-hot-flame{fill:#EF303D;stroke:#B7192A;stroke-width:.8}
+#featured-lots .featured-hot-core{fill:#FFE3A0;stroke:none}
+#featured-lots .featured-modes button[data-featured-mode="hot"] span{min-width:0}
+#featured-lots .featured-modes button[data-featured-mode="hot"][aria-pressed="true"] .featured-hot-flame{fill:#FF514D;stroke:#FFB39F}
+#featured-lots .featured-modes button[data-featured-mode="hot"][aria-pressed="false"]:hover .featured-hot-flame{fill:#DC2638;stroke:#A71126}

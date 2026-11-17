@@ -1,0 +1,10 @@
+/* The content and photo/map stages retain native scrolling and two-finger zoom. */
+.category-dialog .category-browser-list{touch-action:pan-y pinch-zoom}
+/* Static header strips reserve the gesture before WebKit starts page panning.
+   Older engines retain the supported fallback; current engines also keep pinch zoom. */
+dialog :is([data-dialog-swipe-header],.fas-dialog-grip,.dialog-brand,.photo-viewer-header,.payment-header,.support-header,.voice-header,.sales-analytics-header,.auction-history-heading,.my-bids-title,.category-browser-head,.category-browser-header,.property-map-header,.rating-head,.buyer-copy-heading,.buyer-recent-heading,.seller-heading,.close,.dialog-close){touch-action:none}
+@supports(touch-action:pinch-zoom){dialog :is([data-dialog-swipe-header],.fas-dialog-grip,.dialog-brand,.photo-viewer-header,.payment-header,.support-header,.voice-header,.sales-analytics-header,.auction-history-heading,.my-bids-title,.category-browser-head,.category-browser-header,.property-map-header,.rating-head,.buyer-copy-heading,.buyer-recent-heading,.seller-heading,.close,.dialog-close){touch-action:pinch-zoom}}
+dialog>.fas-dialog-grip{position:sticky;top:0;z-index:1201;display:flex;align-items:center;justify-content:center;width:100%;max-width:100%;min-width:0;min-height:44px;margin:0;padding:12px;border:0;border-radius:0;background:#FFFFFFF5;color:#647B98;box-shadow:0 1px 0 #DBE4EE;cursor:pointer;box-sizing:border-box}
+.fas-dialog-grip>span{display:block;width:44px;height:4px;border-radius:8px;background:currentColor;pointer-events:none}
+dialog>.fas-dialog-grip:focus-visible{outline:3px solid #0D4CD3;outline-offset:-4px}
+@media print{dialog>.fas-dialog-grip{display:none!important}}

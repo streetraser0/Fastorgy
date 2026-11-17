@@ -1,0 +1,17 @@
+{
+  "appId": "ru.fastorgi.app",
+  "appName": "ФАС торги",
+  "webDir": "www",
+  "backgroundColor": "#FFFFFF",
+  "server": {
+    "hostname": "localhost",
+    "androidScheme": "https",
+    "iosScheme": "capacitor",
+    "cleartext": false
+  },
+  "android": { "backgroundColor": "#FFFFFF" },
+  "ios": { "contentInset": "automatic", "allowsLinkPreview": false, "preferredContentMode": "mobile" },
+  "plugins": {
+    "StatusBar": { "style": "DARK", "backgroundColor": "#FFFFFF", "overlaysWebView": false }
+  }
+}

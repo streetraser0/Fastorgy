@@ -1,0 +1,90 @@
+/* Computer-only surfaces and typography. Scoped layout fixes for cabinet tabs and map filters. */
+@media screen and (min-width:1025px) and (hover:hover) and (pointer:fine){
+ html.desktop-web :is(#modal,.messages-dialog,.support-dialog,.seller-storefront-dialog,.payment-dialog){border:1px solid #C4D4E8;background:#FFF;color:var(--desk-ink,#142F50);box-shadow:0 8px 24px #102E4924,0 32px 90px #102E4938;font-family:'Golos Text',Arial,sans-serif}
+ html.desktop-web :is(#modal,.messages-dialog,.support-dialog,.seller-storefront-dialog,.payment-dialog)::backdrop{background:#0D223D75;backdrop-filter:blur(4px)}
+ html.desktop-web :is(#modal,.messages-dialog,.support-dialog,.seller-storefront-dialog,.payment-dialog) :is(h1,h2,h3,h4){font-family:Manrope,Arial,sans-serif;color:var(--desk-ink,#142F50);font-weight:800;letter-spacing:-.5px}
+ html.desktop-web #modal :is(.modal-body>h2,.seller-heading h2,.seller-dashboard-heading h2),html.desktop-web :is(.messages-header,.support-heading,.storefront-identity) h2{font-size:30px;line-height:1.25}
+ html.desktop-web #modal :is(.eyebrow,.seller-heading .eyebrow),html.desktop-web :is(.messages-eyebrow,.storefront-kind,.payment-kicker){color:#1D5EAA;font-weight:700;letter-spacing:1.2px}
+ html.desktop-web :is(#modal,.messages-dialog,.support-dialog,.seller-storefront-dialog) :is(.note,.seller-heading p,.seller-field small,.seller-list-title small,.messages-header p,.support-heading p,.storefront-identity p){color:var(--desk-muted,#526A83);line-height:1.7}
+ html.desktop-web :is(.messages-header,.support-header,.storefront-header,.payment-header){background:linear-gradient(110deg,#FFF,#F0F6FE);border-bottom-color:#C9D9ED}
+ html.desktop-web #modal .seller-desktop-toolbar{padding-bottom:22px;border-bottom:1px solid #D6E2F0}
+ html.desktop-web #modal .seller-desktop-sidebar{background:linear-gradient(160deg,#F0F6FF,#F7FAFE);border:1px solid #C9D9ED;box-shadow:0 2px 5px #143B6408,0 12px 26px #143B6408}
+ html.desktop-web #modal .seller-desktop-main{color:#193750}
+ html.desktop-web #modal .seller-desktop-sidebar .seller-account-tabs>button{font-size:14px;font-weight:600;color:#365572;border:1px solid transparent;border-radius:11px}
+ html.desktop-web #modal .seller-desktop-sidebar .seller-account-tabs>button:hover:not([aria-pressed="true"]){background:#E2EDFD;color:#184D88;border-color:#B8D0EF}
+ html.desktop-web #modal .seller-desktop-sidebar .seller-account-tabs>button[aria-pressed="true"]{background:#155CC8;color:#FFF;border-color:#104FAE;box-shadow:0 3px 6px #0D4CD320,0 7px 16px #0D4CD318}
+ html.desktop-web #modal .seller-account-tabs>button[aria-pressed="true"]>b{background:#FFFFFF29;color:#FFF}
+ html.desktop-web #modal .seller-desktop-sidebar .seller-shortcuts>button{border-color:#BACDE6;background:#FFF;box-shadow:0 2px 5px #143B6408;color:#264B73;font-weight:600}
+ html.desktop-web #modal .seller-list-title{font-family:Manrope,Arial,sans-serif;font-weight:800;font-size:24px;letter-spacing:-.5px}
+ html.desktop-web :is(#modal .seller-tabs,.storefront-tabs,#modal .pricing-switch){background:#EDF3FC;border:1px solid #CDDBEC;border-radius:14px;box-shadow:inset 0 1px 2px #18395905}
+ html.desktop-web :is(#modal .seller-tabs,.storefront-tabs,#modal .pricing-switch)>button{font-weight:600;color:#3D5976;border:1px solid transparent}
+ html.desktop-web :is(#modal .seller-tabs button.on,.storefront-tabs button[aria-pressed="true"],#modal .pricing-switch button.selected){background:#155CC8;color:#FFF;border-color:#104FAE;box-shadow:0 3px 8px #0D4CD329}
+ html.desktop-web #modal .seller-tabs button.on>b,html.desktop-web .storefront-tabs button[aria-pressed="true"]>span{background:#FFFFFF29;color:#FFF}
+ html.desktop-web :is(#modal .seller-row,#modal .seller-section,#modal .seller-profile-card,.messages-thread,.storefront-lot,.seller-directory-card,.support-faq details,.my-bid-row:not(.my-bid-outbid)){border-color:var(--desk-line,#CCD9E9);background:#FFF;box-shadow:0 2px 5px #143B6408,0 9px 22px #143B6407}
+ html.desktop-web :is(#modal .seller-row,.messages-thread,.storefront-lot,.seller-directory-card):hover{border-color:#9AB9DF;box-shadow:0 3px 8px #143B6410,0 12px 26px #143B640C}
+ html.desktop-web #modal :is(.seller-empty,.my-bids-empty),html.desktop-web :is(.messages-empty,.storefront-empty){background:linear-gradient(145deg,#F6FAFF,#FFF);border:1px solid #CCDCEE;box-shadow:inset 0 1px 0 #FFF}
+ html.desktop-web #modal .seller-empty h3{font-size:23px;color:#25486D}
+ html.desktop-web #modal .seller-empty p{font-size:13px;color:#526A83}
+ html.desktop-web #modal .seller-editor-nav{background:#F0F6FF;border-color:#C9D9ED;box-shadow:0 2px 6px #143B6408}
+ html.desktop-web #modal .seller-editor-nav>button{border-color:#BCD0EB;background:#FFF;color:#31597F;font-weight:600}
+ html.desktop-web #modal .seller-editor-nav>button:hover{border-color:#84ACE0;background:#EAF2FE;color:#1456AC}
+ html.desktop-web #modal .seller-step-title{font-family:Manrope,Arial,sans-serif;font-size:19px;font-weight:800;color:#173D64}
+ html.desktop-web #modal .seller-step-title>span{background:#E5EFFF;color:#155CC8;border:1px solid #C0D4F1;box-shadow:0 2px 4px #143B6408}
+ html.desktop-web #modal .seller-section{border-radius:16px}
+ html.desktop-web :is(#modal,.messages-dialog,.support-dialog,.seller-storefront-dialog) :where(input[type="text"],input[type="search"],input[type="email"],input[type="tel"],input[type="password"],input[type="number"],input[type="date"],input[type="datetime-local"],input:not([type]),select,textarea):not(:disabled){border-color:#B8CAE2;background-color:#FBFDFF;color:#183D63;box-shadow:inset 0 1px 2px #143B6405}
+ html.desktop-web :is(#modal,.messages-dialog,.support-dialog,.seller-storefront-dialog) :is(input,select,textarea):focus{border-color:#397AD2;outline:3px solid #1B63C4;outline-offset:1px;box-shadow:0 0 0 4px #1460C80A}
+ html.desktop-web #modal :is(.seller-field,label){color:#304E6E}
+ html.desktop-web #modal :is(.seller-field>span:first-child,.seller-check label){font-weight:600}
+ html.desktop-web :is(#modal,.messages-dialog,.support-dialog,.seller-storefront-dialog) :is(input,select,textarea)[aria-invalid="true"]{border-color:#BC3F4B;background-color:#FFF9FA}
+ html.desktop-web :is(#modal,.messages-dialog,.support-dialog,.seller-storefront-dialog) .outline:not(:disabled):not([data-seller-media-remove]){border-color:#B1C7E4;background:#FFF;color:#27578E;box-shadow:0 2px 5px #143B6409;font-weight:600}
+ html.desktop-web :is(#modal,.messages-dialog,.support-dialog,.seller-storefront-dialog) .outline:not(:disabled):not([data-seller-media-remove]):hover{border-color:#7EA5D5;background:#EDF4FF}
+ html.desktop-web :is(#modal,.messages-dialog,.support-dialog,.seller-storefront-dialog) .primary:not(:disabled){box-shadow:0 3px 7px #0D4CD325,0 8px 18px #0D4CD318}
+ html.desktop-web :is(#modal,.messages-dialog,.support-dialog,.seller-storefront-dialog) :is(button,a,summary):focus-visible{outline:3px solid #72A6EA;outline-offset:3px}
+ html.desktop-web #modal .lot-detail-offer{background:linear-gradient(145deg,#F1F6FF,#FBFDFF);border-color:#C5D7EF;box-shadow:var(--desk-shadow,0 8px 26px #143B6412)}
+ html.desktop-web #modal .lot-detail-heading h2{font-family:Manrope,Arial,sans-serif;font-size:31px;font-weight:800;color:#153558}
+ html.desktop-web #modal .purchase-price strong{font-family:Manrope,Arial,sans-serif;font-weight:800;color:#11457A;letter-spacing:-1px}
+ html.desktop-web #modal :is(.purchase-terms,.auction-mode-summary,.lot-detail-facts .vehicle-engine-summary,.lot-access){border-color:#C6D9F0;background-color:#FFF;box-shadow:0 2px 4px #143B6405}
+ html.desktop-web #modal .purchase-details{border-color:#D0DDED;background:#F8FBFF}
+ html.desktop-web #modal .purchase-details>summary{color:#244F7E;font-weight:600}
+ html.desktop-web #modal .lot-photo-thumbnails{background:#F4F8FE}
+ html.desktop-web #modal .lot-photo-thumbnails>button[aria-pressed="true"]{border-color:#155CC8;box-shadow:0 0 0 2px #B9D5FA}
+ html.desktop-web #modal :is(.cabinet-drafts,.seller-dashboard-notice){border-color:#C4D7EE;background:#F2F7FF}
+ html.desktop-web #modal .cabinet-drafts>summary{font-weight:700;color:#214F80}
+ html.desktop-web #modal .seller-help-footer{background:#F1F6FD;border-color:#D0DDED}
+ html.desktop-web :is(.support-contact,.support-request,.messages-lot-context,.storefront-trust,.payment-order){border-color:#C4D6EE;background:#F2F7FF;box-shadow:0 3px 9px #143B6408}
+ html.desktop-web :is(.support-faq summary,.messages-thread strong,.storefront-lot-name){color:#254F7B;font-weight:600}
+ html.desktop-web #modal .notice-row{border-color:#D3DFEE;background:#FAFCFF;box-shadow:0 2px 5px #143B6406}
+ html.desktop-web #modal .notice-row strong{font-family:Manrope,Arial,sans-serif;font-weight:700;color:#244C77}
+ html.desktop-web #modal .plans-modal-grid .plan-card{border-color:#BFCFE5;box-shadow:0 3px 8px #143B640B,0 13px 28px #143B6410;background:#FFF}
+ html.desktop-web #modal .plans-modal-grid .plan-card.recommended{border-color:#8BAFE3;background:linear-gradient(145deg,#EAF3FF,#FFF)}
+ html.desktop-web #modal .plan-price{font-family:Manrope,Arial,sans-serif;font-weight:800;color:#164880}
+ html.desktop-web .payment-method.is-selected{border-color:#A5C5EE;background:#EAF3FF;box-shadow:inset 3px 0 0 #155CC8}
+ html.desktop-web .payment-total{background:#E9F2FF;border-color:#BBD2F1}
+ html.desktop-web #modal .seller-desktop-sidebar .seller-help-footer>div,html.desktop-web #modal .seller-desktop-support>div{flex:0 1 auto}
+ html.desktop-web #modal .seller-desktop-main .seller-tabs{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));padding:6px;gap:6px}
+ html.desktop-web #modal .seller-desktop-main .seller-tabs button{font-size:12px;line-height:1.45}
+ html.desktop-web #modal .seller-desktop-main .seller-tabs button>span{overflow-wrap:normal;word-break:normal}
+ html.desktop-web #modal .seller-editor-links .seller-action-link{font-size:13px}
+ html.desktop-web #modal .seller-field{font-size:13px}
+ html.desktop-web #modal .plans-modal-grid .plan-card ul{font-size:13px;line-height:1.8;color:#405E7A}
+ html.desktop-web #modal .plans-modal-grid .plan-card.premium{background:linear-gradient(145deg,#214774,#112C50);border-color:#214D7C;color:#F6FAFF}
+ html.desktop-web #modal .plans-modal-grid .premium :is(h3,.plan-price){color:#F6FAFF}
+ html.desktop-web #modal .plans-modal-grid .premium :is(ul,.plan-tag,.plan-price small,.plan-original,.plan-renewal){color:#D2E2F3}
+ html.desktop-web #modal .plans-modal-grid .plan-tag{font-size:10px;font-weight:700;color:#456B92}
+ html.desktop-web #modal .plans-modal-grid .premium .plan-tag{color:#D2E2F3}
+ html.desktop-web #modal .plans-modal-grid :is(.plan-price small,.plan-original,.plan-renewal){font-size:12px}
+ html.desktop-web #modal .plans-modal-grid .premium .plan-preview{color:#B8D8FC}
+ html.desktop-web #modal :is(.annual-promo-banner,.plan-preview-strip){background:#EAF3FF;border-color:#BDD2EC;color:#315E8D}
+ html.desktop-web #modal :is(.pricing-disclaimer,.annual-promo-banner>span){font-size:12px;line-height:1.7}
+ html.desktop-web .property-map-dialog{border-color:#C4D4E8;background:#F5F8FD;box-shadow:0 8px 24px #102E4924,0 32px 90px #102E4938}
+ html.desktop-web .property-map-heading h2{font-family:Manrope,Arial,sans-serif;font-weight:800;color:#142F50}
+ html.desktop-web .property-map-toolbar{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);grid-template-areas:"query scope radius" "categories categories categories";align-items:end}
+ html.desktop-web .property-map-toolbar input,html.desktop-web .property-map-toolbar select{font-size:14px;background:#FBFDFF;border-color:#B8CAE2}
+ html.desktop-web .property-map-origin{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:10px 14px}
+ html.desktop-web .property-map-origin>.property-map-reference-block{grid-column:1;grid-row:2/4;font-size:13px}
+ html.desktop-web .property-map-origin>.property-map-region-label{grid-column:2;grid-row:2/4;align-self:end}
+ html.desktop-web .property-map-origin>#property-map-choose{grid-column:3;grid-row:3}
+ html.desktop-web .property-map-origin>button{grid-column:3;min-height:40px;font-size:12px}
+ html.desktop-web .property-map-origin>.property-map-region-label select{font-size:14px}
+ html.desktop-web :is(.property-map-maparea,.property-map-results){border-color:#C4D6EE;box-shadow:var(--desk-shadow)}
+}

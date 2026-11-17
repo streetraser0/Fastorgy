@@ -1,0 +1,359 @@
+{
+  "generated_utc": "2026-11-14T13:42:28.292072+00:00",
+  "method": "Controlled local Worker requests and SQLite connections; no production traffic or distributed attack.",
+  "baseline_commit": "13f3442c2a216bbd91867203afc504221d53ea9e",
+  "limits_per_principal_per_60_seconds": {
+    "metrics": 120,
+    "sales_read": 60,
+    "sales_write": 20
+  },
+  "atomicity": "Conditional SQLite UPSERT grants a slot in one statement across concurrent connections.",
+  "rejections": "429 with Retry-After and private/no-store; unavailable or unconfirmed storage fails closed with 503.",
+  "state": "One current bucket row per hashed authenticated principal and each of three constant scopes.",
+  "meaningful_regression": "node tests/security-rate-limits.cjs",
+  "limitations": [
+    "The fixed window may admit twice a window budget across a boundary.",
+    "Each valid or rate-denied request adds one quota database write attempt. This bounds expensive repeated work; it is not a normal-request speedup.",
+    "Application limits do not prove protection against network floods, many authenticated identities, or static-asset abuse.",
+    "Sites gateway must supply authenticated identity; the Worker must not be exposed behind an untrusted header-forwarding gateway.",
+    "Local wall times include Python startup and SQLite locking and are not hosting capacity or latency measurements."
+  ],
+  "baseline": {
+    "scope": "controlled local Worker+SQLite only; no network requests; wall includes Python startup/locking; SQL CPU and approximate VM steps separate",
+    "sourceSha256": "49f1da9a7174c73d5adcff275d32941da8a06148d615d234b7b04dac92c9f00d",
+    "fixedServerTime": "2026-11-14T13:00:00.000Z",
+    "reports": [
+      {
+        "name": "metrics GET",
+        "count": 32,
+        "concurrency": 8,
+        "statuses": {
+          "200": 32
+        },
+        "responseBytes": {
+          "200": 3840
+        },
+        "elapsedMs": 464.4883249999999,
+        "nodeCpuMs": 121.967,
+        "db": {
+          "statements": 32,
+          "batches": 32,
+          "vmApprox": 0,
+          "cpuMs": 26.52795400000001,
+          "wallMs": 74.0298129931034
+        }
+      },
+      {
+        "name": "metrics POST",
+        "count": 32,
+        "concurrency": 8,
+        "statuses": {
+          "200": 32
+        },
+        "responseBytes": {
+          "200": 3840
+        },
+        "elapsedMs": 802.9393560000001,
+        "nodeCpuMs": 117.136,
+        "db": {
+          "statements": 64,
+          "batches": 64,
+          "vmApprox": 0,
+          "cpuMs": 51.74308399999997,
+          "wallMs": 400.98641497752396
+        }
+      },
+      {
+        "name": "sales GET limit=1 at10k",
+        "count": 72,
+        "concurrency": 4,
+        "statuses": {
+          "200": 72
+        },
+        "responseBytes": {
+          "200": 121968
+        },
+        "elapsedMs": 1665.0832489999998,
+        "nodeCpuMs": 168.207,
+        "db": {
+          "statements": 432,
+          "batches": 72,
+          "vmApprox": 84960000,
+          "cpuMs": 1379.66802,
+          "wallMs": 4642.753841009835
+        }
+      },
+      {
+        "name": "sales POST 50 new atquota",
+        "count": 32,
+        "concurrency": 4,
+        "statuses": {
+          "409": 32
+        },
+        "responseBytes": {
+          "409": 10976
+        },
+        "elapsedMs": 1109.4195529999997,
+        "nodeCpuMs": 125.722,
+        "db": {
+          "statements": 1664,
+          "batches": 32,
+          "vmApprox": 130944000,
+          "cpuMs": 910.8933290000002,
+          "wallMs": 3329.9554789955437
+        }
+      },
+      {
+        "name": "unauthenticated",
+        "count": 16,
+        "concurrency": 8,
+        "statuses": {
+          "401": 16
+        },
+        "responseBytes": {
+          "401": 2464
+        },
+        "elapsedMs": 2.3432440000005954,
+        "nodeCpuMs": 1.913,
+        "db": {
+          "statements": 0,
+          "batches": 0,
+          "vmApprox": 0,
+          "cpuMs": 0,
+          "wallMs": 0
+        }
+      },
+      {
+        "name": "foreign origin",
+        "count": 16,
+        "concurrency": 8,
+        "statuses": {
+          "403": 16
+        },
+        "responseBytes": {
+          "403": 1712
+        },
+        "elapsedMs": 0.9402359999994587,
+        "nodeCpuMs": 0.851,
+        "db": {
+          "statements": 0,
+          "batches": 0,
+          "vmApprox": 0,
+          "cpuMs": 0,
+          "wallMs": 0
+        }
+      },
+      {
+        "name": "oversized JSON",
+        "count": 8,
+        "concurrency": 4,
+        "statuses": {
+          "413": 8
+        },
+        "responseBytes": {
+          "413": 656
+        },
+        "elapsedMs": 3.2455529999997452,
+        "nodeCpuMs": 3.284,
+        "db": {
+          "statements": 0,
+          "batches": 0,
+          "vmApprox": 0,
+          "cpuMs": 0,
+          "wallMs": 0
+        }
+      },
+      {
+        "name": "oversized fanout51",
+        "count": 8,
+        "concurrency": 4,
+        "statuses": {
+          "422": 8
+        },
+        "responseBytes": {
+          "422": 1048
+        },
+        "elapsedMs": 1.3198849999998856,
+        "nodeCpuMs": 1.321,
+        "db": {
+          "statements": 0,
+          "batches": 0,
+          "vmApprox": 0,
+          "cpuMs": 0,
+          "wallMs": 0
+        }
+      }
+    ]
+  },
+  "candidate": {
+    "scope": "controlled local Worker+SQLite only; no network requests; wall includes Python startup/locking; SQL CPU and approximate VM steps separate",
+    "sourceSha256": "172151533d30d8dbaaa93f900ee0d8eec82b8acb576ca4e2da91b2cae8729bd4",
+    "fixedServerTime": "2026-11-14T13:00:00.000Z",
+    "reports": [
+      {
+        "name": "metrics GET",
+        "count": 32,
+        "concurrency": 8,
+        "statuses": {
+          "200": 32
+        },
+        "responseBytes": {
+          "200": 3840
+        },
+        "elapsedMs": 808.9064450000001,
+        "nodeCpuMs": 153.064,
+        "db": {
+          "statements": 64,
+          "batches": 64,
+          "vmApprox": 0,
+          "cpuMs": 49.73672100000001,
+          "wallMs": 475.8603569753177
+        }
+      },
+      {
+        "name": "metrics POST",
+        "count": 32,
+        "concurrency": 8,
+        "statuses": {
+          "200": 32
+        },
+        "responseBytes": {
+          "200": 3840
+        },
+        "elapsedMs": 1146.097984,
+        "nodeCpuMs": 149.545,
+        "db": {
+          "statements": 96,
+          "batches": 96,
+          "vmApprox": 0,
+          "cpuMs": 75.73557300000004,
+          "wallMs": 1144.6038139947632
+        }
+      },
+      {
+        "name": "sales GET limit=1 at10k",
+        "count": 72,
+        "concurrency": 4,
+        "statuses": {
+          "200": 60,
+          "429": 12
+        },
+        "responseBytes": {
+          "200": 101640,
+          "429": 1488
+        },
+        "elapsedMs": 2073.8005009999997,
+        "nodeCpuMs": 219.443,
+        "db": {
+          "statements": 432,
+          "batches": 132,
+          "vmApprox": 70800000,
+          "cpuMs": 1191.6810020000003,
+          "wallMs": 4835.798071995669
+        }
+      },
+      {
+        "name": "sales POST 50 new atquota",
+        "count": 32,
+        "concurrency": 4,
+        "statuses": {
+          "409": 20,
+          "429": 12
+        },
+        "responseBytes": {
+          "409": 6860,
+          "429": 1488
+        },
+        "elapsedMs": 1028.0893729999998,
+        "nodeCpuMs": 155.846,
+        "db": {
+          "statements": 1072,
+          "batches": 52,
+          "vmApprox": 81840000,
+          "cpuMs": 647.4261039999994,
+          "wallMs": 2505.9190259962634
+        }
+      },
+      {
+        "name": "unauthenticated",
+        "count": 16,
+        "concurrency": 8,
+        "statuses": {
+          "401": 16
+        },
+        "responseBytes": {
+          "401": 2464
+        },
+        "elapsedMs": 2.3236449999994875,
+        "nodeCpuMs": 2.892,
+        "db": {
+          "statements": 0,
+          "batches": 0,
+          "vmApprox": 0,
+          "cpuMs": 0,
+          "wallMs": 0
+        }
+      },
+      {
+        "name": "foreign origin",
+        "count": 16,
+        "concurrency": 8,
+        "statuses": {
+          "403": 16
+        },
+        "responseBytes": {
+          "403": 1712
+        },
+        "elapsedMs": 0.9777520000006916,
+        "nodeCpuMs": 0.966,
+        "db": {
+          "statements": 0,
+          "batches": 0,
+          "vmApprox": 0,
+          "cpuMs": 0,
+          "wallMs": 0
+        }
+      },
+      {
+        "name": "oversized JSON",
+        "count": 8,
+        "concurrency": 4,
+        "statuses": {
+          "413": 8
+        },
+        "responseBytes": {
+          "413": 656
+        },
+        "elapsedMs": 3.2829490000003716,
+        "nodeCpuMs": 3.433,
+        "db": {
+          "statements": 0,
+          "batches": 0,
+          "vmApprox": 0,
+          "cpuMs": 0,
+          "wallMs": 0
+        }
+      },
+      {
+        "name": "oversized fanout51",
+        "count": 8,
+        "concurrency": 4,
+        "statuses": {
+          "422": 8
+        },
+        "responseBytes": {
+          "422": 1048
+        },
+        "elapsedMs": 1.7519920000004277,
+        "nodeCpuMs": 1.897,
+        "db": {
+          "statements": 0,
+          "batches": 0,
+          "vmApprox": 0,
+          "cpuMs": 0,
+          "wallMs": 0
+        }
+      }
+    ]
+  }
+}

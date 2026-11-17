@@ -1,0 +1,81 @@
+/* Annotation pass: stronger controls and compact cards; fullscreen feed/dialogs keep their layouts. */
+body:not(.reels) #featured-lots{padding:22px 20px 18px;border:1.5px solid #CADAF0;border-radius:24px;background:#FFF;box-shadow:0 10px 30px #15396608}
+#featured-lots .featured-heading{margin-bottom:16px;gap:14px}
+#featured-lots .featured-heading h2{font-size:25px;line-height:1.25;letter-spacing:-.6px;color:#183351}
+#featured-lots .featured-modes{gap:8px;padding:7px;margin:0 0 12px;border:1px solid #D9E4F1;border-radius:17px;background:#F0F5FB}
+#featured-lots .featured-modes button{min-height:44px;padding:10px 16px;border:1.5px solid #B8CCE6;border-radius:11px;background:#FFF;color:#294766;font-size:13px;line-height:1.35;font-weight:700;box-shadow:0 2px 4px #20457205}
+#featured-lots .featured-modes button[aria-pressed="true"]{border-color:#084BBF;background:#0D57D9;color:#FFF;box-shadow:0 3px 8px #0D57D92B}
+#featured-lots .featured-modes button:focus-visible{outline:3px solid #74ABF3;outline-offset:2px}
+#featured-lots .featured-modes button:not([aria-pressed="true"]):hover{border-color:#759FD6;background:#E8F1FF;color:#164B93}
+#featured-lots .featured-description{color:#4D6681;font-size:12px;line-height:1.6}
+#featured-lots .featured-card{padding:0 0 12px;border:1px solid #D6E2F0;border-radius:17px;overflow:hidden;background:#FFF;box-shadow:0 3px 10px #15396605}
+#featured-lots .featured-photo{border-radius:16px 16px 0 0;margin-bottom:12px}
+#featured-lots .featured-card>:not(.featured-photo){margin-left:12px;margin-right:12px}
+#featured-lots .featured-name{font-size:14px;font-weight:750;line-height:1.45;color:#193858}
+#featured-lots .vehicle-engine-compact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 9px;padding:9px 0;border-top:1px solid #EDF1F7;border-bottom:1px solid #EDF1F7}
+#featured-lots .vehicle-engine-compact>div:last-child{grid-column:1/-1}
+#featured-lots .featured-price{font-size:20px;font-weight:800;color:#123456;letter-spacing:-.4px}
+#featured-lots .featured-price-label{font-size:10px;color:#566D85}
+
+/* One compact control panel: catalogue title, view actions, tabs and sorting. */
+body:not(.reels) #lot-results{margin-top:28px;margin-bottom:0;padding:22px 22px 16px;border:1px solid #D3DFEF;border-bottom:0;border-radius:20px 20px 0 0;background:#FFF;gap:12px;align-items:center}
+body:not(.reels) #lot-results h2{font-size:25px;line-height:1.3;letter-spacing:-.7px;margin:0;color:#163450}
+body:not(.reels) #lot-results #result-count{display:inline-block;margin:5px 0 0;font-size:12px;font-weight:500;color:#637A92}
+body:not(.reels) #lot-results .live{color:#647991;font-size:10px}
+body:not(.reels) .discovery-catalog>.toolbar{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:12px 10px;align-items:center;margin:0 0 22px;padding:0 22px 18px;border:1px solid #D3DFEF;border-top:0;border-radius:0 0 20px 20px;background:#FFF}
+body:not(.reels) .toolbar>.feed-open,body:not(.reels) .toolbar>.property-map-launch,body:not(.reels) .toolbar>.seller-directory-launch{width:auto;min-height:42px;margin:0;padding:10px 14px;font-size:12px;font-weight:650;white-space:normal;border-radius:11px}
+body:not(.reels) .toolbar>.seller-directory-launch{justify-self:end}
+body:not(.reels) .toolbar>.tabs{grid-column:1/3;display:flex;flex-wrap:wrap;gap:4px;padding:4px;margin:0;border:1px solid #DDE6F2;border-radius:12px;background:#F2F6FB}
+body:not(.reels) .toolbar .tab{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;min-height:38px;padding:8px 12px;border:1px solid transparent;border-radius:9px;font-size:12px;font-weight:650;color:#3D5876;white-space:nowrap}
+body:not(.reels) .toolbar .tab.on{background:#FFF;color:#0D55C9;border-color:#BDD3F1;box-shadow:0 2px 7px #1845750D}
+body:not(.reels) .toolbar>.sort{justify-self:end;max-width:100%;min-width:0;min-height:42px;padding:9px 10px;border:1px solid #CAD9EC;border-radius:11px;background:#FFF;font-size:12px;color:#37536E}
+
+/* Photo, price, key facts and action use a steady rhythm with fewer nested boxes. */
+body:not(.reels) #grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px;align-items:stretch}
+body:not(.reels) #grid .card{border:1px solid #CFDDED;border-radius:20px;background:#FFF;box-shadow:0 6px 22px #173A6108;overflow:hidden}
+body:not(.reels) #grid .car-photo{aspect-ratio:16/10;height:auto;min-height:0}
+body:not(.reels) #grid .card-body{display:flex;flex-direction:column;gap:10px;padding:18px;min-width:0}
+body:not(.reels) #grid .card h3{margin:0;color:#173653;font-size:20px;line-height:1.35;letter-spacing:-.4px;font-weight:750}
+body:not(.reels) #grid .bidrow{gap:10px;margin:0;padding:0;border:0;background:none}
+body:not(.reels) #grid .bidrow .caption{display:block;margin:0 0 4px;color:#63778D;font-size:10px;font-weight:600}
+body:not(.reels) #grid .price{font-size:28px;line-height:1.2;font-weight:800;color:#103B6A;letter-spacing:-.6px}
+body:not(.reels) #grid .time{margin:0;padding:10px 0;border-top:1px solid #E7EEF6;border-bottom:1px solid #E7EEF6}
+body:not(.reels) #grid .countdown-units{gap:0;padding:0;background:#F2F6FC;border-radius:10px}
+body:not(.reels) #grid .countdown-unit{padding:7px 2px;border:0;border-right:1px solid #DDE7F3;border-radius:0;background:none;gap:2px}
+body:not(.reels) #grid .countdown-unit:last-child{border-right:0}
+body:not(.reels) #grid .countdown-number{font-size:16px;color:#284F79}
+body:not(.reels) #grid .countdown-unit>small{font-size:10px;color:#4D647D}
+body:not(.reels) #grid .lot-priority-highlights{margin:0;gap:6px}
+body:not(.reels) #grid .lot-presentation{margin:0;font-size:11px}
+body:not(.reels) #grid .lot-presentation-facts{gap:6px}
+body:not(.reels) #grid .lot-fact{padding:4px 7px;border:0;border-radius:6px;background:#F1F5FA;color:#365775;font-size:11px}
+body:not(.reels) #grid .lot-fact-warning{background:#FFF1D8;color:#805012}
+body:not(.reels) #grid .lot-presentation-disclosure{font-size:10px;margin-top:7px}
+body:not(.reels) #grid .lot-presentation-demo{font-size:9px;margin-top:3px}
+body:not(.reels) #grid .vehicle-engine-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;margin:0;padding:11px 12px;background:#F6F8FC;border-radius:11px}
+body:not(.reels) #grid .vehicle-engine-summary>div:last-child{grid-column:1/-1}
+body:not(.reels) #grid .vehicle-engine-summary dt{font-size:11px;color:#4D647D}
+body:not(.reels) #grid .vehicle-engine-summary dd{font-size:12px;color:#254967;line-height:1.45}
+body:not(.reels) #grid .location{margin:0;padding-top:10px;border-top:1px solid #E8EEF6;gap:10px;align-items:stretch}
+body:not(.reels) #grid .lot-location-distance{align-items:center;gap:8px}
+body:not(.reels) #grid .lot-map-link{font-size:11px;line-height:1.5;text-decoration:none;color:#315E8C}
+body:not(.reels) #grid .distance-tag{font-size:9px;padding:4px 6px;border-radius:6px}
+body:not(.reels) #grid .seller-identity-entry{margin-top:6px;font-size:11px}
+body:not(.reels) #grid .card-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;margin-top:auto;padding-top:10px}
+body:not(.reels) #grid .card-bottom .primary{min-width:0;min-height:44px;padding:11px 14px;border-radius:11px;font-size:12px;line-height:1.4}
+body:not(.reels) #grid .card-bottom .bids{font-size:10px;color:#60758C;max-width:68px}
+@media(min-width:701px){#featured-lots .featured-card{flex-basis:214px;width:214px}}
+@media(max-width:700px){body:not(.reels) #featured-lots{padding:17px 12px 14px;border-radius:20px}#featured-lots .featured-heading h2{font-size:21px}#featured-lots .featured-modes{gap:5px;padding:5px}#featured-lots .featured-modes button{padding:8px 11px;font-size:11px}#featured-lots .featured-card>:not(.featured-photo){margin-left:9px;margin-right:9px}#featured-lots .featured-name{font-size:12px}#featured-lots .featured-price{font-size:17px}#featured-lots .vehicle-engine-compact{grid-template-columns:minmax(0,1fr);gap:5px}#featured-lots .vehicle-engine-compact>div:last-child{grid-column:auto}body:not(.reels) #lot-results{padding:18px 16px 13px;flex-wrap:wrap}body:not(.reels) #lot-results h2{font-size:23px}body:not(.reels) .discovery-catalog>.toolbar{padding:0 16px 16px;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}body:not(.reels) .toolbar>.feed-open,body:not(.reels) .toolbar>.property-map-launch{width:100%;font-size:11px;padding:9px 8px}body:not(.reels) .toolbar>.seller-directory-launch{grid-column:1/-1;justify-self:start;padding:8px 12px;min-height:36px}body:not(.reels) .toolbar>.tabs{grid-column:1/-1;grid-row:auto}body:not(.reels) .toolbar>.sort{grid-column:1/-1;width:100%;justify-self:stretch}body:not(.reels) .toolbar .tab{font-size:11px;padding:8px 7px}body:not(.reels) #grid .card-body{padding:17px;gap:10px}}
+
+/* Narrow screens keep headings whole and give every filter a readable target. */
+@media(max-width:700px){body:not(.reels) #lot-results{display:block}body:not(.reels) #lot-results h2{width:100%;max-width:100%;overflow-wrap:normal;word-break:normal}body:not(.reels) #lot-results .live{display:flex;margin-top:10px}}
+@media(max-width:420px){#featured-lots .featured-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}#featured-lots .featured-heading>div:first-child{grid-column:1/-1}#featured-lots .featured-heading h2{overflow-wrap:normal;word-break:normal}#featured-lots .featured-heading .hero-feed{justify-self:start}}
+@media(max-width:360px){body:not(.reels) .toolbar>.tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}body:not(.reels) .toolbar .tab[data-tab="fav"]{grid-column:1/-1}}
+
+@media(max-width:420px){#featured-lots.featured-lots .featured-heading.featured-settings-enabled{grid-template-columns:minmax(0,1fr) auto}#featured-lots.featured-lots .featured-heading>div:first-child{grid-column:1/-1;grid-row:1}#featured-lots.featured-lots .featured-settings-enabled>#home-open-feed{grid-column:1;grid-row:2;width:auto;justify-self:start}#featured-lots.featured-lots .featured-heading>.featured-settings{grid-column:2;grid-row:2}}
+
+/* The next-page action stays centered and separate from catalogue cards. */
+body:not(.reels) #more{display:flex;align-items:center;justify-content:center;gap:10px;width:fit-content;min-width:min(100%,260px);max-width:100%;min-height:48px;margin:28px auto 38px;padding:12px 24px;border:1.5px solid #8DB0DF;border-radius:13px;background:#FFF;color:#174F99;font:600 14px/1.5 "Golos Text",Arial,sans-serif;box-shadow:0 3px 7px #174F9910,0 9px 18px #174F9912}
+body:not(.reels) #more[hidden]{display:none}
+body:not(.reels) #more:hover:not(:disabled){background:#EAF3FF;border-color:#4C87D2}
+body:not(.reels) #more:focus-visible{outline:3px solid #75A7EB;outline-offset:3px}

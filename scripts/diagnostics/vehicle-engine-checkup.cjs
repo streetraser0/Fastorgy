@@ -1,0 +1,29 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const {chromium}=require(process.env.FAS_PLAYWRIGHT_MODULE||'playwright');
+const base=process.env.FAS_BROWSER_BASE_URL;if(!base)throw new Error('Set FAS_BROWSER_BASE_URL to local preview.');
+const out=path.resolve(process.env.FAS_BROWSER_REPORT_DIR||'test-results/vehicle-engine');fs.mkdirSync(out,{recursive:true});
+const android='Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 Chrome/130.0.0.0 Mobile Safari/537.36',ios='Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1';
+const configs=[{name:'ios390',width:390,mobile:true,ua:ios},{name:'android390',width:390,mobile:true,ua:android},{name:'desktop1366',width:1366,mobile:false},{name:'android320',width:320,mobile:true,ua:android}];
+const report={started:new Date().toISOString(),method:'Isolated Google Chrome; iOS/Android UA and touch/viewport emulation. Same real demo car object in every layout; explicit missing/EV/unit fixtures read only through the public helper API. No source data or real device modified.',cases:[]};const save=()=>fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2));
+let browser,selectedId,reference;
+(async()=>{browser=await chromium.launch({headless:true,executablePath:process.env.FAS_BROWSER_EXECUTABLE||'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'});
+ for(const config of configs){const result={name:config.name,errors:[]};report.cases.push(result);const context=await browser.newContext({viewport:{width:config.width,height:config.mobile?844:900},isMobile:config.mobile,hasTouch:config.mobile,...(config.ua?{userAgent:config.ua}:{})});const page=await context.newPage();page.setDefaultTimeout(15000);page.on('pageerror',e=>result.errors.push(e.stack));
+ try{await page.goto(base,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.FasVehicleEngineFacts&&document.querySelector('#grid .card'));await page.evaluate(()=>document.fonts.ready);
+  if(!selectedId)selectedId=await page.evaluate(()=>cars.find(l=>l.category==='cars'&&l.powerHp===184&&l.demoCatalogVersion===3)?.id);assert(selectedId,'Known explicit source car exists');
+  result.source=await page.evaluate(id=>{const l=cars.find(l=>l.id===id);return{id:l.id,name:l.name,category:l.category,fuel:l.fuel,engine:l.engine,engineVolume:l.engineVolume??null,powerHp:l.powerHp,powerKw:l.powerKw??null};},selectedId);
+  if(reference)assert.deepEqual(result.source,reference,'Same original source car on every platform');else reference=result.source;
+  await page.goto(new URL('?lot='+selectedId,base).href,{waitUntil:'domcontentloaded'});await page.locator('#modal.lot-dialog[open]').waitFor();await page.evaluate(()=>document.fonts.ready);
+  const facts=page.locator('#modal .object-attributes');await facts.scrollIntoViewIfNeeded();await page.waitForTimeout(250);
+  result.rendered=await facts.evaluate(e=>({values:Object.fromEntries(['type','volume','power'].map(k=>[k,[...e.querySelectorAll('[data-engine-fact="'+k+'"]')].map(n=>n.textContent)])),powerTitle:e.querySelector('[data-engine-fact="power"]')?.title,legacyLabels:[...e.querySelectorAll('dt')].map(n=>n.textContent).filter(t=>['Топливо','Мощность, л.с.','Мощность, кВт'].includes(t)),width:e.clientWidth,scrollWidth:e.scrollWidth,dialogWidth:document.querySelector('#modal').clientWidth,dialogScrollWidth:document.querySelector('#modal').scrollWidth,pageWidth:document.documentElement.scrollWidth,viewport:innerWidth}));
+  assert.equal(result.source.engine,'2.0 л / Бензин','Volume comes from the explicit legacy unit, not an invented model specification');assert.deepEqual(result.rendered.values,{type:['Бензиновый'],volume:['2 л'],power:['184 л.с. / 135,3 кВт']});assert.equal(result.rendered.legacyLabels.length,0,'No duplicated legacy fuel/power rows');assert.match(result.rendered.powerTitle,/0,73549875/);assert(result.rendered.scrollWidth<=result.rendered.width+1);assert(result.rendered.dialogScrollWidth<=result.rendered.dialogWidth+1);assert.equal(result.rendered.pageWidth,result.rendered.viewport);
+  result.summary=await page.evaluate(id=>{const card=document.querySelector('#grid [data-card-lot="'+id+'"]')||document.querySelector('#grid .card:has([data-open="'+id+'"] )');const root=card||document.querySelector('#grid .card');return root?[...root.querySelectorAll('[data-vehicle-engine]')].map(e=>e.textContent):[];},selectedId);
+  await page.screenshot({path:path.join(out,config.name+'-engine.png')});
+  if(config.name==='android390'){
+   result.fixtures=await page.evaluate(()=>{const f=FasVehicleEngineFacts;return{explicit:f.read({category:'cars',name:'QA explicit',fuel:'diesel',engineVolume:2.5,powerHp:150}),missing:f.read({category:'cars',name:'QA missing'}),ev:f.read({category:'cars',name:'QA EV',fuel:'electric',powerKw:100}),house:f.read({category:'property',name:'QA house',powerHp:184})};});
+   assert.equal(result.fixtures.explicit.litres,2.5);assert(Math.abs(result.fixtures.explicit.kw-110.3248125)<1e-8);assert.equal(result.fixtures.explicit.rows[1].value,'2,5 л');assert(result.fixtures.missing.rows.every(r=>r.value==='Не указано'));assert.equal(result.fixtures.ev.rows[1].value,'Не применим');assert.equal(result.fixtures.house,null);
+  }
+  assert.deepEqual(result.errors,[]);result.passed=true;
+ }catch(error){result.passed=false;result.failure=error.stack;process.exitCode=1;await page.screenshot({path:path.join(out,config.name+'-failure.png')}).catch(()=>{});}finally{save();console.log(config.name+': '+(result.passed?'PASS':result.failure));await context.close();}}
+ report.finished=new Date().toISOString();report.passed=report.cases.filter(c=>c.passed).length;report.total=report.cases.length;save();
+})().catch(error=>{report.failure=error.stack;process.exitCode=1;save();console.error(error);}).finally(()=>browser?.close());

@@ -1,0 +1,21 @@
+import { cp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import { build } from 'esbuild';
+const here = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(here, '..');
+const source = path.resolve(root, '../dist');
+const target = path.join(root, 'www');
+await rm(target, { recursive: true, force: true });
+await mkdir(target, { recursive: true });
+// Backend build output must never be packaged into the mobile application.
+const serverOutput = path.join(source, 'server');
+const hostingMetadata = path.join(source, '.openai');
+const databaseMigrations = path.join(source, 'drizzle');
+await cp(source, target, { recursive: true, filter: file => file !== serverOutput && file !== hostingMetadata && file !== databaseMigrations });
+let html = await readFile(path.join(target, 'index.html'), 'utf8');
+html = html.replace('</body>', '<script src="native-bridge.js"></script></body>');
+await writeFile(path.join(target, 'index.html'), html);
+await build({ entryPoints: [path.join(here, 'native-bridge.js')], outfile: path.join(target, 'native-bridge.js'), bundle: true, format: 'iife', platform: 'browser', target: ['es2020'], minify: true });
+await writeFile(path.join(target, 'native-build.json'), JSON.stringify({ name: 'ФАС торги', bundled: true, prototype: true, generatedAt: new Date().toISOString() }, null, 2));
+console.log('Bundled the shared website with native mobile adapters.');

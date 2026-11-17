@@ -1,0 +1,124 @@
+{
+  "created_utc": "2026-11-14T21:45:55.583934+00:00",
+  "method": "10 serial read-only requests; no production writes, flood or model download. Workspace HTTP is not physical Safari latency.",
+  "results": [
+    {
+      "path": "/",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 278210,
+      "ttfb_ms": 1418.5,
+      "total_ms": 1430.5,
+      "nosniff": "nosniff",
+      "cache_control": "no-store, private",
+      "body_sha256_matches_build": true,
+      "html_csp_matches_build": true
+    },
+    {
+      "path": "/featured-lots.js",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 43057,
+      "ttfb_ms": 125.0,
+      "total_ms": 125.5,
+      "nosniff": "nosniff",
+      "cache_control": "private, max-age=3600",
+      "body_sha256_matches_build": true
+    },
+    {
+      "path": "/featured-lots.css",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 12355,
+      "ttfb_ms": 339.2,
+      "total_ms": 339.3,
+      "nosniff": "nosniff",
+      "cache_control": "private, max-age=3600",
+      "body_sha256_matches_build": true
+    },
+    {
+      "path": "/sw.js",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 9674,
+      "ttfb_ms": 141.2,
+      "total_ms": 141.3,
+      "nosniff": "nosniff",
+      "cache_control": "no-cache, private",
+      "body_sha256_matches_build": true
+    },
+    {
+      "path": "/assets/photos/responsive/cars-1-480-33aec037c453.webp",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 23132,
+      "ttfb_ms": 98.6,
+      "total_ms": 98.9,
+      "nosniff": "nosniff",
+      "cache_control": "private, max-age=3600",
+      "body_sha256_matches_build": true
+    },
+    {
+      "path": "/assets/brand/fas-torgi-logo.png",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 53760,
+      "ttfb_ms": 159.4,
+      "total_ms": 167.4,
+      "nosniff": "nosniff",
+      "cache_control": "private, max-age=3600",
+      "body_sha256_matches_build": true
+    },
+    {
+      "path": "/",
+      "authorized_bypass": false,
+      "spoof_identity": false,
+      "status": 403,
+      "bytes": 17,
+      "ttfb_ms": 91.9,
+      "total_ms": 92.0,
+      "nosniff": null,
+      "cache_control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+    },
+    {
+      "path": "/api/metrics/visit",
+      "authorized_bypass": false,
+      "spoof_identity": false,
+      "status": 403,
+      "bytes": 17,
+      "ttfb_ms": 48.2,
+      "total_ms": 48.3,
+      "nosniff": null,
+      "cache_control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+    },
+    {
+      "path": "/api/metrics/visit",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 401,
+      "bytes": 154,
+      "ttfb_ms": 384.4,
+      "total_ms": 384.5,
+      "nosniff": "nosniff",
+      "cache_control": "no-store, private"
+    },
+    {
+      "path": "/api/metrics/visit",
+      "authorized_bypass": true,
+      "spoof_identity": true,
+      "status": 401,
+      "bytes": 154,
+      "ttfb_ms": 69.9,
+      "total_ms": 70.5,
+      "nosniff": "nosniff",
+      "cache_control": "no-store, private"
+    }
+  ],
+  "success": true
+}

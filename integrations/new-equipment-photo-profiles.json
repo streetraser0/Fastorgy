@@ -1,0 +1,42 @@
+[
+  {
+    "path": "assets/photos/equipment-type-forklift.jpg",
+    "title": "Вилочный погрузчик HELI",
+    "brand": "HELI",
+    "category": "machinery",
+    "source": "https://www.pexels.com/photo/forklift-in-warehouse-14688876/",
+    "description": "Синий вилочный погрузчик с читаемой маркировкой HELI в складском помещении. Точная модель и характеристики не подтверждены."
+  },
+  {
+    "path": "assets/photos/equipment-type-compressor.jpg",
+    "title": "Промышленный воздушный компрессор",
+    "brand": "",
+    "category": "equipment",
+    "source": "https://www.pexels.com/photo/an-air-compressor-9754814/",
+    "description": "Промышленный воздушный компрессор в мастерской. Марка и модель не подтверждены."
+  },
+  {
+    "path": "assets/photos/equipment-type-server.jpg",
+    "title": "Стоечное серверное оборудование",
+    "brand": "",
+    "category": "other",
+    "source": "https://www.pexels.com/photo/server-rack-in-modern-data-center-37605910/",
+    "description": "Крупный план серверных модулей в стойке. Конкретная марка, модель и комплектация не подтверждены."
+  },
+  {
+    "path": "assets/photos/equipment-type-lathe.jpg",
+    "title": "Вертикально-фрезерный станок",
+    "brand": "",
+    "category": "equipment",
+    "source": "https://www.pexels.com/photo/industrial-cnc-lathe-in-a-busy-machine-shop-28929510/",
+    "description": "На фото видны вертикальная шпиндельная головка и стол фрезерного станка. Несмотря на название страницы источника, токарным станком этот снимок не подписывать. Марка и модель не подтверждены."
+  },
+  {
+    "path": "assets/photos/equipment-type-generator.jpg",
+    "title": "Передвижной сварочный агрегат Miller",
+    "brand": "Miller",
+    "category": "equipment",
+    "source": "https://www.pexels.com/photo/industrial-generator-in-snowy-outdoor-setting-35042792/",
+    "description": "Передвижной промышленный сварочный агрегат с читаемым логотипом Miller. Точная модель, мощность и состояние не подтверждены; не подписывать как отдельную электростанцию без подтверждения."
+  }
+]

@@ -1,0 +1,22 @@
+:root{--fas-ease:cubic-bezier(.2,.75,.25,1);--fas-fast:150ms;--fas-standard:210ms}
+button,.primary,.outline,.tab,.category-picker-trigger,.home-category,.plan-card,.seller-row,.notice-row{transition-property:background-color,border-color,color,box-shadow;transition-duration:var(--fas-fast);transition-timing-function:var(--fas-ease)}
+.category-discovery .home-category{background:#EFF4F8;border-color:#DDE6EF;transition:background-color 180ms var(--fas-ease),border-color 180ms var(--fas-ease),box-shadow 180ms var(--fas-ease),transform 180ms var(--fas-ease)}
+.category-discovery .home-category::before{content:'';position:absolute;right:-28px;bottom:-53px;width:150px;height:120px;border-radius:34px;background:linear-gradient(135deg,#0D4CD30A,#219A910D);transform:rotate(-12deg);pointer-events:none}
+.category-discovery .home-category:hover{background:#E7EFF8;box-shadow:0 7px 20px #123C6A12}.category-discovery .home-category.selected,.category-discovery .home-category[aria-pressed="true"]{background:#E6F0FF}
+.category-discovery .category-tile-art{transition:transform 240ms var(--fas-ease)}
+.quick-access-button{transition:background-color 150ms var(--fas-ease),color 150ms var(--fas-ease),transform 150ms var(--fas-ease)}
+.primary,.outline{transition-property:background-color,border-color,color,box-shadow,translate}
+.quick-access-button:active{transform:scale(.96)}.primary:not(:disabled):active,.outline:not(:disabled):active{translate:0 1px}
+.quick-access{animation:fas-dock-enter 220ms var(--fas-ease) both}.lot-quick-access{animation:fas-toolbar-enter 180ms var(--fas-ease) both}
+.toast{animation:fas-toast-enter 180ms var(--fas-ease) both}
+.category-browser-row{transition:background-color 150ms var(--fas-ease),color 150ms var(--fas-ease)}
+@keyframes fas-dock-enter{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}
+@keyframes fas-toolbar-enter{from{opacity:0}to{opacity:1}}
+@keyframes fas-toast-enter{from{opacity:0;transform:translate(-50%,7px)}to{opacity:1;transform:translate(-50%,0)}}
+/* The close method still runs immediately; capable browsers retain only the fading visual. */
+@supports (transition-behavior:allow-discrete) and (overlay:auto){
+ dialog.fas-motion-exit{transition:opacity 160ms var(--fas-ease),display 160ms allow-discrete,overlay 160ms allow-discrete}
+ dialog.fas-motion-exit:not([open]){position:fixed!important;inset:auto!important;top:var(--fas-exit-top)!important;left:var(--fas-exit-left)!important;width:var(--fas-exit-width)!important;height:var(--fas-exit-height)!important;max-width:none!important;max-height:none!important;margin:0!important;box-sizing:border-box;overflow:hidden!important;opacity:0;pointer-events:none;background:var(--fas-exit-background)!important;color:var(--fas-exit-color)!important;border-radius:var(--fas-exit-radius)!important;box-shadow:var(--fas-exit-shadow)!important;border:var(--fas-exit-border)!important}
+ dialog.fas-motion-exit::backdrop{transition:opacity 160ms var(--fas-ease)}dialog.fas-motion-exit:not([open])::backdrop{opacity:0;pointer-events:none}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}

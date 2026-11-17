@@ -1,0 +1,17 @@
+/* Only #sort is enhanced. The button keeps the native sort grid placement. */
+#sort.catalog-sort-native[hidden],#catalog-sort-options[hidden]{display:none!important}
+#catalog-sort-trigger{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;box-sizing:border-box;min-height:44px;max-width:100%;padding:11px 14px;border:1px solid #BBD0E9;border-radius:12px;background:#FFF;color:#24486D;font:650 13px/1.4 'Golos Text',Arial,sans-serif;text-align:left;cursor:pointer;box-shadow:0 2px 5px #1743730A;touch-action:manipulation;transition:border-color .15s,box-shadow .15s,background .15s}
+#catalog-sort-trigger:hover{border-color:#7DA7DB;background:#F8FBFF;box-shadow:0 3px 10px #17437312}
+#catalog-sort-trigger:focus-visible,#catalog-sort-trigger[aria-expanded="true"]{outline:2px solid #357DDB;outline-offset:2px;border-color:#76A5DF;background:#FFF;box-shadow:0 3px 12px #17437314}
+#catalog-sort-trigger:disabled{cursor:default;opacity:.55;box-shadow:none}
+#catalog-sort-trigger .catalog-sort-caption{min-width:0;overflow-wrap:anywhere}
+#catalog-sort-trigger .catalog-sort-chevron{flex:none;width:7px;height:7px;border-right:1.7px solid currentColor;border-bottom:1.7px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .15s}
+#catalog-sort-trigger[aria-expanded="true"] .catalog-sort-chevron{transform:rotate(225deg) translate(-1px,-1px)}
+#catalog-sort-options{position:fixed;z-index:220;box-sizing:border-box;max-width:calc(100vw - 20px);margin:0;padding:7px;border:1px solid #D0DEEE;border-radius:15px;background:#FFF;color:#234563;box-shadow:0 4px 12px #183B6314,0 18px 42px #183B6326;overflow:auto;overscroll-behavior:contain;scroll-padding:7px;font:500 14px/1.4 'Golos Text',Arial,sans-serif;text-align:left}
+#catalog-sort-options .catalog-sort-option{display:flex;align-items:center;justify-content:space-between;gap:14px;box-sizing:border-box;min-height:46px;padding:11px 12px;border:1px solid transparent;border-radius:9px;cursor:pointer;touch-action:manipulation;overflow-wrap:anywhere}
+#catalog-sort-options .catalog-sort-option[aria-selected="true"]{color:#1256B8;font-weight:700;background:#F1F6FE}
+#catalog-sort-options .catalog-sort-option.is-active{color:#124F9B;background:#EAF3FF;border-color:#B6D2F5}
+#catalog-sort-options .catalog-sort-option[aria-disabled="true"]{color:#8A9AAD;cursor:default;background:transparent}
+#catalog-sort-options .catalog-sort-check{flex:none;color:#1261CE;font-size:17px;font-weight:700;visibility:hidden}
+#catalog-sort-options [aria-selected="true"] .catalog-sort-check{visibility:visible}
+@media(prefers-reduced-motion:reduce){#catalog-sort-trigger,#catalog-sort-trigger .catalog-sort-chevron{transition:none}}

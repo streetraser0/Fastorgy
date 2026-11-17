@@ -1,0 +1,922 @@
+{
+  "generatedAt": "2026-11-13",
+  "upstream": {
+    "repository": "https://github.com/vehiclesdb/vehiclesdb",
+    "commit": "e9a8711aeb92f8b2e5ab2331cff30931d30ba072",
+    "version": "2026.11.10",
+    "builtAt": "2026-11-12T13:16:11Z",
+    "files": [
+      {
+        "path": "manifest.json",
+        "url": "https://raw.githubusercontent.com/vehiclesdb/vehiclesdb/e9a8711aeb92f8b2e5ab2331cff30931d30ba072/manifest.json",
+        "sha256": "d366edfb4866e591167e33b0fc8f834a2a9e3c3da9557a3a5b53ee96627edc8d"
+      },
+      {
+        "path": "ATTRIBUTION.md",
+        "url": "https://raw.githubusercontent.com/vehiclesdb/vehiclesdb/e9a8711aeb92f8b2e5ab2331cff30931d30ba072/ATTRIBUTION.md",
+        "sha256": "47edb850ed4ff02f5c9d8de3efcdd314d7a0162b1067e1c15ca07b956acccf60"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/vehiclesdb/vehiclesdb/e9a8711aeb92f8b2e5ab2331cff30931d30ba072/LICENSE",
+        "sha256": "48a2c12a43e8df6700e36440f089c1497e62a507e194e995d69a7d3530999e78"
+      },
+      {
+        "path": "catalog/car/makes.json",
+        "url": "https://raw.githubusercontent.com/vehiclesdb/vehiclesdb/e9a8711aeb92f8b2e5ab2331cff30931d30ba072/catalog/car/makes.json",
+        "sha256": "814b5c987f57594fbdebf6b7ee4c1277def581f55c96412b2461e68f23968873"
+      },
+      {
+        "path": "catalog/car/models.json",
+        "url": "https://raw.githubusercontent.com/vehiclesdb/vehiclesdb/e9a8711aeb92f8b2e5ab2331cff30931d30ba072/catalog/car/models.json",
+        "sha256": "53a28b4b0f942249efa40c607cd03476cb1dbfd81a0611607e9c2c78d07a4f26"
+      },
+      {
+        "path": "catalog/van/makes.json",
+        "url": "https://raw.githubusercontent.com/vehiclesdb/vehiclesdb/e9a8711aeb92f8b2e5ab2331cff30931d30ba072/catalog/van/makes.json",
+        "sha256": "d356f0ce8770b77cce01184d51d068398d59d63fd905f44ad37ff8e6bd545739"
+      },
+      {
+        "path": "catalog/van/models.json",
+        "url": "https://raw.githubusercontent.com/vehiclesdb/vehiclesdb/e9a8711aeb92f8b2e5ab2331cff30931d30ba072/catalog/van/models.json",
+        "sha256": "4197baf7280040915cd97aec7b468093f7d8ac5cf5eb15b3dc5fbf4c9b1c6760"
+      },
+      {
+        "path": "catalog/truck/makes.json",
+        "url": "https://raw.githubusercontent.com/vehiclesdb/vehiclesdb/e9a8711aeb92f8b2e5ab2331cff30931d30ba072/catalog/truck/makes.json",
+        "sha256": "1c64955a19230d81dec79aa0d85e50dda6d07bb339f8747110f699a391e83411"
+      },
+      {
+        "path": "catalog/truck/models.json",
+        "url": "https://raw.githubusercontent.com/vehiclesdb/vehiclesdb/e9a8711aeb92f8b2e5ab2331cff30931d30ba072/catalog/truck/models.json",
+        "sha256": "22ad5b8b1b5af1ec6dd3d6d23f84d5c6ef4feaef111556f4f98d621fab060880"
+      },
+      {
+        "path": "catalog/bus/makes.json",
+        "url": "https://raw.githubusercontent.com/vehiclesdb/vehiclesdb/e9a8711aeb92f8b2e5ab2331cff30931d30ba072/catalog/bus/makes.json",
+        "sha256": "a9c778e38cc1bb84e44f99d5ca09409ae0e63062f2e12f78d958651f4e5167ef"
+      },
+      {
+        "path": "catalog/bus/models.json",
+        "url": "https://raw.githubusercontent.com/vehiclesdb/vehiclesdb/e9a8711aeb92f8b2e5ab2331cff30931d30ba072/catalog/bus/models.json",
+        "sha256": "789174195631be99626fbf820f8d1ba27678a3dc9e0e634454aab862f5f5ddd3"
+      }
+    ]
+  },
+  "supplements": [
+    {
+      "make": "exeed",
+      "models": [
+        "LX",
+        "TXL",
+        "RX",
+        "VX"
+      ],
+      "url": "https://exeed.ru/cars/"
+    },
+    {
+      "make": "belgee",
+      "models": [
+        "X50",
+        "X50+",
+        "X70",
+        "S50"
+      ],
+      "url": "https://belgee.ru/about-belgee/"
+    },
+    {
+      "make": "solaris",
+      "models": [
+        "HS",
+        "HC",
+        "KRS",
+        "KRX"
+      ],
+      "url": "https://solaris.auto/about-brand"
+    },
+    {
+      "make": "knewstar",
+      "models": [
+        "001"
+      ],
+      "url": "https://knewstar.ru/models/"
+    },
+    {
+      "make": "tenet",
+      "models": [
+        "T4",
+        "T4L",
+        "T7",
+        "T8",
+        "T9",
+        "A8"
+      ],
+      "url": "https://tenet.ru/customers/configurator/"
+    },
+    {
+      "make": "lada",
+      "models": [
+        "Niva Legend",
+        "Niva Travel",
+        "Aura",
+        "Iskra"
+      ],
+      "url": "https://www.lada.ru/press-releases/122334"
+    },
+    {
+      "make": "moskvich",
+      "models": [
+        "3",
+        "3е",
+        "6",
+        "8"
+      ],
+      "url": "https://moskvich.ru/models"
+    },
+    {
+      "make": "geely",
+      "models": [
+        "Atlas",
+        "Atlas Pro",
+        "Coolray",
+        "Emgrand",
+        "Tugella",
+        "Preface",
+        "Cityray",
+        "Okavango",
+        "EX5 EM-i"
+      ],
+      "url": "https://shop.geely-motors.com/catalog/models/"
+    },
+    {
+      "make": "haval",
+      "models": [
+        "F7",
+        "F7x",
+        "Dargo",
+        "M6",
+        "H3",
+        "H5",
+        "H7"
+      ],
+      "url": "https://haval.ru/about/media/prodazhi-gwm-v-rossii-pokazali-uverennyi-rost-vo-vtorom-kvartale-2026-goda/"
+    },
+    {
+      "make": "sitrak",
+      "models": [
+        "C7H",
+        "C7H MAX",
+        "C9H"
+      ],
+      "url": "https://sitrak.ru/tech/sitrak/",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "sitrak",
+      "models": [
+        "G7S"
+      ],
+      "url": "https://sitraksib.ru/sitrak/",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "howo",
+      "models": [
+        "T5G",
+        "G2W"
+      ],
+      "url": "https://sitrak.ru/tech/howo/",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "shacman",
+      "models": [
+        "F3000",
+        "L3000",
+        "X3000",
+        "X6000"
+      ],
+      "url": "https://www.shacman.ru/modeli/",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "shacman",
+      "models": [
+        "X5000"
+      ],
+      "url": "https://ru.shacmangroup.com/",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "faw",
+      "models": [
+        "J6",
+        "J6L",
+        "J7"
+      ],
+      "url": "https://faw-truck.ru/models/",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "faw",
+      "models": [
+        "JH6"
+      ],
+      "url": "https://faw.kg/catalog",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "jac",
+      "models": [
+        "N35",
+        "N56",
+        "N80",
+        "N90",
+        "N90X",
+        "N120",
+        "N120X",
+        "N200",
+        "N200 6x2"
+      ],
+      "url": "https://jacrus.ru/articles/2453",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "foton",
+      "models": [
+        "Auman",
+        "Aumark C",
+        "Aumark S"
+      ],
+      "url": "https://www.foton-center.ru/modelnyj-ryad",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "foton",
+      "models": [
+        "S35",
+        "Aumark S085",
+        "Aumark S100",
+        "Aumark S120",
+        "Toano"
+      ],
+      "url": "https://www.kzn.luidor-group.ru/auto/foton/",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "dongfeng",
+      "models": [
+        "KX",
+        "KL",
+        "KC",
+        "KR"
+      ],
+      "url": "https://www.dfmc.com.cn/news/company/news_20190109_0915.html",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "forland",
+      "models": [
+        "3",
+        "8",
+        "12"
+      ],
+      "url": "https://forland-russia.ru/news/v-rossiyu-priehali-gruzoviki-forland",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "dayun",
+      "models": [
+        "CGC4180",
+        "CGC4250"
+      ],
+      "url": "https://dayuntruck.ru/",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "hongyan",
+      "models": [
+        "C6HR",
+        "H6"
+      ],
+      "url": "https://hongyan.ru/catalog",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "chenglong",
+      "models": [
+        "H7"
+      ],
+      "url": "https://www.chenglong.ru/",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "chenglong",
+      "models": [
+        "H5"
+      ],
+      "url": "https://www.chenglongtrucks.com/ru/products/",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "baw",
+      "models": [
+        "T7"
+      ],
+      "url": "https://bawauto.com/small-truck/",
+      "vehicleTypes": [
+        "trucks"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "baw",
+      "models": [
+        "T01",
+        "MPV",
+        "Pickup"
+      ],
+      "url": "https://bawofficial.ru/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "lixiang",
+      "models": [
+        "L6",
+        "L7",
+        "L8",
+        "L9",
+        "MEGA",
+        "i6",
+        "i8"
+      ],
+      "url": "https://www.lixiang.com/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "aito",
+      "models": [
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9"
+      ],
+      "url": "https://aito.auto/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "avatr",
+      "models": [
+        "06",
+        "06T",
+        "07",
+        "07L",
+        "11",
+        "12"
+      ],
+      "url": "https://www.avatr.com/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "changan",
+      "models": [
+        "Alsvin",
+        "Eado Plus",
+        "Lamore",
+        "CS35 Plus",
+        "CS35 Max",
+        "CS55 Plus",
+        "UNI-S",
+        "UNI-Z",
+        "CS75 Plus",
+        "CS75 Pro",
+        "CS95",
+        "Hunter Plus",
+        "UNI-V",
+        "UNI-T",
+        "UNI-K",
+        "UNI-K iDD"
+      ],
+      "url": "https://changan.ru/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "chery",
+      "models": [
+        "Tiggo 7L"
+      ],
+      "url": "https://www.chery.ru/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "omoda",
+      "models": [
+        "C5",
+        "C7",
+        "S5",
+        "S5 GT"
+      ],
+      "url": "https://www.omoda.ru/models/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "jaecoo",
+      "models": [
+        "J6",
+        "J7",
+        "J8"
+      ],
+      "url": "https://jaecoo.ru/models/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "hongqi",
+      "models": [
+        "HS3",
+        "HS5",
+        "HS7",
+        "H5",
+        "H6",
+        "H9",
+        "HQ9",
+        "E-HS9",
+        "GUOYA"
+      ],
+      "url": "https://www.hongqi.ru/models/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "gac",
+      "models": [
+        "GS3",
+        "GS4",
+        "GS8",
+        "S7",
+        "S9",
+        "Empow",
+        "M8"
+      ],
+      "url": "https://www.gac.ru/models/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "bestune",
+      "models": [
+        "T77",
+        "T90",
+        "B70"
+      ],
+      "url": "https://bestune.ru/models/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "tank",
+      "models": [
+        "300",
+        "400",
+        "500",
+        "700"
+      ],
+      "url": "https://www.tank.ru/models/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "wey",
+      "models": [
+        "07",
+        "80",
+        "V9X"
+      ],
+      "url": "https://www.tank.ru/models/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "jetour",
+      "models": [
+        "T1",
+        "T1 Hybrid",
+        "T2",
+        "Dashing",
+        "X70 Plus",
+        "X90 Plus"
+      ],
+      "url": "https://jetour-ru.com/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "nio",
+      "models": [
+        "ES6",
+        "ES7",
+        "ES8",
+        "ES9",
+        "EC6",
+        "EC7",
+        "ET5",
+        "ET5T",
+        "ET7",
+        "ET9"
+      ],
+      "url": "https://www.nio.com/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "xpeng",
+      "models": [
+        "G9L",
+        "L03",
+        "X9",
+        "P7+",
+        "G9",
+        "G6",
+        "P7"
+      ],
+      "url": "https://www.xpeng.com/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "zeekr",
+      "models": [
+        "001",
+        "001 FR",
+        "009",
+        "009 Grand",
+        "007"
+      ],
+      "url": "https://www.zeekrglobal.com/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "leapmotor",
+      "models": [
+        "T03",
+        "B03",
+        "B03X",
+        "B05",
+        "B10",
+        "C10",
+        "B10 Hybrid",
+        "C10 Hybrid"
+      ],
+      "url": "https://www.leapmotor.com/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "roewe",
+      "models": [
+        "D6",
+        "D7 EV",
+        "D7 DMH",
+        "M7 DMH",
+        "i6",
+        "i5",
+        "iMAX8",
+        "iMAX8 EV",
+        "iMAX8 DMH",
+        "RX5"
+      ],
+      "url": "https://www.roewe.com.cn/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "lifan",
+      "models": [
+        "Solano II",
+        "X50",
+        "X60",
+        "Myway"
+      ],
+      "url": "https://lifan-car.ru/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "haima",
+      "models": [
+        "7X",
+        "8S"
+      ],
+      "url": "https://haima-auto.ru/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "zotye",
+      "models": [
+        "T600",
+        "Z300",
+        "Coupa"
+      ],
+      "url": "https://www.masmotors.ru/catalog/zotye",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "baojun",
+      "models": [
+        "Yep"
+      ],
+      "url": "https://media.gm.com/media/cn/en/baojun/news.detail.html/content/Pages/news/cn/en/2023/May/0525-baojun-yep.html",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "baojun",
+      "models": [
+        "KiWi EV"
+      ],
+      "url": "https://media.gm.com/media/cn/en/baojun/news.detail.html/content/Pages/news/cn/en/2021/Aug/0831-baojun-kiwi.html",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "luxeed",
+      "models": [
+        "S7",
+        "R7",
+        "V9"
+      ],
+      "url": "https://hima.auto/zhijie/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "maextro",
+      "models": [
+        "S800"
+      ],
+      "url": "https://hima.auto/zunjie/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "stelato",
+      "models": [
+        "S9",
+        "S9T"
+      ],
+      "url": "https://hima.auto/xiangjie/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "hyptec",
+      "models": [
+        "HT"
+      ],
+      "url": "https://www.gac.ru/models/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "kaiyi",
+      "models": [
+        "E5",
+        "X3",
+        "X3 Pro",
+        "X7 Kunlun"
+      ],
+      "url": "https://kaiyi-auto.ru/about/brand",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "livan",
+      "models": [
+        "S6 Pro"
+      ],
+      "url": "https://livan-motors.ru/model/",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    },
+    {
+      "make": "wuling",
+      "models": [
+        "Air ev",
+        "BinguoEV",
+        "Almaz",
+        "Alvez",
+        "Cortez",
+        "Confero",
+        "Formo",
+        "Cloud EV"
+      ],
+      "url": "https://wuling.id/en/faq",
+      "vehicleTypes": [
+        "cars"
+      ],
+      "checkedAt": "2026-11-13"
+    }
+  ],
+  "coverage": {
+    "kinds": [
+      "car",
+      "van",
+      "truck",
+      "bus"
+    ],
+    "makes": 521,
+    "models": 8117,
+    "bytes": 585933,
+    "claim": "Broad register-derived car, van, truck and bus catalog with factual Chinese manufacturer/distributor additions; not an exhaustive guarantee."
+  },
+  "excludedRegisterLabels": [
+    {
+      "make": "audi",
+      "models": [
+        "Sport"
+      ],
+      "reason": "Removed generic descriptions, obvious register misspelling or nameplates belonging to a separately listed consumer make; no model reassignment."
+    },
+    {
+      "make": "bmw",
+      "models": [
+        "Active",
+        "Clubman Cooper",
+        "Cooper",
+        "Cooper S",
+        "Cs",
+        "John Cooper Works",
+        "Mini",
+        "Mini Cooper",
+        "Mini One",
+        "One",
+        "X-Reihe",
+        "XDRIVE30D"
+      ],
+      "reason": "Removed generic descriptions, obvious register misspelling or nameplates belonging to a separately listed consumer make; no model reassignment."
+    },
+    {
+      "make": "honda",
+      "models": [
+        "Acura",
+        "Coupe",
+        "Sports"
+      ],
+      "reason": "Removed generic descriptions, obvious register misspelling or nameplates belonging to a separately listed consumer make; no model reassignment."
+    },
+    {
+      "make": "hyundai",
+      "models": [
+        "Tuscon"
+      ],
+      "reason": "Removed generic descriptions, obvious register misspelling or nameplates belonging to a separately listed consumer make; no model reassignment."
+    },
+    {
+      "make": "mercedes-benz",
+      "models": [
+        "AMG",
+        "Automatic",
+        "Benz",
+        "Coupe",
+        "Daimlerchrysler",
+        "Diesel",
+        "Electric",
+        "Estate",
+        "Kompressor",
+        "Mercedes",
+        "Roadster",
+        "Sedan",
+        "Smart",
+        "Sport"
+      ],
+      "reason": "Removed generic descriptions, obvious register misspelling or nameplates belonging to a separately listed consumer make; no model reassignment."
+    },
+    {
+      "make": "ford",
+      "models": [
+        "Pick Up",
+        "Pick-Up"
+      ],
+      "reason": "Generic body description and duplicated upstream identifier, not a specific Ford nameplate."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "state": "disabled",
+  "notes": "Server preparation only. Browser-local private demo checks are separate; no billing, verified organization account, database transaction or trusted live quota enforcement is connected.",
+  "privateFree": {
+    "approvedPolicy": true,
+    "limits": { "cars": 3, "real_estate": 2, "ready_business": 1, "uncapped": null, "total": null }
+  },
+  "privatePaid": {
+    "standard": { "state": "limits-not-agreed", "limits": null },
+    "premium": { "state": "limits-not-agreed", "limits": null }
+  },
+  "organizationProposal": {
+    "state": "example-not-approved-or-active",
+    "exampleLimits": { "cars": null, "real_estate": null, "ready_business": null, "uncapped": null, "total": 1000 },
+    "notes": "User discussed approximately 1000 lots for a bank. An actual tenant-specific entitlement and contract must be approved before use."
+  },
+  "resourcePolicy": {
+    "notes": "An unlimited commercial allowance never disables rate limits, draft/media/storage quotas, file validation or moderation."
+  }
+}

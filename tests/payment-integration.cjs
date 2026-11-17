@@ -1,0 +1,28 @@
+const assert=require('assert/strict');
+const {boot}=require('./helpers/category-seller-harness.cjs');
+(async()=>{
+ const h=boot();
+ h.run('window.paymentCalls=[];window.FasPayments={open(lot,options){window.paymentCalls.push({id:lot.id,amount:lot.buyNowPrice,mode:options.mode});return {ok:true}}}');
+ h.run('openCar(1042)');
+ assert(h.node('#modal-content').innerHTML.includes('data-open-lot-payment="1042"'));
+ h.run('openLotPayment(1042)');
+ assert.equal(h.context.window.paymentCalls.at(-1).mode,'buy-now');
+ assert.equal(h.context.window.paymentCalls.at(-1).amount,3900000);
+ const ordinary=h.run('cars.find(c=>c.id!==1042&&!c.buyNowPrice).id');
+ h.run('openLotPayment('+ordinary+')');
+ assert.equal(h.context.window.paymentCalls.at(-1).mode,'auction-settlement','current bid must not become a buy-now amount');
+ const now=Date.now(),lot={id:999991001,name:'Проверка перехода к оплате',city:'Воронеж',category:'cars',sellerOwnerId:'another-seller',sellerName:'Продавец',buyNowPrice:20000,price:10000,start:10000,step:100,deposit:0,status:'live',startsAt:new Date(now-3600000).toISOString(),ends:new Date(now+86400000).toISOString()};
+ h.run('cars.push('+JSON.stringify(lot)+')');
+ await h.click({sellerBuyNow:String(lot.id)});
+ assert.equal(h.context.window.paymentCalls.at(-1).id,lot.id);
+ assert.equal(h.context.window.paymentCalls.at(-1).mode,'buy-now');
+ assert.equal(h.run('cars.at(-1).status'),'live','opening payment must not sell the lot or mark it paid');
+ h.run('cars.at(-1).sellerOwnerId=window.FasSellerUI.getProfile().id');
+ const before=h.context.window.paymentCalls.length;
+ assert.equal(h.run('openLotPayment('+lot.id+')'),false);
+ assert.equal(h.context.window.paymentCalls.length,before,'own listing cannot open a purchase');
+ h.run('cars.at(-1).sellerOwnerId="another-seller";cars.at(-1).buyNowPrice=5000');
+ h.run('openLotPayment('+lot.id+')');
+ assert.equal(h.context.window.paymentCalls.at(-1).mode,'auction-settlement','outdated price below current bid cannot be used for immediate purchase');
+ console.log('PASS: catalogue/seller checkout routes use configured buy-now prices, preserve auction rules and status, and prevent buying own listings.');
+})().catch(error=>{console.error(error);process.exitCode=1});

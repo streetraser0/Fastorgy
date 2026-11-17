@@ -1,0 +1,433 @@
+{
+  "generated_utc": "2026-11-14T20:38:45.366362+00:00",
+  "baseline_version": 62,
+  "baseline_source_commit": "e7f602ceb1063585ce01fe3a095513a4fff46dec",
+  "state": "Verified and published as version 63.",
+  "changes": [
+    {
+      "area": "feed gestures",
+      "result": "Close left/right outside native photo/control surfaces; downward pull at the actual first-lot/top boundary, including the photo; slow gestures accepted. Native photo paging, upward browsing, filters and return positions retained. Virtualized later lots cannot masquerade as the first lot."
+    },
+    {
+      "area": "cabinet gestures",
+      "result": "Dashboard closes left/right and downward from its actual scroll top. Editor scrolling, dirty forms, selected text, nested dialogs and repeated close/open sessions keep canonical Back guards."
+    },
+    {
+      "area": "voice entry",
+      "result": "Microphone and Speak open compact animated listening. Configured/skipped ordinary opening is compact; explicit settings remain available through Cabinet > Profile > Voice assistant. Browser permission, stop, typed fallback, transcript handling and explicit bid confirmation retained."
+    },
+    {
+      "area": "voice lifecycle",
+      "result": "Actual profile scope is refreshed before accepting ASR results. Cleanup is once per open: delayed native close events do not cancel a new listening session or its speech reply, and stale focus restoration cannot steal focus from another dialog."
+    },
+    {
+      "area": "agreement link",
+      "result": "The existing agreement link is placed separately beside footer contacts. Agreement text, acceptance version and PDF are unchanged."
+    }
+  ],
+  "validation": {
+    "base_commit": "cac1f5d4ec8033d1a3721716ce68fa9c19c83ed3",
+    "source_sha256": "d1b2678dfaa7810aa9360361e2a61132ac7ea96cc24908d73d1e43ef2b304199",
+    "started_utc": "2026-11-14T20:32:48.597077+00:00",
+    "completed": 55,
+    "total": 55,
+    "source_sha256_end": "d1b2678dfaa7810aa9360361e2a61132ac7ea96cc24908d73d1e43ef2b304199",
+    "source_changed_during_run": false,
+    "passed": 55,
+    "failed": 0,
+    "seconds": 52.58
+  },
+  "test_results": [
+    {
+      "test": "seller-storefront-return-routes.cjs",
+      "exit_code": 0,
+      "seconds": 12.25,
+      "passed": true
+    },
+    {
+      "test": "seller-profile-cancel.cjs",
+      "exit_code": 0,
+      "seconds": 4.7,
+      "passed": true
+    },
+    {
+      "test": "seller-back-gesture.cjs",
+      "exit_code": 0,
+      "seconds": 21.06,
+      "passed": true
+    },
+    {
+      "test": "seller-dashboard.cjs",
+      "exit_code": 0,
+      "seconds": 4.58,
+      "passed": true
+    },
+    {
+      "test": "seller-exit-guards.cjs",
+      "exit_code": 0,
+      "seconds": 23.02,
+      "passed": true
+    },
+    {
+      "test": "security-payment-boundaries.cjs",
+      "exit_code": 0,
+      "seconds": 4.09,
+      "passed": true
+    },
+    {
+      "test": "buyer-share-return.cjs",
+      "exit_code": 0,
+      "seconds": 2.7,
+      "passed": true
+    },
+    {
+      "test": "security-rate-limits.cjs",
+      "exit_code": 0,
+      "seconds": 4.9,
+      "passed": true
+    },
+    {
+      "test": "security-inputs.cjs",
+      "exit_code": 0,
+      "seconds": 10.09,
+      "passed": true
+    },
+    {
+      "test": "seller-workspace-recovery.cjs",
+      "exit_code": 0,
+      "seconds": 31.45,
+      "passed": true
+    },
+    {
+      "test": "dialog-lifecycle.cjs",
+      "exit_code": 0,
+      "seconds": 5.91,
+      "passed": true
+    },
+    {
+      "test": "map-feed-resume.cjs",
+      "exit_code": 0,
+      "seconds": 3.32,
+      "passed": true
+    },
+    {
+      "test": "featured-feed-return.cjs",
+      "exit_code": 0,
+      "seconds": 4.6,
+      "passed": true
+    },
+    {
+      "test": "assistant-events-integration.cjs",
+      "exit_code": 0,
+      "seconds": 5.96,
+      "passed": true
+    },
+    {
+      "test": "security-dom.cjs",
+      "exit_code": 0,
+      "seconds": 3.11,
+      "passed": true
+    },
+    {
+      "test": "voice-core-actions.cjs",
+      "exit_code": 0,
+      "seconds": 7.0,
+      "passed": true
+    },
+    {
+      "test": "security-server-resources.cjs",
+      "exit_code": 0,
+      "seconds": 3.79,
+      "passed": true
+    },
+    {
+      "test": "dialog-stack.cjs",
+      "exit_code": 0,
+      "seconds": 4.53,
+      "passed": true
+    },
+    {
+      "test": "auth-dialog.cjs",
+      "exit_code": 0,
+      "seconds": 3.7,
+      "passed": true
+    },
+    {
+      "test": "gallery-performance.cjs",
+      "exit_code": 0,
+      "seconds": 3.9,
+      "passed": true
+    },
+    {
+      "test": "local-feed.cjs",
+      "exit_code": 0,
+      "seconds": 3.97,
+      "passed": true
+    },
+    {
+      "test": "layout-safety.cjs",
+      "exit_code": 0,
+      "seconds": 2.73,
+      "passed": true
+    },
+    {
+      "test": "security-csp.cjs",
+      "exit_code": 0,
+      "seconds": 2.14,
+      "passed": true
+    },
+    {
+      "test": "seller-profile-agreement.cjs",
+      "exit_code": 0,
+      "seconds": 3.56,
+      "passed": true
+    },
+    {
+      "test": "voice-assistant.cjs",
+      "exit_code": 0,
+      "seconds": 3.18,
+      "passed": true
+    },
+    {
+      "test": "auction-cards-mobile.cjs",
+      "exit_code": 0,
+      "seconds": 0.85,
+      "passed": true
+    },
+    {
+      "test": "assistant-preferences.cjs",
+      "exit_code": 0,
+      "seconds": 0.72,
+      "passed": true
+    },
+    {
+      "test": "local-ai.cjs",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "passed": true
+    },
+    {
+      "test": "user-agreement.cjs",
+      "exit_code": 0,
+      "seconds": 1.98,
+      "passed": true
+    },
+    {
+      "test": "voice-personalization-integration.cjs",
+      "exit_code": 0,
+      "seconds": 0.46,
+      "passed": true
+    },
+    {
+      "test": "dialog-four-way.cjs",
+      "exit_code": 0,
+      "seconds": 2.46,
+      "passed": true
+    },
+    {
+      "test": "security-metrics-work.cjs",
+      "exit_code": 0,
+      "seconds": 1.36,
+      "passed": true
+    },
+    {
+      "test": "voice-invocation-auto.cjs",
+      "exit_code": 0,
+      "seconds": 0.41,
+      "passed": true
+    },
+    {
+      "test": "draft-delete.cjs",
+      "exit_code": 0,
+      "seconds": 0.82,
+      "passed": true
+    },
+    {
+      "test": "security-local-ai-boundary.cjs",
+      "exit_code": 0,
+      "seconds": 0.23,
+      "passed": true
+    },
+    {
+      "test": "photo-viewer-warm.cjs",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "passed": true
+    },
+    {
+      "test": "category-picker.cjs",
+      "exit_code": 0,
+      "seconds": 0.53,
+      "passed": true
+    },
+    {
+      "test": "security-boundaries.cjs",
+      "exit_code": 0,
+      "seconds": 0.26,
+      "passed": true
+    },
+    {
+      "test": "assistant-personalization.cjs",
+      "exit_code": 0,
+      "seconds": 0.37,
+      "passed": true
+    },
+    {
+      "test": "quickbar-labels.cjs",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "passed": true
+    },
+    {
+      "test": "feed-close-gesture.cjs",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "passed": true
+    },
+    {
+      "test": "feed-motion.cjs",
+      "exit_code": 0,
+      "seconds": 0.14,
+      "passed": true
+    },
+    {
+      "test": "feed-tutorial.cjs",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "passed": true
+    },
+    {
+      "test": "footer-navigation.cjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "passed": true
+    },
+    {
+      "test": "lot-photo-viewer.cjs",
+      "exit_code": 0,
+      "seconds": 0.22,
+      "passed": true
+    },
+    {
+      "test": "pwa-install.cjs",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "passed": true
+    },
+    {
+      "test": "category-native-back.cjs",
+      "exit_code": 0,
+      "seconds": 0.13,
+      "passed": true
+    },
+    {
+      "test": "feed-return-gestures.cjs",
+      "exit_code": 0,
+      "seconds": 0.17,
+      "passed": true
+    },
+    {
+      "test": "dialog-journey-regressions.cjs",
+      "exit_code": 0,
+      "seconds": 0.32,
+      "passed": true
+    },
+    {
+      "test": "dialog-blank-back.cjs",
+      "exit_code": 0,
+      "seconds": 0.72,
+      "passed": true
+    },
+    {
+      "test": "profile-voice-settings.cjs",
+      "exit_code": 0,
+      "seconds": 0.85,
+      "passed": true
+    },
+    {
+      "test": "security-followup-regressions.cjs",
+      "exit_code": 0,
+      "seconds": 0.51,
+      "passed": true
+    },
+    {
+      "test": "voice-quick-listen.cjs",
+      "exit_code": 0,
+      "seconds": 0.95,
+      "passed": true
+    },
+    {
+      "test": "cabinet-swipe-close.cjs",
+      "exit_code": 0,
+      "seconds": 2.73,
+      "passed": true
+    },
+    {
+      "test": "performance-followup-regressions.cjs",
+      "exit_code": 0,
+      "seconds": 3.94,
+      "passed": true
+    }
+  ],
+  "validation_scope": "55 targeted Node/DOM/SQLite regression files, including all 10 security files. 203 test files are available; the entire 203-file suite was not rerun for this change. The previous release has independent 199-file and 1000-model evidence.",
+  "build": {
+    "assets": 261,
+    "all_embedded_assets_match_dist": true,
+    "worker_gzip_bytes": 9768249,
+    "budget_bytes": 10485760,
+    "worker_validator": "passed",
+    "native_checks": 1077,
+    "native_errors": 0,
+    "native_proof": "docs/native-feed-voice-verification-2026-11-14.json",
+    "android_apk": {
+      "path": "/workspace/sites/drive-lot/releases/fas-torgi-android-demo-debug.apk",
+      "bytes": 15837853,
+      "sha256": "142aa060c297dd9bf7e35be94285ba3efb2c7594f4d088f32dfa075f38315abc"
+    },
+    "android_signature": "APK v2 verified, one signer; demo debug build.",
+    "worker_compression": "Node zlib.gzipSync default settings, matching scripts/build-worker.mjs"
+  },
+  "new_regressions": [
+    "tests/feed-return-gestures.cjs",
+    "tests/cabinet-swipe-close.cjs",
+    "tests/voice-quick-listen.cjs",
+    "tests/profile-voice-settings.cjs"
+  ],
+  "counterfactuals": [
+    "The feed regression fails against the published baseline, including its image role=button markup.",
+    "The cabinet downward-close regression fails against the published baseline."
+  ],
+  "preserved": [
+    "Two-card mobile catalogue, visible bid and buy actions, original photos, filters, form state and return routes.",
+    "Native photo paging/zoom and scroll, reduced-motion preference, local profile boundaries and explicit financial confirmations.",
+    "Existing custom Site audience, no fake users/bids/sales and no monitoring schedules."
+  ],
+  "ux_references": [
+    "https://support.google.com/gemini/answer/15277943?hl=en-en",
+    "https://support.apple.com/ru-ru/guide/iphone/iphc28624b81abc/27/ios/27"
+  ],
+  "limits": [
+    "No physical iPhone/Safari gesture, geometry, acoustic speech or microphone-permission check; the owner will check the real device.",
+    "Passing these tests does not establish absence of all vulnerabilities or real load capacity.",
+    "Shared protected auction accounts, verified SMS, T-Bank payments/escrow and independent backup/failover remain unconnected.",
+    "The local free model recognizes supported intent only and cannot independently place a bid or initiate payment."
+  ],
+  "publication": {
+    "site": "https://drive-lot-auction.familiarchord.chatgpt.site",
+    "version_number": 63,
+    "version_id": "appgprj_6af4e219966481919933881aab8d0232~appgver_d339e1150c0c819193c77a5da191788b",
+    "source_commit": "e14d5ccd616f555bbdaff528b69b8090e76776b7",
+    "deployment_id": "appgdep_6af8c74684f081918aa3bfa7cd857cda",
+    "status": "succeeded",
+    "published_utc": "2026-11-14T20:40:54.052772+00:00",
+    "access": {
+      "mode": "custom",
+      "revision": 2,
+      "unchanged": true,
+      "external_visitor_count": 1,
+      "automations": 0
+    },
+    "http_proof": "docs/publication-63-http-verification-2026-11-14.json",
+    "http_success": true
+  }
+}

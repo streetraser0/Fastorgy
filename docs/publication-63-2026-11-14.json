@@ -1,0 +1,47 @@
+{
+  "site": "https://drive-lot-auction.familiarchord.chatgpt.site",
+  "version_number": 63,
+  "version_id": "appgprj_6af4e219966481919933881aab8d0232~appgver_d339e1150c0c819193c77a5da191788b",
+  "source_commit": "e14d5ccd616f555bbdaff528b69b8090e76776b7",
+  "deployment_id": "appgdep_6af8c74684f081918aa3bfa7cd857cda",
+  "status": "succeeded",
+  "published_utc": "2026-11-14T20:40:54.052772+00:00",
+  "access": {
+    "mode": "custom",
+    "revision": 2,
+    "unchanged": true,
+    "external_visitor_count": 1,
+    "automations": 0
+  },
+  "validation": {
+    "targeted_files": 55,
+    "passed": 55,
+    "failed": 0,
+    "source_unchanged": true,
+    "source_sha256": "d1b2678dfaa7810aa9360361e2a61132ac7ea96cc24908d73d1e43ef2b304199",
+    "pre_push": "Successful git push with unchanged configured scripts/git-hooks: 100 isolated models plus all security-*.cjs required; hook not bypassed.",
+    "audit": "docs/feed-voice-audit-2026-11-14.json",
+    "http_proof": "docs/publication-63-http-verification-2026-11-14.json",
+    "http_requests": 16,
+    "native_checks": 1077,
+    "native_failed": 0
+  },
+  "archive": {
+    "source_path": "releases/fas-torgi-v63-source.zip",
+    "commit_sha": "e14d5ccd616f555bbdaff528b69b8090e76776b7",
+    "includes_root_readme": true,
+    "files": 675,
+    "bytes": 13886169,
+    "sha256": "37dc542acb0aaf1804d4326e6ce0411efde1ce0761fcccd27feeaf5475c122e0",
+    "verification_checks": 4057,
+    "verification_failed": 0,
+    "apk_path": "releases/fas-torgi-v63-android-demo-debug.apk",
+    "apk_sha256": "142aa060c297dd9bf7e35be94285ba3efb2c7594f4d088f32dfa075f38315abc",
+    "scope": "Local artifacts on current workstation; not an independent offsite backup."
+  },
+  "limits": [
+    "No physical iPhone/Safari gestures, microphone permission or acoustic speech verification.",
+    "Targeted 55-file regression run, not a rerun of all 203 available files.",
+    "Demo browser-local auction state; real protected auction backend, verified identity, bank payments/escrow and external failover remain disconnected."
+  ]
+}

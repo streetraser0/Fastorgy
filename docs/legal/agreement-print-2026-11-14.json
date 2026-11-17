@@ -1,0 +1,19 @@
+{
+  "pages": 8,
+  "page_format": "A4",
+  "body_font_points": 11,
+  "body_leading_points": 16,
+  "margins_mm": {
+    "left": 20,
+    "right": 20,
+    "top": 18,
+    "bottom": 20
+  },
+  "path": "docs/legal/user-agreement-2026-11-14.pdf",
+  "bytes": 73938,
+  "sha256": "384d83b2427d4ecd9ef2256c795be77b0bb361459ddf5e7ef3cd3745c16485af",
+  "source_md_sha256": "33db842664b5f33f0d99b2edc0291b404d6f3cd5bd9f54f16f323b04a08da6cc",
+  "generator": "scripts/build-agreement-pdf.py",
+  "reportlab_version": "4.4.9",
+  "deterministic_metadata": true
+}

@@ -1,0 +1,64 @@
+/* Preserve native momentum; a strong flick may pass several lots before snapping. */
+#grid,
+.reels #grid {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;
+}
+
+#grid .card,
+.reels #grid .card {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+.reels #grid {
+  overflow-anchor: none;
+  scroll-snap-type: y mandatory;
+}
+
+/* Instant programmatic resets are essential for recycled cards and reopened windows. */
+dialog,
+.gallery-track {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;
+}
+
+/* Only page-level anchor navigation is smoothed; photo snapping keeps its own rules. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* The mobile catalogue belongs to the page; only fullscreen reels own a scroll viewport. */
+@media (max-width:700px) {
+  body:not(.reels) #grid {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:16px;
+    height:auto;
+    min-height:0;
+    max-height:none;
+    overflow:visible;
+    scroll-snap-type:none;
+    border-radius:0;
+    scroll-margin-top:calc(12px + env(safe-area-inset-top,0px));
+  }
+  body:not(.reels) #grid .card {
+    flex:initial;
+    height:auto;
+    min-height:0;
+    scroll-snap-align:none;
+    scroll-margin-top:calc(12px + env(safe-area-inset-top,0px));
+  }
+  body:not(.reels) #grid .car-photo {
+    flex:none;
+    width:100%;
+    height:auto;
+    min-height:0;
+    aspect-ratio:16/10;
+  }
+  body.has-quick-access:not(.reels) #grid .card-body { padding-bottom:18px; }
+}

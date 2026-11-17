@@ -1,0 +1,108 @@
+{
+  "note": "Stock photos for clearly labelled demo category examples, not actual bank asset photographs. User-uploaded real asset photos are preserved.",
+  "photos": {
+    "cars": [
+      {
+        "path": "assets/photos/cars-1.jpg",
+        "source": "https://images.unsplash.com/photo-1555215695-3004980ad54e",
+        "bytes": 171636
+      },
+      {
+        "path": "assets/photos/cars-2.jpg",
+        "source": "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+        "bytes": 127284
+      },
+      {
+        "path": "assets/photos/cars-3.jpg",
+        "source": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8",
+        "bytes": 137780
+      }
+    ],
+    "property": [
+      {
+        "path": "assets/photos/property-1.jpg",
+        "source": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+        "bytes": 172325
+      },
+      {
+        "path": "assets/photos/property-2.jpg",
+        "source": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+        "bytes": 185760
+      }
+    ],
+    "vessels": [
+      {
+        "path": "assets/photos/vessels-1.jpg",
+        "source": "https://images.unsplash.com/photo-1743657105993-709ac64d2331",
+        "bytes": 199360
+      },
+      {
+        "path": "assets/photos/vessels-2.jpg",
+        "source": "https://images.unsplash.com/photo-1690099666049-4435fe48dfaf",
+        "bytes": 266186
+      }
+    ],
+    "other": [
+      {
+        "path": "assets/photos/other-1.jpg",
+        "source": "https://images.unsplash.com/photo-1497366216548-37526070297c",
+        "bytes": 124578
+      },
+      {
+        "path": "assets/photos/other-2.jpg",
+        "source": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+        "bytes": 85997
+      }
+    ],
+    "trucks": [
+      {
+        "path": "assets/photos/trucks-1.jpg",
+        "source": "https://images.unsplash.com/photo-1704816280203-2eb0a8de2c55",
+        "bytes": 163865
+      },
+      {
+        "path": "assets/photos/trucks-2.jpg",
+        "source": "https://images.unsplash.com/photo-1519003722824-194d4455a60c",
+        "bytes": 188705
+      }
+    ],
+    "machinery": [
+      {
+        "path": "assets/photos/machinery-1.jpg",
+        "source": "https://images.unsplash.com/photo-1752342625685-bc342beb248e",
+        "bytes": 235989
+      }
+    ],
+    "equipment": [
+      {
+        "path": "assets/photos/equipment-1.jpg",
+        "source": "https://images.pexels.com/photos/9242913/pexels-photo-9242913.jpeg",
+        "bytes": 129184
+      }
+    ],
+    "commercial": [
+      {
+        "path": "assets/photos/commercial-1.jpg",
+        "source": "https://images.unsplash.com/photo-1699549196390-e31bfc88536d",
+        "bytes": 215607
+      },
+      {
+        "path": "assets/photos/commercial-2.jpg",
+        "source": "https://images.unsplash.com/photo-1587293852726-70cdb56c2866",
+        "bytes": 219862
+      }
+    ],
+    "sitrak": [
+      {
+        "path": "assets/photos/trucks-type-sitrak-c7h.jpg",
+        "source": "https://commons.wikimedia.org/wiki/File:Sitrak_C7H_IMG001.jpg",
+        "download": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Sitrak_C7H_IMG001.jpg",
+        "author": "Anonymousfox36",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "bytes": 508571,
+        "changes": "Original file unmodified; CSS crops show the same demonstration photograph."
+      }
+    ]
+  }
+}

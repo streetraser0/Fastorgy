@@ -1,0 +1,50 @@
+/* Help stays above the current page; copying a request never sends it anywhere. */
+(()=>{
+ 'use strict';
+ if(window.FasSupport)return;
+ const PHONE='+78000000001',TOPICS={question:'Вопрос по сайту',access:'Вход по телефону',auction:'Участие в торгах',listing:'Размещение имущества',notifications:'Подписка и уведомления',media:'Фото, видео и прокрутка',other:'Другая проблема'};
+ const icon=name=>typeof uiIcon==='function'?uiIcon(name):'';
+ const dialog=document.createElement('dialog');dialog.id='support-dialog';dialog.className='support-dialog';dialog.setAttribute('aria-labelledby','support-title');
+ dialog.innerHTML=`<div class="support-shell"><header class="support-header"><img src="assets/brand/fas-torgi-logo.png?v=20261116-gradient1" alt="ФАС торги — Федеральная аукционная сеть" width="152" height="95"><button type="button" class="support-close" data-support-close aria-label="Закрыть помощь">${icon('close')||'×'}</button></header><div class="support-body"><div class="support-heading"><span>Центр помощи</span><h2 id="support-title" tabindex="-1">Помощь и поддержка</h2><p>Ответы на частые вопросы и контакт команды сайта.</p></div><a class="support-contact" href="tel:${PHONE}" aria-label="Позвонить по контакту сайта: 8 800 000-00-01"><span><strong>Позвонить по контакту сайта</strong><small>8 800 000-00-01</small></span>${icon('arrow-up-right')}</a><section class="support-faq" aria-labelledby="support-faq-title"><h3 id="support-faq-title">Частые вопросы</h3><details><summary>Как найти лот и выбрать регион?</summary><p>Откройте «Поиск» или выберите категорию. В разделе региона укажите область либо разрешите геолокацию. Ближайшие лоты показываются первыми, когда известно ваше местоположение. Расширенный поиск помогает задать цену, характеристики и условия.</p></details><details><summary>Как разместить имущество?</summary><p>Нажмите «Разместить», заполните профиль, сведения об имуществе и добавьте фотографии. Выберите срок аукциона от 1 часа до 30 суток. Неизвестные характеристики можно оставить пустыми. Сейчас объявление и файлы сохраняются только на этом устройстве; другие посетители их не видят.</p></details><details><summary>Как участвовать в торгах?</summary><p>Откройте карточку, изучите описание, документы, задаток и сроки. Введите ставку в форме. Сейчас работают демонстрационные ставки на этом устройстве: реальная покупка и списание денег не происходят. Допуск к настоящим торгам и расчёты появятся после подключения сервера.</p></details><details><summary>Почему не приходит SMS-код?</summary><p>SMS-вход пока не подключён. Форма не создаёт подтверждённую учётную запись без ответа сервера. Каталог можно смотреть без входа. Никому не передавайте коды подтверждения.</p></details><details><summary>Чем отличаются подписка и уведомления?</summary><p>Платная подписка определяет глубину данных о лоте. Оплата пока недоступна; просмотр возможностей не оформляет покупку. «Уведомления о лотах» сохраняют категории, регионы и условия поиска на этом устройстве. Доставка SMS и push пока не подключена.</p></details><details><summary>Как листать фото и ленту?</summary><p>Фото и видео листаются влево и вправо, а лента лотов — вверх и вниз. Чтобы вернуться в предыдущее окно, проведите в любую сторону по верхней панели или ручке окна. В карточке лота фото можно потянуть вниз, если вы в начале карточки. Прокрутка описания, масштабирование фото и работа с полями сохраняются. Если форма ещё сохраняется или в ней есть ошибка, сначала завершите действие либо отмените изменения.</p></details><details><summary>Как установить приложение?</summary><p>На Android выберите «Установить приложение» в меню сайта. На iPhone откройте сайт в Safari, нажмите «Поделиться», затем «На экран Домой». Для интерфейса нужен Safari / iOS 15.4 или новее. Избранное, черновики и история разных браузеров пока не синхронизируются.</p></details><details><summary>Почему пропали черновики или избранное?</summary><p>Данные пока хранятся локально в выбранном браузере или приложении. Они не переходят на другой телефон автоматически. Очистка данных сайта, приватный режим и нехватка памяти могут повлиять на сохранение. Перед очисткой сохраните нужные материалы отдельно.</p></details></section><section class="support-request" aria-labelledby="support-request-title"><h3 id="support-request-title">Подготовить обращение</h3><p>Форма пока не отправляет сообщения. Скопируйте описание проблемы и свяжитесь с командой по телефону.</p><form id="support-form" novalidate><label for="support-topic">Тема</label><select id="support-topic" name="topic">${Object.entries(TOPICS).map(([value,label])=>'<option value="'+value+'">'+label+'</option>').join('')}</select><label for="support-lot">Номер лота <small>Необязательно</small></label><input id="support-lot" name="lotId" type="text" inputmode="numeric" maxlength="16" placeholder="Например, 1042"><label for="support-message">Что произошло?</label><textarea id="support-message" name="message" rows="5" minlength="10" maxlength="3000" placeholder="Что вы хотели сделать и что произошло вместо этого?"></textarea><small class="support-private-note">Не указывайте пароли, SMS-коды, данные карты или документов.</small><label class="support-check"><input id="support-diagnostics" name="diagnostics" type="checkbox"><span>Добавить сведения о браузере</span></label><div id="support-error" class="support-error" role="alert" hidden></div><button type="submit" class="support-copy" id="support-copy">${icon('copy')} Скопировать обращение</button><p id="support-status" class="support-status" role="status" aria-live="polite"></p><label for="support-preview" id="support-preview-label" hidden>Текст для ручного копирования</label><textarea id="support-preview" class="support-preview" rows="8" readonly hidden></textarea><button type="button" class="support-select" data-support-select hidden>Выделить текст обращения</button></form></section></div></div>`;
+ document.body.appendChild(dialog);
+ const field=id=>dialog.querySelector('#'+id);
+ let origin=null,epoch=0,copying=null;
+ function buildReport(data={}){
+  data=data&&typeof data==='object'&&!Array.isArray(data)?data:{};
+  const topic=typeof data.topic==='string'&&Object.hasOwn(TOPICS,data.topic)?data.topic:'other';
+  const message=typeof data.message==='string'?data.message.trim().slice(0,3000):'';
+  const lot=typeof data.lotId==='string'||typeof data.lotId==='number'?String(data.lotId).trim():'';
+  if(message.length<10)return {ok:false,error:'Опишите проблему подробнее — хотя бы 10 символов.'};
+  if(lot&&(!/^[1-9]\d{0,15}$/.test(lot)||!Number.isSafeInteger(Number(lot))))return {ok:false,error:'Укажите номер лота цифрами или оставьте поле пустым.'};
+  const browser=typeof data.browser==='string'?data.browser.replace(/[\r\n]/g,' ').slice(0,240):'';
+  return {ok:true,text:'ФАС торги — обращение\nТема: '+TOPICS[topic]+(lot?'\nЛот № '+lot:'')+'\n\n'+message+(browser?'\n\nБраузер: '+browser:'')};
+ }
+ function current(version){return dialog.open&&epoch===version}
+ async function copyReport(){
+  if(!dialog.open)return {ok:false,reason:'closed'};
+  if(copying)return {ok:false,busy:true};
+  const report=buildReport({topic:field('support-topic').value,lotId:field('support-lot').value,message:field('support-message').value,browser:field('support-diagnostics').checked&&typeof navigator.userAgent==='string'?navigator.userAgent:''});
+  const error=field('support-error');error.hidden=report.ok;error.textContent=report.error||'';
+  if(!report.ok){field('support-message').focus?.();return report}
+  const version=epoch,button=field('support-copy'),operation={};copying=operation;button.disabled=true;field('support-status').textContent='';
+  try{
+   if(navigator.clipboard?.writeText){try{await navigator.clipboard.writeText(report.text);if(!current(version))return {ok:false,stale:true};field('support-status').textContent='Текст скопирован. Обращение ещё не отправлено.';return {ok:true,method:'clipboard',text:report.text}}catch{}}
+   if(!current(version))return {ok:false,stale:true};
+   const preview=field('support-preview');preview.value=report.text;preview.hidden=false;field('support-preview-label').hidden=false;dialog.querySelector('[data-support-select]').hidden=false;
+   field('support-status').textContent='Автоматическое копирование недоступно. Выделите текст и скопируйте его вручную.';preview.focus?.();preview.select?.();return {ok:false,manual:true,text:report.text};
+  }finally{if(copying===operation){copying=null;if(current(version))button.disabled=false}}
+ }
+ function open(options={}){
+  if(dialog.open){field('support-title').focus?.({preventScroll:true});return}
+  origin=document.activeElement;epoch++;copying=null;field('support-copy').disabled=false;field('support-status').textContent='';
+  const id=options?.lotId;if(id!==undefined&&Number.isSafeInteger(Number(id))&&Number(id)>0)field('support-lot').value=String(id);
+  document.querySelectorAll('video').forEach(video=>{if(!video.paused)video.pause()});
+  dialog.showModal();dialog.scrollTop=0;document.body.classList.add('support-open');window.FasMotion?.dialogEnter(dialog);field('support-title').focus?.({preventScroll:true});
+ }
+ function close(){if(dialog.open)dialog.close()}
+ field('support-form').onsubmit=event=>{event.preventDefault();void copyReport()};
+ dialog.addEventListener('click',event=>{if(event.target===dialog||event.target.closest?.('[data-support-close]')){close();return}if(event.target.closest?.('[data-support-select]')){const preview=field('support-preview');preview.focus?.();preview.select?.()}});
+ dialog.addEventListener('close',()=>{if(dialog.open)return;epoch++;copying=null;document.body.classList.remove('support-open');if(origin?.isConnected)origin.focus?.({preventScroll:true});if(typeof reelsMode!=='undefined'&&reelsMode&&typeof syncReels==='function'&&typeof swipeIndex==='function')syncReels(swipeIndex())});
+ document.addEventListener('click',event=>{if(event.target.closest?.('[data-open-support]')){event.preventDefault();open()}});
+ window.FasSupport=Object.freeze({open,close,copyReport,buildReport});
+})();

@@ -1,0 +1,2627 @@
+{
+  "generated_utc": "2026-11-14T11:20:39.444805+00:00",
+  "baseline": {
+    "version": 56,
+    "commit": "948dbc59de9a2113fcafcadb10f695e9ffb49946"
+  },
+  "method": {
+    "kind": "Six modeled personas, not actual human testing",
+    "profiles": [
+      "Покупатель-новичок со смартфоном и отказом геолокации",
+      "Обычный покупатель: сочетания режимов, пустые выдачи, смена категорий",
+      "Начинающий продавец квартиры",
+      "Опытный продавец: профиль, черновики, редактирование",
+      "Уверенный покупатель: составной текстовый и голосовой поиск",
+      "Продвинутый покупатель: сохранённые поиски, карта, клавиатура и вложенные окна"
+    ],
+    "execution": "Реальные обработчики клиентского кода в Node/VM с моделируемыми DOM, хранилищем и ответами API; контролируемые тестовые лоты не добавлялись в каталог сайта."
+  },
+  "fixed_findings": [
+    {
+      "id": "lot-swipe-hit-targets",
+      "before": "Жест закрытия терялся на кнопках, логотипе и фото.",
+      "after": "Четыре направления на панели, потянуть фото вниз в начале карточки; обычные нажатия, фото влево/вправо и чтение сохранены.",
+      "regressions": [
+        "right-swipe-close.cjs",
+        "feed-close-gesture.cjs",
+        "lot-close-return-routes.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "inexpensive-adjective",
+      "before": "«Недорогая квартира» превращалась в пустой поиск.",
+      "after": "Слово выбирает порядок по цене без выдуманного бюджета; числовой бюджет задаётся явно.",
+      "regressions": [
+        "search-persona-ranges.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "year-range-budget",
+      "before": "Диапазон годов перед бюджетом выдавал ошибку года.",
+      "after": "Год и цена разбираются отдельно, включая ввод без пробелов.",
+      "regressions": [
+        "search-persona-ranges.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "room-range",
+      "before": "Диапазон от 2 до 3 комнат превращался в ровно 3 и лишние ключевые слова.",
+      "after": "Границы комнат применяются к полю количества комнат.",
+      "regressions": [
+        "search-persona-ranges.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "sort-feedback",
+      "before": "После ручной сортировки подпись обещала прежний порядок.",
+      "after": "Подпись исключает переопределённый режим, остальные признаки остаются.",
+      "regressions": [
+        "search-sort-feedback.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "existing-lot-contact",
+      "before": "Правка старого объявления могла опубликовать телефон из настройки для новых объявлений.",
+      "after": "Существующее объявление сохраняет своё разрешение на публикацию телефона.",
+      "regressions": [
+        "seller-contact-privacy.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "draft-delete-confirmation",
+      "before": "Одно нажатие удаляло черновик и файлы.",
+      "after": "Подтверждение и отмена находятся в строке; до подтверждения данные и файлы сохраняются.",
+      "regressions": [
+        "draft-delete.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "profile-discard",
+      "before": "Неверный несохранённый телефон удерживал пользователя в профиле без явной отмены.",
+      "after": "«Отменить изменения» возвращает в кабинет без записи несохранённых полей.",
+      "regressions": [
+        "seller-profile-cancel.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "seller-requirement-hints",
+      "before": "Минимум описания и фото становился понятен только после отправки.",
+      "after": "Минимум 20 символов и одно фото указаны до отправки; неполный черновик сохраняется.",
+      "regressions": [
+        "seller-integration.cjs",
+        "seller-workspace-recovery.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "saved-search-cap",
+      "before": "Открытый сохранённый поиск использовал старый бюджет вместо видимого лимита подписки.",
+      "after": "Сохранённые результаты и уведомления используют одинаковые категорию, регион и бюджет.",
+      "regressions": [
+        "saved-search-subscription-form.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "map-lot-return",
+      "before": "Открытие и закрытие лота теряло настроенную карту.",
+      "after": "Возврат сохраняет условия карты, точку, позицию, popup; вложенный лот сохраняет ввод и актуальный минимум ставки.",
+      "regressions": [
+        "map-lot-return.cjs",
+        "lot-close-return-routes.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "copy-lot-state",
+      "before": "Ручное копирование заменяло карточку и удаляло введённую ставку.",
+      "after": "Копирование открывается отдельным окном; форма, галерея, прокрутка и фокус сохраняются.",
+      "regressions": [
+        "buyer-share-return.cjs",
+        "buyer-tools.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "copy-stale-overlay",
+      "before": "Поздний отказ Clipboard мог открыть окно поверх оплаты.",
+      "after": "Проверяется текущий верхний диалог; устаревший ответ не перехватывает новое окно.",
+      "regressions": [
+        "buyer-share-return.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "result-count-grammar",
+      "before": "Счётчик писал «1 лотов» и «2 лотов».",
+      "after": "Окончание зависит от числа: лот, лота, лотов.",
+      "regressions": [
+        "natural-typed-search.cjs",
+        "search-results-layout.cjs"
+      ],
+      "status": "fixed"
+    },
+    {
+      "id": "deposit-explanation",
+      "before": "Рядом с суммой задатка не было пояснения для новичка.",
+      "after": "Рядом с условиями есть раскрываемое объяснение обеспечения участия, условий продавца и демонстрационного режима.",
+      "regressions": [
+        "lot-presentation-integration.cjs",
+        "layout-safety.cjs"
+      ],
+      "status": "fixed"
+    }
+  ],
+  "remaining_observations": [
+    {
+      "status": "usability recommendation",
+      "summary": "Объяснить, что режим «Дешевле» учитывает выгодность и доступность актуальных аналогов."
+    },
+    {
+      "status": "usability recommendation",
+      "summary": "Для пустого сочетания режимов предложить конкретный фильтр, который можно снять."
+    }
+  ],
+  "persona_walkthroughs": {
+    "buyers": {
+      "source": "948dbc59 / v56 base plus current assigned working-tree fixes",
+      "completed_at_utc": "2026-11-14T11:09:47.143854+00:00",
+      "complete": true,
+      "method": "Node VM actual DOM input, submit, click, keydown handlers with deterministic fixture inventory. Location permission is denied by a stub. No browser geometry/network/SMS/payment verification.",
+      "scope": "Two modeled buyer personas, actual client event paths for search, location, photos, map, favorites, featured modes, categories and cancellation. This is not feedback from recruited human users.",
+      "limits": [
+        "DOM harness does not measure rendered layout, actual iPhone/Android touch or screen-reader output.",
+        "Photo URLs are deterministic HTTPS fixture examples; image downloads and photograph content were not verified.",
+        "Leaflet map API is stubbed: tested UI state, filters, selection and return behavior; actual remote tiles/network not verified.",
+        "No live payment, SMS, production-user load or external service verification.",
+        "No production edits in this final persona pass; gesture fixes remained frozen."
+      ],
+      "personas": [
+        {
+          "id": "A",
+          "experience": "Smartphone novice; does not know category taxonomy or deposit terminology; denies geolocation.",
+          "goal": "Find affordable apartment in own city, inspect photos and map, return to same position, add to favorites.",
+          "result": "Completed all requested modeled steps.",
+          "feedback": "Местоположение можно не разрешать — Воронеж нашёлся вручную. Написал обычными словами, уточнил цену, открыл фото и карту и вернулся туда же. Сердце сохранило квартиру. Не понял только, что именно означает задаток.",
+          "successes": [
+            "Геолокацию можно не разрешать: выбор Воронежской области вручную работает.",
+            "Обычная фраза и уточнённый бюджет находят квартиры без ручного выбора категории.",
+            "Фото и карта закрываются обратно в тот же лот на прежнее место.",
+            "Избранное сохраняет нужную квартиру; возврат сохраняет поисковый запрос."
+          ],
+          "observations": [
+            "Термин «Задаток» показан суммой, но рядом нет короткого пояснения для новичка.",
+            "Количество в маленькой выдаче отображается как «1 лотов»/«2 лотов»: смысл понятен, выглядит неаккуратно."
+          ],
+          "checks": [
+            {
+              "name": "Denied geolocation leaves a useful manual-region alternative",
+              "copy": "Доступ к местоположению не разрешён. Выберите регион вручную."
+            },
+            {
+              "name": "Manual region submitted",
+              "region": {
+                "code": "36",
+                "scope": "region"
+              },
+              "origin": {
+                "point": [
+                  51.66,
+                  39.2
+                ],
+                "approximate": true
+              }
+            },
+            {
+              "name": "Natural inexpensive-apartment query now finds both apartments",
+              "ids": [
+                999900001,
+                999900002
+              ],
+              "category": "property"
+            },
+            {
+              "name": "Numeric budget reduces to affordable apartment",
+              "ids": [
+                999900001
+              ],
+              "count": "1 лотов"
+            },
+            {
+              "name": "Photo next/close returns to same lot and scroll",
+              "lotScroll": 280
+            },
+            {
+              "name": "Lot map and explicit close retain selected lot",
+              "precision": "Примерная точка — центр города или региона. Расстояния по прямой.",
+              "lotScroll": 280
+            },
+            {
+              "name": "Heart saves chosen apartment and Back returns without resetting search",
+              "saved": [
+                999900001
+              ],
+              "search": "квартира до 3 млн Воронеж",
+              "ids": [
+                999900001
+              ]
+            },
+            {
+              "name": "Auction vocabulary in detail",
+              "hasDepositLabel": true,
+              "hasInlineDepositExplanation": false,
+              "copyExcerpt": "треть способы оплаты. Шаг 10 000 ₽ Задаток 50 000 ₽ Торги до 14.11.2026, 17:09:39 Ваша ставка Сделать демоставку Деморежим: ставка с"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "experience": "Ordinary buyer; uses two or three featured-mode buttons and changes categories.",
+          "goal": "Understand combined featured modes, recover from an empty selection, cancel and apply category changes.",
+          "result": "Completed all requested modeled steps.",
+          "feedback": "Кнопки можно сочетать и убирать повторным нажатием. Отмена категорий ничего не испортила. Если лотов нет, можно поменять условие; после снятия «До 24 часов» телефон появился. Хочется заранее понятнее видеть, чем «Дешевле» отличается от «Выгодно».",
+          "successes": [
+            "Кнопки подборки можно включать вместе и выключать повторным нажатием.",
+            "Пустой режим «Дешевле» предлагает кнопку выбора категории.",
+            "Отмена в выборе категорий сохраняет прежнюю настройку.",
+            "Пустое пересечение не подменяется посторонними лотами; снятие условия возвращает подходящие."
+          ],
+          "observations": [
+            "Название «Дешевле» воспринимается как все недорогие товары, а внутри отбираются только выгодные по свежим аналогам продавца; пояснение появляется после выбора.",
+            "При сочетании трёх режимов пустое состояние объясняет общий принцип, но не показывает, какое конкретно условие исключило последний лот."
+          ],
+          "checks": [
+            {
+              "name": "First mode button toggles alongside default",
+              "modes": [
+                "for-you",
+                "nearby"
+              ],
+              "note": "Для вас + Рядом. Выберите регион для сортировки по расстоянию.",
+              "ids": [
+                999900001,
+                999900002,
+                999900003,
+                999900004
+              ]
+            },
+            {
+              "name": "Cold cheaper mode gives an actionable empty state",
+              "empty": "Выберите категорию, найдите товар или добавьте интересный лот в избранное. Выбрать категорию",
+              "ids": []
+            },
+            {
+              "name": "Empty-state category action leads to assessed apartment",
+              "category": "property",
+              "note": "Квартиры и комнаты · Сначала дешевле среди суперцен · По аналогам продавца.",
+              "ids": [
+                999900001
+              ]
+            },
+            {
+              "name": "Three-button combination applies jointly",
+              "modes": [
+                "value",
+                "low",
+                "ending"
+              ],
+              "note": "Выгодно + Дешевле + До 24 часов. Выберите регион для сортировки по расстоянию. По актуальным аналогам продавца, без учёта расходов и комиссий.",
+              "ids": [
+                999900001
+              ]
+            },
+            {
+              "name": "Cancelling staged category changes keeps original criteria",
+              "category": "property"
+            },
+            {
+              "name": "Changing to electronics yields honest empty intersection",
+              "category": "electronics",
+              "empty": "Нет лотов, соответствующих всем выбранным условиям. Измените сочетание или параметры поиска.",
+              "modes": [
+                "value",
+                "low",
+                "ending"
+              ]
+            },
+            {
+              "name": "Deselecting only ending restores matching electronics",
+              "modes": [
+                "value",
+                "low"
+              ],
+              "ids": [
+                999900004
+              ]
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "id": "BUYER-A-01",
+          "severity": "P2 / search UX",
+          "status": "Resolved by concurrent root natural-search fix; retested successfully.",
+          "summary": "Natural adjective «недорогая» previously eliminated an otherwise matching apartment search.",
+          "before": "Initial probe returned zero for «недорогая квартира в Воронеже», while «квартира Воронеж» returned two apartments.",
+          "after": "Current actual input/submit flow returns both apartments for the adjective query and only the 2M apartment for «квартира до 3 млн Воронеж».",
+          "repro": "/tmp/persona-initial-probe.cjs and /tmp/persona-buyers-scenarios.cjs"
+        },
+        {
+          "id": "BUYER-A-02",
+          "severity": "P3 / copy",
+          "status": "Confirmed; reported to root, no edit in read-only pass.",
+          "summary": "Result counter uses «лотов» for singular and small plural.",
+          "observed": "Actual rendered counter text: «1 лотов»; prior probe «2 лотов».",
+          "source": "/workspace/sites/drive-lot/dist/index.html:347, render(), $(\"#result-count\").textContent=list.length+« лотов».",
+          "impact": "Meaning remains clear, but visible Russian grammar is incorrect.",
+          "suggestion": "Use an existing Russian pluralization helper or Intl.PluralRules for «лот/лота/лотов»."
+        },
+        {
+          "id": "BUYER-A-03",
+          "severity": "P3 / novice comprehension",
+          "status": "Confirmed label-only vocabulary; recommendation, not a blocked functional path.",
+          "summary": "Deposit is shown as an amount without an adjacent novice explanation.",
+          "observed": "Detail terms show «Шаг 10 000 ₽ Задаток 50 000 ₽ Торги до …». No adjacent short explanation describes purpose/return conditions.",
+          "source": "/workspace/sites/drive-lot/dist/index.html:380, openCar(), .purchase-terms: «Задаток <b>${money(c.deposit)}</b>».",
+          "impact": "A first-time auction buyer can inspect the item but may not understand whether a deposit must be paid and how it is returned.",
+          "suggestion": "Add a brief help control explaining seller-specific participation/security terms; keep demo payment status factual."
+        }
+      ],
+      "recommendations_only": [
+        {
+          "id": "BUYER-B-R1",
+          "summary": "Clarify «Дешевле» versus «Выгодно» before selection.",
+          "evidence": "Featured low mode requires relevant scope and fresh seller comparables; the UI explains it after selection.",
+          "source": "/workspace/sites/drive-lot/dist/featured-lots.js, singleSelection()/refresh().",
+          "suggestion": "A small mode description or tooltip can make the price-plus-assessment criterion explicit."
+        },
+        {
+          "id": "BUYER-B-R2",
+          "summary": "Offer a specific relaxation in an empty intersection.",
+          "evidence": "With value+low+ending and electronics category the result was empty; removing ending restored the phone. Current empty message correctly says all selected conditions must match.",
+          "suggestion": "Optionally show a contextual button such as «Без ограничения 24 часа» with the preview result count; do not silently drop filters."
+        }
+      ],
+      "urgent_followup": {
+        "summary": "Confirmed exact-target swipe regression and implemented fix in assigned production files.",
+        "repro": "/tmp/lot-hit-target-repro.cjs; before source /tmp/lot-close-before-persona.js and current dist/lot-close-gesture.js",
+        "observed_before": "Downward swipe from actual header button/SVG, clickable logo img and gallery img[role=button] all returned closed=0.",
+        "observed_after": "All three actual targets return closed=1; header permits four directions; photo down only at scroll top."
+      },
+      "artifacts": {
+        "executable_scenarios": "/tmp/persona-buyers-scenarios.cjs",
+        "harness": "/tmp/persona-buyers-harness.cjs",
+        "observed_output": "/tmp/persona-buyers-scenarios-output.json",
+        "initial_search_probe": "/tmp/persona-initial-probe.cjs"
+      }
+    },
+    "sellers": {
+      "task": "Модельный UX-аудит размещения имущества: две персоны продавцов",
+      "baseline": {
+        "commit": "948dbc59",
+        "release": "v56",
+        "date": "2026-11-14"
+      },
+      "method": {
+        "actual_client_code": [
+          "dist/index.html inline main",
+          "dist/seller-ui.js",
+          "dist/category-ui.js",
+          "dist/seller-rules.js"
+        ],
+        "events": "Реальные обработчики кликов кабинета, выбора категории, секционной навигации, отправки форм и change файлов. Значения полей и успешность/ошибки локального медиа моделируются.",
+        "adapter": "/tmp/persona-seller-dom.cjs",
+        "limitations": [
+          "VM и упрощённый DOM, не настоящий телефон и не браузерный layout.",
+          "Галерея/камера ОС, работа iPhone HEIC/Android декодера и физические жесты не проверены.",
+          "Медиа-превью/сохранение файлов используют контролируемый mock FasSellerMedia; проверяется реакция клиентского интерфейса.",
+          "Пользовательские ожидания являются модельными персонами, а не результатом интервью с реальными людьми.",
+          "Полная существующая suite из 156 тестов не запускалась."
+        ]
+      },
+      "personas": [
+        {
+          "id": "A",
+          "profile": "Новичок, смартфон, впервые размещает однокомнатную квартиру",
+          "walkthrough": [
+            "Кабинет → Разместить объявление → Недвижимость → Квартиры.",
+            "Ввод названия, площади 35 м², 1 комнаты, этажа 3/9; короткого описания, цены 0 и даты начала в прошлом.",
+            "Первый submit → понятные ошибки описания, цены, даты, фото и права продажи; данные сохранены в черновике, details с датой автоматически раскрыт.",
+            "Исправление описания/цены/старта, выбор Снять фото и имитация change выбранного файла.",
+            "Попытка В кабинет во время записи медиа → остаётся форма, явная просьба дождаться файлов, submit заблокирован.",
+            "После завершения → фото в превью, данные и файл в черновике, submit доступен.",
+            "Заполнить профиль → имя и телефон → Сохранить профиль → кабинет → Продолжить черновик.",
+            "Закрытие формы X и повторный вход через кабинет → название, описание, цена, площадь и фото сохранены.",
+            "Подтверждение права продажи → Разместить → один квартирный лот в локальном демокаталоге."
+          ],
+          "observations": [
+            {
+              "expectation": "Понять заранее, без ошибки публикации, какие сведения обязательны.",
+              "saw": "Звёздочка есть у площади. Описание не отмечено как обязательное, минимум 20 символов не указан; заголовок фото не сообщает минимум одно.",
+              "assessment": "Некритичное затруднение первого заполнения; ошибки после отправки понятны."
+            },
+            {
+              "expectation": "После заполнения профиля вернуться к своему объявлению.",
+              "saw": "Открывается общий кабинет. Черновик виден и восстанавливается кнопкой Продолжить.",
+              "assessment": "Восстановление работает, но дополнительный шаг."
+            },
+            {
+              "expectation": "Отложить заполнение профиля, если номер пока введён с ошибкой.",
+              "saw": "Возврат к объявлениям и X блокируются; отдельного отменить/сбросить нет.",
+              "assessment": "Подтверждённый UX-тупик; можно исправить телефон или вручную вернуть исходные значения."
+            }
+          ],
+          "evidence": [
+            "/tmp/persona-sellers-walkthrough.cjs",
+            "/tmp/persona-sellers-profile-repro.cjs"
+          ],
+          "passed": [
+            "Подсказки валидаторов цены и прошедшей даты.",
+            "Раскрытие details с ошибкой даты.",
+            "Сохранение введённого при ошибках.",
+            "Блокировка выхода при незавершённой загрузке.",
+            "Возврат к черновику после профиля и X без потери данных.",
+            "Успешная публикация квартиры с одной фотографией."
+          ]
+        },
+        {
+          "id": "B",
+          "profile": "Уверенный продавец автомобиля/оборудования",
+          "walkthrough": [
+            "Кабинет → Продолжить существующий автомобильный черновик.",
+            "Правка марки, модели, описания и стартовой цены.",
+            "Переходы Фото → Торги через навигацию секций: черновик не меняется.",
+            "Категория → Бизнес и оборудование → Оборудование: общие описание/цена/медиа сохраняются, характеристики меняются.",
+            "Заменяет автомобильное название/описание, добавляет два фото оборудования, удаляет прежнее фото, меняет порядок двух новых.",
+            "В кабинет → Профиль → Мои лоты → Продолжить: название и порядок файлов сохранены.",
+            "Два нажатия Разместить во время отложенного чтения фото → одна операция чтения и один опубликованный лот.",
+            "Проверка удаления другого черновика одним нажатием.",
+            "Публикация без телефона → включение профильной галочки для новых объявлений → правка только описания старого лота."
+          ],
+          "observations": [
+            {
+              "expectation": "Профильная галочка с текстом «в новых объявлениях» не поменяет видимость номера в уже размещённом лоте.",
+              "saw_before_fix": "После правки только описания ранее скрытый телефон появился в старом лоте.",
+              "assessment": "Подтверждённая существенная ошибка обещания интерфейса и конфиденциальности. Исправлена по отдельному разрешению root."
+            },
+            {
+              "expectation": "Ошибочное касание Удалить черновик можно отменить.",
+              "saw": "Одно касание сразу удаляет запись и вызывает удаление её файлов. Подтверждения и Отменить нет.",
+              "assessment": "Подтверждённый риск необратимой потери длинного черновика; без самостоятельного исправления."
+            }
+          ],
+          "evidence": [
+            "/tmp/persona-sellers-expert-walkthrough.cjs",
+            "/tmp/persona-sellers-contact-repro.cjs"
+          ],
+          "passed": [
+            "Навигация секций не меняет данные.",
+            "Общие данные и медиа при смене категории сохраняются.",
+            "Добавление/удаление/перестановка медиа сохраняются в черновике.",
+            "Возвращение через профиль/кабинет сохраняет правки.",
+            "Двойное нажатие Разместить даёт один лот и одну операцию чтения медиа."
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "id": "SELLER-UX-01",
+          "priority": "P1",
+          "title": "Описательная правка старого лота неожиданно публикует телефон из настройки для новых объявлений",
+          "status": "Исправлено по явному разрешению root",
+          "before": {
+            "publicContact": "",
+            "profile_label": "Показывать мой телефон в новых объявлениях",
+            "after_profile_true_and_description_edit": "+79991234567"
+          },
+          "fix": "У existing сохраняется его publicContact; настройка профиля применяется при новом/повторном лоте.",
+          "files": [
+            "dist/seller-ui.js",
+            "tests/seller-contact-privacy.cjs"
+          ],
+          "repro": "/tmp/persona-sellers-contact-repro.cjs воспроизводил baseline; после фикса его ожидавшая старую ошибку проверка больше не должна проходить.",
+          "regression": "node tests/seller-contact-privacy.cjs — PASS: private→true→edit остаётся private; public→false→edit сохраняет номер; новые лоты учитывают текущий выбор; повторный лот тоже новый."
+        },
+        {
+          "id": "SELLER-UX-02",
+          "priority": "P2",
+          "title": "Удаление черновика не имеет подтверждения или восстановления",
+          "status": "Исправлено по следующему явному разрешению root",
+          "steps": [
+            "Кабинет с заполненным черновиком и фото.",
+            "Один раз нажать Удалить черновик."
+          ],
+          "observed": {
+            "drafts_after": 0,
+            "deleteMedia_called_with": [
+              "idb:image-12345678"
+            ],
+            "confirmation": false,
+            "undo": false
+          },
+          "suggestion": "Подтверждение с названием черновика либо короткая возможность Отменить до удаления медиа.",
+          "repro": "node /tmp/persona-sellers-expert-walkthrough.cjs",
+          "fix": "Первое нажатие показывает подтверждение прямо в строке. Отмена не меняет данные/файлы и возвращает фокус. Только явное второе подтверждение удаляет запись и запускает очистку неиспользуемых файлов.",
+          "regression": "tests/draft-delete.cjs; tests/seller-workspace-recovery.cjs — PASS."
+        },
+        {
+          "id": "SELLER-UX-03",
+          "priority": "P2",
+          "title": "Неправильный телефон в профиле не даёт вернуться к уже сохранённому объявлению",
+          "status": "Исправлено по следующему явному разрешению root",
+          "steps": [
+            "Из формы объявления нажать Заполнить профиль.",
+            "Ввести имя Анна и телефон 123.",
+            "Нажать К моим объявлениям или X."
+          ],
+          "observed": "Остаётся профиль с сообщением «Укажите имя от двух символов и российский номер телефона». Нет отмены изменений; черновик объявления уже записан.",
+          "recoverability": "Можно ввести корректный номер или вручную восстановить исходные имя/телефон. Потери черновика не было.",
+          "suggestion": "Явное Отменить изменения профиля с сохранением объявления и возвратом к нему.",
+          "repro": "node /tmp/persona-sellers-profile-repro.cjs",
+          "fix": "Явная кнопка Отменить изменения возвращает к объявлениям без записи профиля или лотов. Сохранённый черновик доступен. Обычные X/Escape по-прежнему сохраняют проверки.",
+          "regression": "tests/seller-profile-cancel.cjs и tests/seller-exit-guards.cjs — PASS, включая конкурентное изменение профиля/черновиков."
+        },
+        {
+          "id": "SELLER-UX-04",
+          "priority": "P3",
+          "title": "Некоторые обязательные требования становятся понятны только после первой отправки",
+          "status": "Исправлено по следующему явному разрешению root",
+          "observed": "У описания отсутствуют required/minlength и видимая подсказка о 20 символах. У блока фото нет видимого требования хотя бы одного фото. Сам валидатор эти требования проверяет и объясняет.",
+          "suggestion": "Короткие видимые подписи «Обязательно, от 20 символов» и «Добавьте хотя бы 1 фото» без дополнительных шагов.",
+          "fix": "Перед отправкой указаны Обязательно для размещения: от 20 символов и Для размещения нужно хотя бы 1 фото. Textarea описания имеет required/minlength; форма сохраняет неполные черновики.",
+          "regression": "tests/seller-profile-cancel.cjs — PASS."
+        }
+      ],
+      "authorized_change": {
+        "scope": "Контакт existing и три отдельно разрешённых UX-исправления: отмена профиля, обязательные подписи, подтверждение удаления.",
+        "files": [
+          "dist/seller-ui.js",
+          "tests/seller-contact-privacy.cjs",
+          "tests/seller-profile-cancel.cjs",
+          "tests/draft-delete.cjs",
+          "tests/seller-workspace-recovery.cjs"
+        ],
+        "checks": [
+          {
+            "command": "node tests/seller-contact-privacy.cjs",
+            "result": "PASS"
+          },
+          {
+            "command": "node tests/seller-current-state.cjs",
+            "result": "PASS"
+          },
+          {
+            "command": "node tests/seller-integration.cjs",
+            "result": "PASS"
+          },
+          {
+            "command": "git diff --check",
+            "result": "PASS"
+          },
+          {
+            "command": "node tests/draft-delete.cjs",
+            "result": "PASS"
+          },
+          {
+            "command": "node tests/seller-workspace-recovery.cjs",
+            "result": "PASS"
+          },
+          {
+            "command": "node tests/seller-profile-cancel.cjs",
+            "result": "PASS"
+          },
+          {
+            "command": "node tests/seller-exit-guards.cjs",
+            "result": "PASS"
+          }
+        ],
+        "build_commit_deploy": "Не выполнялись",
+        "freeze": true
+      },
+      "baseline_observations_note": "Наблюдения персон описывают baseline v56 до согласованных исправлений; статусы findings и regressions показывают текущее состояние."
+    },
+    "expert": {
+      "source": "948dbc5 / v56",
+      "method": "Production input/click/submit/keydown handlers in the repository VM DOM harness, new controlled fixtures. No real browser, actual speech, real map tiles or real customer observation.",
+      "personas": [
+        {
+          "id": "A",
+          "profile": "Confident buyer, compound typed/voice queries, changes category/filters/sort, asks why zero.",
+          "steps": [
+            {
+              "action": "Type a valid compound car request, submit Find",
+              "observed": {
+                "query": "Toyota RAV4 дизель автомат от 2019 до 2022 года до 3 млн",
+                "category": "cars",
+                "sort": "nearest",
+                "ids": [
+                  998661001,
+                  998661007,
+                  998661011,
+                  998661014,
+                  998661015,
+                  998661002,
+                  998661004,
+                  998661008,
+                  998661012,
+                  998661005,
+                  998661009,
+                  998661013,
+                  998661016,
+                  998661006,
+                  998661010,
+                  998661017,
+                  998661003,
+                  998661018
+                ],
+                "error": "Год: укажите корректное значение от 1886 до 2027.",
+                "feedback": "<span>Год: укажите корректное значение от 1886 до 2027.</span>",
+                "values": {
+                  "price-min": "",
+                  "price-max": "",
+                  "year-min": "",
+                  "year-max": "",
+                  "condition": "",
+                  "seller": "",
+                  "deposit-max": "",
+                  "ends": "",
+                  "radius": "",
+                  "model": "",
+                  "mileage-min": "",
+                  "mileage-max": "",
+                  "fuel": "",
+                  "transmission": "",
+                  "drive": "",
+                  "power-min": "",
+                  "area-min": "",
+                  "area-max": "",
+                  "rooms-min": "",
+                  "rooms-max": "",
+                  "floor-min": "",
+                  "floor-max": "",
+                  "maker": "",
+                  "kw-min": "",
+                  "kw-max": ""
+                }
+              }
+            },
+            {
+              "action": "Rewrite the same intent using minimum year instead",
+              "observed": {
+                "query": "Toyota RAV4 не старше 2020 года дизель автомат до 3 млн",
+                "category": "cars",
+                "sort": "nearest",
+                "ids": [
+                  998661001
+                ],
+                "error": "",
+                "feedback": "<span class=\"keyword-criteria\">Распознано: Цена: до 3 000 000 ₽ · Год: от 2020 · Топливо: Дизель · Коробка: Автомат</span><span>Категория: Легковые автомобили · Найдено: 1</span><button type=\"button\" data-follow-current-search>Следить за поиском</button><button type=\"button\" data-keyword-all-categories>Все категории</button>",
+                "values": {
+                  "price-min": "",
+                  "price-max": "",
+                  "year-min": "",
+                  "year-max": "",
+                  "condition": "",
+                  "seller": "",
+                  "deposit-max": "",
+                  "ends": "",
+                  "radius": "",
+                  "model": "",
+                  "mileage-min": "",
+                  "mileage-max": "",
+                  "fuel": "",
+                  "transmission": "",
+                  "drive": "",
+                  "power-min": "",
+                  "area-min": "",
+                  "area-max": "",
+                  "rooms-min": "",
+                  "rooms-max": "",
+                  "floor-min": "",
+                  "floor-max": "",
+                  "maker": "",
+                  "kw-min": "",
+                  "kw-max": ""
+                }
+              }
+            },
+            {
+              "action": "Move to apartments and ask for 2–3 rooms",
+              "observed": {
+                "query": "квартира от 2 до 3 комнат",
+                "category": "property",
+                "sort": "nearest",
+                "ids": [],
+                "error": "",
+                "feedback": "<span class=\"keyword-criteria\">Распознано: Комнаты: 3</span><span>Категория: Квартиры и комнаты · Найдено: 0 · В доступном каталоге нет действующих лотов по запросу. Проверены все категории и регионы.</span><button type=\"button\" data-follow-current-search>Следить за поиском</button>",
+                "values": {
+                  "price-min": "",
+                  "price-max": "",
+                  "year-min": "",
+                  "year-max": "",
+                  "condition": "",
+                  "seller": "",
+                  "deposit-max": "",
+                  "ends": "",
+                  "radius": "",
+                  "model": "",
+                  "mileage-min": "",
+                  "mileage-max": "",
+                  "fuel": "",
+                  "transmission": "",
+                  "drive": "",
+                  "power-min": "",
+                  "area-min": "",
+                  "area-max": "",
+                  "rooms-min": "",
+                  "rooms-max": "",
+                  "floor-min": "",
+                  "floor-max": "",
+                  "maker": "",
+                  "kw-min": "",
+                  "kw-max": ""
+                }
+              }
+            },
+            {
+              "action": "Correct to area plus exact room count",
+              "observed": {
+                "query": "квартира от 40 до 80 м2 2 комнаты",
+                "category": "property",
+                "sort": "nearest",
+                "ids": [
+                  998661007
+                ],
+                "error": "",
+                "feedback": "<span class=\"keyword-criteria\">Распознано: Площадь: от 40 до 80 м² · Комнаты: 2</span><span>Категория: Квартиры и комнаты · Найдено: 1</span><button type=\"button\" data-follow-current-search>Следить за поиском</button><button type=\"button\" data-keyword-all-categories>Все категории</button>",
+                "values": {
+                  "price-min": "",
+                  "price-max": "",
+                  "year-min": "",
+                  "year-max": "",
+                  "condition": "",
+                  "seller": "",
+                  "deposit-max": "",
+                  "ends": "",
+                  "radius": "",
+                  "model": "",
+                  "mileage-min": "",
+                  "mileage-max": "",
+                  "fuel": "",
+                  "transmission": "",
+                  "drive": "",
+                  "power-min": "",
+                  "area-min": "",
+                  "area-max": "",
+                  "rooms-min": "",
+                  "rooms-max": "",
+                  "floor-min": "",
+                  "floor-max": "",
+                  "maker": "",
+                  "kw-min": "",
+                  "kw-max": ""
+                }
+              }
+            },
+            {
+              "action": "Choose expensive-first after asking for nearby",
+              "observed": {
+                "query": "универсал рядом",
+                "category": "cars",
+                "sort": "high",
+                "ids": [
+                  998661005,
+                  998661006
+                ],
+                "error": "",
+                "feedback": "<span class=\"keyword-criteria\">Распознано: Сначала ближайшие</span><span>Категория: Легковые автомобили · Найдено: 2</span><button type=\"button\" data-follow-current-search>Следить за поиском</button><button type=\"button\" data-keyword-all-categories>Все категории</button>",
+                "values": {
+                  "price-min": "",
+                  "price-max": "",
+                  "year-min": "",
+                  "year-max": "",
+                  "condition": "",
+                  "seller": "",
+                  "deposit-max": "",
+                  "ends": "",
+                  "radius": "",
+                  "model": "",
+                  "mileage-min": "",
+                  "mileage-max": "",
+                  "fuel": "",
+                  "transmission": "",
+                  "drive": "",
+                  "power-min": "",
+                  "area-min": "",
+                  "area-max": "",
+                  "rooms-min": "",
+                  "rooms-max": "",
+                  "floor-min": "",
+                  "floor-max": "",
+                  "maker": "",
+                  "kw-min": "",
+                  "kw-max": ""
+                }
+              }
+            },
+            {
+              "action": "Submit invalid manual range",
+              "observed": {
+                "query": "универсал рядом",
+                "category": "cars",
+                "sort": "high",
+                "ids": [
+                  998661005,
+                  998661006
+                ],
+                "error": "Цена: значение «от» не может быть больше «до». Поменяйте границы.",
+                "feedback": "<span class=\"keyword-criteria\">Распознано: Сначала ближайшие</span><span>Категория: Легковые автомобили · Найдено: 2</span><button type=\"button\" data-follow-current-search>Следить за поиском</button><button type=\"button\" data-keyword-all-categories>Все категории</button>",
+                "values": {
+                  "price-min": "3000000",
+                  "price-max": "2000000",
+                  "year-min": "",
+                  "year-max": "",
+                  "condition": "",
+                  "seller": "",
+                  "deposit-max": "",
+                  "ends": "",
+                  "radius": "",
+                  "model": "",
+                  "mileage-min": "",
+                  "mileage-max": "",
+                  "fuel": "",
+                  "transmission": "",
+                  "drive": "",
+                  "power-min": "",
+                  "area-min": "",
+                  "area-max": "",
+                  "rooms-min": "",
+                  "rooms-max": "",
+                  "floor-min": "",
+                  "floor-max": "",
+                  "maker": "",
+                  "kw-min": "",
+                  "kw-max": ""
+                }
+              }
+            },
+            {
+              "action": "Explicitly start microphone, receive permission denied",
+              "observed": "Доступ к микрофону запрещён. Разрешите его в настройках браузера или введите запрос."
+            },
+            {
+              "action": "Use editable voice fallback after denied microphone and no location",
+              "observed": {
+                "query": "Toyota RAV4",
+                "category": "cars",
+                "sort": "nearest",
+                "ids": [
+                  998661001,
+                  998661002
+                ],
+                "error": "",
+                "feedback": "<span>Категория: Легковые автомобили · Найдено: 2</span><button type=\"button\" data-follow-current-search>Следить за поиском</button><button type=\"button\" data-keyword-all-categories>Все категории</button>",
+                "values": {
+                  "price-min": "",
+                  "price-max": "",
+                  "year-min": "2020",
+                  "year-max": "",
+                  "condition": "",
+                  "seller": "",
+                  "deposit-max": "",
+                  "ends": "",
+                  "radius": "",
+                  "model": "",
+                  "mileage-min": "",
+                  "mileage-max": "",
+                  "fuel": "",
+                  "transmission": "auto",
+                  "drive": "",
+                  "power-min": "",
+                  "area-min": "",
+                  "area-max": "",
+                  "rooms-min": "",
+                  "rooms-max": "",
+                  "floor-min": "",
+                  "floor-max": "",
+                  "maker": "",
+                  "kw-min": "",
+                  "kw-max": ""
+                }
+              }
+            },
+            {
+              "action": "Refine the previous voice search to cheapest first",
+              "observed": {
+                "query": "Toyota RAV4",
+                "category": "cars",
+                "sort": "low",
+                "ids": [
+                  998661002,
+                  998661001
+                ],
+                "error": "",
+                "feedback": "<span>Категория: Легковые автомобили · Найдено: 2</span><button type=\"button\" data-follow-current-search>Следить за поиском</button><button type=\"button\" data-keyword-all-categories>Все категории</button>",
+                "values": {
+                  "price-min": "",
+                  "price-max": "",
+                  "year-min": "2020",
+                  "year-max": "",
+                  "condition": "",
+                  "seller": "",
+                  "deposit-max": "",
+                  "ends": "",
+                  "radius": "",
+                  "model": "",
+                  "mileage-min": "",
+                  "mileage-max": "",
+                  "fuel": "",
+                  "transmission": "auto",
+                  "drive": "",
+                  "power-min": "",
+                  "area-min": "",
+                  "area-max": "",
+                  "rooms-min": "",
+                  "rooms-max": "",
+                  "floor-min": "",
+                  "floor-max": "",
+                  "maker": "",
+                  "kw-min": "",
+                  "kw-max": ""
+                }
+              }
+            },
+            {
+              "action": "Select cars + apartments through actual staged checkboxes, apply diesel/2-room filters and low sort",
+              "observed": {
+                "query": "",
+                "category": "cars,property",
+                "sort": "low",
+                "ids": [
+                  998661003,
+                  998661001,
+                  998661008,
+                  998661007
+                ],
+                "error": "",
+                "feedback": "",
+                "values": {
+                  "price-min": "",
+                  "price-max": "",
+                  "year-min": "",
+                  "year-max": "",
+                  "condition": "",
+                  "seller": "",
+                  "deposit-max": "",
+                  "ends": "",
+                  "radius": "",
+                  "model": "",
+                  "mileage-min": "",
+                  "mileage-max": "",
+                  "fuel": "diesel",
+                  "transmission": "",
+                  "drive": "",
+                  "power-min": "",
+                  "area-min": "",
+                  "area-max": "",
+                  "rooms-min": "2",
+                  "rooms-max": "2",
+                  "floor-min": "",
+                  "floor-max": "",
+                  "maker": "",
+                  "kw-min": "",
+                  "kw-max": ""
+                }
+              }
+            }
+          ],
+          "feedback": "Базовый поиск и исправление формы работают, но естественные диапазоны иногда ломаются и дают убедительное, но неверное объяснение нулевого результата."
+        },
+        {
+          "id": "B",
+          "profile": "Experienced desktop/keyboard buyer, rapid map/category/photo/feed/saved-search roundtrips.",
+          "steps": [
+            {
+              "action": "Save a <=3m search, change its visible subscription cap to <=2m, submit",
+              "observed": {
+                "id": "mwgaejzjgnrn5",
+                "category": "cars",
+                "regionCode": "",
+                "maxPrice": 2000000,
+                "search": {
+                  "values": {
+                    "price-min": "",
+                    "price-max": "",
+                    "year-min": "",
+                    "year-max": "",
+                    "condition": "",
+                    "seller": "",
+                    "deposit-max": "",
+                    "ends": "",
+                    "radius": "",
+                    "model": "",
+                    "mileage-min": "",
+                    "mileage-max": "",
+                    "fuel": "",
+                    "transmission": "",
+                    "drive": "",
+                    "power-min": "",
+                    "area-min": "",
+                    "area-max": "",
+                    "rooms-min": "",
+                    "rooms-max": "",
+                    "floor-min": "",
+                    "floor-max": "",
+                    "maker": "",
+                    "kw-min": "",
+                    "kw-max": ""
+                  },
+                  "error": "",
+                  "category": "cars",
+                  "query": "Toyota RAV4",
+                  "brand": "",
+                  "city": "",
+                  "regionCode": "",
+                  "budget": "3000000",
+                  "origin": {
+                    "point": [
+                      51.66,
+                      39.2
+                    ],
+                    "approximate": false
+                  }
+                },
+                "active": true,
+                "createdAt": "2026-11-14T10:52:58.927Z",
+                "knownIds": [
+                  998661001,
+                  998661002,
+                  998661003,
+                  998661004,
+                  998661005,
+                  998661006,
+                  998661007,
+                  998661008,
+                  998661009,
+                  998661010,
+                  998661011,
+                  998661012,
+                  998661013,
+                  998661014,
+                  998661015,
+                  998661016,
+                  998661017,
+                  998661018
+                ]
+              }
+            },
+            {
+              "action": "Immediately click Open search on the saved subscription",
+              "observed": {
+                "query": "Toyota RAV4",
+                "category": "cars",
+                "sort": "low",
+                "ids": [
+                  998661004,
+                  998661003,
+                  998661002,
+                  998661001
+                ],
+                "error": "",
+                "feedback": "<span>Категория: Легковые автомобили · Найдено: 4</span><button type=\"button\" data-follow-current-search>Следить за поиском</button><button type=\"button\" data-keyword-all-categories>Все категории</button>",
+                "values": {
+                  "price-min": "",
+                  "price-max": "",
+                  "year-min": "",
+                  "year-max": "",
+                  "condition": "",
+                  "seller": "",
+                  "deposit-max": "",
+                  "ends": "",
+                  "radius": "",
+                  "model": "",
+                  "mileage-min": "",
+                  "mileage-max": "",
+                  "fuel": "",
+                  "transmission": "",
+                  "drive": "",
+                  "power-min": "",
+                  "area-min": "",
+                  "area-max": "",
+                  "rooms-min": "",
+                  "rooms-max": "",
+                  "floor-min": "",
+                  "floor-max": "",
+                  "maker": "",
+                  "kw-min": "",
+                  "kw-max": ""
+                }
+              }
+            },
+            {
+              "action": "Open an actual map list row while map query/radius/scroll are set",
+              "observed": {
+                "beforeMap": {
+                  "open": true,
+                  "reference": {
+                    "point": [
+                      51.66,
+                      39.2
+                    ],
+                    "approximate": false,
+                    "label": "Ваше сохранённое местоположение"
+                  },
+                  "scope": "search",
+                  "query": "Toyota",
+                  "category": "cars",
+                  "radius": "30",
+                  "geoBusy": false,
+                  "searchBusy": false,
+                  "total": 3,
+                  "withoutLocation": 0,
+                  "points": 3,
+                  "renderedPoints": 3,
+                  "limit": 20,
+                  "chooseMode": false,
+                  "focusedLotId": null
+                },
+                "openedLot": 998661001
+              }
+            },
+            {
+              "action": "Close that lot, then reopen the map",
+              "observed": {
+                "afterCloseMapOpen": false,
+                "mainOpen": false
+              }
+            },
+            {
+              "action": "Keyboard photo roundtrip in the fullscreen feed",
+              "observed": {
+                "activeBefore": 998661001,
+                "activeAfter": 998661001,
+                "gridTop": 2100,
+                "focusRestored": true
+              }
+            }
+          ],
+          "feedback": "Клавиатурный просмотр фотографий удобен и возвращает на место. Карта после перехода к лоту и сохранённые ценовые ограничения требуют исправления."
+        }
+      ],
+      "findings": [
+        {
+          "id": "A1",
+          "severity": "P2",
+          "kind": "false validation / compound query",
+          "action": "Toyota RAV4 дизель автомат от 2019 до 2022 года до 3 млн",
+          "expected": "Find fixture 998661001 (2020, diesel, automatic, 2.8m); year range 2019–2022 and price <=3m are valid.",
+          "actual": {
+            "error": "Год: укажите корректное значение от 1886 до 2027.",
+            "resultsRemainFromPreviousView": 18
+          },
+          "impact": "A valid common year-range-plus-budget phrase is rejected. The previous 18-lot catalogue remains while the form says cars.",
+          "personaFeedback": "Я задал обычный диапазон лет и бюджет, а сайт считает год неправильным. Не понимаю, какое слово исправлять.",
+          "sourceRefs": [
+            "dist/search-intent.js:45",
+            "dist/search-intent.js:53",
+            "dist/search-intent.js:100"
+          ],
+          "status": "fixed-in-working-tree",
+          "verification": {
+            "result": "PASS reported by parent",
+            "owner": "root/catalog",
+            "evidence": "Parent confirmed A1/A2 natural range parsing and A3 actual-sort interpretation fixes with their focused regressions. This child did not rerun those tests."
+          }
+        },
+        {
+          "id": "A2",
+          "severity": "P2",
+          "kind": "wrong room-range parsing / false empty state",
+          "action": "квартира от 2 до 3 комнат",
+          "expected": [
+            998661007,
+            998661008,
+            998661009
+          ],
+          "actual": {
+            "ids": [],
+            "interpretation": "Комнаты: 3",
+            "residual": "квартира от 2 до",
+            "feedback": "<span class=\"keyword-criteria\">Распознано: Комнаты: 3</span><span>Категория: Квартиры и комнаты · Найдено: 0 · В доступном каталоге нет действующих лотов по запросу. Проверены все категории и регионы.</span><button type=\"button\" data-follow-current-search>Следить за поиском</button>"
+          },
+          "impact": "The suffix exact-room parser consumes “3 комнат” before the range parser; “от 2 до” becomes literal keywords. The UI incorrectly claims no active inventory.",
+          "personaFeedback": "Я вижу на сайте двух- и трёхкомнатные квартиры. Поиск по диапазону не должен говорить, что их вообще нет.",
+          "sourceRefs": [
+            "dist/search-intent.js:99",
+            "dist/search-intent.js:100"
+          ],
+          "status": "fixed-in-working-tree",
+          "verification": {
+            "result": "PASS reported by parent",
+            "owner": "root/catalog",
+            "evidence": "Parent confirmed A1/A2 natural range parsing and A3 actual-sort interpretation fixes with their focused regressions. This child did not rerun those tests."
+          }
+        },
+        {
+          "id": "A3",
+          "severity": "P3",
+          "kind": "stale interpretation copy",
+          "action": "Search «универсал рядом», then manually choose price high-to-low.",
+          "expected": "The interpretation should describe the active manual sort or omit the obsolete sort intent.",
+          "actual": {
+            "sort": "high",
+            "feedback": "<span class=\"keyword-criteria\">Распознано: Сначала ближайшие</span><span>Категория: Легковые автомобили · Найдено: 2</span><button type=\"button\" data-follow-current-search>Следить за поиском</button><button type=\"button\" data-keyword-all-categories>Все категории</button>"
+          },
+          "impact": "Results correctly follow the explicit sort, but feedback still says “Распознано: Сначала ближайшие”.",
+          "personaFeedback": "Я переключил сортировку по цене, а подпись всё ещё обещает ближайшие. Непонятно, чему верить.",
+          "sourceRefs": [
+            "dist/index.html:262"
+          ],
+          "status": "fixed-in-working-tree",
+          "verification": {
+            "result": "PASS reported by parent",
+            "owner": "root/catalog",
+            "evidence": "Parent confirmed A1/A2 natural range parsing and A3 actual-sort interpretation fixes with their focused regressions. This child did not rerun those tests."
+          }
+        },
+        {
+          "id": "B1",
+          "severity": "P2",
+          "kind": "saved-search state mismatch",
+          "action": "Search Toyota RAV4 under3m → Save search → subscription price cap2m → save → Open search.",
+          "expected": "Open search should represent the saved subscription whose visible cap is2m.",
+          "actual": {
+            "rowMaxPrice": 2000000,
+            "savedSearchBudget": "3000000",
+            "openedBudget": "3000000",
+            "openedIds": [
+              998661004,
+              998661003,
+              998661002,
+              998661001
+            ],
+            "overCapIds": [
+              998661002,
+              998661001
+            ]
+          },
+          "impact": "The subscription row advertises <=2m and notifications use that cap, but its own Open search restores the older <=3m cap and shows 2.2m/2.8m lots.",
+          "personaFeedback": "Сохранил подборку до двух миллионов, открыл её — снова машины дороже двух. Настройка либо потерялась, либо её название вводит в заблуждение.",
+          "sourceRefs": [
+            "dist/index.html:200",
+            "dist/index.html:249"
+          ],
+          "status": "fixed-in-working-tree",
+          "verification": {
+            "test": "tests/saved-search-subscription-form.cjs",
+            "result": "PASS",
+            "evidence": "Edited 2m cap opens the same 2m results and emits only the eligible new-lot notice; no duplicates. Region change clears incompatible city. Advanced filters, empty-budget removal and quota retry verified."
+          }
+        },
+        {
+          "id": "B2",
+          "severity": "P2",
+          "kind": "map-to-lot return loses map view",
+          "action": "Map → query Toyota + radius30km + scroll480 → open a result → close its card → reopen map.",
+          "expected": "Return to the preceding map view with its local query/radius/position, or provide an explicit Back to map action.",
+          "actual": {
+            "before": {
+              "open": true,
+              "reference": {
+                "point": [
+                  51.66,
+                  39.2
+                ],
+                "approximate": false,
+                "label": "Ваше сохранённое местоположение"
+              },
+              "scope": "search",
+              "query": "Toyota",
+              "category": "cars",
+              "radius": "30",
+              "geoBusy": false,
+              "searchBusy": false,
+              "total": 3,
+              "withoutLocation": 0,
+              "points": 3,
+              "renderedPoints": 3,
+              "limit": 20,
+              "chooseMode": false,
+              "focusedLotId": null
+            },
+            "afterReopen": {
+              "open": true,
+              "reference": {
+                "point": [
+                  51.66,
+                  39.2
+                ],
+                "approximate": false,
+                "label": "Ваше сохранённое местоположение"
+              },
+              "scope": "search",
+              "query": "",
+              "category": "",
+              "radius": "",
+              "geoBusy": false,
+              "searchBusy": false,
+              "total": 4,
+              "withoutLocation": 0,
+              "points": 4,
+              "renderedPoints": 4,
+              "limit": 20,
+              "chooseMode": false,
+              "focusedLotId": null
+            },
+            "scroll": 0,
+            "mapWasClosedAfterLot": true
+          },
+          "impact": "Opening a result closes the map and discards its query, category, radius, focused group and pagination on the next opening. No back-to-map control exists in the opened lot.",
+          "personaFeedback": "Я тщательно настроил карту, открыл объект и потерял свою подборку. Приходится снова вводить запрос и радиус.",
+          "sourceRefs": [
+            "dist/property-map.js:125",
+            "dist/property-map.js:172"
+          ],
+          "status": "fixed-in-working-tree",
+          "verification": {
+            "test": "tests/map-lot-return.cjs",
+            "result": "PASS",
+            "evidence": "X, native Escape/cancel, Back and real swipe handlers return to the same map, preserving query/category/radius/reference/pagination/scroll/viewport/popup. Nested lotA retains actual form/input with fresh minimum; changed owner or sold A is not restored; revoked blobs and throwing media hydrate are safe; programmatic close abandons without reopening."
+          }
+        }
+      ],
+      "checks": [
+        "A: compound area + exact rooms excludes the fixture with unknown area and the 3-room control.",
+        "A: invalid manual min/max is explained; correcting the max clears the error without changing the query.",
+        "A: denied microphone exposes typed fallback; missing geolocation does not trigger a permission request or invent a radius. Missing car year/gearbox is excluded.",
+        "A: contextual voice refinement keeps year and transmission and changes the actual results order.",
+        "A: actual multi-category apply uses a union with family-specific filters; removing apartments clears only incompatible room filters and preserves diesel/sort.",
+        "B: explicit denied map geolocation stays on the map and offers manual region/point recovery.",
+        "B: cancelling a staged multi-category map edit preserves query/radius/scroll.",
+        "B: Enter opens actual thumbnail, ArrowRight/+ navigate and zoom; Escape restores the same reel, grid position and keyboard focus.",
+        "B: rapid map/picker Back/cancel after the keyboard photo flow leaves the parent map/feed usable."
+      ],
+      "reproduction": {
+        "cwd": "/workspace/sites/drive-lot",
+        "command": "node /tmp/persona-expert-audit.cjs",
+        "fixtures": "/tmp/persona-expert-fixtures.cjs",
+        "note": "The read-only audit asserts v56 observed defects. It is evidence, not a post-fix regression test. Non-id launchers and the missing main close/control containment in the base DOM helper are reconstructed from the production HTML; production handlers are unchanged."
+      },
+      "postFixVerification": {
+        "status": "focused-tests-passed; source-and-tests-frozen",
+        "tests": [
+          "tests/saved-search-subscription-form.cjs",
+          "tests/map-lot-return.cjs",
+          "tests/property-map.cjs",
+          "tests/lot-map-entry.cjs",
+          "tests/property-map-multi.cjs",
+          "tests/map-feed-resume.cjs",
+          "tests/search-context-return.cjs"
+        ],
+        "result": "7 PASS",
+        "limits": "VM DOM harness; no physical device/browser testing; no build/commit/deploy by this agent. Baseline steps/findings are retained above as before-fix evidence."
+      }
+    }
+  },
+  "limitations": [
+    "Профили и обратная связь смоделированы; реальных клиентов не нанимали и не опрашивали.",
+    "Браузерная геометрия, физические свайпы iPhone/Safari, камера/галерея ОС и акустическое распознавание микрофона не проверялись.",
+    "Общий сервер реальных торгов, подтверждённый SMS-вход и переводы денег не подключены.",
+    "Набор сценариев не доказывает отсутствие всех возможных ошибок или уязвимостей."
+  ],
+  "resolution_overrides": {
+    "BUYER-A-02": "Fixed by root after the read-only persona walkthrough; Russian lot-count forms.",
+    "BUYER-A-03": "Implemented adjacent accessible details explanation; no live-payment claim."
+  },
+  "validation": {
+    "base_commit": "948dbc59de9a2113fcafcadb10f695e9ffb49946",
+    "source_sha256": "dc5fc95bba648668d05e57b58afe6e8501f23a1e1f5514b5e14505dc868dc686",
+    "source_sha256_end": "dc5fc95bba648668d05e57b58afe6e8501f23a1e1f5514b5e14505dc868dc686",
+    "source_changed_during_run": false,
+    "completed": 164,
+    "total": 164,
+    "passed": 164,
+    "failed": 0,
+    "seconds": 262.29,
+    "results": [
+      {
+        "test": "seller-integration.cjs",
+        "exit_code": 0,
+        "seconds": 34.9,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-integration.cjs.log"
+      },
+      {
+        "test": "kamaz-search.cjs",
+        "exit_code": 0,
+        "seconds": 40.28,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/kamaz-search.cjs.log"
+      },
+      {
+        "test": "keyword-integration.cjs",
+        "exit_code": 0,
+        "seconds": 30.04,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/keyword-integration.cjs.log"
+      },
+      {
+        "test": "catalog-performance.cjs",
+        "exit_code": 0,
+        "seconds": 29.75,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/catalog-performance.cjs.log"
+      },
+      {
+        "test": "category-integration.cjs",
+        "exit_code": 0,
+        "seconds": 80.01,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/category-integration.cjs.log"
+      },
+      {
+        "test": "category-browse-roundtrip.cjs",
+        "exit_code": 0,
+        "seconds": 83.15,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/category-browse-roundtrip.cjs.log"
+      },
+      {
+        "test": "seller-async-navigation.cjs",
+        "exit_code": 0,
+        "seconds": 22.6,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-async-navigation.cjs.log"
+      },
+      {
+        "test": "search-auto-scope.cjs",
+        "exit_code": 0,
+        "seconds": 30.88,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-auto-scope.cjs.log"
+      },
+      {
+        "test": "search-fresh-start.cjs",
+        "exit_code": 0,
+        "seconds": 16.72,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-fresh-start.cjs.log"
+      },
+      {
+        "test": "seller-workspace-recovery.cjs",
+        "exit_code": 0,
+        "seconds": 21.93,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-workspace-recovery.cjs.log"
+      },
+      {
+        "test": "seller-auction-modes.cjs",
+        "exit_code": 0,
+        "seconds": 15.48,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-auction-modes.cjs.log"
+      },
+      {
+        "test": "storage-favorites.cjs",
+        "exit_code": 0,
+        "seconds": 24.77,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/storage-favorites.cjs.log"
+      },
+      {
+        "test": "auction-history.cjs",
+        "exit_code": 0,
+        "seconds": 27.89,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auction-history.cjs.log"
+      },
+      {
+        "test": "cross-tab-auctions.cjs",
+        "exit_code": 0,
+        "seconds": 39.15,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/cross-tab-auctions.cjs.log"
+      },
+      {
+        "test": "category-multi-select.cjs",
+        "exit_code": 0,
+        "seconds": 19.21,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/category-multi-select.cjs.log"
+      },
+      {
+        "test": "auction-ending-window-boundaries.cjs",
+        "exit_code": 0,
+        "seconds": 25.34,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auction-ending-window-boundaries.cjs.log"
+      },
+      {
+        "test": "seller-options.cjs",
+        "exit_code": 0,
+        "seconds": 15.18,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-options.cjs.log"
+      },
+      {
+        "test": "seller-exit-guards.cjs",
+        "exit_code": 0,
+        "seconds": 19.96,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-exit-guards.cjs.log"
+      },
+      {
+        "test": "auction-renewal-integration.cjs",
+        "exit_code": 0,
+        "seconds": 13.5,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auction-renewal-integration.cjs.log"
+      },
+      {
+        "test": "search-filter-conflict.cjs",
+        "exit_code": 0,
+        "seconds": 14.92,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-filter-conflict.cjs.log"
+      },
+      {
+        "test": "seller-back-gesture.cjs",
+        "exit_code": 0,
+        "seconds": 17.01,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-back-gesture.cjs.log"
+      },
+      {
+        "test": "auction-integrity.cjs",
+        "exit_code": 0,
+        "seconds": 19.13,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auction-integrity.cjs.log"
+      },
+      {
+        "test": "commercial-smart-search.cjs",
+        "exit_code": 0,
+        "seconds": 18.7,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/commercial-smart-search.cjs.log"
+      },
+      {
+        "test": "search-context-return.cjs",
+        "exit_code": 0,
+        "seconds": 7.05,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-context-return.cjs.log"
+      },
+      {
+        "test": "auction-clock-boundaries.cjs",
+        "exit_code": 0,
+        "seconds": 11.77,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auction-clock-boundaries.cjs.log"
+      },
+      {
+        "test": "distance-reuse.cjs",
+        "exit_code": 0,
+        "seconds": 6.5,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/distance-reuse.cjs.log"
+      },
+      {
+        "test": "auction-history-integration.cjs",
+        "exit_code": 0,
+        "seconds": 5.81,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auction-history-integration.cjs.log"
+      },
+      {
+        "test": "seller-location.cjs",
+        "exit_code": 0,
+        "seconds": 13.11,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-location.cjs.log"
+      },
+      {
+        "test": "own-lot-transactions.cjs",
+        "exit_code": 0,
+        "seconds": 11.29,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/own-lot-transactions.cjs.log"
+      },
+      {
+        "test": "security-inputs.cjs",
+        "exit_code": 0,
+        "seconds": 5.75,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/security-inputs.cjs.log"
+      },
+      {
+        "test": "render-work.cjs",
+        "exit_code": 0,
+        "seconds": 5.09,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/render-work.cjs.log"
+      },
+      {
+        "test": "seller-current-state.cjs",
+        "exit_code": 0,
+        "seconds": 8.8,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-current-state.cjs.log"
+      },
+      {
+        "test": "auction-renewal.cjs",
+        "exit_code": 0,
+        "seconds": 10.46,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auction-renewal.cjs.log"
+      },
+      {
+        "test": "recommendation-integration.cjs",
+        "exit_code": 0,
+        "seconds": 9.28,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/recommendation-integration.cjs.log"
+      },
+      {
+        "test": "category-csv.cjs",
+        "exit_code": 0,
+        "seconds": 9.95,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/category-csv.cjs.log"
+      },
+      {
+        "test": "demo-catalog-preservation.cjs",
+        "exit_code": 0,
+        "seconds": 6.04,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/demo-catalog-preservation.cjs.log"
+      },
+      {
+        "test": "auction-direction-integration.cjs",
+        "exit_code": 0,
+        "seconds": 7.56,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auction-direction-integration.cjs.log"
+      },
+      {
+        "test": "map-projection-work.cjs",
+        "exit_code": 0,
+        "seconds": 5.78,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/map-projection-work.cjs.log"
+      },
+      {
+        "test": "demo-catalog-coverage.cjs",
+        "exit_code": 0,
+        "seconds": 4.2,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/demo-catalog-coverage.cjs.log"
+      },
+      {
+        "test": "dialog-lifecycle.cjs",
+        "exit_code": 0,
+        "seconds": 4.02,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/dialog-lifecycle.cjs.log"
+      },
+      {
+        "test": "sales-analytics.cjs",
+        "exit_code": 0,
+        "seconds": 6.91,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/sales-analytics.cjs.log"
+      },
+      {
+        "test": "map-feed-resume.cjs",
+        "exit_code": 0,
+        "seconds": 2.72,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/map-feed-resume.cjs.log"
+      },
+      {
+        "test": "featured-combinations.cjs",
+        "exit_code": 0,
+        "seconds": 8.27,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/featured-combinations.cjs.log"
+      },
+      {
+        "test": "catalog-search.cjs",
+        "exit_code": 0,
+        "seconds": 7.05,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/catalog-search.cjs.log"
+      },
+      {
+        "test": "auction-notifications-integration.cjs",
+        "exit_code": 0,
+        "seconds": 4.27,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auction-notifications-integration.cjs.log"
+      },
+      {
+        "test": "home-navigation.cjs",
+        "exit_code": 0,
+        "seconds": 5.36,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/home-navigation.cjs.log"
+      },
+      {
+        "test": "voice-intelligence-integration.cjs",
+        "exit_code": 0,
+        "seconds": 3.3,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/voice-intelligence-integration.cjs.log"
+      },
+      {
+        "test": "demo-photo-consistency.cjs",
+        "exit_code": 0,
+        "seconds": 5.39,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/demo-photo-consistency.cjs.log"
+      },
+      {
+        "test": "brand-origin-search.cjs",
+        "exit_code": 0,
+        "seconds": 3.28,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/brand-origin-search.cjs.log"
+      },
+      {
+        "test": "layout-safety.cjs",
+        "exit_code": 0,
+        "seconds": 3.1,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/layout-safety.cjs.log"
+      },
+      {
+        "test": "seller-dashboard.cjs",
+        "exit_code": 0,
+        "seconds": 4.04,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-dashboard.cjs.log"
+      },
+      {
+        "test": "search-empty-availability.cjs",
+        "exit_code": 0,
+        "seconds": 1.98,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-empty-availability.cjs.log"
+      },
+      {
+        "test": "subscription-durability.cjs",
+        "exit_code": 0,
+        "seconds": 3.1,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/subscription-durability.cjs.log"
+      },
+      {
+        "test": "appearance-search.cjs",
+        "exit_code": 0,
+        "seconds": 3.71,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/appearance-search.cjs.log"
+      },
+      {
+        "test": "voice-search-criteria.cjs",
+        "exit_code": 0,
+        "seconds": 2.49,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/voice-search-criteria.cjs.log"
+      },
+      {
+        "test": "auction-notifications.cjs",
+        "exit_code": 0,
+        "seconds": 7.24,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auction-notifications.cjs.log"
+      },
+      {
+        "test": "natural-typed-search.cjs",
+        "exit_code": 0,
+        "seconds": 2.56,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/natural-typed-search.cjs.log"
+      },
+      {
+        "test": "search-nearest.cjs",
+        "exit_code": 0,
+        "seconds": 2.24,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-nearest.cjs.log"
+      },
+      {
+        "test": "featured-cheap-intent.cjs",
+        "exit_code": 0,
+        "seconds": 4.18,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/featured-cheap-intent.cjs.log"
+      },
+      {
+        "test": "market-normalization.cjs",
+        "exit_code": 0,
+        "seconds": 3.26,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/market-normalization.cjs.log"
+      },
+      {
+        "test": "featured-lots.cjs",
+        "exit_code": 0,
+        "seconds": 3.45,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/featured-lots.cjs.log"
+      },
+      {
+        "test": "doubletap-recommendations.cjs",
+        "exit_code": 0,
+        "seconds": 2.32,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/doubletap-recommendations.cjs.log"
+      },
+      {
+        "test": "search-city-select.cjs",
+        "exit_code": 0,
+        "seconds": 3.18,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-city-select.cjs.log"
+      },
+      {
+        "test": "vehicle-search-roundtrip.cjs",
+        "exit_code": 0,
+        "seconds": 3.1,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/vehicle-search-roundtrip.cjs.log"
+      },
+      {
+        "test": "search-results-layout.cjs",
+        "exit_code": 0,
+        "seconds": 2.48,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-results-layout.cjs.log"
+      },
+      {
+        "test": "ending-soon.cjs",
+        "exit_code": 0,
+        "seconds": 2.23,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/ending-soon.cjs.log"
+      },
+      {
+        "test": "metrics-backend.cjs",
+        "exit_code": 0,
+        "seconds": 3.5,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/metrics-backend.cjs.log"
+      },
+      {
+        "test": "partner-branding-integration.cjs",
+        "exit_code": 0,
+        "seconds": 2.11,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/partner-branding-integration.cjs.log"
+      },
+      {
+        "test": "live-auction-price.cjs",
+        "exit_code": 0,
+        "seconds": 2.41,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/live-auction-price.cjs.log"
+      },
+      {
+        "test": "voice-natural-scenarios.cjs",
+        "exit_code": 0,
+        "seconds": 2.65,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/voice-natural-scenarios.cjs.log"
+      },
+      {
+        "test": "dialog-stack.cjs",
+        "exit_code": 0,
+        "seconds": 2.69,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/dialog-stack.cjs.log"
+      },
+      {
+        "test": "category-tree.cjs",
+        "exit_code": 0,
+        "seconds": 1.64,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/category-tree.cjs.log"
+      },
+      {
+        "test": "mitsubishi-search.cjs",
+        "exit_code": 0,
+        "seconds": 3.53,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/mitsubishi-search.cjs.log"
+      },
+      {
+        "test": "buyer-native-descending.cjs",
+        "exit_code": 0,
+        "seconds": 3.71,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/buyer-native-descending.cjs.log"
+      },
+      {
+        "test": "demo-description.cjs",
+        "exit_code": 0,
+        "seconds": 2.0,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/demo-description.cjs.log"
+      },
+      {
+        "test": "lot-presentation-integration.cjs",
+        "exit_code": 0,
+        "seconds": 2.96,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/lot-presentation-integration.cjs.log"
+      },
+      {
+        "test": "gallery-performance.cjs",
+        "exit_code": 0,
+        "seconds": 2.47,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/gallery-performance.cjs.log"
+      },
+      {
+        "test": "distance-search.cjs",
+        "exit_code": 0,
+        "seconds": 2.86,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/distance-search.cjs.log"
+      },
+      {
+        "test": "recommendations.cjs",
+        "exit_code": 0,
+        "seconds": 2.33,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/recommendations.cjs.log"
+      },
+      {
+        "test": "bank-editor-state.cjs",
+        "exit_code": 0,
+        "seconds": 2.51,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/bank-editor-state.cjs.log"
+      },
+      {
+        "test": "featured-feed-return.cjs",
+        "exit_code": 0,
+        "seconds": 2.2,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/featured-feed-return.cjs.log"
+      },
+      {
+        "test": "virtual-feed.cjs",
+        "exit_code": 0,
+        "seconds": 3.84,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/virtual-feed.cjs.log"
+      },
+      {
+        "test": "auth-dialog.cjs",
+        "exit_code": 0,
+        "seconds": 3.43,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auth-dialog.cjs.log"
+      },
+      {
+        "test": "local-feed.cjs",
+        "exit_code": 0,
+        "seconds": 2.11,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/local-feed.cjs.log"
+      },
+      {
+        "test": "lot-map-entry.cjs",
+        "exit_code": 0,
+        "seconds": 2.57,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/lot-map-entry.cjs.log"
+      },
+      {
+        "test": "lot-discovery-integration.cjs",
+        "exit_code": 0,
+        "seconds": 2.4,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/lot-discovery-integration.cjs.log"
+      },
+      {
+        "test": "payment-integration.cjs",
+        "exit_code": 0,
+        "seconds": 1.98,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/payment-integration.cjs.log"
+      },
+      {
+        "test": "security-dom.cjs",
+        "exit_code": 0,
+        "seconds": 2.57,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/security-dom.cjs.log"
+      },
+      {
+        "test": "security-server-resources.cjs",
+        "exit_code": 0,
+        "seconds": 1.96,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/security-server-resources.cjs.log"
+      },
+      {
+        "test": "feed-share.cjs",
+        "exit_code": 0,
+        "seconds": 2.11,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/feed-share.cjs.log"
+      },
+      {
+        "test": "identifier-input-boundaries.cjs",
+        "exit_code": 0,
+        "seconds": 2.81,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/identifier-input-boundaries.cjs.log"
+      },
+      {
+        "test": "search-numeric-validation.cjs",
+        "exit_code": 0,
+        "seconds": 2.12,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-numeric-validation.cjs.log"
+      },
+      {
+        "test": "voice-assistant.cjs",
+        "exit_code": 0,
+        "seconds": 1.69,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/voice-assistant.cjs.log"
+      },
+      {
+        "test": "sales-local-privacy.cjs",
+        "exit_code": 0,
+        "seconds": 1.64,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/sales-local-privacy.cjs.log"
+      },
+      {
+        "test": "keyword-search.cjs",
+        "exit_code": 0,
+        "seconds": 0.64,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/keyword-search.cjs.log"
+      },
+      {
+        "test": "keyword-search-prepare.cjs",
+        "exit_code": 0,
+        "seconds": 1.04,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/keyword-search-prepare.cjs.log"
+      },
+      {
+        "test": "payment-ui.cjs",
+        "exit_code": 0,
+        "seconds": 0.36,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/payment-ui.cjs.log"
+      },
+      {
+        "test": "keyword-index-lifecycle.cjs",
+        "exit_code": 0,
+        "seconds": 2.62,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/keyword-index-lifecycle.cjs.log"
+      },
+      {
+        "test": "property-map.cjs",
+        "exit_code": 0,
+        "seconds": 2.08,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/property-map.cjs.log"
+      },
+      {
+        "test": "featured-settings.cjs",
+        "exit_code": 0,
+        "seconds": 0.29,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/featured-settings.cjs.log"
+      },
+      {
+        "test": "draft-delete.cjs",
+        "exit_code": 0,
+        "seconds": 0.32,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/draft-delete.cjs.log"
+      },
+      {
+        "test": "property-map-multi.cjs",
+        "exit_code": 0,
+        "seconds": 0.49,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/property-map-multi.cjs.log"
+      },
+      {
+        "test": "chinese-model-aliases.cjs",
+        "exit_code": 0,
+        "seconds": 0.37,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/chinese-model-aliases.cjs.log"
+      },
+      {
+        "test": "payment-presentation.cjs",
+        "exit_code": 0,
+        "seconds": 0.44,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/payment-presentation.cjs.log"
+      },
+      {
+        "test": "seller-media.cjs",
+        "exit_code": 0,
+        "seconds": 0.17,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-media.cjs.log"
+      },
+      {
+        "test": "featured-for-you-city.cjs",
+        "exit_code": 0,
+        "seconds": 0.2,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/featured-for-you-city.cjs.log"
+      },
+      {
+        "test": "category-keyword-search.cjs",
+        "exit_code": 0,
+        "seconds": 0.71,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/category-keyword-search.cjs.log"
+      },
+      {
+        "test": "appearance-lazy-work.cjs",
+        "exit_code": 0,
+        "seconds": 0.39,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/appearance-lazy-work.cjs.log"
+      },
+      {
+        "test": "security-csp.cjs",
+        "exit_code": 0,
+        "seconds": 1.84,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/security-csp.cjs.log"
+      },
+      {
+        "test": "keyword-work.cjs",
+        "exit_code": 0,
+        "seconds": 0.55,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/keyword-work.cjs.log"
+      },
+      {
+        "test": "featured-ending-interest.cjs",
+        "exit_code": 0,
+        "seconds": 0.23,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/featured-ending-interest.cjs.log"
+      },
+      {
+        "test": "category-picker.cjs",
+        "exit_code": 0,
+        "seconds": 0.23,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/category-picker.cjs.log"
+      },
+      {
+        "test": "quickbar.cjs",
+        "exit_code": 0,
+        "seconds": 0.18,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/quickbar.cjs.log"
+      },
+      {
+        "test": "smart-fill.cjs",
+        "exit_code": 0,
+        "seconds": 0.27,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/smart-fill.cjs.log"
+      },
+      {
+        "test": "right-swipe-close.cjs",
+        "exit_code": 0,
+        "seconds": 0.29,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/right-swipe-close.cjs.log"
+      },
+      {
+        "test": "car-catalog-ui.cjs",
+        "exit_code": 0,
+        "seconds": 0.3,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/car-catalog-ui.cjs.log"
+      },
+      {
+        "test": "search-intent.cjs",
+        "exit_code": 0,
+        "seconds": 0.48,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-intent.cjs.log"
+      },
+      {
+        "test": "seller-rules.cjs",
+        "exit_code": 0,
+        "seconds": 0.12,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-rules.cjs.log"
+      },
+      {
+        "test": "back-swipe.cjs",
+        "exit_code": 0,
+        "seconds": 0.2,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/back-swipe.cjs.log"
+      },
+      {
+        "test": "buyer-tools.cjs",
+        "exit_code": 0,
+        "seconds": 0.23,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/buyer-tools.cjs.log"
+      },
+      {
+        "test": "motion.cjs",
+        "exit_code": 0,
+        "seconds": 0.07,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/motion.cjs.log"
+      },
+      {
+        "test": "service-worker.cjs",
+        "exit_code": 0,
+        "seconds": 0.21,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/service-worker.cjs.log"
+      },
+      {
+        "test": "lot-discovery.cjs",
+        "exit_code": 0,
+        "seconds": 0.09,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/lot-discovery.cjs.log"
+      },
+      {
+        "test": "notification-click.cjs",
+        "exit_code": 0,
+        "seconds": 0.11,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/notification-click.cjs.log"
+      },
+      {
+        "test": "lot-photo-viewer.cjs",
+        "exit_code": 0,
+        "seconds": 0.2,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/lot-photo-viewer.cjs.log"
+      },
+      {
+        "test": "search-identifiers.cjs",
+        "exit_code": 0,
+        "seconds": 0.28,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-identifiers.cjs.log"
+      },
+      {
+        "test": "featured-recommendations.cjs",
+        "exit_code": 0,
+        "seconds": 0.23,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/featured-recommendations.cjs.log"
+      },
+      {
+        "test": "security-boundaries.cjs",
+        "exit_code": 0,
+        "seconds": 0.16,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/security-boundaries.cjs.log"
+      },
+      {
+        "test": "asset-reports.cjs",
+        "exit_code": 0,
+        "seconds": 0.09,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/asset-reports.cjs.log"
+      },
+      {
+        "test": "demo-seeding-performance.cjs",
+        "exit_code": 0,
+        "seconds": 0.18,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/demo-seeding-performance.cjs.log"
+      },
+      {
+        "test": "support.cjs",
+        "exit_code": 0,
+        "seconds": 0.18,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/support.cjs.log"
+      },
+      {
+        "test": "featured-live-fallback.cjs",
+        "exit_code": 0,
+        "seconds": 0.17,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/featured-live-fallback.cjs.log"
+      },
+      {
+        "test": "auction-modes.cjs",
+        "exit_code": 0,
+        "seconds": 0.1,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/auction-modes.cjs.log"
+      },
+      {
+        "test": "search-typos.cjs",
+        "exit_code": 0,
+        "seconds": 0.08,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-typos.cjs.log"
+      },
+      {
+        "test": "feed-tutorial.cjs",
+        "exit_code": 0,
+        "seconds": 0.11,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/feed-tutorial.cjs.log"
+      },
+      {
+        "test": "lot-presentation.cjs",
+        "exit_code": 0,
+        "seconds": 0.05,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/lot-presentation.cjs.log"
+      },
+      {
+        "test": "seller-ratings.cjs",
+        "exit_code": 0,
+        "seconds": 0.14,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-ratings.cjs.log"
+      },
+      {
+        "test": "featured-horizontal.cjs",
+        "exit_code": 0,
+        "seconds": 0.08,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/featured-horizontal.cjs.log"
+      },
+      {
+        "test": "dialog-media.cjs",
+        "exit_code": 0,
+        "seconds": 0.07,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/dialog-media.cjs.log"
+      },
+      {
+        "test": "countdown.cjs",
+        "exit_code": 0,
+        "seconds": 0.04,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/countdown.cjs.log"
+      },
+      {
+        "test": "car-catalog-data.cjs",
+        "exit_code": 0,
+        "seconds": 0.16,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/car-catalog-data.cjs.log"
+      },
+      {
+        "test": "feed-close-gesture.cjs",
+        "exit_code": 0,
+        "seconds": 0.09,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/feed-close-gesture.cjs.log"
+      },
+      {
+        "test": "feed-motion.cjs",
+        "exit_code": 0,
+        "seconds": 0.08,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/feed-motion.cjs.log"
+      },
+      {
+        "test": "native-back-routing.cjs",
+        "exit_code": 0,
+        "seconds": 0.08,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/native-back-routing.cjs.log"
+      },
+      {
+        "test": "catalog-page-scroll.cjs",
+        "exit_code": 0,
+        "seconds": 0.03,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/catalog-page-scroll.cjs.log"
+      },
+      {
+        "test": "search-preparation-ui.cjs",
+        "exit_code": 0,
+        "seconds": 0.2,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-preparation-ui.cjs.log"
+      },
+      {
+        "test": "pwa-install.cjs",
+        "exit_code": 0,
+        "seconds": 0.07,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/pwa-install.cjs.log"
+      },
+      {
+        "test": "partner-branding.cjs",
+        "exit_code": 0,
+        "seconds": 0.07,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/partner-branding.cjs.log"
+      },
+      {
+        "test": "lot-gestures.cjs",
+        "exit_code": 0,
+        "seconds": 0.11,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/lot-gestures.cjs.log"
+      },
+      {
+        "test": "footer-navigation.cjs",
+        "exit_code": 0,
+        "seconds": 0.04,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/footer-navigation.cjs.log"
+      },
+      {
+        "test": "up-swipe-close.cjs",
+        "exit_code": 0,
+        "seconds": 0.09,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/up-swipe-close.cjs.log"
+      },
+      {
+        "test": "search-preferences.cjs",
+        "exit_code": 0,
+        "seconds": 0.14,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-preferences.cjs.log"
+      },
+      {
+        "test": "category-native-back.cjs",
+        "exit_code": 0,
+        "seconds": 0.03,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/category-native-back.cjs.log"
+      },
+      {
+        "test": "region-geolocation-recovery.cjs",
+        "exit_code": 0,
+        "seconds": 0.03,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/region-geolocation-recovery.cjs.log"
+      },
+      {
+        "test": "native-share-boundary.cjs",
+        "exit_code": 0,
+        "seconds": 0.11,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/native-share-boundary.cjs.log"
+      },
+      {
+        "test": "quickbar-labels.cjs",
+        "exit_code": 0,
+        "seconds": 0.16,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/quickbar-labels.cjs.log"
+      },
+      {
+        "test": "lot-close-return-routes.cjs",
+        "exit_code": 0,
+        "seconds": 0.28,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/lot-close-return-routes.cjs.log"
+      },
+      {
+        "test": "search-persona-ranges.cjs",
+        "exit_code": 0,
+        "seconds": 2.89,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-persona-ranges.cjs.log"
+      },
+      {
+        "test": "search-sort-feedback.cjs",
+        "exit_code": 0,
+        "seconds": 2.11,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/search-sort-feedback.cjs.log"
+      },
+      {
+        "test": "buyer-share-return.cjs",
+        "exit_code": 0,
+        "seconds": 5.59,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/buyer-share-return.cjs.log"
+      },
+      {
+        "test": "saved-search-subscription-form.cjs",
+        "exit_code": 0,
+        "seconds": 11.15,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/saved-search-subscription-form.cjs.log"
+      },
+      {
+        "test": "seller-profile-cancel.cjs",
+        "exit_code": 0,
+        "seconds": 6.1,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-profile-cancel.cjs.log"
+      },
+      {
+        "test": "map-lot-return.cjs",
+        "exit_code": 0,
+        "seconds": 13.8,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/map-lot-return.cjs.log"
+      },
+      {
+        "test": "seller-contact-privacy.cjs",
+        "exit_code": 0,
+        "seconds": 10.79,
+        "passed": true,
+        "log": "/tmp/fas-persona-release-verified-20261114/seller-contact-privacy.cjs.log"
+      }
+    ]
+  },
+  "additional_copy_checks": {
+    "passed": true,
+    "counter_cases": [
+      "0 лотов",
+      "1 лот",
+      "2 лота",
+      "5 лотов",
+      "11 лотов",
+      "21 лот",
+      "22 лота",
+      "25 лотов",
+      "101 лот",
+      "102 лота",
+      "105 лотов"
+    ],
+    "deposit_explanation": "present for positive deposit, absent for zero, native details disclosure"
+  },
+  "native_artifacts": {
+    "success": true,
+    "passed_checks": 821,
+    "failed_checks": 0,
+    "artifacts": {
+      "android_build_apk": {
+        "path": "/workspace/sites/drive-lot/mobile/android/app/build/outputs/apk/debug/app-debug.apk",
+        "bytes": 12960184,
+        "sha256": "88bd6cd78ef7ed980d0b5ab2c09542250742d61cad79038d13dcc6ee8ebf370b"
+      },
+      "android_release_apk": {
+        "path": "/workspace/sites/drive-lot/releases/fas-torgi-android-demo-debug.apk",
+        "bytes": 12960184,
+        "sha256": "88bd6cd78ef7ed980d0b5ab2c09542250742d61cad79038d13dcc6ee8ebf370b"
+      }
+    }
+  },
+  "build": {
+    "worker_public_assets": 197,
+    "worker_bytes": 11217158,
+    "worker_gzip_bytes": 6840964,
+    "android_debug_built": true,
+    "apk_signature_verified": true
+  }
+}

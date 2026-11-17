@@ -1,0 +1,22 @@
+/* One visual treatment for participation and purchase entry points. */
+#modal.lot-dialog .lot-action-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:stretch}
+#modal.lot-dialog .purchase-body .lot-action-pair>.primary,
+#modal.lot-dialog .purchase-body .lot-payment-entry>.lot-buy,
+body.reels #grid .card-bottom.has-buy-action>.primary{
+ display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;
+ width:100%;min-width:0;min-height:52px;margin:0;padding:11px 10px;
+ border:1px solid #0D4CD3;border-radius:12px;background:#0D4CD3;color:#FFF;
+ font-size:13px;font-weight:700;line-height:1.4;text-align:center;white-space:normal;overflow-wrap:normal;
+ box-shadow:0 3px 10px #0D4CD31A;transition:background-color .15s,border-color .15s;
+}
+#modal.lot-dialog .lot-action-pair>.primary small,
+#modal.lot-dialog .lot-payment-entry>.lot-buy small{font-size:11px;font-weight:600;line-height:1.4}
+#modal.lot-dialog .purchase-body .lot-action-pair>.primary:hover:not(:disabled),
+#modal.lot-dialog .purchase-body .lot-payment-entry>.lot-buy:hover:not(:disabled),
+body.reels #grid .card-bottom.has-buy-action>.primary:hover:not(:disabled){background:#073DAE;border-color:#073DAE}
+#modal.lot-dialog .lot-action-pair>.primary:focus-visible,
+#modal.lot-dialog .lot-payment-entry>.lot-buy:focus-visible,
+body.reels #grid .card-bottom.has-buy-action>.primary:focus-visible{outline:3px solid #80B5FF;outline-offset:3px}
+#modal.lot-dialog .purchase-body .lot-action-pair>.primary:disabled,
+#modal.lot-dialog .purchase-body .lot-payment-entry>.lot-buy:disabled{background:#E6ECF4;border-color:#D8E0EB;color:#687B91;box-shadow:none;cursor:default}
+@media(max-width:360px){#modal.lot-dialog .purchase-body .lot-action-pair>.primary,body.reels #grid .card-bottom.has-buy-action>.primary{font-size:12px;min-height:54px;padding:10px 8px}}

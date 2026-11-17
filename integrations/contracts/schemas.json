@@ -1,0 +1,534 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:fas-torgi:integration-contracts:v1",
+  "title": "Server integration transport contracts — not live endpoints",
+  "$defs": {
+    "money": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "const": "RUB"
+        },
+        "kopecks": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,15})$"
+        }
+      },
+      "required": [
+        "currency",
+        "kopecks"
+      ],
+      "$comment": "Runtime money() also checks <=9007199254740991 and positivity for financial commands."
+    },
+    "bidCommand": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9:_-]{16,128}$"
+        },
+        "lotId": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "expectedLotRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "amount": {
+          "$ref": "#/$defs/money"
+        }
+      },
+      "required": [
+        "version",
+        "idempotencyKey",
+        "lotId",
+        "expectedLotRevision",
+        "amount"
+      ]
+    },
+    "referencedCommand": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9:_-]{16,128}$"
+        },
+        "lotId": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "expectedLotRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "operationId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+        }
+      },
+      "required": [
+        "version",
+        "idempotencyKey",
+        "lotId",
+        "expectedLotRevision",
+        "operationId"
+      ]
+    },
+    "assistantIntent": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "const": "navigate"
+            },
+            "route": {
+              "enum": [
+                "home",
+                "catalog",
+                "feed",
+                "favorites",
+                "cabinet",
+                "my_lots",
+                "my_bids",
+                "my_purchases",
+                "map",
+                "help"
+              ]
+            }
+          },
+          "required": [
+            "action",
+            "route"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "const": "search"
+            },
+            "query": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            }
+          },
+          "required": [
+            "action",
+            "query"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "const": "status"
+            },
+            "kind": {
+              "enum": [
+                "current_price",
+                "deadline",
+                "my_bids"
+              ]
+            },
+            "lotId": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": [
+            "action",
+            "kind"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "const": "preferences"
+            },
+            "key": {
+              "enum": [
+                "outbid",
+                "newBidOwn",
+                "endingSoon",
+                "auctionEnded",
+                "matchingNew",
+                "priceDrop",
+                "spoken",
+                "quiet"
+              ]
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "action",
+            "key",
+            "enabled"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "const": "prepare_bid"
+            },
+            "lotId": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "expectedLotRevision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "amount": {
+              "$ref": "#/$defs/money"
+            }
+          },
+          "required": [
+            "action",
+            "lotId",
+            "expectedLotRevision",
+            "amount"
+          ]
+        }
+      ]
+    },
+    "acceptance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "acceptedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+        }
+      },
+      "required": [
+        "version",
+        "acceptedAt"
+      ]
+    },
+    "authRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "phone": {
+          "type": "string",
+          "pattern": "^\\+7[0-9]{10}$"
+        },
+        "regionCode": {
+          "type": "string",
+          "pattern": "^[0-9]{2,3}$"
+        },
+        "agreementAcceptance": {
+          "$ref": "#/$defs/acceptance"
+        },
+        "personalDataConsent": {
+          "$ref": "#/$defs/personalDataConsent"
+        }
+      },
+      "required": [
+        "phone",
+        "regionCode",
+        "agreementAcceptance",
+        "personalDataConsent"
+      ],
+      "$comment": "Transport shape only. Server must check policy version/hash, independent consent purpose, confirmed identity and server timestamp at OTP finalization; client metadata is not proof."
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "source",
+            "database",
+            "media"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "snapshotId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+        }
+      },
+      "required": [
+        "kind",
+        "path",
+        "sha256",
+        "snapshotId"
+      ]
+    },
+    "recoveryManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "snapshotId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+        },
+        "sourceCommit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "audience": {
+          "enum": [
+            "private",
+            "custom"
+          ]
+        },
+        "authGateway": {
+          "const": "required"
+        },
+        "dns": {
+          "const": "operator-controlled"
+        },
+        "environmentNames": {
+          "type": "array",
+          "maxItems": 100,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]{0,63}$"
+          }
+        },
+        "artifacts": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 10000,
+          "items": {
+            "$ref": "#/$defs/artifact"
+          }
+        }
+      },
+      "required": [
+        "version",
+        "snapshotId",
+        "createdAt",
+        "sourceCommit",
+        "audience",
+        "authGateway",
+        "dns",
+        "environmentNames",
+        "artifacts"
+      ],
+      "$comment": "Runtime additionally checks paths, same-snapshot binding, unique paths and presence of source/database/media. This neither creates nor verifies actual backups."
+    },
+    "storage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "own_network_yard",
+            "seller_external",
+            "third_party"
+          ]
+        },
+        "yardId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+        },
+        "address": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "locationRef": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+        }
+      },
+      "required": [
+        "kind"
+      ]
+    },
+    "listingIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sourceType": {
+          "enum": [
+            "bank",
+            "private",
+            "partner"
+          ]
+        },
+        "ownerId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+        },
+        "sellerId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+        },
+        "publisherId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+        },
+        "sellerTenantId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+        },
+        "custodianId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mandateId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+        },
+        "storage": {
+          "$ref": "#/$defs/storage"
+        },
+        "subjectId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:_-]{0,127}$"
+        },
+        "subjectFingerprint": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "sourceType",
+        "ownerId",
+        "sellerId",
+        "publisherId",
+        "sellerTenantId",
+        "custodianId",
+        "storage",
+        "subjectId",
+        "subjectFingerprint"
+      ],
+      "$comment": "Runtime also requires trusted tenant/source/owner/seller authority, yard metadata and applicable verified mandate. Custody is not title. Government sources are disabled."
+    },
+    "personalDataConsent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "purpose": {
+          "const": "phone-auth"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "acceptedAt": {
+          "$ref": "#/$defs/acceptance/properties/acceptedAt"
+        }
+      },
+      "required": [
+        "purpose",
+        "version",
+        "acceptedAt"
+      ]
+    },
+    "authVerify": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "challengeId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "code": {
+          "type": "string",
+          "pattern": "^[0-9]{6}$"
+        },
+        "agreementAcceptance": {
+          "$ref": "#/$defs/acceptance"
+        },
+        "personalDataConsent": {
+          "$ref": "#/$defs/personalDataConsent"
+        }
+      },
+      "required": [
+        "challengeId",
+        "code",
+        "agreementAcceptance",
+        "personalDataConsent"
+      ],
+      "$comment": "Server must consume OTP atomically, compare both consents with trusted challenge and current policy and record confirmed identity/server time before issuing a session."
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/bidCommand"
+    },
+    {
+      "$ref": "#/$defs/referencedCommand"
+    },
+    {
+      "$ref": "#/$defs/assistantIntent"
+    },
+    {
+      "$ref": "#/$defs/authRequest"
+    },
+    {
+      "$ref": "#/$defs/recoveryManifest"
+    },
+    {
+      "$ref": "#/$defs/listingIdentity"
+    },
+    {
+      "$ref": "#/$defs/authVerify"
+    }
+  ]
+}

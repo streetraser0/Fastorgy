@@ -1,0 +1,496 @@
+/* Keep the feed's labels and text in separate layout areas. */
+body.reels {
+  --feed-header-space: calc(80px + env(safe-area-inset-top, 0px));
+  --feed-bottom-space: calc(76px + env(safe-area-inset-bottom, 0px));
+}
+/* The catalogue remains behind the fixed feed. Keep its heading badge from
+   widening the mobile layout viewport and moving the feed's close control. */
+body.reels #lot-results {
+  flex-wrap: wrap;
+}
+body.reels .reels-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 40px minmax(44px, 96px) 40px;
+  align-items: start;
+  gap: 7px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 520px;
+  padding-top: calc(12px + env(safe-area-inset-top, 0px));
+  padding-bottom: 10px;
+}
+body.reels .reels-header > *,
+body.reels .reels-brand,
+body.reels .reels-logo-wrap {
+  min-width: 0;
+  max-width: 100%;
+}
+body.reels .reels-header .reels-brand {
+  width: auto;
+  overflow: hidden;
+}
+body.reels .reels-logo-wrap {
+  width: 112px;
+  padding: 0 4px;
+  margin: 0;
+}
+body.reels .reels-logo-wrap .brand-logo {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 36px;
+  object-fit: contain;
+}
+body.reels .reels-header #reels-category-label {
+  display: block;
+  max-width: 100%;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 8px;
+  line-height: 1.4;
+}
+body.reels .reels-header #reels-search,
+body.reels .reels-header #close-reels,
+body.reels .reels-header #reels-region-open {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 40px;
+  height: 40px;
+  padding: 7px;
+  margin: 0;
+  gap: 4px;
+}
+body.reels .reels-header #reels-region-open .ui-label {
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+body.reels .reels-header .ui-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+body.reels .reels-header #close-reels .catalog-label {
+  display: none;
+}
+body.reels #grid .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+  max-width: 100%;
+  padding-top: var(--feed-header-space);
+}
+/* The existing photo, disclosure and text become separate flex rows. */
+body.reels #grid .card > .car-photo {
+  display: contents;
+}
+body.reels #grid .car-photo > .lot-gallery {
+  position: relative;
+  inset: auto;
+  order: 0;
+  flex: 1 1 0;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+  background: #092541;
+}
+body.reels #grid .gallery-slide img,
+body.reels #grid .gallery-slide video {
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+}
+body.reels #grid .car-photo > .tag {
+  position: relative;
+  inset: auto;
+  z-index: 4;
+  align-self: flex-start;
+  flex: 0 0 auto;
+  order: 1;
+  max-width: calc(100% - 94px);
+  margin: 0 16px 0;
+  padding: 6px 9px;
+  font-size: 9px;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body.reels #grid .card-body {
+  position: relative;
+  inset: auto;
+  order: 2;
+  flex: 0 0 auto;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  padding: 12px 16px calc(var(--feed-bottom-space) + 33px);
+  margin: 0;
+  background: linear-gradient(#061A31A6, #061A31E8 28%, #061A31F5);
+}
+body.reels #grid .card-body > *,
+body.reels #grid .spec > *,
+body.reels #grid .location > *,
+body.reels #grid .bidrow > *,
+body.reels #grid .card-bottom > * {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+body.reels #grid .card h3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 0 7px;
+  color: #fff;
+  font-size: clamp(20px, 5.5vw, 27px);
+  line-height: 1.2;
+  letter-spacing: -.6px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+body.reels #grid .spec,
+body.reels #grid .location {
+  max-width: 100%;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body.reels #grid .location {
+  margin: 7px 0;
+}
+body.reels #grid .location > span[style] {
+  float: none !important;
+  display: block;
+  max-width: 100%;
+  margin-top: 2px;
+}
+body.reels #grid .lot-map-link {
+  min-width: 0;
+  max-width: 100%;
+  min-height: 28px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+body.reels #grid .lot-map-link .ui-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+body.reels #grid .valuation-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 8px;
+}
+body.reels #grid .valuation-heading > *,
+body.reels #grid .valuation-result > *,
+body.reels #grid .valuation-market {
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body.reels #grid .bidrow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 7px;
+  margin-top: 8px;
+  padding-top: 9px;
+}
+body.reels #grid .price {
+  display: block;
+  max-width: 100%;
+  font-size: clamp(25px, 7vw, 32px);
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body.reels #grid .time,
+body.reels #grid .time > [data-time] {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+body.reels #grid .countdown-units {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 4px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+body.reels #grid .countdown-unit {
+  min-width: 0;
+  max-width: 100%;
+  padding: 4px 1px;
+  overflow-wrap: anywhere;
+}
+body.reels #grid .countdown-number {
+  font-size: 15px;
+  line-height: 1.15;
+}
+body.reels #grid .card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 9px;
+}
+body.reels #grid .card-bottom .primary {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body.reels #grid .card-bottom .bids {
+  flex: 0 1 auto;
+  max-width: 76px;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+/* These photo hints duplicate controls and disclosure already present in the
+   card; floating them over the title caused the overlap in the screenshot. */
+body.reels #grid .gallery-hint,
+body.reels #grid .media-label,
+body.reels #grid .gallery-pagination {
+  display: none;
+}
+body.reels #grid .lot {
+  top: calc(var(--feed-header-space) + 8px);
+  bottom: auto;
+  left: 16px;
+  max-width: calc(100% - 104px);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body.reels #grid .heart {
+  top: calc(var(--feed-header-space) + 8px);
+  right: 16px;
+  width: 40px;
+  height: 40px;
+}
+body.reels #grid .feed-share {
+  top: calc(var(--feed-header-space) + 56px);
+  right: 16px;
+  min-width: 40px;
+  max-width: 56px;
+  min-height: 40px;
+  padding: 7px;
+  border-radius: 12px;
+}
+body.reels #grid .feed-share .ui-icon {
+  width: 20px;
+  height: 20px;
+}
+body.reels #grid .feed-share > span {
+  display: none;
+}
+body.reels #grid .gallery-count {
+  top: auto;
+  bottom: 8px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  max-width: 64px;
+  white-space: normal;
+}
+body.reels #grid .has-video ~ .reel-sound {
+  top: calc(var(--feed-header-space) + 56px);
+  right: 16px;
+  min-width: 40px;
+  max-width: 56px;
+  min-height: 40px;
+  padding: 8px;
+}
+body.reels #grid .reel-sound > span {
+  display: none;
+}
+body.reels #grid .gallery-nav {
+  top: 50%;
+  width: 34px;
+  height: 34px;
+}
+body.reels #grid .gallery-next {
+  right: 80px;
+}
+body.reels #grid .gallery-prev {
+  left: 16px;
+}
+body.reels #grid .has-video .gallery-prev {
+  left: 80px;
+}
+@media (max-height: 820px) {
+  /* Full valuation and seller assessment remain available inside the lot. */
+  body.reels #grid .card-body > .valuation,
+  body.reels #grid .card-body > .seller-rating-line {
+    display: none;
+  }
+  body.reels #grid .card h3 {
+    -webkit-line-clamp: 2;
+  }
+}
+@media (max-height: 650px) {
+  body.reels {
+    --feed-header-space: calc(70px + env(safe-area-inset-top, 0px));
+  }
+  body.reels #grid .card-body {
+    padding-top: 9px;
+    padding-bottom: calc(var(--feed-bottom-space) + 27px);
+  }
+  body.reels #grid .card h3 {
+    font-size: 20px;
+  }
+  body.reels #grid .spec,
+  body.reels #grid .location > span[style],
+  body.reels #grid .gallery-count,
+  body.reels #grid .card-bottom .bids {
+    display: none;
+  }
+  body.reels #grid .price {
+    font-size: 25px;
+  }
+  body.reels #grid .bidrow {
+    gap: 5px;
+    padding-top: 7px;
+  }
+  body.reels #grid .countdown-number {
+    font-size: 14px;
+  }
+  body.reels #grid .time > .caption {
+    margin-bottom: 3px;
+  }
+  body.reels .reels-header #reels-category-label {
+    display: none;
+  }
+}
+@media (max-width: 360px) {
+  body.reels .reels-header {
+    grid-template-columns: minmax(0, 1fr) 36px minmax(44px, 80px) 36px;
+    gap: 5px;
+  }
+  body.reels .reels-header #reels-search,
+  body.reels .reels-header #close-reels,
+  body.reels .reels-header #reels-region-open {
+    min-height: 36px;
+    height: 36px;
+    padding: 5px;
+  }
+  body.reels #grid .card h3 {
+    font-size: 21px;
+  }
+}
+
+/* Landscape phones use two text columns to keep the action and all five
+   clock units visible without a second vertical scrolling surface. */
+@media (max-height: 480px) and (orientation: landscape) {
+  body.reels { --feed-bottom-space: calc(60px + env(safe-area-inset-bottom, 0px)); }
+  body.reels #grid .card-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 6px 16px;
+    padding-bottom: calc(var(--feed-bottom-space) + 28px);
+  }
+  body.reels #grid .card h3 { grid-column: 1; margin-bottom: 0; font-size: 20px; }
+  body.reels #grid .location { grid-column: 1; margin: 0; }
+  body.reels #grid .bidrow { grid-column: 2; grid-row: 1 / span 2; margin: 0; padding: 0; border: 0; }
+  body.reels #grid .card-bottom { grid-column: 1 / -1; margin-top: 0; }
+  body.reels #grid .car-photo > .tag { margin-bottom: 0; padding: 4px 8px; font-size: 8px; }
+  body.reels #grid .heart,
+  body.reels #grid .feed-share,
+  body.reels #grid .lot,
+  body.reels #grid .gallery-nav,
+  body.reels #grid .reel-sound { display: none !important; }
+  body.reels .quick-access { padding-top: 4px; padding-bottom: 4px; }
+  body.reels .quick-access-button { min-height: 44px; padding-top: 3px; padding-bottom: 3px; }
+  body.reels .quick-access-button > span:last-child {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* Text-heavy dialogs share the same width constraints as their form controls. */
+.admin-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.admin-grid > *,
+.admin-grid :is(label, input, select, textarea),
+dialog .object-attributes > *,
+dialog .valuation-heading > *,
+dialog .valuation-result > * {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.valuation-heading,
+.valuation-result {
+  flex-wrap: wrap;
+  gap: 5px 10px;
+}
+.valuation-heading > b,
+.valuation-heading > span,
+.valuation-result > strong,
+.valuation-result > b {
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .admin-grid { grid-template-columns: minmax(0, 1fr); }
+  body dialog input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+  body dialog select,
+  body dialog textarea {
+    min-width: 0;
+    max-width: 100%;
+    font-size: 16px !important;
+  }
+  body dialog #auth-phone { font-size: 20px !important; }
+  body dialog #bid { font-size: 21px !important; }
+  body dialog #auth-code { font-size: 30px !important; letter-spacing: clamp(4px, 2.5vw, 12px); }
+}
+
+/* The auction feed is the first, separate block on the homepage. */
+.discovery-catalog > #featured-lots{margin:22px 0 26px;padding:18px;border:1px solid #DCE6F2;border-radius:20px;background:#FFFFFF;box-shadow:0 5px 20px #17478E08}
+#featured-lots .featured-heading{flex-wrap:wrap;gap:10px;margin-bottom:12px}
+#featured-lots .featured-heading > div:first-child{flex:1 1 180px}
+#featured-lots #home-open-feed{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:0 0 auto;min-width:0;min-height:40px;max-width:100%;margin:0;padding:10px 12px;border-radius:11px;font-size:12px;line-height:1.4;white-space:normal}
+#featured-lots #home-open-feed .ui-icon{width:18px;height:18px;flex-shrink:0}
+@media(max-width:700px){
+ .discovery-catalog > #featured-lots{margin-top:16px;padding:14px;border-radius:17px}
+ #featured-lots .featured-heading{gap:8px}
+ #featured-lots .featured-heading > div:first-child{flex:1 1 140px}
+ #featured-lots .featured-heading h2{font-size:22px;line-height:1.25;letter-spacing:-.5px}
+ #featured-lots .featured-arrows{display:none}
+ #featured-lots #home-open-feed{padding:9px 10px;font-size:11px}
+}
+
+/* Give the photo a little more room without moving the action into the bottom navigation. */
+@media (min-height: 600px) and (orientation: portrait) {
+ body.reels #grid .card-body { padding-top: 8px; }
+ body.reels #grid .card h3 { margin-bottom: 4px; }
+ body.reels #grid .location { margin-top: 5px; margin-bottom: 5px; }
+ body.reels #grid .lot-presentation { margin-top: 5px; margin-bottom: 5px; }
+ body.reels #grid .bidrow { margin-top: 6px; padding-top: 7px; }
+}

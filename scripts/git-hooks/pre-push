@@ -1,0 +1,5 @@
+#!/bin/sh
+# Kept in the repository; installation/chaining with other hooks is explicit.
+set -eu
+repo_root=$(git rev-parse --show-toplevel)
+exec node "$repo_root/scripts/diagnostics-on-change.cjs" "$@"

@@ -1,0 +1,294 @@
+{
+  "date": "2026-11-15",
+  "baseline": "577beedaaf14f8b91353fec4ccb87333511cd070",
+  "scope": "Post-v68 first-photo return, seller identity/price order, editor action hierarchy, desktop photo hover, approved blue brand, compact controls and explicit main-feed purchase routes.",
+  "beforeFix": {
+    "rootCause": "The ordinary lot photo controller reserved every horizontal gesture for gallery paging, even on a single photo or the first photo. Right swipe therefore left the lot open; down already returned correctly.",
+    "reproduced": "Published v68, trusted touch in Chrome iPhone emulation; featured single BMW1042 and multi Panamera100000, plus the same BMW through catalogue search. Fullscreen viewer down/right-first/letterbox already worked.",
+    "artifacts": [
+      "brand-mobile-browser/featured-ios-repro-v68-single/report.json",
+      "brand-mobile-browser/featured-ios-repro-v68-multi/report.json",
+      "brand-mobile-browser/featured-ios-repro-v68-catalog/report.json"
+    ]
+  },
+  "runs": {
+    "featuredReturn": {
+      "artifact": "brand-mobile-browser/featured-return-fixed/report.json",
+      "sha256": "58cf2052fb83cf01aeadf6b70578fde2408ea370b0962d7ce1121ed8235aec75",
+      "started": "2026-11-15T17:07:28.991Z",
+      "finished": "2026-11-15T17:08:03.703Z",
+      "passed": 2,
+      "total": 2,
+      "method": "Isolated Chrome iPhone/Android UA touch emulation, real featured-origin taps and trusted CDP gestures. No installed WebKit runtime; this is not a physical Safari claim.",
+      "cases": [
+        {
+          "name": "ios",
+          "passed": true,
+          "javascriptErrors": 0,
+          "checks": [
+            "Featured single-photo right returns to home",
+            "Multi-photo left/previous preserved; separate right-at-first returns",
+            "Viewer zoom-pan and real letterbox return preserve underlying lot"
+          ]
+        },
+        {
+          "name": "android",
+          "passed": true,
+          "javascriptErrors": 0,
+          "checks": [
+            "Featured single-photo right returns to home",
+            "Multi-photo left/previous preserved; separate right-at-first returns",
+            "Viewer zoom-pan and real letterbox return preserve underlying lot"
+          ]
+        }
+      ],
+      "command": "Set FAS_BROWSER_BASE_URL to an active local preview; node scripts/diagnostics/featured-return-checkup.cjs",
+      "scriptSha256": "3f2472ab3204d6d944c0170cf7224fb442908d68ec961de0148333297b076a05"
+    },
+    "editor": {
+      "artifact": "brand-mobile-browser/seller-editor-final/report.json",
+      "sha256": "6a966ae24a6662ee5ac994604a090469797b57a5a016a00e7b68e3891feecae0",
+      "started": "2026-11-15T17:09:30.972Z",
+      "finished": "2026-11-15T17:10:08.886Z",
+      "passed": 3,
+      "total": 3,
+      "method": "Isolated Chrome touch/desktop contexts, real editor and IndexedDB photo upload. Only disposable local QA drafts are created/deleted; no published lot or remote data is changed.",
+      "cases": [
+        {
+          "name": "390",
+          "passed": true,
+          "javascriptErrors": 0
+        },
+        {
+          "name": "320",
+          "passed": true,
+          "javascriptErrors": 0
+        },
+        {
+          "name": "1366",
+          "passed": true,
+          "javascriptErrors": 0
+        }
+      ],
+      "command": "Set FAS_BROWSER_BASE_URL to an active local preview; node scripts/diagnostics/seller-editor-checkup.cjs",
+      "scriptSha256": "593e1c18ebe356f4fd14cc69c0a9c3dc45b5a3dd38bcb0fbb03a54d3e9e79cd6"
+    },
+    "sellerEntryPrice": {
+      "artifact": "brand-mobile-browser/seller-entry-price-final/report.json",
+      "sha256": "f8a2fb39e0ad7aed88ead385d7ec24ea6e670e65afc586f78013ae984ee9de4c",
+      "started": "2026-11-15T17:12:06.21Z",
+      "finished": "2026-11-15T17:12:19.101Z",
+      "passed": 2,
+      "total": 2,
+      "method": "Isolated Chrome mobile viewport/touch emulation. Trusted logo/name taps open real seller storefront UI; no bids submitted or remote data changed.",
+      "cases": [
+        {
+          "name": "390",
+          "passed": true,
+          "javascriptErrors": 0
+        },
+        {
+          "name": "320",
+          "passed": true,
+          "javascriptErrors": 0
+        }
+      ],
+      "command": "Set FAS_BROWSER_BASE_URL to an active local preview; node scripts/diagnostics/seller-entry-price-checkup.cjs",
+      "scriptSha256": "c51feaf3a3b05a36d9a0a9ec85b3bd48ad099a52d88b39abbbd15438c8b14a50"
+    },
+    "desktopHover": {
+      "artifact": "brand-mobile-browser/desktop-hover-final/report.json",
+      "javascriptErrors": 0,
+      "checks": [
+        "Featured hover selects and loads the third photo without moving lots",
+        "Leaving before 80ms cancels pending change and preserves current photo",
+        "Click after hover still opens the selected lot",
+        "Photo drag does not open a lot",
+        "Existing vertical-wheel horizontal lot navigation is preserved",
+        "Catalogue hover loads and selects the third image",
+        "Native-app class disables mouse preview",
+        "Mobile-width gate disables mouse preview",
+        "Fullscreen desktop feed also previews the hovered photo"
+      ],
+      "started": "2026-11-15T17:22:01.934Z",
+      "passed": true,
+      "command": "Set FAS_BROWSER_BASE_URL to an active local preview; node scripts/diagnostics/desktop-hover-checkup.cjs",
+      "method": "One isolated desktop Chrome context; trusted mouse input on featured, catalogue and fullscreen-feed photo rails. Mobile-width/native-class gates are simulated, not device tests.",
+      "scriptSha256": "ca38f99b36974310e0faec100233e63c2f619d09e671c205499535905cdb02b9",
+      "sha256": "220f110bae6ff01a33036e2f764d6985f7dc1d134f09f0c3291874034a1a4621",
+      "finished": "2026-11-15T17:22:27.164Z"
+    },
+    "brandControlsInitial": {
+      "cases": [
+        {
+          "passed": true,
+          "width": 1366,
+          "javascriptErrors": 0
+        },
+        {
+          "passed": true,
+          "width": 390,
+          "javascriptErrors": 0
+        }
+      ],
+      "artifact": "brand-mobile-browser/brand-controls-final/report.json",
+      "total": 2,
+      "started": "2026-11-15T17:25:23.079Z",
+      "passed": 2,
+      "command": "Set FAS_BROWSER_BASE_URL to an active local preview; node scripts/diagnostics/brand-controls-checkup.cjs",
+      "note": "Desktop 1366 geometry and interactions passed. Initial 390 screenshot subsequently exposed a 2.86px right-header clipping regression not covered by the original assertion. Final 390/320 header fit is verified separately by feedBuyHeaderFinal after flex-shrink fix; the initial mobile result is not evidence of final header fit. Script hash records the retained tightened diagnostic, not the earlier raw run.",
+      "method": "Isolated desktop Chrome1366 and Android-UA/touch390. Actual blue logo and browser clipboard; OS share capability disabled only in this disposable test context so no external share recipient is involved.",
+      "scriptSha256": "6570e68db48bae4fb705f5abafd8795dfa2b59129dfde0e2bb1d3a397f1f10d5",
+      "sha256": "727034ca10abcabf6a0879b478791d5d2683860cacb8fed3610564756e0d11b1",
+      "finished": "2026-11-15T17:25:32.619Z"
+    },
+    "feedBuyHeaderFinal": {
+      "cases": [
+        {
+          "passed": true,
+          "width": 390,
+          "javascriptErrors": 0
+        },
+        {
+          "passed": true,
+          "width": 320,
+          "javascriptErrors": 0
+        }
+      ],
+      "artifact": "brand-mobile-browser/feed-buy-header-final/report.json",
+      "total": 2,
+      "started": "2026-11-15T17:32:46.068Z",
+      "passed": 2,
+      "command": "Set FAS_BROWSER_BASE_URL to an active local preview; node scripts/diagnostics/feed-buy-header-checkup.cjs",
+      "header": [
+        {
+          "headerControls": [
+            {
+              "id": "",
+              "left": 223.140625,
+              "right": 267.140625,
+              "width": 44,
+              "height": 44
+            },
+            {
+              "id": "account",
+              "left": 277.140625,
+              "right": 371,
+              "width": 93.859375,
+              "height": 41
+            }
+          ],
+          "width": 390,
+          "trustedBuyClicks": [
+            {
+              "trusted": true,
+              "id": "1042",
+              "kind": "fixed"
+            },
+            {
+              "trusted": true,
+              "id": "1043",
+              "kind": "auction"
+            }
+          ],
+          "logoWidth": 186.140625,
+          "payment": {
+            "open": true,
+            "mode": "buy-now",
+            "method": "card",
+            "lotId": "1042",
+            "amount": 3900000,
+            "currency": "RUB",
+            "status": "unavailable",
+            "canPay": false,
+            "recipientVerified": false,
+            "sampleOnly": true,
+            "sharing": false,
+            "currentPrice": 3250000
+          }
+        },
+        {
+          "headerControls": [
+            {
+              "id": "",
+              "left": 156.140625,
+              "right": 200.140625,
+              "width": 44,
+              "height": 44
+            },
+            {
+              "id": "account",
+              "left": 207.140625,
+              "right": 301,
+              "width": 93.859375,
+              "height": 41
+            }
+          ],
+          "width": 320,
+          "trustedBuyClicks": [
+            {
+              "trusted": true,
+              "id": "1042",
+              "kind": "fixed"
+            },
+            {
+              "trusted": true,
+              "id": "1043",
+              "kind": "auction"
+            }
+          ],
+          "logoWidth": 119.140625,
+          "payment": {
+            "open": true,
+            "mode": "buy-now",
+            "method": "card",
+            "lotId": "1042",
+            "amount": 3900000,
+            "currency": "RUB",
+            "status": "unavailable",
+            "canPay": false,
+            "recipientVerified": false,
+            "sampleOnly": true,
+            "sharing": false,
+            "currentPrice": 3250000
+          }
+        }
+      ],
+      "method": "Fresh isolated Chrome Android-UA/touch emulation at 390/320. Trusted taps on actual feed buttons, real demo payment guard; no payment, bid or publication is submitted. OS share disabled only in disposable context to exercise existing clipboard fallback.",
+      "scriptSha256": "735e2e31ea6012a3386e12ff06961809074082acca40ccde3392bbcb34fb3c2b",
+      "sha256": "ef6d528c4c79562ed9ad6547e209f42db51de3e718d60c7d0137ebbb6d96efcc",
+      "finished": "2026-11-15T17:33:01.854Z"
+    }
+  },
+  "verified": [
+    "Actual featured-origin first-photo right swipe returns from single-photo lots. For multiple photos, left pages forward, right from a later photo pages back without closing, and a separate new right swipe begun at the first edge returns.",
+    "Tiny initial movement is reserved before the browser commits scrolling; existing down return, fullscreen letterbox return and zoomed pan remain functional. All input is trusted CDP/Playwright browser input.",
+    "Editor at 390/320/1366: Отправить is primary, Сохранить черновик secondary, compact delete aligned right; no horizontal overflow. Incomplete form still validates without publication.",
+    "Delete cancellation preserves entered text and actual uploaded IndexedDB photo. Confirmation removes only the current isolated QA draft, preserves a second draft, and deleted content does not reappear after autosave wait, new editor or reload.",
+    "Mobile 390/320: price precedes condition/zero-deposit priority, attributes and secondary seller/contact block. Price is visible near the beginning of the lot.",
+    "Seller logo on featured card and seller name in detail both open the same real storefront UI. Generic bank icon appears where no logo was supplied. Seller name is not duplicated. Return restores original lot, bid-input value and scroll.",
+    "Desktop hover: actual loaded third photos on featured, catalogue and full feed; queued hover cancellation on leave, subsequent click opens correct lot, drag does not open, wheel still scrolls outer rail. Native class and mobile-width gates remain inert.",
+    "Approved blue PNG is 768x256 transparent, displayed at preserved aspect ratio with no external duplicated tagline. Desktop size224px; mobile logo shrinks to preserve full header controls at390/320. Initial header clipping was detected visually and corrected before final evidence.",
+    "Compact featured controls: desktop32px and mobile44px hit areas with32px visual circles,18px icons; actual isolated favorite and canonical HTTPS clipboard actions pass.",
+    "Main feed390/320: participate and buy buttons do not overlap or overflow. Trusted fixed-price button opens existing demo payment for BMW1042 at3900000 RUB with canPay=false. Auction-only button opens lot and bid form with auction explanation and no payment dialog. No purchase or bid was submitted."
+  ],
+  "screenshots": [
+    "brand-mobile-browser/featured-return-fixed/ios-returned-to-lot.png",
+    "brand-mobile-browser/seller-editor-final/320-editor-actions.png",
+    "brand-mobile-browser/seller-editor-final/1366-editor-actions.png",
+    "brand-mobile-browser/seller-entry-price-final/390-price-first.png",
+    "brand-mobile-browser/seller-entry-price-final/320-seller-profile.png",
+    "brand-mobile-browser/desktop-hover-final/featured-hover-third.png",
+    "brand-mobile-browser/desktop-hover-final/feed-hover-third.png",
+    "brand-mobile-browser/brand-controls-final/1366-header-controls.png",
+    "brand-mobile-browser/feed-buy-header-final/390-header-controls.png",
+    "brand-mobile-browser/feed-buy-header-final/320-header-controls.png",
+    "brand-mobile-browser/feed-buy-header-final/390-feed-buy.png",
+    "brand-mobile-browser/feed-buy-header-final/320-demo-payment.png"
+  ],
+  "limitations": [
+    "iOS and Android checks use Chrome UA/viewport/touch emulation; the installed Playwright WebKit executable is absent. This is not verification on Safari/WebKit or a physical device.",
+    "Tests use isolated local browser data and local preview. No real bid, remote publication, user draft deletion, or server account operation is performed.",
+    "These are bounded targeted regressions, not a repeated full-suite or complete accessibility audit. Native packages and publication are verified separately."
+  ]
+}

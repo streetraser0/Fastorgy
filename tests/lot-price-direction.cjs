@@ -1,0 +1,46 @@
+/* Render real lot details, then update the same DOM price markers without reopening. */
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const {boot}=require('./helpers/category-seller-harness.cjs'),{setup}=require('./helpers/quickbar-dom.cjs');
+const now=Date.now(),id=999884391;
+const base={id,name:'Проверка цены в карточке',category:'cars',subcategory:'cars',bank:'Тестовый продавец',city:'Москва',regionCode:'77',status:'live',price:100000,start:100000,step:1000,deposit:0,bids:2,condition:'used',model:'Тестовый автомобиль',startsAt:new Date(now-3600000).toISOString(),ends:new Date(now+7200000).toISOString()};
+const h=boot({fixtureInventory:[],noMedia:true});
+function render(lot,own={}){
+ h.run('cars=['+JSON.stringify(lot)+'];bids='+JSON.stringify(own)+';openCar('+id+')');
+ const dom=setup(),content=dom.add('real-detail');content.innerHTML=h.node('#modal-content').innerHTML;
+ return {content,offer:content.querySelector('.lot-detail-offer'),facts:content.querySelector('.lot-detail-facts')};
+}
+let {content,offer,facts}=render(base,{[id]:{price:120000,count:1,history:[]}});
+const amount=offer.querySelector('[data-current-lot-price]'),direction=offer.querySelector('.lot-price-direction'),table=facts.querySelector('.object-attributes');
+assert.equal(amount.textContent,h.run('money(120000)'),'offer uses accepted current quote, not the starting amount');
+assert.equal(table.children[0].textContent,'Текущая цена');
+assert.equal(table.children[1].textContent,amount.textContent,'the selected details table shows the same current price');
+assert.equal(table.children[1].getAttribute('data-current-lot-price'),String(id));
+assert.equal(direction.getAttribute('data-auction-direction'),'ascending');
+assert.equal(direction.getAttribute('aria-label'),'Торги на повышение');assert(direction.querySelector('svg'));
+assert.equal(direction.parentElement,amount.parentElement,'the arrow is adjacent to the amount, never inside its live text marker');
+assert.equal(offer.querySelector('.auction-mode-summary'),null,'the separate format panel no longer occupies the offer area');
+const originalQuery=h.context.document.querySelectorAll;
+const priceNodes=content.querySelectorAll('[data-current-lot-price]');assert.equal(priceNodes.length,2);
+h.context.document.querySelectorAll=selector=>selector==='[data-current-lot-price]'?priceNodes:originalQuery(selector);
+h.node('#bid-form').dataset.lotId=String(id);h.node('#bid').value='143000';h.node('#bid').min=121000;
+const update=h.run('window.FasApplyAuctionUpdate('+JSON.stringify({lotId:id,price:150000,actorOwn:false,occurredAt:new Date(now-1000).toISOString()})+')');
+assert.equal(update.ok,true);for(const node of priceNodes)assert.equal(node.textContent,h.run('money(150000)'));
+assert.equal(h.node('#bid').value,'143000','changing a quote keeps the unsubmitted next-bid draft');assert.equal(h.node('#bid').min,151000);
+assert.equal(offer.querySelector('.lot-price-direction'),direction,'quote refresh preserves the same arrow and its accessible name');
+assert.equal(direction.getAttribute('aria-label'),'Торги на повышение');
+h.context.document.querySelectorAll=originalQuery;
+vm.runInContext(fs.readFileSync('dist/auction-modes.js','utf8'),h.context);
+const descending={...base,auctionDirection:'descending',startPrice:100000,floorPrice:50000,decreaseStep:10000,decreaseIntervalMinutes:30,durationMinutes:180};
+({content,offer,facts}=render(descending));
+const down=offer.querySelector('.lot-price-direction'),current=h.run('money(current(cars[0]))');
+assert.equal(down.getAttribute('data-auction-direction'),'descending');assert.equal(down.getAttribute('aria-label'),'Торги на понижение');
+assert.equal(offer.querySelector('[data-current-lot-price]').textContent,current);assert.equal(facts.querySelector('.lot-current-price-value').textContent,current);
+for(const node of [offer.querySelector('.purchase-price').querySelector('[data-current-lot-price]'),facts.querySelector('.lot-current-price-value')])assert.equal(node.getAttribute('data-live-descending-price'),String(id),'both current amounts keep the live Dutch-auction price contract');
+assert.equal(offer.querySelector('.auction-mode-summary'),null);
+const terms=facts.querySelector('.auction-mode-summary');assert(terms);assert(terms.closest('details'),'minimum price and decrement interval remain in expandable mandatory terms');
+assert(terms.querySelector('p').textContent.replace(/\s/g,'').includes('50000₽'));assert.equal(offer.querySelector('#bid-form'),null,'descending lots still cannot submit ascending bids');
+h.node('#modal-content').innerHTML='';h.node('#modal').open=false;
+render({...descending,floorPrice:0});
+assert.equal(h.run('current(cars[0])'),null);assert.equal(h.node('#modal').open,false,'invalid published descending conditions cannot open a purchasable lot after the visual change');
+assert.equal(h.node('#modal-content').innerHTML,'');
+console.log('PASS: same live current price in offer and facts, accessible adjacent direction, quote updates retain draft/arrow, descending terms and invalid-purchase protection preserved.');

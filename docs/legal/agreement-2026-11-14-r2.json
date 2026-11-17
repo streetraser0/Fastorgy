@@ -1,0 +1,14 @@
+{
+  "version": "2026-11-14-r2",
+  "previousVersion": "2026-11-14",
+  "status": "Project for the current demonstration service; no practicing-jurist approval or live payment/auth/chat/bot readiness claimed.",
+  "operator": "ООО «Региональная служба взыскания долгов»",
+  "agreementMarkdown": "docs/legal/user-agreement-2026-11-14-r2.md",
+  "agreementMarkdownSHA256": "ecc5c059bcd711d0518988361b24604abc4a500d5efa4d57b9914d15c1533974",
+  "agreementHTMLMainSHA256": "a9ce462e91ad34e72ef9eb37a39a8ad4df3a9bad21711ed8ed260a6bde5b4348",
+  "phoneConsentHTMLSectionSHA256": "8d93e21acbce9b083e22c1ef318c11144c1a2ef61501dacd502b0457789053e2",
+  "previousHTML": "dist/terms-2026-11-14.html",
+  "previousHTMLSHA256": "2ed4c7589a8bafc61a9da89efb7374903164de090dcdea93fc1b17bf43f3f166",
+  "revisionPolicy": "Material changes require this distinct version and separate explicit acceptance; old accepted HTML/MD/PDF/metadata remain archived and old acceptance is not silently treated as new. Client acceptance history is limited evidence, not verified server identity.",
+  "clientRecordLimit": "Client records may be modified or deleted by the user. Server authentication, immutable audit and enforceable consent records remain prerequisites for real registration and delivery."
+}

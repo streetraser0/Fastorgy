@@ -1,0 +1,26 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const {integration}=require('./helpers/category-multi-harness.cjs');
+const read=name=>fs.readFileSync('dist/'+name,'utf8'),now=Date.now(),base={category:'cars',subcategory:'cars',price:100000,start:100000,step:1000,deposit:0,condition:'used',year:2021,status:'live',startsAt:new Date(now-3600000).toISOString(),ends:new Date(now+86400000).toISOString(),bids:0,city:'Москва',regionCode:'77',comparables:[],name:'Публичный автомобиль'};
+const lots=[{...base,id:999883701,bank:'Демо-банк',sellerType:'bank',demo:true},{...base,id:999883702,bank:'Организация',sellerType:'bank',sellerOrganizationId:'public-org',partnerLogo:'https://example.test/logo.png'},{...base,id:999883703,sellerOwnerId:'another-owner',sellerName:'Анна',sellerType:'private',privateSellerDemo:true,deposit:10000}];
+const h=integration({fixtures:lots,strictSelect:true}),c=h.context;
+for(const file of ['partner-branding.js','lot-presentation.js','seller-storefront.js','seller-ratings.js'])vm.runInContext(read(file),c);
+h.run('render()');
+const cards=h.field('grid');
+for(const lot of lots){
+ const card=cards.querySelector('[data-lot="'+lot.id+'"]'),body=card.querySelector('.card-body'),price=body.querySelector('.bidrow'),priority=body.querySelector('[data-lot-priority]'),entry=body.querySelector('[data-open-seller-storefront]');
+ assert.equal(body.children[0].tagName,'H3');assert.strictEqual(body.children[1],price,'catalogue price immediately follows the title');assert.strictEqual(body.children[2],priority,'condition and actual no-deposit highlight immediately follow the price');
+ assert(priority.querySelector('[data-priority-condition]'));assert.equal(!!priority.querySelector('[data-priority-deposit]'),lot.deposit===0,'only an explicitly zero deposit receives the claim');assert.equal(body.querySelectorAll('[data-open-seller-storefront]').length,1);
+ assert(entry.classList.contains('seller-identity-entry'));assert(!entry.innerHTML.includes('>Профиль продавца<'),'the separate generic link is replaced by the existing seller identity');assert.equal(entry.querySelectorAll('button').length,0,'the identity never nests interactive controls');
+ if(lot.id===lots[0].id){assert(entry.querySelector('.lot-partner-bank-icon'));assert.equal(entry.querySelector('img'),null,'a demo bank has a neutral icon, never a borrowed real-bank logo');assert.equal(entry.querySelector('.lot-partner-name').textContent,'Демо-банк')}
+ if(lot.partnerLogo)assert.equal(entry.querySelector('[data-partner-logo]').getAttribute('src'),lot.partnerLogo,'a seller-provided safe logo remains unchanged');
+ if(lot.sellerOwnerId)assert.equal(entry.querySelector('.seller-identity-name').textContent,'Анна');
+ const target=entry.querySelector('.lot-partner-mark')||entry.querySelector('.seller-identity-name');h.click(target);assert.equal(c.window.FasSellerStorefront.state().lotId,lot.id,'a click on either logo or name opens that seller profile');assert(c.window.FasSellerStorefront.state().open);c.window.FasSellerStorefront.close();
+}
+h.run('openCar('+lots[0].id+')');const body=h.field('modal-content').querySelector('.purchase-body'),offer=body.querySelector('.lot-detail-offer'),facts=body.querySelector('.lot-detail-facts'),secondary=facts.querySelector('.lot-detail-secondary');
+assert.equal(body.children[0].className,'lot-detail-heading');assert.equal(body.children[1].className,'lot-detail-offer');assert.equal(offer.children[0].className,'purchase-price');assert(offer.children[1].hasAttribute('data-lot-priority'),'opened lot puts condition and no-deposit immediately under price');assert.equal(offer.querySelectorAll('#bid-form').length,1);
+assert(facts.children.indexOf(secondary)>facts.children.indexOf(facts.querySelector('.object-attributes')),'contact/location block follows specifications');assert(secondary.querySelector('.purchase-location'));assert(secondary.querySelector('.seller-identity-entry'));assert.equal(facts.querySelectorAll('[data-priority-condition]').length,0,'priority highlights are not duplicated farther down');
+const form=offer.querySelector('#bid-form'),input=form.querySelector('#bid'),entry=secondary.querySelector('.seller-identity-entry');input.value='123000';h.field('modal').scrollTop=420;
+h.click(entry.querySelector('.lot-partner-name'));assert(c.window.FasSellerStorefront.state().open);assert.strictEqual(h.field('modal-content').querySelector('#bid-form'),form,'seller profile preserves the original live bid form');c.window.FasSellerStorefront.close();assert.equal(input.value,'123000');assert.equal(h.field('modal').scrollTop,420);assert.strictEqual(h.document.activeElement,entry,'closing seller profile restores the cohesive identity control');
+for(const deposit of [undefined,null,'',false,-1,NaN])assert(!c.window.FasLotPresentation.priorityHTML({...base,deposit}).includes('Без задатка'),'unknown or invalid deposit never acquires a zero-deposit claim');
+assert(c.window.FasLotPresentation.priorityHTML({...base,condition:'repair'}).includes('lot-fact-warning'));
+console.log('PASS: cohesive seller logo/name routes with neutral bank fallback and preserved supplied logos, one accessible identity control, title→price→condition/deposit order, lower secondary details and untouched bid/context return.');

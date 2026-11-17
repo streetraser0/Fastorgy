@@ -1,0 +1,9 @@
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert/strict');
+const code=fs.readFileSync(path.join(__dirname,'../mobile/scripts/native-bridge.js'),'utf8').replace(/^import[^\n]+\n/gm,'');
+const events={},calls=[];const main={open:true,close(){this.open=false;calls.push('seller-close')}},picker={open:true,close(){this.open=false;calls.push('category-close')}};
+const context={URL,location:{href:'https://localhost/',origin:'https://localhost'},navigator:{geolocation:{}},document:{documentElement:{classList:{add(){}}},querySelectorAll(selector){return selector==='dialog[open]'?[main,picker].filter(dialog=>dialog.open):[]},getElementById:()=>main,addEventListener(){}},Capacitor:{isNativePlatform:()=>true,getPlatform:()=> 'android'},Style:{Dark:'DARK'},StatusBar:{setStyle:()=>Promise.resolve(),setOverlaysWebView:()=>Promise.resolve(),setBackgroundColor:()=>Promise.resolve()},App:{addListener:(type,handler)=>events[type]=handler,minimizeApp(){calls.push('minimize');return Promise.resolve()}},Browser:{open:()=>Promise.resolve()},Geolocation:{},window:{history:{back(){calls.push('history-back')}}},reelsMode:true,setReels(on){context.reelsMode=on;calls.push('feed-'+on)}};
+vm.runInNewContext(code,context);
+events.backButton({canGoBack:true});assert.deepEqual(calls,['category-close']);assert.equal(main.open,true,'seller editor stays open under category picker');
+events.backButton({canGoBack:true});assert.deepEqual(calls,['category-close','seller-close']);
+events.backButton({canGoBack:true});assert.equal(calls.at(-1),'feed-false');events.backButton({canGoBack:true});assert.equal(calls.at(-1),'history-back');events.backButton({canGoBack:false});assert.equal(calls.at(-1),'minimize');
+console.log('PASS: Android Back closes category picker before seller editor, then follows feed/history/minimize navigation.');

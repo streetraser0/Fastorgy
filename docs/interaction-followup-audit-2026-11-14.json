@@ -1,0 +1,81 @@
+{
+  "created_utc": "2026-11-14T16:14:27.250480+00:00",
+  "scope": "Focused deterministic DOM/Node journey follow-up after release 61; real source handler/module execution with explicit native Escape/cancel modeling. No production network, fake users, payments or physical browser.",
+  "findings": [
+    {
+      "id": "escape-under-overlay",
+      "trigger": "Fullscreen feed → real separate payment/map/voice/local-AI/support dialog → Escape.",
+      "before": "The document key handler exited the feed when #modal was closed, while a separate dialog was still open.",
+      "after": "The root-owned handler respects defaultPrevented and every open dialog; native Escape closes only the current layer.",
+      "source_owner": "root: dist/index.html"
+    },
+    {
+      "id": "transient-overlay-photo-revival",
+      "trigger": "Tap photo → 320ms delay → another dialog opens and closes before timeout → original top dialog is current again.",
+      "before": "The old photo request passed the top-dialog identity check and unexpectedly opened after the other interaction.",
+      "after": "Dialog close/cancel captures cancel the pending tap and release warmed media; a new explicit tap still works.",
+      "source_owner": "dialog_journey_audit: dist/lot-photo-viewer.js"
+    }
+  ],
+  "tests": [
+    {
+      "test": "tests/dialog-journey-regressions.cjs",
+      "exit_code": 0,
+      "passed": true,
+      "output": "PASS: Escape closes real payment/map/voice/local-AI/support overlays without leaving the feed; prevented/bare-feed/main-modal routes stay correct, and close/cancel interrupts stale deferred photo opens while retaining normal taps, favorites and underlying state. Browser/device behavior is not asserted."
+    },
+    {
+      "test": "tests/photo-viewer-warm.cjs",
+      "exit_code": 0,
+      "passed": true,
+      "output": "PASS: one tapped original warms during the unchanged 320ms favorite window, is adopted without duplicate request node, preserves logical crops/full resolution and background context, and cancels on double-tap/scroll/drag/hide/close/stale overlay."
+    },
+    {
+      "test": "tests/lot-photo-viewer.cjs",
+      "exit_code": 0,
+      "passed": true,
+      "output": "PASS: trusted fullscreen photo-only gallery, bounded native-pan zoom, delayed tap/double-favorite priority, keyboard/Escape/Back, swipe/ghost/multitouch guards, stale callbacks and exact underlying lot/feed position preservation."
+    },
+    {
+      "test": "tests/dialog-media.cjs",
+      "exit_code": 0,
+      "passed": true,
+      "output": "PASS: stale/closed/replaced/cancelled location callbacks, overlapping GPS requests, valid/invalid positions, modal/background/reduced-motion video playback."
+    }
+  ],
+  "counterfactual_checks": [
+    {
+      "source": "index.html",
+      "restored_original_behavior_in_memory_only": true,
+      "expected_failed": true,
+      "exit_code": 1,
+      "failure_message": "payment Escape must return to the feed",
+      "output_excerpt": "node:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: payment Escape must return to the feed instead of exiting it\n\nfalse !== true\n\n    at Object.<anonymous> (/workspace/sites/drive-lot/tests/dialog-journey-regressions.cjs:37:9)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.require (node:internal/modules/cjs/loader:1674:12)\n    at require (node:internal/modules/helpers:157:16)\n    at [eval]:1:577"
+    },
+    {
+      "source": "lot-photo-viewer.js",
+      "restored_original_behavior_in_memory_only": true,
+      "expected_failed": true,
+      "exit_code": 1,
+      "failure_message": "prevents an old photo timer",
+      "output_excerpt": "node:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: close prevents an old photo timer from reviving after A → overlay → A\n\ntrue !== false\n\n    at Object.<anonymous> (/workspace/sites/drive-lot/tests/dialog-journey-regressions.cjs:68:9)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.require (node:internal/modules/cjs/loader:1674:12)\n    at require (node:internal/modules/helpers:157:16)\n    at [eval]:1:561"
+    }
+  ],
+  "source_sha256_at_check": {
+    "dist/index.html": "2907b35bca364454c1134592b2061bb0b5ce811b05919bcea1ae28213a8841b7",
+    "dist/lot-photo-viewer.js": "fff62a0d6a9817e2455d1e8c626a756f64774bdc216eeab85256352ed0e9bb0b",
+    "tests/dialog-journey-regressions.cjs": "6e73e3bac1ea55c59ca6323dffc3578da7c315e1c345b16e97bf5463fc73405a"
+  },
+  "preserved": [
+    "Normal 320ms photo/favorite timing and double tap favorite action",
+    "Typed underlying DOM node and lot/feed/gallery scroll positions",
+    "Fresh photo opening after an interrupted attempt",
+    "Normal bare-feed Escape and separately handled/prevented keys",
+    "Trusted photo original/crop media pipeline; no inventory scan or new startup download"
+  ],
+  "limits": [
+    "Models DOM event propagation and native cancel explicitly; does not prove physical Safari keyboard, gestures, focus or geometry.",
+    "Not a general security certification, live server capacity test or all possible user journeys.",
+    "The release freeze and complete integration suite are performed by root after merging parallel work."
+  ]
+}

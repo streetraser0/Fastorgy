@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const source = await readFile(path.join(root, 'dist/server/index.js'), 'utf8');
+const module = await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
+assert.equal(typeof module.default?.fetch, 'function');
+const page = await module.default.fetch(new Request('https://example.test/'), {});
+assert.equal(page.status, 200);assert.match(page.headers.get('Content-Type'), /text\/html/);
+assert((await page.text()).includes('ФАС торги'));
+const manifest = JSON.parse(await readFile(path.join(root, 'dist/.openai/hosting.json'), 'utf8'));
+assert(manifest.project_id);assert.equal(manifest.static, undefined);
+assert.equal((await module.default.fetch(new Request('https://example.test/api/metrics/visit'), {})).status, 401);
+assert.equal((await module.default.fetch(new Request('https://example.test/api/metrics/visit', { headers: { 'oai-authenticated-user-id': 'validation-user' } }), {})).status, 503);
+await readFile(path.join(root, 'dist/.openai/drizzle/0000_metrics.sql'), 'utf8');
+const journal = JSON.parse(await readFile(path.join(root, 'dist/.openai/drizzle/meta/_journal.json'), 'utf8'));
+assert.equal(journal.dialect, 'sqlite');
+assert(journal.entries.some(entry => entry.tag === '0000_metrics'));
+console.log('PASS: Worker ESM, existing site entry, authenticated API boundary, absent-database fail-closed behavior and packaged migration.');

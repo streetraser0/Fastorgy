@@ -1,0 +1,92 @@
+/* Logo-only surfaces stay transparent; dialog and toolbar surfaces keep their own theme. */
+:is(.brand-lockup,.reels-brand,.reels-logo-wrap,.auth-logo-wrap,.category-brand,.dialog-brand,.payment-logo),
+.seller-dialog .dialog-brand,
+:is(.brand-logo,.lot-brand-logo),
+img[src^="assets/brand/fas-torgi-logo.png"],
+img[src*="/assets/brand/fas-torgi-logo.png"] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0;
+}
+.lot-brand-logo {
+  padding: 0 !important;
+  /* Follow the transparent silhouette on a photo, rather than drawing a white tile. */
+  filter: drop-shadow(0 0 1px #FFFFFFC2) drop-shadow(0 1px 2px #03142E99);
+}
+
+/* The approved centered lockup keeps its intrinsic ratio in every surface. */
+body.reels .reels-logo-wrap,
+.auth-cover .auth-logo-wrap,
+.photo-viewer-logo-wrap {
+  position: relative;
+  isolation: isolate;
+  padding: 0 !important;
+  max-width: 100%;
+}
+body.reels .reels-logo-wrap { width: 102px; }
+/* Reserve the centered mark and category caption above the photo controls. */
+html body.reels { --feed-header-space: calc(108px + env(safe-area-inset-top, 0px)); }
+/* A tall lot description must not push its photo controls back into the header. */
+html body.reels #grid .card { justify-content: flex-start; }
+@media(max-height:800px) {
+ html body.reels #grid .car-photo > .lot-gallery { flex: 0 0 120px; height: 120px; min-height: 120px; }
+ html body.reels #grid .card-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; pointer-events: auto; }
+}
+@media(max-height:650px) {
+ html body.reels { --feed-header-space: calc(88px + env(safe-area-inset-top, 0px)); }
+}
+.auth-cover .auth-logo-wrap { width: 154px; }
+body.reels .reels-logo-wrap > .brand-logo,
+.auth-cover .auth-logo-wrap > .brand-logo,
+.photo-viewer-logo-wrap > .brand-logo {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  /* Preserve the blue artwork while separating its silhouette from dark photos. */
+  filter: drop-shadow(0 0 .65px #FFFFFF) drop-shadow(0 0 1.5px #FFFFFF99);
+}
+
+/* The tagline is part of the approved artwork; no second caption or text mask. */
+.top .brand-description { display: none; }
+.top .brand-lockup { width: 130px; max-width: calc(100vw - 116px); }
+.top .brand-lockup .brand-logo { display: block; width: 100%; height: auto; max-height: 78px; max-width: 100%; object-fit: contain; object-position: left center; }
+#footer .footer-logo-link { width: 208px; }
+#footer .footer-logo-link::after { content: none !important; }
+#footer .footer-logo-link > .brand-logo { height: auto; object-fit: contain; filter: drop-shadow(0 0 .65px #FFFFFF) drop-shadow(0 0 1.5px #FFFFFF99); }
+@media (max-width:700px) {
+ .top .brand-lockup { width: 120px; min-width: 0; flex-shrink: 1; }
+ .top .brand-lockup .brand-logo { max-height: 72px; }
+ #footer .footer-logo-link { width: 184px; }
+}
+@media (max-width:350px) { .top .brand-lockup { width: 112px; } }
+@media (min-width:1025px) and (hover:hover) and (pointer:fine) {
+ html.desktop-web .top header .brand-lockup { width: 130px; }
+ html.desktop-web .top .brand-lockup .brand-logo { width: 100%; height: auto; max-height: 78px; }
+}
+/* Dialog branding can be larger than a toolbar without stretching the artwork. */
+.dialog-brand .brand-logo,
+dialog.category-dialog .dialog-brand .brand-logo {
+ display: block; width: 144px; max-width: 100%; height: auto; max-height: 88px; object-fit: contain; object-position: left center;
+}
+.category-brand > img[src*="fas-torgi-logo.png"],
+:is(.payment-header,.property-map-header,.sales-analytics-header,.storefront-header,.rating-head,.support-header,.voice-header) > img[src*="fas-torgi-logo.png"] {
+ display: block; flex: 0 1 124px; width: 124px; max-width: calc(100% - 62px); height: auto; max-height: 76px; object-fit: contain; object-position: left center;
+}
+.lot-brand-logo { width: 98px; height: auto; max-height: 60px; object-fit: contain; }
+.lot-quick-access > img[src*="fas-torgi-logo.png"] { width: 90px; height: auto; max-height: 55px; object-fit: contain; }
+.photo-viewer-logo-wrap { display: block; flex: 0 0 auto; width: 98px; }
+.photo-viewer-logo-wrap > .brand-logo { max-height: 60px; }
+#voice-dialog.voice-quick .voice-header > img[src*="fas-torgi-logo.png"] { width: 88px; flex-basis: 88px; max-width: 88px; height: auto; max-height: 54px; }
+@media(max-width:700px) {
+ .dialog-brand .brand-logo, dialog.category-dialog .dialog-brand .brand-logo { width: 132px; max-height: 80px; }
+ .lot-quick-access > img[src*="fas-torgi-logo.png"] { width: 78px; max-height: 48px; }
+}
+@media(max-width:600px) { .photo-viewer-logo-wrap { width: 86px; } }
+@media(max-width:360px) {
+ .lot-quick-access > img[src*="fas-torgi-logo.png"] { width: 66px; max-height: 40px; }
+ .photo-viewer-logo-wrap { width: 76px; }
+}

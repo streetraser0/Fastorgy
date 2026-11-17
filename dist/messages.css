@@ -1,0 +1,40 @@
+/* Draft-only messaging interface; brand and native inputs match the auction. */
+.messages-dialog { width: min(660px, calc(100vw - 28px)); max-width: 100%; max-height: calc(100dvh - 36px); margin: auto; padding: 24px; border: 0; border-radius: 24px; background: #fff; color: #172b4f; box-shadow: 0 24px 80px #102d4c33; overflow: auto; box-sizing: border-box; }
+.messages-dialog::backdrop { background: #18304785; }
+.messages-dialog *, .messages-dialog *::before, .messages-dialog *::after { box-sizing: border-box; }
+.messages-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+.messages-header > div { min-width: 0; }
+.messages-header h2 { margin: 4px 0 7px; font: 800 25px/1.3 Manrope, Arial, sans-serif; overflow-wrap: anywhere; }
+.messages-header p { margin: 0; color: #63748b; font-size: 13px; }
+.messages-eyebrow { color: #53749b; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.messages-header button { flex: 0 0 44px; min-width: 44px; min-height: 44px; padding: 8px; border-radius: 50%; font-size: 26px; }
+.messages-demo, .messages-warning { padding: 12px 14px; border: 1px solid #d9e4f4; border-radius: 14px; background: #f0f5ff; color: #4f6581; font-size: 12px; line-height: 1.55; }
+.messages-demo b { display: block; }
+.messages-lot-context { display: flex; gap: 12px; align-items: center; margin: 18px 0; }
+.messages-lot-context > img { flex: 0 0 72px; width: 72px; height: 72px; border-radius: 12px; object-fit: cover; background: #eef3fa; }
+.messages-lot-context > div { min-width: 0; }
+.messages-lot-context h3 { margin: 4px 0 8px; font-size: 16px; overflow-wrap: anywhere; }
+.messages-lot-context small { color: #72839a; }
+.messages-lot-context a, .messages-link { color: #0d4cd3; font: 600 12px/1.5 'Golos Text', Arial, sans-serif; }
+.messages-link { min-height: 44px; padding: 9px 0; border: 0; background: transparent; text-align: left; cursor: pointer; }
+.messages-field { display: flex; flex-direction: column; gap: 9px; font-size: 13px; font-weight: 600; }
+.messages-field textarea { width: 100%; min-width: 0; min-height: 150px; max-width: 100%; padding: 13px; border: 1px solid #cad8ea; border-radius: 13px; background: #fbfcff; color: #172b4f; font: 400 16px/1.5 'Golos Text', Arial, sans-serif; resize: vertical; }
+.messages-field small { color: #6c7e95; font-size: 11px; font-weight: 400; }
+.messages-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 17px; }
+.messages-actions button, .messages-delete button { min-height: 44px; min-width: 0; max-width: 100%; padding: 11px 15px; white-space: normal; font-size: 13px; }
+.messages-save-status { color: #64778f; font-size: 12px; line-height: 1.5; }
+.messages-error { padding: 12px; border-radius: 12px; background: #fff0f0; color: #a12c3e; font-size: 13px; line-height: 1.5; }
+.messages-error[hidden], .messages-delete[hidden] { display: none; }
+.messages-delete { padding: 12px; margin-top: 12px; border: 1px solid #e8c5cc; border-radius: 13px; background: #fff8f9; font-size: 13px; }
+.messages-inbox { display: grid; gap: 10px; }
+.messages-thread { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; padding: 14px; border: 1px solid #d8e3f1; border-radius: 15px; background: #fbfcff; color: #263d5c; text-align: left; cursor: pointer; }
+.messages-thread > span:first-child { display: grid; gap: 6px; min-width: 0; }
+.messages-thread strong, .messages-thread span { overflow-wrap: anywhere; }
+.messages-thread small, .messages-thread span span { color: #71829a; font-size: 12px; line-height: 1.5; }
+.messages-empty { padding: 30px 10px; text-align: center; }
+.messages-empty h3 { font-size: 19px; }
+.messages-empty p { color: #687b93; font-size: 13px; line-height: 1.6; }
+.messages-lot-entry { margin: 12px 0; }
+.messages-lot-open { min-height: 44px; max-width: 100%; white-space: normal; font-size: 12px; }
+.seller-public-links .messages-lot-open { margin: 7px 0; }
+@media (max-width: 480px) { .messages-dialog { width: calc(100vw - 20px); max-height: calc(100dvh - 22px); padding: 18px; border-radius: 20px; } .messages-header h2 { font-size: 23px; } .messages-actions { flex-direction: column; } }

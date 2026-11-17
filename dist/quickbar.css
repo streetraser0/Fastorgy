@@ -1,0 +1,31 @@
+:root{--quick-access-height:76px}
+.quick-access{position:fixed;z-index:110;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;width:min(560px,calc(100% - 28px));padding:8px;border:1px solid #D0DEEF;border-radius:22px;background:#FFFFFFF2;box-shadow:0 10px 35px #0B1F3326;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);font-family:Manrope,Arial,sans-serif}
+.quick-access[hidden]{display:none!important}.quick-access-button{position:relative;border:0;background:transparent;color:#53697D;min-width:0;min-height:52px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:4px 1px;font-size:10px;font-weight:700;touch-action:manipulation}.quick-access-icon{position:relative;height:24px;min-width:28px;display:grid;place-items:center}.quick-access-icon>.ui-icon{width:23px;height:23px}.quick-access-button.active{background:#EAF1FF;color:#0D4CD3}.quick-access-button:hover{background:#EAF1FF;color:#0D4CD3}.quick-access-sell .quick-access-icon{background:#0D4CD3;color:white;width:38px;height:30px;border-radius:10px}.quick-access-sell{color:#0D4CD3}.quick-access-button:focus-visible,.lot-quick-access button:focus-visible{outline:3px solid #0D4CD3;outline-offset:3px}.quick-access-count{position:absolute;right:-8px;top:-5px;background:#EE3F58;color:#fff;border:2px solid white;border-radius:12px;font:800 8px/1.2 Manrope,sans-serif;min-width:17px;padding:2px 3px}.quick-access-count[hidden]{display:none}
+body.has-quick-access:not(.reels){padding-bottom:calc(var(--quick-access-height) + env(safe-area-inset-bottom,0px) + 20px)}
+body.has-quick-access .toast{z-index:200;bottom:calc(var(--quick-access-height) + env(safe-area-inset-bottom,0px) + 28px)}
+.has-quick-access.reels .reels-bottom{display:none!important}.has-quick-access.reels #grid .card-body{padding-bottom:calc(var(--quick-access-height) + env(safe-area-inset-bottom,0px) + 36px)}
+.reels .quick-access{width:min(490px,calc(100% - 24px));background:#FFFFFFF5;bottom:calc(8px + env(safe-area-inset-bottom,0px));box-shadow:0 8px 26px #0005}
+.lot-quick-access{position:sticky;top:0;z-index:12;display:flex;align-items:center;justify-content:space-between;gap:7px;padding:9px 12px;background:#FFFFFFF5;border-bottom:1px solid #D8E1ED;box-shadow:0 4px 12px #0B1F330B;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.lot-quick-access>img{display:block;width:80px;height:30px;object-fit:contain}.lot-quick-access button{min-height:44px;border:1px solid #D0DEEF;background:#F5F8FF;border-radius:12px;padding:10px 12px;display:inline-flex;align-items:center;justify-content:center;gap:4px;color:#0D4CD3;font-size:11px;font-weight:700;touch-action:manipulation}.lot-quick-access .lot-quick-save{width:44px;min-width:44px;padding:9px}.lot-quick-save.saved{background:#FFF0F3;color:#D62D4B;border-color:#F3CED6}.lot-quick-access .lot-quick-bid{background:#0D4CD3;color:white;border-color:#0D4CD3}.lot-quick-access .ui-icon{width:20px;height:20px}.has-lot-quick-access>.close,.has-lot-quick-access .lot-return-button,.has-lot-quick-access .lot-brand-logo{display:none!important}.has-lot-quick-access #bid-form,.has-lot-quick-access .seller-buy-now{scroll-margin-top:76px}.has-lot-quick-access .gallery-modal .media-label{top:12px}
+@media(max-width:700px){.quick-access,.reels .quick-access{width:min(560px,calc(100% - 12px));bottom:calc(7px + env(safe-area-inset-bottom,0px));padding:6px 3px;gap:0;border-radius:20px}.reels .quick-access{max-width:490px}.quick-access-button{min-height:52px;padding-inline:0;font-size:clamp(9px,2.5vw,10px);gap:4px}.quick-access-icon>.ui-icon{width:22px;height:22px}.has-quick-access:not(.reels) #grid .card-body{padding-bottom:calc(18px + var(--quick-access-height) + env(safe-area-inset-bottom,0px))}.lot-quick-access{padding:7px 9px;gap:5px}.lot-quick-access>img{width:67px;height:28px}.lot-quick-access button{padding:10px 9px;font-size:10px}.lot-quick-access .lot-quick-bid .ui-icon{width:16px}.lot-quick-access .lot-quick-back .ui-icon{width:16px}}
+@media(max-width:360px){.lot-quick-access>img{width:55px}.lot-quick-access button{padding:9px 7px}}
+
+.quick-reel-position{display:none}.reels .quick-reel-position{display:block;position:absolute;top:-26px;left:50%;transform:translateX(-50%);max-width:calc(100% - 10px);padding:4px 10px;border-radius:12px;border:1px solid #FFFFFF30;background:#0B1F33D6;color:#EDF4FF;font-size:9px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none;backdrop-filter:blur(10px)}
+#modal.has-lot-quick-access #modal-content{overflow-anchor:none}
+
+/* Photos and the non-interactive lot toolbar offer an upward return gesture. */
+.lot-dialog .lot-swipe-surface img,.lot-dialog .lot-quick-access{touch-action:pan-x pinch-zoom}
+
+/* Explicit action names may use a second line on narrow phones. */
+.quick-access-button{max-width:100%;line-height:1.3;letter-spacing:0;white-space:normal;overflow-wrap:anywhere;text-align:center}
+.quick-access-icon{flex:0 0 auto}
+.quick-access-label{display:block;min-width:0;max-width:100%;font-size:inherit;line-height:inherit;letter-spacing:inherit}
+.quick-access-count{white-space:nowrap;letter-spacing:0;pointer-events:none}
+.quick-access-button.has-bid-alert .quick-access-icon{color:#C52D48}
+.quick-access-button.has-bid-alert{background:#FFF2F4;color:#AA2942}
+.lot-quick-access button{min-width:0;line-height:1.35;white-space:normal;overflow-wrap:anywhere;text-align:center}
+.lot-quick-access .ui-icon{flex-shrink:0}
+.lot-quick-access>img{flex-shrink:0}
+.lot-quick-access .lot-quick-bid{flex:0 1 142px}
+@media(max-width:700px){.lot-quick-access .lot-quick-bid{flex-basis:116px}.lot-quick-access .lot-quick-back{flex:0 1 76px}}
+@media(max-width:360px){.lot-quick-access .lot-quick-bid{flex-basis:104px}}

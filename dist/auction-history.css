@@ -1,0 +1,26 @@
+/* A bounded, readable device history: no overlays on the lot photograph. */
+.auction-history-preview{margin:18px 0 0;padding:15px 0;border-top:1px solid #DCE5F1;min-width:0}
+.auction-history-preview>summary{cursor:pointer;font-weight:700;line-height:1.6;overflow-wrap:anywhere}
+.auction-history-preview>summary span{display:inline-block;min-width:24px;margin-left:6px;padding:2px 7px;border-radius:8px;background:#EAF1FF;color:#0D4CD3;text-align:center;font-size:12px}
+.auction-history-events{list-style:none;margin:14px 0;padding:0;min-width:0}
+.auction-history-event{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 12px;padding:13px 0;border-bottom:1px solid #E4EBF4;min-width:0}
+.auction-history-event>div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.auction-history-event strong,.auction-history-event b{font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+.auction-history-event time,.auction-history-event small{color:#60728A;font-size:11px;line-height:1.7;overflow-wrap:anywhere}
+.auction-history-event small{grid-column:1/-1}
+.auction-history-status{padding:11px 13px;border:1px solid #D9E4F4;border-radius:10px;background:#F1F5FC;color:#46607D;font-size:12px;line-height:1.7;overflow-wrap:anywhere}
+.auction-history-heading{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
+.auction-history-heading h2{margin:0}
+.auction-history-view{min-width:0;max-width:100%}
+.auction-history-view h3{font-size:17px;line-height:1.5;overflow-wrap:anywhere}
+.auction-history-view button,.auction-history-preview button{min-height:44px;max-width:100%;white-space:normal;overflow-wrap:anywhere;line-height:1.5}
+.auction-history-empty{padding:18px 0}
+.auction-purchase-card{padding:18px;margin:15px 0;border:1px solid #DCE5F1;border-radius:15px;background:#fff;min-width:0}
+.auction-purchase-card>strong{display:block;font-size:22px;line-height:1.5;overflow-wrap:anywhere}
+.auction-purchase-card p{font-size:12px;line-height:1.7;color:#60728A;overflow-wrap:anywhere}
+.auction-purchase-demo{display:inline-block;padding:4px 8px;border-radius:7px;background:#EAF1FF;color:#0D4CD3;font-size:11px;line-height:1.6}
+.seller-account-tabs{grid-template-columns:repeat(4,minmax(0,1fr));flex-wrap:wrap}
+.seller-account-tabs>button>span{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.seller-account-tabs .ui-icon{flex-shrink:0}
+@media(max-width:520px){.seller-account-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.seller-account-tabs>button{flex:1 1 40%;flex-direction:row;gap:8px;min-height:48px;padding:11px 10px;font-size:12px}.seller-account-tabs .ui-icon{width:20px;height:20px;flex-basis:20px}}
+@media(max-width:420px){.auction-history-event{grid-template-columns:minmax(0,1fr)}.auction-history-event small{grid-column:auto}}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Dedicated cache for optional shared files; profile and IndexedDB data are never exposed. -->
+    <cache-path name="share" path="share/" />
+    <!-- Capacitor's photo chooser writes captures only to this app-specific directory. -->
+    <external-files-path name="camera_photos" path="Pictures/" />
+</paths>

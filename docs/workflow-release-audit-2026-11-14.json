@@ -1,0 +1,1614 @@
+{
+  "created_utc": "2026-11-14T22:58:01.268256+00:00",
+  "scope": "Integrated local-demo workflow release; publication is recorded separately after successful deployment.",
+  "features": [
+    "Local owner-scoped message drafts and lot context; no real delivery/read states",
+    "Local private-seller decorative storefront cover, title, description and color with canonical seller retained",
+    "Public organization directory and owner-scoped local follows; no live alert delivery",
+    "Approved free private active/scheduled listing limits: cars 3, property 2, ready business 1; technical/equipment categories unlimited by commercial quota",
+    "Final publication/resume and sequential auto-relist quota checks; no paid-preview entitlement bypass",
+    "Agreement revision 2026-11-14-r2 with separate unchecked acceptance and bounded history; old edition archived",
+    "Qualified service/content rights notice and Russian Supreme Court research with explicit limits",
+    "Messages and auto-renewal unnecessary catalogue work removed"
+  ],
+  "regression": {
+    "base_commit": "0c5c8d4302e3454604c9130ff72c8f6db78fd08f",
+    "source_sha256": "0a1677b865ee13a409dec983b3695700184386cee0061df3d9d26c44e5e8e179",
+    "started_utc": "2026-11-14T22:49:44.387000+00:00",
+    "completed": 209,
+    "total": 209,
+    "results": [
+      {
+        "test": "kamaz-search.cjs",
+        "exit_code": 0,
+        "seconds": 26.85,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/kamaz-search.cjs.log"
+      },
+      {
+        "test": "category-integration.cjs",
+        "exit_code": 0,
+        "seconds": 39.95,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/category-integration.cjs.log"
+      },
+      {
+        "test": "auction-history.cjs",
+        "exit_code": 0,
+        "seconds": 21.36,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-history.cjs.log"
+      },
+      {
+        "test": "keyword-integration.cjs",
+        "exit_code": 0,
+        "seconds": 49.34,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/keyword-integration.cjs.log"
+      },
+      {
+        "test": "category-browse-roundtrip.cjs",
+        "exit_code": 0,
+        "seconds": 80.4,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/category-browse-roundtrip.cjs.log"
+      },
+      {
+        "test": "owner-auction-policy.cjs",
+        "exit_code": 0,
+        "seconds": 84.61,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/owner-auction-policy.cjs.log"
+      },
+      {
+        "test": "seller-integration.cjs",
+        "exit_code": 0,
+        "seconds": 28.13,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-integration.cjs.log"
+      },
+      {
+        "test": "storage-favorites.cjs",
+        "exit_code": 0,
+        "seconds": 22.53,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/storage-favorites.cjs.log"
+      },
+      {
+        "test": "seller-exit-guards.cjs",
+        "exit_code": 0,
+        "seconds": 17.89,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-exit-guards.cjs.log"
+      },
+      {
+        "test": "search-fresh-start.cjs",
+        "exit_code": 0,
+        "seconds": 16.38,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-fresh-start.cjs.log"
+      },
+      {
+        "test": "cross-tab-auctions.cjs",
+        "exit_code": 0,
+        "seconds": 27.82,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/cross-tab-auctions.cjs.log"
+      },
+      {
+        "test": "seller-auction-modes.cjs",
+        "exit_code": 0,
+        "seconds": 16.74,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-auction-modes.cjs.log"
+      },
+      {
+        "test": "seller-workspace-recovery.cjs",
+        "exit_code": 0,
+        "seconds": 22.62,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-workspace-recovery.cjs.log"
+      },
+      {
+        "test": "auction-ending-window-boundaries.cjs",
+        "exit_code": 0,
+        "seconds": 16.36,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-ending-window-boundaries.cjs.log"
+      },
+      {
+        "test": "search-auto-scope.cjs",
+        "exit_code": 0,
+        "seconds": 20.98,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-auto-scope.cjs.log"
+      },
+      {
+        "test": "seller-options.cjs",
+        "exit_code": 0,
+        "seconds": 8.32,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-options.cjs.log"
+      },
+      {
+        "test": "seller-contact-privacy.cjs",
+        "exit_code": 0,
+        "seconds": 9.03,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-contact-privacy.cjs.log"
+      },
+      {
+        "test": "seller-async-navigation.cjs",
+        "exit_code": 0,
+        "seconds": 19.76,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-async-navigation.cjs.log"
+      },
+      {
+        "test": "search-filter-conflict.cjs",
+        "exit_code": 0,
+        "seconds": 11.5,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-filter-conflict.cjs.log"
+      },
+      {
+        "test": "category-multi-select.cjs",
+        "exit_code": 0,
+        "seconds": 20.99,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/category-multi-select.cjs.log"
+      },
+      {
+        "test": "auction-renewal-integration.cjs",
+        "exit_code": 0,
+        "seconds": 10.77,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-renewal-integration.cjs.log"
+      },
+      {
+        "test": "auction-clock-boundaries.cjs",
+        "exit_code": 0,
+        "seconds": 10.62,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-clock-boundaries.cjs.log"
+      },
+      {
+        "test": "auction-integrity.cjs",
+        "exit_code": 0,
+        "seconds": 13.02,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-integrity.cjs.log"
+      },
+      {
+        "test": "seller-back-gesture.cjs",
+        "exit_code": 0,
+        "seconds": 13.88,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-back-gesture.cjs.log"
+      },
+      {
+        "test": "map-lot-return.cjs",
+        "exit_code": 0,
+        "seconds": 11.61,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/map-lot-return.cjs.log"
+      },
+      {
+        "test": "saved-search-subscription-form.cjs",
+        "exit_code": 0,
+        "seconds": 11.67,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/saved-search-subscription-form.cjs.log"
+      },
+      {
+        "test": "auction-renewal.cjs",
+        "exit_code": 0,
+        "seconds": 9.61,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-renewal.cjs.log"
+      },
+      {
+        "test": "category-csv.cjs",
+        "exit_code": 0,
+        "seconds": 5.55,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/category-csv.cjs.log"
+      },
+      {
+        "test": "commercial-smart-search.cjs",
+        "exit_code": 0,
+        "seconds": 15.18,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/commercial-smart-search.cjs.log"
+      },
+      {
+        "test": "responsive-media.cjs",
+        "exit_code": 0,
+        "seconds": 8.93,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/responsive-media.cjs.log"
+      },
+      {
+        "test": "search-context-return.cjs",
+        "exit_code": 0,
+        "seconds": 8.14,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-context-return.cjs.log"
+      },
+      {
+        "test": "seller-storefront-return-routes.cjs",
+        "exit_code": 0,
+        "seconds": 9.11,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-storefront-return-routes.cjs.log"
+      },
+      {
+        "test": "distance-reuse.cjs",
+        "exit_code": 0,
+        "seconds": 8.52,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/distance-reuse.cjs.log"
+      },
+      {
+        "test": "demo-catalog-coverage.cjs",
+        "exit_code": 0,
+        "seconds": 4.3,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/demo-catalog-coverage.cjs.log"
+      },
+      {
+        "test": "auction-history-integration.cjs",
+        "exit_code": 0,
+        "seconds": 5.45,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-history-integration.cjs.log"
+      },
+      {
+        "test": "seller-location.cjs",
+        "exit_code": 0,
+        "seconds": 9.78,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-location.cjs.log"
+      },
+      {
+        "test": "seller-profile-cancel.cjs",
+        "exit_code": 0,
+        "seconds": 3.19,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-profile-cancel.cjs.log"
+      },
+      {
+        "test": "seller-current-state.cjs",
+        "exit_code": 0,
+        "seconds": 6.61,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-current-state.cjs.log"
+      },
+      {
+        "test": "auction-notifications-integration.cjs",
+        "exit_code": 0,
+        "seconds": 3.2,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-notifications-integration.cjs.log"
+      },
+      {
+        "test": "home-navigation.cjs",
+        "exit_code": 0,
+        "seconds": 6.63,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/home-navigation.cjs.log"
+      },
+      {
+        "test": "featured-combinations.cjs",
+        "exit_code": 0,
+        "seconds": 8.99,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-combinations.cjs.log"
+      },
+      {
+        "test": "sales-analytics.cjs",
+        "exit_code": 0,
+        "seconds": 4.98,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/sales-analytics.cjs.log"
+      },
+      {
+        "test": "bank-identity-lock.cjs",
+        "exit_code": 0,
+        "seconds": 6.0,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/bank-identity-lock.cjs.log"
+      },
+      {
+        "test": "seller-dashboard.cjs",
+        "exit_code": 0,
+        "seconds": 5.02,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-dashboard.cjs.log"
+      },
+      {
+        "test": "recommendation-integration.cjs",
+        "exit_code": 0,
+        "seconds": 7.53,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/recommendation-integration.cjs.log"
+      },
+      {
+        "test": "featured-lots.cjs",
+        "exit_code": 0,
+        "seconds": 3.58,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-lots.cjs.log"
+      },
+      {
+        "test": "seller-storefront.cjs",
+        "exit_code": 0,
+        "seconds": 2.8,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-storefront.cjs.log"
+      },
+      {
+        "test": "security-inputs.cjs",
+        "exit_code": 0,
+        "seconds": 4.03,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/security-inputs.cjs.log"
+      },
+      {
+        "test": "auction-direction-integration.cjs",
+        "exit_code": 0,
+        "seconds": 4.95,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-direction-integration.cjs.log"
+      },
+      {
+        "test": "vehicle-search-roundtrip.cjs",
+        "exit_code": 0,
+        "seconds": 3.15,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/vehicle-search-roundtrip.cjs.log"
+      },
+      {
+        "test": "featured-cheap-intent.cjs",
+        "exit_code": 0,
+        "seconds": 2.66,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-cheap-intent.cjs.log"
+      },
+      {
+        "test": "search-persona-ranges.cjs",
+        "exit_code": 0,
+        "seconds": 2.5,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-persona-ranges.cjs.log"
+      },
+      {
+        "test": "map-projection-work.cjs",
+        "exit_code": 0,
+        "seconds": 3.6,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/map-projection-work.cjs.log"
+      },
+      {
+        "test": "render-work.cjs",
+        "exit_code": 0,
+        "seconds": 2.69,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/render-work.cjs.log"
+      },
+      {
+        "test": "own-lot-transactions.cjs",
+        "exit_code": 0,
+        "seconds": 4.0,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/own-lot-transactions.cjs.log"
+      },
+      {
+        "test": "demo-catalog-preservation.cjs",
+        "exit_code": 0,
+        "seconds": 3.94,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/demo-catalog-preservation.cjs.log"
+      },
+      {
+        "test": "security-payment-boundaries.cjs",
+        "exit_code": 0,
+        "seconds": 2.4,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/security-payment-boundaries.cjs.log"
+      },
+      {
+        "test": "buyer-share-return.cjs",
+        "exit_code": 0,
+        "seconds": 2.43,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/buyer-share-return.cjs.log"
+      },
+      {
+        "test": "subscription-durability.cjs",
+        "exit_code": 0,
+        "seconds": 2.5,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/subscription-durability.cjs.log"
+      },
+      {
+        "test": "security-rate-limits.cjs",
+        "exit_code": 0,
+        "seconds": 2.66,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/security-rate-limits.cjs.log"
+      },
+      {
+        "test": "dialog-lifecycle.cjs",
+        "exit_code": 0,
+        "seconds": 3.21,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/dialog-lifecycle.cjs.log"
+      },
+      {
+        "test": "catalog-search.cjs",
+        "exit_code": 0,
+        "seconds": 3.77,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/catalog-search.cjs.log"
+      },
+      {
+        "test": "search-sort-feedback.cjs",
+        "exit_code": 0,
+        "seconds": 1.65,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-sort-feedback.cjs.log"
+      },
+      {
+        "test": "brand-origin-search.cjs",
+        "exit_code": 0,
+        "seconds": 1.97,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/brand-origin-search.cjs.log"
+      },
+      {
+        "test": "lot-discovery-integration.cjs",
+        "exit_code": 0,
+        "seconds": 1.54,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/lot-discovery-integration.cjs.log"
+      },
+      {
+        "test": "voice-search-criteria.cjs",
+        "exit_code": 0,
+        "seconds": 1.76,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/voice-search-criteria.cjs.log"
+      },
+      {
+        "test": "featured-feed-return.cjs",
+        "exit_code": 0,
+        "seconds": 1.72,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-feed-return.cjs.log"
+      },
+      {
+        "test": "assistant-events-integration.cjs",
+        "exit_code": 0,
+        "seconds": 2.37,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/assistant-events-integration.cjs.log"
+      },
+      {
+        "test": "lot-presentation-integration.cjs",
+        "exit_code": 0,
+        "seconds": 1.53,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/lot-presentation-integration.cjs.log"
+      },
+      {
+        "test": "voice-core-actions.cjs",
+        "exit_code": 0,
+        "seconds": 3.5,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/voice-core-actions.cjs.log"
+      },
+      {
+        "test": "auction-notifications.cjs",
+        "exit_code": 0,
+        "seconds": 3.2,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-notifications.cjs.log"
+      },
+      {
+        "test": "demo-photo-consistency.cjs",
+        "exit_code": 0,
+        "seconds": 2.9,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/demo-photo-consistency.cjs.log"
+      },
+      {
+        "test": "map-feed-resume.cjs",
+        "exit_code": 0,
+        "seconds": 2.5,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/map-feed-resume.cjs.log"
+      },
+      {
+        "test": "virtual-feed.cjs",
+        "exit_code": 0,
+        "seconds": 1.8,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/virtual-feed.cjs.log"
+      },
+      {
+        "test": "photo-delivery.cjs",
+        "exit_code": 0,
+        "seconds": 2.08,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/photo-delivery.cjs.log"
+      },
+      {
+        "test": "security-server-resources.cjs",
+        "exit_code": 0,
+        "seconds": 1.8,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/security-server-resources.cjs.log"
+      },
+      {
+        "test": "live-auction-price.cjs",
+        "exit_code": 0,
+        "seconds": 1.68,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/live-auction-price.cjs.log"
+      },
+      {
+        "test": "appearance-search.cjs",
+        "exit_code": 0,
+        "seconds": 2.03,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/appearance-search.cjs.log"
+      },
+      {
+        "test": "security-dom.cjs",
+        "exit_code": 0,
+        "seconds": 1.53,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/security-dom.cjs.log"
+      },
+      {
+        "test": "mitsubishi-search.cjs",
+        "exit_code": 0,
+        "seconds": 2.02,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/mitsubishi-search.cjs.log"
+      },
+      {
+        "test": "voice-natural-scenarios.cjs",
+        "exit_code": 0,
+        "seconds": 1.78,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/voice-natural-scenarios.cjs.log"
+      },
+      {
+        "test": "feed-share.cjs",
+        "exit_code": 0,
+        "seconds": 1.61,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/feed-share.cjs.log"
+      },
+      {
+        "test": "keyword-index-lifecycle.cjs",
+        "exit_code": 0,
+        "seconds": 1.4,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/keyword-index-lifecycle.cjs.log"
+      },
+      {
+        "test": "category-tree.cjs",
+        "exit_code": 0,
+        "seconds": 1.6,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/category-tree.cjs.log"
+      },
+      {
+        "test": "voice-intelligence-integration.cjs",
+        "exit_code": 0,
+        "seconds": 2.18,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/voice-intelligence-integration.cjs.log"
+      },
+      {
+        "test": "bank-editor-state.cjs",
+        "exit_code": 0,
+        "seconds": 1.62,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/bank-editor-state.cjs.log"
+      },
+      {
+        "test": "recommendations.cjs",
+        "exit_code": 0,
+        "seconds": 1.4,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/recommendations.cjs.log"
+      },
+      {
+        "test": "search-results-layout.cjs",
+        "exit_code": 0,
+        "seconds": 1.64,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-results-layout.cjs.log"
+      },
+      {
+        "test": "distance-search.cjs",
+        "exit_code": 0,
+        "seconds": 1.57,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/distance-search.cjs.log"
+      },
+      {
+        "test": "ending-soon.cjs",
+        "exit_code": 0,
+        "seconds": 1.68,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/ending-soon.cjs.log"
+      },
+      {
+        "test": "search-city-select.cjs",
+        "exit_code": 0,
+        "seconds": 1.7,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-city-select.cjs.log"
+      },
+      {
+        "test": "natural-typed-search.cjs",
+        "exit_code": 0,
+        "seconds": 1.89,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/natural-typed-search.cjs.log"
+      },
+      {
+        "test": "market-normalization.cjs",
+        "exit_code": 0,
+        "seconds": 1.51,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/market-normalization.cjs.log"
+      },
+      {
+        "test": "advanced-filter-pass.cjs",
+        "exit_code": 0,
+        "seconds": 1.95,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/advanced-filter-pass.cjs.log"
+      },
+      {
+        "test": "dialog-stack.cjs",
+        "exit_code": 0,
+        "seconds": 1.87,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/dialog-stack.cjs.log"
+      },
+      {
+        "test": "search-empty-availability.cjs",
+        "exit_code": 0,
+        "seconds": 1.7,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-empty-availability.cjs.log"
+      },
+      {
+        "test": "identifier-input-boundaries.cjs",
+        "exit_code": 0,
+        "seconds": 1.64,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/identifier-input-boundaries.cjs.log"
+      },
+      {
+        "test": "partner-branding-integration.cjs",
+        "exit_code": 0,
+        "seconds": 1.79,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/partner-branding-integration.cjs.log"
+      },
+      {
+        "test": "search-nearest.cjs",
+        "exit_code": 0,
+        "seconds": 1.68,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-nearest.cjs.log"
+      },
+      {
+        "test": "demo-description.cjs",
+        "exit_code": 0,
+        "seconds": 1.58,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/demo-description.cjs.log"
+      },
+      {
+        "test": "lot-map-entry.cjs",
+        "exit_code": 0,
+        "seconds": 1.52,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/lot-map-entry.cjs.log"
+      },
+      {
+        "test": "buyer-native-descending.cjs",
+        "exit_code": 0,
+        "seconds": 1.6,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/buyer-native-descending.cjs.log"
+      },
+      {
+        "test": "payment-integration.cjs",
+        "exit_code": 0,
+        "seconds": 1.43,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/payment-integration.cjs.log"
+      },
+      {
+        "test": "search-numeric-validation.cjs",
+        "exit_code": 0,
+        "seconds": 1.56,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-numeric-validation.cjs.log"
+      },
+      {
+        "test": "auth-dialog.cjs",
+        "exit_code": 0,
+        "seconds": 1.62,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auth-dialog.cjs.log"
+      },
+      {
+        "test": "keyword-search-prepare.cjs",
+        "exit_code": 0,
+        "seconds": 0.81,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/keyword-search-prepare.cjs.log"
+      },
+      {
+        "test": "gallery-performance.cjs",
+        "exit_code": 0,
+        "seconds": 1.61,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/gallery-performance.cjs.log"
+      },
+      {
+        "test": "local-feed.cjs",
+        "exit_code": 0,
+        "seconds": 1.58,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/local-feed.cjs.log"
+      },
+      {
+        "test": "doubletap-recommendations.cjs",
+        "exit_code": 0,
+        "seconds": 1.54,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/doubletap-recommendations.cjs.log"
+      },
+      {
+        "test": "seller-profile-agreement.cjs",
+        "exit_code": 0,
+        "seconds": 1.53,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-profile-agreement.cjs.log"
+      },
+      {
+        "test": "security-csp.cjs",
+        "exit_code": 0,
+        "seconds": 0.27,
+        "passed": true,
+        "log": "/tmp/fas-release66-security-csp-recheck.log",
+        "reason": "Sandbox denied nested git process. Same source passes with command sandbox permission.",
+        "source_sha256": "0a1677b865ee13a409dec983b3695700184386cee0061df3d9d26c44e5e8e179",
+        "environment_recheck": true,
+        "initial_exit_code": 1
+      },
+      {
+        "test": "layout-safety.cjs",
+        "exit_code": 0,
+        "seconds": 1.43,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/layout-safety.cjs.log"
+      },
+      {
+        "test": "voice-assistant.cjs",
+        "exit_code": 0,
+        "seconds": 1.09,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/voice-assistant.cjs.log"
+      },
+      {
+        "test": "user-agreement.cjs",
+        "exit_code": 0,
+        "seconds": 0.74,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/user-agreement.cjs.log"
+      },
+      {
+        "test": "sales-local-privacy.cjs",
+        "exit_code": 0,
+        "seconds": 1.2,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/sales-local-privacy.cjs.log"
+      },
+      {
+        "test": "property-map.cjs",
+        "exit_code": 0,
+        "seconds": 1.22,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/property-map.cjs.log"
+      },
+      {
+        "test": "change-trigger-diagnostics.cjs",
+        "exit_code": 0,
+        "seconds": 0.68,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/change-trigger-diagnostics.cjs.log"
+      },
+      {
+        "test": "marketplace-summary.cjs",
+        "exit_code": 0,
+        "seconds": 0.58,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/marketplace-summary.cjs.log"
+      },
+      {
+        "test": "dialog-four-way.cjs",
+        "exit_code": 0,
+        "seconds": 0.89,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/dialog-four-way.cjs.log"
+      },
+      {
+        "test": "model-marketplace-scale.cjs",
+        "exit_code": 0,
+        "seconds": 0.9,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/model-marketplace-scale.cjs.log"
+      },
+      {
+        "test": "keyword-search.cjs",
+        "exit_code": 0,
+        "seconds": 0.51,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/keyword-search.cjs.log"
+      },
+      {
+        "test": "category-keyword-search.cjs",
+        "exit_code": 0,
+        "seconds": 0.37,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/category-keyword-search.cjs.log"
+      },
+      {
+        "test": "payment-presentation.cjs",
+        "exit_code": 0,
+        "seconds": 0.41,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/payment-presentation.cjs.log"
+      },
+      {
+        "test": "auction-cards-mobile.cjs",
+        "exit_code": 0,
+        "seconds": 0.29,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-cards-mobile.cjs.log"
+      },
+      {
+        "test": "featured-performance-cache.cjs",
+        "exit_code": 0,
+        "seconds": 0.33,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-performance-cache.cjs.log"
+      },
+      {
+        "test": "assistant-preferences.cjs",
+        "exit_code": 0,
+        "seconds": 0.3,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/assistant-preferences.cjs.log"
+      },
+      {
+        "test": "search-intent.cjs",
+        "exit_code": 0,
+        "seconds": 0.3,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-intent.cjs.log"
+      },
+      {
+        "test": "featured-for-you-city.cjs",
+        "exit_code": 0,
+        "seconds": 0.31,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-for-you-city.cjs.log"
+      },
+      {
+        "test": "security-metrics-work.cjs",
+        "exit_code": 0,
+        "seconds": 0.57,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/security-metrics-work.cjs.log"
+      },
+      {
+        "test": "property-map-multi.cjs",
+        "exit_code": 0,
+        "seconds": 0.41,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/property-map-multi.cjs.log"
+      },
+      {
+        "test": "local-ai.cjs",
+        "exit_code": 0,
+        "seconds": 0.12,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/local-ai.cjs.log"
+      },
+      {
+        "test": "car-catalog-ui.cjs",
+        "exit_code": 0,
+        "seconds": 0.26,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/car-catalog-ui.cjs.log"
+      },
+      {
+        "test": "voice-personalization-integration.cjs",
+        "exit_code": 0,
+        "seconds": 0.18,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/voice-personalization-integration.cjs.log"
+      },
+      {
+        "test": "quickbar.cjs",
+        "exit_code": 0,
+        "seconds": 0.13,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/quickbar.cjs.log"
+      },
+      {
+        "test": "draft-delete.cjs",
+        "exit_code": 0,
+        "seconds": 0.39,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/draft-delete.cjs.log"
+      },
+      {
+        "test": "keyword-work.cjs",
+        "exit_code": 0,
+        "seconds": 0.38,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/keyword-work.cjs.log"
+      },
+      {
+        "test": "payment-ui.cjs",
+        "exit_code": 0,
+        "seconds": 0.36,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/payment-ui.cjs.log"
+      },
+      {
+        "test": "back-swipe.cjs",
+        "exit_code": 0,
+        "seconds": 0.29,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/back-swipe.cjs.log"
+      },
+      {
+        "test": "featured-recommendations.cjs",
+        "exit_code": 0,
+        "seconds": 0.21,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-recommendations.cjs.log"
+      },
+      {
+        "test": "appearance-lazy-work.cjs",
+        "exit_code": 0,
+        "seconds": 0.33,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/appearance-lazy-work.cjs.log"
+      },
+      {
+        "test": "featured-ending-interest.cjs",
+        "exit_code": 0,
+        "seconds": 0.3,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-ending-interest.cjs.log"
+      },
+      {
+        "test": "voice-invocation-auto.cjs",
+        "exit_code": 0,
+        "seconds": 0.28,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/voice-invocation-auto.cjs.log"
+      },
+      {
+        "test": "category-picker.cjs",
+        "exit_code": 0,
+        "seconds": 0.21,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/category-picker.cjs.log"
+      },
+      {
+        "test": "lot-touch-semantics.cjs",
+        "exit_code": 0,
+        "seconds": 0.21,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/lot-touch-semantics.cjs.log"
+      },
+      {
+        "test": "chinese-model-aliases.cjs",
+        "exit_code": 0,
+        "seconds": 0.24,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/chinese-model-aliases.cjs.log"
+      },
+      {
+        "test": "photo-viewer-warm.cjs",
+        "exit_code": 0,
+        "seconds": 0.11,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/photo-viewer-warm.cjs.log"
+      },
+      {
+        "test": "smart-fill.cjs",
+        "exit_code": 0,
+        "seconds": 0.16,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/smart-fill.cjs.log"
+      },
+      {
+        "test": "service-worker.cjs",
+        "exit_code": 0,
+        "seconds": 0.18,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/service-worker.cjs.log"
+      },
+      {
+        "test": "featured-live-fallback.cjs",
+        "exit_code": 0,
+        "seconds": 0.34,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-live-fallback.cjs.log"
+      },
+      {
+        "test": "static-delivery.cjs",
+        "exit_code": 0,
+        "seconds": 0.28,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/static-delivery.cjs.log"
+      },
+      {
+        "test": "security-local-ai-boundary.cjs",
+        "exit_code": 0,
+        "seconds": 0.17,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/security-local-ai-boundary.cjs.log"
+      },
+      {
+        "test": "right-swipe-close.cjs",
+        "exit_code": 0,
+        "seconds": 0.31,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/right-swipe-close.cjs.log"
+      },
+      {
+        "test": "notification-click.cjs",
+        "exit_code": 0,
+        "seconds": 0.22,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/notification-click.cjs.log"
+      },
+      {
+        "test": "seller-media.cjs",
+        "exit_code": 0,
+        "seconds": 0.3,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-media.cjs.log"
+      },
+      {
+        "test": "featured-settings.cjs",
+        "exit_code": 0,
+        "seconds": 0.35,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-settings.cjs.log"
+      },
+      {
+        "test": "assistant-personalization.cjs",
+        "exit_code": 0,
+        "seconds": 0.15,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/assistant-personalization.cjs.log"
+      },
+      {
+        "test": "security-boundaries.cjs",
+        "exit_code": 0,
+        "seconds": 0.13,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/security-boundaries.cjs.log"
+      },
+      {
+        "test": "featured-horizontal.cjs",
+        "exit_code": 0,
+        "seconds": 0.1,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-horizontal.cjs.log"
+      },
+      {
+        "test": "seller-ratings.cjs",
+        "exit_code": 0,
+        "seconds": 0.06,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-ratings.cjs.log"
+      },
+      {
+        "test": "integration-contracts.cjs",
+        "exit_code": 0,
+        "seconds": 0.06,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/integration-contracts.cjs.log"
+      },
+      {
+        "test": "lot-gestures.cjs",
+        "exit_code": 0,
+        "seconds": 0.08,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/lot-gestures.cjs.log"
+      },
+      {
+        "test": "search-identifiers.cjs",
+        "exit_code": 0,
+        "seconds": 0.1,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-identifiers.cjs.log"
+      },
+      {
+        "test": "search-preparation-ui.cjs",
+        "exit_code": 0,
+        "seconds": 0.11,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-preparation-ui.cjs.log"
+      },
+      {
+        "test": "motion.cjs",
+        "exit_code": 0,
+        "seconds": 0.08,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/motion.cjs.log"
+      },
+      {
+        "test": "seller-rules.cjs",
+        "exit_code": 0,
+        "seconds": 0.16,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-rules.cjs.log"
+      },
+      {
+        "test": "buyer-tools.cjs",
+        "exit_code": 0,
+        "seconds": 0.18,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/buyer-tools.cjs.log"
+      },
+      {
+        "test": "up-swipe-close.cjs",
+        "exit_code": 0,
+        "seconds": 0.06,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/up-swipe-close.cjs.log"
+      },
+      {
+        "test": "quickbar-labels.cjs",
+        "exit_code": 0,
+        "seconds": 0.06,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/quickbar-labels.cjs.log"
+      },
+      {
+        "test": "feed-close-gesture.cjs",
+        "exit_code": 0,
+        "seconds": 0.09,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/feed-close-gesture.cjs.log"
+      },
+      {
+        "test": "feed-tutorial.cjs",
+        "exit_code": 0,
+        "seconds": 0.07,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/feed-tutorial.cjs.log"
+      },
+      {
+        "test": "lot-discovery.cjs",
+        "exit_code": 0,
+        "seconds": 0.14,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/lot-discovery.cjs.log"
+      },
+      {
+        "test": "search-typos.cjs",
+        "exit_code": 0,
+        "seconds": 0.09,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-typos.cjs.log"
+      },
+      {
+        "test": "asset-reports.cjs",
+        "exit_code": 0,
+        "seconds": 0.1,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/asset-reports.cjs.log"
+      },
+      {
+        "test": "lot-photo-viewer.cjs",
+        "exit_code": 0,
+        "seconds": 0.09,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/lot-photo-viewer.cjs.log"
+      },
+      {
+        "test": "auction-modes.cjs",
+        "exit_code": 0,
+        "seconds": 0.09,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/auction-modes.cjs.log"
+      },
+      {
+        "test": "car-catalog-data.cjs",
+        "exit_code": 0,
+        "seconds": 0.08,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/car-catalog-data.cjs.log"
+      },
+      {
+        "test": "feed-motion.cjs",
+        "exit_code": 0,
+        "seconds": 0.05,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/feed-motion.cjs.log"
+      },
+      {
+        "test": "dialog-media.cjs",
+        "exit_code": 0,
+        "seconds": 0.05,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/dialog-media.cjs.log"
+      },
+      {
+        "test": "lot-close-return-routes.cjs",
+        "exit_code": 0,
+        "seconds": 0.05,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/lot-close-return-routes.cjs.log"
+      },
+      {
+        "test": "partner-branding.cjs",
+        "exit_code": 0,
+        "seconds": 0.06,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/partner-branding.cjs.log"
+      },
+      {
+        "test": "support.cjs",
+        "exit_code": 0,
+        "seconds": 0.08,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/support.cjs.log"
+      },
+      {
+        "test": "countdown.cjs",
+        "exit_code": 0,
+        "seconds": 0.08,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/countdown.cjs.log"
+      },
+      {
+        "test": "pwa-install.cjs",
+        "exit_code": 0,
+        "seconds": 0.04,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/pwa-install.cjs.log"
+      },
+      {
+        "test": "footer-navigation.cjs",
+        "exit_code": 0,
+        "seconds": 0.05,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/footer-navigation.cjs.log"
+      },
+      {
+        "test": "lot-presentation.cjs",
+        "exit_code": 0,
+        "seconds": 0.08,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/lot-presentation.cjs.log"
+      },
+      {
+        "test": "native-share-boundary.cjs",
+        "exit_code": 0,
+        "seconds": 0.06,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/native-share-boundary.cjs.log"
+      },
+      {
+        "test": "search-preferences.cjs",
+        "exit_code": 0,
+        "seconds": 0.07,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-preferences.cjs.log"
+      },
+      {
+        "test": "catalog-page-scroll.cjs",
+        "exit_code": 0,
+        "seconds": 0.04,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/catalog-page-scroll.cjs.log"
+      },
+      {
+        "test": "region-geolocation-recovery.cjs",
+        "exit_code": 0,
+        "seconds": 0.07,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/region-geolocation-recovery.cjs.log"
+      },
+      {
+        "test": "category-native-back.cjs",
+        "exit_code": 0,
+        "seconds": 0.07,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/category-native-back.cjs.log"
+      },
+      {
+        "test": "native-back-routing.cjs",
+        "exit_code": 0,
+        "seconds": 0.07,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/native-back-routing.cjs.log"
+      },
+      {
+        "test": "dialog-blank-back.cjs",
+        "exit_code": 0,
+        "seconds": 0.2,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/dialog-blank-back.cjs.log"
+      },
+      {
+        "test": "dialog-journey-regressions.cjs",
+        "exit_code": 0,
+        "seconds": 0.23,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/dialog-journey-regressions.cjs.log"
+      },
+      {
+        "test": "agreement-revision.cjs",
+        "exit_code": 0,
+        "seconds": 0.75,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/agreement-revision.cjs.log"
+      },
+      {
+        "test": "feed-return-gestures.cjs",
+        "exit_code": 0,
+        "seconds": 0.11,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/feed-return-gestures.cjs.log"
+      },
+      {
+        "test": "cabinet-swipe-close.cjs",
+        "exit_code": 0,
+        "seconds": 1.59,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/cabinet-swipe-close.cjs.log"
+      },
+      {
+        "test": "featured-photo-carousel.cjs",
+        "exit_code": 0,
+        "seconds": 1.28,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/featured-photo-carousel.cjs.log"
+      },
+      {
+        "test": "profile-voice-settings.cjs",
+        "exit_code": 0,
+        "seconds": 0.39,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/profile-voice-settings.cjs.log"
+      },
+      {
+        "test": "search-night-regressions.cjs",
+        "exit_code": 0,
+        "seconds": 1.48,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/search-night-regressions.cjs.log"
+      },
+      {
+        "test": "security-followup-regressions.cjs",
+        "exit_code": 0,
+        "seconds": 0.16,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/security-followup-regressions.cjs.log"
+      },
+      {
+        "test": "seller-branding.cjs",
+        "exit_code": 0,
+        "seconds": 1.18,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-branding.cjs.log"
+      },
+      {
+        "test": "performance-followup-regressions.cjs",
+        "exit_code": 0,
+        "seconds": 3.85,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/performance-followup-regressions.cjs.log"
+      },
+      {
+        "test": "seller-listing-quotas.cjs",
+        "exit_code": 0,
+        "seconds": 2.08,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-listing-quotas.cjs.log"
+      },
+      {
+        "test": "seller-following.cjs",
+        "exit_code": 0,
+        "seconds": 2.61,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/seller-following.cjs.log"
+      },
+      {
+        "test": "voice-quick-listen.cjs",
+        "exit_code": 0,
+        "seconds": 0.34,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/voice-quick-listen.cjs.log"
+      },
+      {
+        "test": "messages.cjs",
+        "exit_code": 0,
+        "seconds": 10.49,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/messages.cjs.log"
+      },
+      {
+        "test": "metrics-backend.cjs",
+        "exit_code": 0,
+        "seconds": 1.36,
+        "passed": true,
+        "log": "/tmp/fas-release66-metrics-permitted.log",
+        "reason": "Original parallel run exceeded 180s; isolated default-sandbox attempt stalled in Python reading stdin. Same code passed in 1.36s when run with command sandbox permission.",
+        "source_sha256": "0a1677b865ee13a409dec983b3695700184386cee0061df3d9d26c44e5e8e179",
+        "environment_recheck": true,
+        "initial_exit_code": 124
+      },
+      {
+        "test": "catalog-performance.cjs",
+        "exit_code": 0,
+        "seconds": 15.3,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/catalog-performance.cjs.log"
+      },
+      {
+        "test": "demo-seeding-performance.cjs",
+        "exit_code": 0,
+        "seconds": 0.05,
+        "passed": true,
+        "log": "/tmp/fas-release66-green-20261114/demo-seeding-performance.cjs.log"
+      }
+    ],
+    "source_sha256_end": "0a1677b865ee13a409dec983b3695700184386cee0061df3d9d26c44e5e8e179",
+    "source_changed_during_run": false,
+    "passed": 209,
+    "failed": 0,
+    "seconds": 388.29,
+    "initial_attempt": {
+      "report": "/tmp/fas-release66-green-20261114/results.json",
+      "passed": 207,
+      "failed": 2,
+      "environment_failures": [
+        {
+          "test": "security-csp.cjs",
+          "exit_code": 1,
+          "seconds": 0.27,
+          "passed": false,
+          "log": "/tmp/fas-release66-green-20261114/security-csp.cjs.log"
+        },
+        {
+          "test": "metrics-backend.cjs",
+          "exit_code": 124,
+          "seconds": 180.08,
+          "passed": false,
+          "log": "/tmp/fas-release66-green-20261114/metrics-backend.cjs.log"
+        }
+      ]
+    },
+    "environment_rechecks": [
+      {
+        "test": "security-csp.cjs",
+        "exit_code": 0,
+        "passed": true,
+        "log": "/tmp/fas-release66-security-csp-recheck.log",
+        "reason": "Sandbox denied nested git process. Same source passes with command sandbox permission.",
+        "source_sha256": "0a1677b865ee13a409dec983b3695700184386cee0061df3d9d26c44e5e8e179"
+      },
+      {
+        "test": "metrics-backend.cjs",
+        "exit_code": 0,
+        "seconds": 1.36,
+        "log": "/tmp/fas-release66-metrics-permitted.log",
+        "passed": true,
+        "reason": "Original parallel run exceeded 180s; isolated default-sandbox attempt stalled in Python reading stdin. Same code passed in 1.36s when run with command sandbox permission.",
+        "source_sha256": "0a1677b865ee13a409dec983b3695700184386cee0061df3d9d26c44e5e8e179"
+      }
+    ],
+    "qualified_utc": "2026-11-14T22:58:00.712948+00:00",
+    "qualification": "209 files checked on unchanged source. CSP and metrics tests separately passed with command permissions after sandbox failures; initial attempt is preserved."
+  },
+  "initial_failures_resolved": [
+    {
+      "test": "category-integration.cjs",
+      "cause": "One category-form fixture exceeded the approved two-property free quota. Each category case now uses an isolated positive owner."
+    },
+    {
+      "tests": [
+        "seller-integration.cjs",
+        "seller-auction-modes.cjs",
+        "seller-options.cjs",
+        "seller-location.cjs"
+      ],
+      "cause": "Positive seller fixtures lacked explicit current agreement acceptance. Fixtures now invoke the production capture helper; missing/stale consent negative tests remain passing."
+    },
+    {
+      "test": "distance-reuse.cjs",
+      "cause": "Lightweight featured-track fixture lacked the DOM query API used by native multi-photo cards. Reused existing DOM adapter; distance work/order assertions preserved."
+    },
+    {
+      "tests": [
+        "change-trigger-diagnostics.cjs",
+        "model-marketplace-scale.cjs"
+      ],
+      "cause": "Positive model profiles lacked explicit current agreement acceptance. Real model runner now captures current acceptance before boot. Hook remains unchanged."
+    }
+  ],
+  "focused_recheck": {
+    "passed_files": 12,
+    "failed_files": 0
+  },
+  "isolated_provider_tests": {
+    "passed": 3,
+    "tests": [
+      "integrations/telegram/adapter.test.cjs",
+      "integrations/max/adapter.test.cjs",
+      "integrations/listing-quotas/adapter.test.cjs"
+    ],
+    "network": "fake transport/in-memory repository only; no live messages, billing or organization grants"
+  },
+  "worker": {
+    "bytes": 16467778,
+    "gzipBytes": 9840362,
+    "public_assets": 269,
+    "validation": "PASS: Worker ESM, API identity boundary, absent database fail-closed, migration packaging"
+  },
+  "native": {
+    "passed_checks": 1110,
+    "failed_checks": 0,
+    "android": {
+      "path": "/workspace/sites/drive-lot/releases/fas-torgi-android-demo-debug.apk",
+      "bytes": 15838759,
+      "sha256": "bf9fe0b223262e422c919435f5584b2cf6abd5130593087c1db2f749cfa092ab"
+    },
+    "apk_signature_v2": true,
+    "iOS": "Shared web files byte-checked; signed native build and physical device execution not performed"
+  },
+  "legal": {
+    "edition": "2026-11-14-r2",
+    "sections": 13,
+    "a4_pages": 11,
+    "pdf_bytes": 82573,
+    "pdf_sha256": "0cfa9796f4bef0e69d38736c1ad9a53c1e20739761792a09a83651e0f4fc4316",
+    "review": "AI research and independent AI review, not a retained human lawyer opinion; no established blanket rights to automatically generated code"
+  },
+  "limits": [
+    "No real shared auction accounts/authentication, trusted bank roles, payment/escrow or production chat delivery",
+    "Telegram and MAX adapters disabled; bots, addresses and QR codes not created",
+    "Local functional model contexts are not concurrent production capacity evidence",
+    "No attached physical iPhone/Android or emulator; RAM/FPS/Safari gesture behaviour not measured",
+    "No independent penetration test, offsite backup restoration or bank integration established",
+    "Local source archives do not constitute independent offsite backup"
+  ],
+  "publication": "See docs/publication-66-2026-11-14.json after deployment; this audit alone is not publication evidence"
+}

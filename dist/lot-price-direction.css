@@ -1,0 +1,9 @@
+/* Direction is a separate accessible marker: live price updates replace only the amount. */
+#modal.lot-dialog .purchase-price-value{display:flex;align-items:center;gap:10px;min-width:0}
+#modal.lot-dialog .purchase-price-value>strong{min-width:0}
+#modal.lot-dialog .lot-price-direction{display:inline-flex;align-items:center;justify-content:center;flex:0 0 30px;width:30px;height:30px;border:1px solid #C0D4ED;border-radius:9px;background:#EAF3FF;color:#1F5DA6}
+#modal.lot-dialog .lot-price-direction .ui-icon{width:19px;height:19px;stroke-width:2.2}
+#modal.lot-dialog .lot-price-direction[data-auction-direction="descending"]{border-color:#B6D9D0;background:#EAF7F2;color:#246C59}
+#modal.lot-dialog .object-attributes>.lot-current-price-label,#modal.lot-dialog .object-attributes>.lot-current-price-value{padding-bottom:12px;margin-bottom:3px;border-bottom:1px solid #CFDDEE}
+#modal.lot-dialog .object-attributes>.lot-current-price-value{font-family:Manrope,Arial,sans-serif;font-size:18px;font-weight:800;line-height:1.5;color:#174A7B}
+@media(max-width:400px){#modal.lot-dialog .lot-price-direction{flex-basis:26px;width:26px;height:26px;border-radius:8px}#modal.lot-dialog .purchase-price-value{gap:8px}}

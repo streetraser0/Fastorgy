@@ -1,0 +1,11 @@
+{
+  "version": "2026-11-14",
+  "status": "Draft for the current demonstration service; no practicing-jurist approval or real SMS/payment readiness is claimed.",
+  "operator": "ООО «Региональная служба взыскания долгов»",
+  "agreementMarkdown": "docs/legal/user-agreement-2026-11-14.md",
+  "agreementMarkdownSHA256": "33db842664b5f33f0d99b2edc0291b404d6f3cd5bd9f54f16f323b04a08da6cc",
+  "agreementHTMLMainSHA256": "f2cb3c2a1c1a95e8e3c72e7decab5616129f1d1d1c2d567508619660f9c38df0",
+  "phoneConsentHTMLSectionSHA256": "8d93e21acbce9b083e22c1ef318c11144c1a2ef61501dacd502b0457789053e2",
+  "revisionPolicy": "Before the first publication the draft may be corrected together with these reviewed snapshots. Once accepted by a real user, never replace the meaning of the same version: archive the accepted text, assign a new version for material changes, show it to the user and capture explicit acceptance where required. Keep old acceptance metadata and independently validate/store it on the server before enabling actual registration.",
+  "clientRecordLimit": "Browser version/acceptedAt are demonstrative and user-modifiable. They are not proof of a verified server identity, payment consent, lawful hosting geography or complete compliance."
+}

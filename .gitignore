@@ -1,0 +1,9 @@
+/dist/server/
+/dist/.openai/
+/dist/drizzle/
+
+# Local Python bytecode from documentation and release verification tools.
+__pycache__/
+*.py[cod]
+
+/test-results/

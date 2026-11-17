@@ -1,0 +1,85 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const {boot}=require('./helpers/category-seller-harness.cjs');
+
+const h=boot({noMedia:true}),run=h.run,now=Date.now();
+const base={category:'cars',subcategory:'cars',brand:'Toyota',model:'RAV4',name:'Toyota RAV4',city:'Воронеж',regionCode:'36',bank:'Тестовый продавец',price:100000,start:100000,step:1000,deposit:0,status:'live',startsAt:new Date(now-3600000).toISOString(),ends:new Date(now+86400000).toISOString(),latitude:51.66,bids:0,demo:false};
+const fixtures=Array.from({length:30},(_,index)=>({...base,id:999651000+index,name:'Toyota RAV4 · '+index,longitude:39.2+index*.01}));
+fixtures.push({...base,id:999651100,category:'equipment',subcategory:'equipment',brand:'Atlas Copco',model:'GA11',name:'Компрессор Atlas Copco GA11',longitude:39.6});
+run('cars='+JSON.stringify(fixtures)+';ends.length=0;cars.forEach(lot=>ends.push(Date.parse(lot.ends)));invalidateSubscriptionInventory();window.FasKeywordSearch.invalidate();userGeo={point:[51.66,39.2],approximate:false};$("#sort").value="nearest";catalogLimit=24;render();');
+const body=h.context.document.body;
+const search=value=>run('applyKeywordSearch('+JSON.stringify(value)+')');
+const count=()=>run('visibleLots.length');
+assert.equal(typeof run('syncCatalogResults'),'function','actual catalogue view state is available');
+assert.equal(count(),31);
+assert.equal(body.classList.contains('search-results-active'),false,'unfiltered catalogue keeps its default presentation');
+assert.equal(body.classList.contains('catalog-empty'),false);
+assert.equal(h.node('#more').hidden,false,'additional inventory is available in normal browsing');
+
+search('Toyota');
+assert.equal(count(),30);
+assert.equal(body.classList.contains('search-results-active'),true,'keyword query enters results presentation');
+assert.equal(body.classList.contains('catalog-empty'),false);
+assert(h.node('#result-query').textContent.includes('Toyota'),'the result landing identifies its query');
+assert.equal(h.node('#result-edit').hidden,false,'a submitted query can be edited from the results');
+assert.equal(h.node('#more').hidden,false,'matching undisplayed lots remain reachable');
+assert.equal(h.node('#open-reels').disabled,false,'positive results offer the feed');
+assert.equal(h.node('.toolbar .property-map-launch').disabled,false,'positive results offer the map');
+assert(run('visibleLots.every((lot,index)=>!index||distanceToLot(visibleLots[index-1])<=distanceToLot(lot))'),'compact results retain nearest ordering');
+
+search('НетУникальногоПредмета348972');
+assert.equal(count(),0);
+assert.equal(body.classList.contains('catalog-empty'),true,'actual no-match result enters compact empty presentation');
+assert.equal(h.node('#more').hidden,true,'empty results never offer to load more');
+assert.equal(h.node('#open-reels').disabled,true,'empty results cannot open an empty feed');
+assert.equal(h.node('.toolbar .property-map-launch').disabled,true,'empty results cannot open an empty search map');
+assert(h.node('#grid').innerHTML.includes('НетУникальногоПредмета348972'.toLowerCase())||h.node('#grid').innerHTML.includes('НетУникальногоПредмета348972'),'empty state retains the requested item');
+assert(h.node('#grid').innerHTML.includes('data-edit-search'),'empty state provides a working search edit action');
+assert(h.node('#grid').innerHTML.includes('data-clear-search'),'empty state provides filter recovery');
+
+const hostile='<img src=x onerror="window.searchInjected=true">'+' Длинный запрос '.repeat(30);
+search(hostile);
+assert.equal(count(),0);
+assert(h.node('#result-query').textContent.includes('<img'),'query summary uses literal text rather than executable markup');
+assert(!h.node('#result-query').innerHTML.includes('<img'),'summary never injects query HTML');
+assert(!h.node('#grid').innerHTML.includes('<img src=x'),'empty-message markup escapes user text');
+assert(h.node('#grid').innerHTML.includes('&lt;img'),'empty message preserves an escaped explanation');
+
+search('Toyota');h.node('#category').value='equipment';h.node('#category').onchange();
+assert.equal(count(),0,'an explicitly selected category remains a real constraint');
+assert.equal(h.node('#category').value,'equipment');
+assert.equal(body.classList.contains('catalog-empty'),true);
+run('$("#advanced-reset").onclick()');
+assert.equal(count(),31,'reset recovers the actual full inventory');
+assert.equal(body.classList.contains('catalog-empty'),false,'positive results restore the catalogue');
+assert.equal(body.classList.contains('search-results-active'),false,'reset clears search-specific presentation');
+assert.equal(h.node('#result-edit').hidden,true);
+assert.equal(h.node('#more').hidden,false,'reset restores load-more when needed');
+assert.equal(h.node('#open-reels').disabled,false,'reset restores feed access');
+assert.equal(h.node('.toolbar .property-map-launch').disabled,false,'reset restores map access');
+assert.equal(h.node('#result-query').hidden,true,'reset removes obsolete query context');
+run('catalogLimit=48;render()');
+assert.equal(h.node('#more').hidden,true,'load-more disappears when every match is already displayed');
+run('catalogLimit=24;$("#budget").value="50000";render()');
+assert.equal(count(),0);
+assert.equal(body.classList.contains('search-results-active'),true,'price-only filtering also gets results treatment');
+assert.equal(body.classList.contains('catalog-empty'),true);
+run('$("#advanced-reset").onclick()');
+assert.equal(body.classList.contains('catalog-empty'),false);
+
+const previousGrid=h.node('#grid').innerHTML,previousCount=h.node('#result-count').textContent;
+run('$("#adv-price-min").value="200000";$("#adv-price-max").value="100000";render()');
+assert(h.node('#advanced-error').textContent,'invalid range explains the form error');
+assert(h.node('#grid').innerHTML===previousGrid,'invalid range does not replace valid results with a misleading empty screen');
+assert.equal(h.node('#result-count').textContent,previousCount,'invalid range does not announce zero matches');
+assert.equal(body.classList.contains('catalog-empty'),false);
+run('$("#advanced-reset").onclick()');
+
+const css=fs.readFileSync('dist/search-results.css','utf8');
+assert(/@media\s*\([^)]*max-width\s*:\s*700px/.test(css),'iPhone layout is handled explicitly');
+assert(/#search[^{}]*\{[^{}]*font-size\s*:\s*16px/s.test(css),'search field prevents the observed iOS small-input zoom');
+assert(/catalog-empty[^{}]*#grid[^{}]*\{[^{}]*height\s*:\s*auto/s.test(css),'empty catalogue releases viewport height');
+assert(/catalog-empty[^{}]*#grid[^{}]*\{[^{}]*min-height\s*:\s*0/s.test(css),'empty catalogue cannot retain the old minimum viewport');
+const html=fs.readFileSync('dist/index.html','utf8');
+assert(!/maximum-scale|user-scalable\s*=\s*no/i.test(html),'fix keeps user pinch zoom available');
+console.log('PASS: actual empty/positive/recovered search landing, literal long-query display, manual scope, nearest order, load-more lifecycle and iPhone zoom/compact empty CSS.');

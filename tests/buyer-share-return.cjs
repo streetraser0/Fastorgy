@@ -1,0 +1,45 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const {integration,settle}=require('./helpers/category-multi-harness.cjs');
+const source=fs.readFileSync(path.join(__dirname,'../dist/buyer-tools.js'),'utf8');
+const lot={id:999910001,name:'Седан для поездок',category:'cars',subcategory:'cars',brand:'Toyota',bodyType:'sedan',price:100000,start:100000,buyNowPrice:150000,step:1000,deposit:0,status:'live',ends:'2099-01-01T00:00:00Z',city:'Воронеж',regionCode:'36',latitude:51.66,longitude:39.2,demo:true};
+(async()=>{
+ const h=integration({fixtures:[lot]});h.context.location.href='https://fas.example/';h.field('modal').appendChild(h.field('modal-content'));
+ h.context.navigator.clipboard={writeText:async()=>{throw Error('Clipboard denied')}};
+ for(const name of ['dialog-lifecycle.js','payment-ui.js'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../dist',name),'utf8'),h.context);
+ vm.runInContext(source,h.context);h.run('openCar(999910001)');
+ const modal=h.field('modal'),content=h.field('modal-content'),form=h.field('bid-form'),bid=h.field('bid'),gallery=content.querySelector('.gallery-track');
+ assert(form&&bid&&gallery);bid.value='125000';modal.scrollTop=640;gallery.scrollLeft=300;
+ const share=content.querySelector('[data-buyer-share]');assert(share);share.focus();
+ const recordsBefore=JSON.stringify(h.records);
+ h.click(share);await settle(h);
+ const sheet=h.field('buyer-copy-dialog');assert(sheet?.open);assert(modal.open);
+ assert.equal(h.field('bid-form'),form);assert.equal(h.field('bid'),bid);assert.equal(bid.value,'125000');
+ assert.equal(modal.scrollTop,640);assert.equal(gallery.scrollLeft,300);
+ assert.equal(sheet.querySelector('#buyer-copy-value').getAttribute('value'),'https://fas.example/?lot=999910001');
+ assert(sheet.innerHTML.includes('Вернуться к лоту'));
+ h.click(sheet.querySelector('[data-buyer-copy-close]'));assert(!sheet.open);assert(modal.open);
+ assert.equal(h.document.activeElement,share);assert.equal(h.field('bid'),bid);assert.equal(bid.value,'125000');
+ assert.equal(JSON.stringify(h.records),recordsBefore,'copying does not write financial or profile state');
+ // Reopen and dismiss the overlay through native close (Escape/back) and backdrop.
+ await h.context.window.FasBuyerTools.shareLot(lot.id);assert(sheet.open);let stopped=false,prevented=false;
+ sheet.dispatchEvent({type:'keydown',key:'Escape',preventDefault(){prevented=true},stopPropagation(){stopped=true}});
+ assert(stopped&&prevented,'Escape belongs to the copy sheet and cannot dismiss the underlying feed');assert(!sheet.open);assert(modal.open);assert.equal(bid.value,'125000');
+ await h.context.window.FasBuyerTools.shareLot(lot.id);assert(sheet.open);h.click(sheet);assert(!sheet.open);assert(modal.open);
+ // An old queued close must not steal focus from a newly opened copy sheet.
+ await h.context.window.FasBuyerTools.shareLot(lot.id);const input=sheet.querySelector('#buyer-copy-value');assert.equal(h.document.activeElement,input);
+ sheet.dispatchEvent({type:'close'});assert(sheet.open);assert.equal(h.document.activeElement,input);
+ sheet.close();assert.equal(h.field('bid-form'),form);assert.equal(modal.scrollTop,640);assert.equal(gallery.scrollLeft,300);
+ assert.equal(h.run('Object.keys(bids).length'),0);
+ modal.close();h.run('reelsMode=true;feedIndex=0');h.field('grid').scrollTop=1500;
+ await h.context.window.FasBuyerTools.shareLot(lot.id);assert(sheet.open);assert(!modal.open);assert(sheet.innerHTML.includes('Вернуться к ленте'));
+ stopped=false;sheet.dispatchEvent({type:'keydown',key:'Escape',preventDefault(){},stopPropagation(){stopped=true}});
+ assert(stopped);assert(!sheet.open);assert(!modal.open);assert.equal(h.run('reelsMode'),true);assert.equal(h.field('grid').scrollTop,1500);
+ h.run('reelsMode=false;openCar(999910001)');let rejectClipboard;
+ h.context.navigator.clipboard={writeText:()=>new Promise((_,reject)=>{rejectClipboard=reject})};
+ const pending=h.context.window.FasBuyerTools.shareLot(lot.id);
+ const purchase=h.field('modal-content').querySelector('[data-open-lot-payment]');assert(purchase);
+ h.dispatchClick({target:purchase,preventDefault(){}});const payment=h.field('payment-dialog');assert(payment.open);const paymentFocus=h.document.activeElement;
+ rejectClipboard(Error('denied'));assert.equal((await pending).stale,true);
+ assert(!sheet.open,'a late copy fallback cannot cover a newer payment dialog');assert(payment.open);assert.equal(h.document.activeElement,paymentFocus);
+ console.log('PASS: denied clipboard preserves actual lot form, typed bid, photo position and scroll; independent copy close/backdrop, focus and stale-close isolation.');
+})().catch(error=>{console.error(error);process.exitCode=1});

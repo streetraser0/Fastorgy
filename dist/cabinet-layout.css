@@ -1,0 +1,67 @@
+/* Existing desktop layout is in desktop-web.css. The mobile cabinet is shared by iOS, Android and native shells. */
+html.cabinet-layout-on .seller-account-tabs > [data-seller-tab="draft"] > b {margin-left:auto;font-size:11px;min-width:22px;padding:2px 5px;border-radius:6px;background:#E4EDFC;color:#315B8B}
+html.cabinet-layout-on .cabinet-drafts {margin-top:14px;border:1px solid #BFCFE4;border-radius:12px;background:#F7FAFF;min-width:0;overflow:hidden}
+html.cabinet-layout-on .cabinet-drafts > summary {padding:13px 14px;color:#22466E;font:600 13px/1.5 'Golos Text',Arial,sans-serif;cursor:pointer;min-height:44px}
+html.cabinet-layout-on .cabinet-draft-count {display:inline-block;margin-left:9px;padding:1px 7px;border-radius:7px;background:#E3EDFD;font-size:11px}
+html.cabinet-layout-on .cabinet-draft-list {display:grid;gap:10px;padding:0 10px 10px;min-width:0}
+html.cabinet-layout-on .cabinet-drafts-empty {padding:0 14px 13px;margin:0;font-size:12px;color:#53697D}
+html.cabinet-layout-on .cabinet-drafts > summary:focus-visible {outline:2px solid #0D4CD3;outline-offset:-3px}
+
+/* Shared phone/tablet presentation. This gate does not enable desktop navigation or drag. */
+html.mobile-cabinet #modal.seller-dialog {width:calc(100% - 12px);max-height:calc(100dvh - 16px);border-radius:17px;scrollbar-gutter:auto}
+html.mobile-cabinet #modal.seller-dialog .seller-shell {padding:16px max(12px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));min-width:0}
+html.mobile-cabinet .seller-desktop-toolbar {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;min-width:0}
+html.mobile-cabinet .seller-desktop-toolbar .seller-dashboard-heading {min-width:0;margin:0;padding:0}
+html.mobile-cabinet .seller-desktop-toolbar .seller-dashboard-heading h2 {font-size:24px;line-height:1.2;letter-spacing:-.5px}
+html.mobile-cabinet .seller-desktop-toolbar .seller-dashboard-heading p {font-size:11px;line-height:1.55;margin-bottom:0}
+html.mobile-cabinet #modal.seller-dialog .seller-desktop-toolbar > .seller-create-button {flex:0 0 auto;width:auto;min-height:40px!important;padding:10px!important;margin:0;gap:5px;font-size:11px!important;line-height:1.4!important;border-radius:10px}
+html.mobile-cabinet .seller-desktop-toolbar > .seller-create-button .ui-icon {width:16px;height:16px}
+html.mobile-cabinet .seller-desktop-layout {display:grid;grid-template-columns:90px minmax(0,1fr);grid-template-rows:auto 1fr;gap:12px 10px;align-items:start;min-width:0}
+html.mobile-cabinet .seller-desktop-sidebar {display:flex;flex-direction:column;grid-column:1;grid-row:1;gap:10px;padding:6px;border:1px solid #CBD9EA;border-radius:12px;background:#EDF3FB;min-width:0}
+html.mobile-cabinet .seller-desktop-main {display:block;grid-column:2;grid-row:1 / 3;min-width:0;max-width:100%}
+html.mobile-cabinet .seller-desktop-sidebar .seller-account-tabs {display:flex;flex-direction:column;gap:5px;padding:0;margin:0;border:0;background:transparent;min-width:0}
+html.mobile-cabinet .seller-desktop-sidebar .seller-account-tabs > button {display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:100%;min-width:0;min-height:52px;padding:8px 3px;font-size:11px;line-height:1.35;text-align:center;color:#315276;overflow-wrap:anywhere}
+html.mobile-cabinet .seller-desktop-sidebar .seller-account-tabs > button[aria-pressed="true"] {background:#fff;color:#0A43BE;box-shadow:0 2px 7px #163C6C12}
+html.mobile-cabinet .seller-desktop-sidebar .seller-account-tabs .ui-icon {width:18px;height:18px;flex-basis:18px}
+html.mobile-cabinet .seller-account-tabs > [data-seller-tab="draft"] > b {margin-left:0;font-size:10px}
+html.mobile-cabinet .seller-desktop-sidebar .seller-shortcuts {display:flex;flex-direction:column;gap:6px;margin:0;padding-top:10px;border-top:1px solid #D2DDED;min-width:0}
+html.mobile-cabinet .seller-desktop-sidebar .seller-shortcuts > button {flex-direction:column;gap:4px;padding:8px 3px!important;min-width:0;min-height:50px;font-size:10px;line-height:1.4;overflow-wrap:anywhere}
+html.mobile-cabinet .seller-desktop-sidebar .seller-help-footer,
+html.mobile-cabinet .seller-desktop-layout > .seller-desktop-support {display:flex;flex-direction:column;align-items:stretch;gap:8px;min-width:0;max-width:100%;padding:10px 2px;margin:0;border:0;border-top:1px solid #D2DDED;border-radius:0;background:transparent}
+html.mobile-cabinet .seller-desktop-layout > .seller-desktop-support {grid-column:1;grid-row:2;align-self:start}
+html.mobile-cabinet .seller-desktop-sidebar .seller-help-footer strong,
+html.mobile-cabinet .seller-desktop-layout > .seller-desktop-support strong {font-size:11px;line-height:1.5;overflow-wrap:anywhere}
+html.mobile-cabinet .seller-desktop-sidebar .seller-help-footer p,
+html.mobile-cabinet .seller-desktop-layout > .seller-desktop-support p {font-size:10px;line-height:1.5;overflow-wrap:anywhere}
+html.mobile-cabinet .seller-desktop-sidebar .seller-help-footer > button,
+html.mobile-cabinet .seller-desktop-layout > .seller-desktop-support > button {width:100%;min-width:0;min-height:40px;padding:8px 3px;font-size:10px;line-height:1.5;white-space:normal;overflow-wrap:anywhere}
+html.mobile-cabinet .seller-desktop-main .seller-list-title {font-size:19px;line-height:1.4;letter-spacing:-.3px}
+html.mobile-cabinet .seller-desktop-main .seller-tabs {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;min-width:0}
+html.mobile-cabinet .seller-desktop-main .seller-tabs[hidden] {display:none}
+html.mobile-cabinet .seller-desktop-main .seller-tabs > button {min-width:0;padding:8px 5px;font-size:10px;line-height:1.4;gap:4px;overflow-wrap:anywhere}
+html.mobile-cabinet .seller-desktop-main .seller-tabs > button > b {min-width:18px;padding:2px 4px;font-size:10px}
+html.mobile-cabinet .seller-desktop-main .seller-grid {grid-template-columns:minmax(0,1fr);gap:14px}
+html.mobile-cabinet .seller-desktop-main .seller-profile-form,
+html.mobile-cabinet .seller-desktop-main .seller-field,
+html.mobile-cabinet .seller-desktop-main .seller-grid > label {min-width:0;max-width:100%;font-size:12px}
+html.mobile-cabinet .seller-desktop-main input:not([type="checkbox"]):not([type="radio"]),
+html.mobile-cabinet .seller-desktop-main select,
+html.mobile-cabinet .seller-desktop-main textarea {width:100%;min-width:0;max-width:100%;font-size:16px;box-sizing:border-box}
+html.mobile-cabinet .seller-desktop-main .seller-row {display:grid;grid-template-columns:52px minmax(0,1fr);gap:8px;padding:10px;min-width:0}
+html.mobile-cabinet .seller-desktop-main .seller-row > img {width:52px;height:60px;border-radius:7px}
+html.mobile-cabinet .seller-desktop-main .seller-row-main h3 {font-size:13px;line-height:1.4}
+html.mobile-cabinet .seller-desktop-main .seller-row-main p {font-size:10px;line-height:1.55}
+html.mobile-cabinet .seller-desktop-main .seller-row-actions {grid-column:1/-1;display:flex;flex-direction:column;max-width:100%}
+html.mobile-cabinet .seller-desktop-main .seller-row-actions > button {min-height:40px;font-size:11px}
+html.mobile-cabinet .seller-desktop-main .seller-empty {padding:24px 10px}
+html.mobile-cabinet .seller-desktop-main .seller-empty h3 {font-size:19px}
+html.mobile-cabinet .seller-desktop-main .seller-dashboard-notice > summary {padding:10px;font-size:10px;line-height:1.6}
+html.mobile-cabinet .seller-desktop-main .seller-help-footer {flex-direction:column;align-items:stretch;padding:12px;gap:10px}
+html.mobile-cabinet .seller-desktop-layout .seller-help-footer > div {flex:0 1 auto;min-width:0}
+html.mobile-cabinet #modal.seller-dialog .seller-desktop-main .seller-actions {display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:8px}
+html.mobile-cabinet #modal.seller-dialog .seller-desktop-main .seller-actions > button {flex:0 1 auto;width:100%;max-width:100%;min-width:0;font-size:12px;white-space:normal}
+@media(min-width:700px){
+ html.mobile-cabinet .seller-desktop-layout {grid-template-columns:160px minmax(0,1fr);gap:16px}
+ html.mobile-cabinet .seller-desktop-sidebar .seller-account-tabs > button {flex-direction:row;justify-content:flex-start;text-align:left;gap:8px;padding:10px;font-size:12px}
+ html.mobile-cabinet .seller-desktop-main .seller-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}

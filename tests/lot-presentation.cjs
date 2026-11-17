@@ -1,0 +1,25 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const source=fs.readFileSync('dist/lot-presentation.js','utf8'),taxonomy=fs.readFileSync('dist/category-tree.js','utf8');
+const context={console,Date,Number,String,Object,Array,Math,Set,Map,window:{}};vm.createContext(context);vm.runInContext(taxonomy,context);vm.runInContext(source,context);const api=context.FasLotPresentation;
+assert(Object.isFrozen(api));assert.strictEqual(context.window.FasLotPresentation,api);
+for(const value of [null,undefined,[],{},7,'car'])assert.equal(api.html(value),'');
+const vehicle=api.html({category:'cars',condition:'used',year:2022,mileage:31200,fuel:'petrol',transmission:'auto',deposit:0,delivery:true});
+assert(vehicle.includes('2022 год'));assert(vehicle.includes('31 200 км'));assert(vehicle.includes('Бензин'));assert(!vehicle.includes('Автомат'),'the full fact row is bounded at four');assert(vehicle.includes('Без задатка'));assert(vehicle.includes('Доставка по условиям продавца'));
+assert.equal((vehicle.match(/data-lot-fact=/g)||[]).length,4);
+const compact=api.html({category:'cars',condition:'repair',year:2021,mileage:44000,fuel:'diesel',deposit:0,delivery:true},{compact:true});
+assert.equal((compact.match(/data-lot-fact=/g)||[]).length,2);assert(compact.includes('Требует ремонта'));assert(compact.includes('data-essential-fact'));assert(compact.includes('Без задатка'));assert(!compact.includes('Доставка'),'mini cards keep only one secondary term');
+const property=api.html({category:'other',subcategory:'houses',area:'125,5',rooms:0});assert(property.includes('125,5 м²'));assert(property.includes('Студия'));assert(!property.includes(' км'));
+for(const subcategory of ['land','garages','commercial'])assert(!api.html({category:'property',subcategory,area:25,rooms:0}).includes('Студия'),'nonresidential property never acquires an invented studio label');
+const equipment=api.html({category:'equipment',powerKw:7.5,manufacturer:'Acme <img src=x onerror=evil()> & "Юг"'});assert(equipment.includes('7,5 кВт'));assert(equipment.includes('&lt;img'));assert(equipment.includes('&amp;'));assert(!equipment.includes('<img'));
+const demo=api.html({category:'cars',year:2020,mileage:0,specsDemo:true});assert(demo.includes('0 км'));assert(demo.includes('Характеристики демонстрационные'));assert(api.html({category:'cars',year:2020,specsDemo:true},{compact:true}).includes('Демоданные'));
+for(const deposit of [undefined,null,'',false,'abc',-1,NaN,Infinity])assert(!api.html({condition:'new',deposit}).includes('Без задатка'),'only explicit zero amounts can claim no deposit');
+for(const delivery of [undefined,null,false,'true',1])assert(!api.html({condition:'new',delivery}).includes('Доставка'),'delivery is explicitly enabled only');
+for(const value of [undefined,null,'',false,-1,NaN,Infinity,'<img>',1e20]){const html=api.html({category:'cars',mileage:value,year:value});assert(!html.includes('data-lot-fact="mileage"'));assert(!html.includes('data-lot-fact="year"'))}
+assert(!api.html({category:'cars',year:Date.now()}).includes('data-lot-fact="year"'));assert(!api.html({category:'property',area:0,rooms:1.5}).includes('data-lot-fact='));
+const unknown=api.html({inspection:'Осмотр недоступен',documents:'Документов нет',description:'Суперскидка 90%',buyNowPrice:1000});assert.equal(unknown,'','free text and unvalidated prices do not invent benefits, urgency or verification');
+for(const key of ['constructor','toString','__proto__'])assert.equal(api.html({category:'cars',condition:key,fuel:key,transmission:key}),'','unknown enum strings cannot read inherited properties');
+const defects=api.html({condition:'used',defects:'Нет явных дефектов'});assert(defects.includes('Сведения о недостатках — в описании'));assert(!defects.includes('Есть дефекты'),'nonempty free text never implies damage or a positive condition');
+assert(!/проверен|скидк|выгодн|гаранти|победител|купили/i.test(vehicle),'facts do not create unverified selling claims');
+const again=context.FasLotPresentation;vm.runInContext(source,context);assert.strictEqual(context.FasLotPresentation,again);
+const css=fs.readFileSync('dist/lot-presentation.css','utf8');assert(css.includes('flex-wrap:wrap'));assert(css.includes('overflow-wrap:anywhere'));assert(css.includes('.lot-fact:not([data-essential-fact])'));assert(css.includes('.lot-presentation:not(.has-essential-facts)'));assert(!/position\s*:\s*(?:absolute|fixed)|transform\s*:|object-fit\s*:/.test(css),'presentation adds no overlay, geometry transforms or photo crops');assert(css.includes('prefers-reduced-motion'));
+console.log('PASS: bounded factual lot highlights, exact no-deposit/delivery terms, property/vehicle/equipment fields, demo provenance, condition warnings, no free-text claims, escaping and flow-only responsive presentation.');

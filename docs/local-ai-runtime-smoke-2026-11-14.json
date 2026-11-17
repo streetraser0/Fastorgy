@@ -1,0 +1,98 @@
+{
+  "createdUtc": "2026-11-14T15:38:45.388Z",
+  "environment": {
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "runtime": "Node VM with browser ESM bundle; onnxruntime-web WASM SIMD, one thread"
+  },
+  "scope": "Actual production worker, vendor bundle, model integrity verification, startup and one inference; external requests replaced by exact local pinned fixtures.",
+  "sourceHashes": {
+    "dist/local-ai-worker.js": "e45990694c43f1b0719fef3eda0a8173d943af5b86cb43dadd0650484d17a402",
+    "dist/local-ai-policy.js": "a03b22d7b0c1200a8d02415fe1a2912c720bc9c947992f036b7412a51246f220",
+    "dist/local-ai-prototypes.json": "812f918d37e079a9804167346cdaf2def298fd4968e656fd820b125359f31bf3",
+    "dist/vendor/transformers-2.17.2.min.js": "bcf7cf304e51f470ed59409622b9d6ffbad80dfcf5baf6a40c919e4b9c4ff812"
+  },
+  "limitations": [
+    "No browser, physical phone or Safari was used.",
+    "Does not exercise hosting authentication, HTTP redirects, CORS, browser CSP or download speed.",
+    "One inference is startup integration evidence, not accuracy, capacity or security certification.",
+    "No external network, user profile, private documents, account storage or monetary action is accessed."
+  ],
+  "loadSeconds": 4.907308,
+  "inference": {
+    "query": "Где мой профиль?",
+    "expectedIntent": "cabinet",
+    "actualIntent": "cabinet",
+    "executedActions": 0
+  },
+  "artifacts": [
+    {
+      "url": "https://local-ai-smoke.invalid/vendor/transformers-2.17.2.min.js",
+      "bytes": 897938,
+      "sha256": "bcf7cf304e51f470ed59409622b9d6ffbad80dfcf5baf6a40c919e4b9c4ff812"
+    },
+    {
+      "url": "https://local-ai-smoke.invalid/local-ai-prototypes.json",
+      "bytes": 325775,
+      "sha256": "812f918d37e079a9804167346cdaf2def298fd4968e656fd820b125359f31bf3"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/ort-wasm-simd.wasm",
+      "bytes": 10014674,
+      "sha256": "9bd07bababc65f53d061f457233eeae501be7ceb8a2adb9eef52d87fe776d865"
+    },
+    {
+      "url": "https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2/resolve/2c4055b12046f11709e9df2c122e59ffbdc2f900/config.json",
+      "bytes": 673,
+      "sha256": "05b570bff786faa5c4604152aa16f19f77ed6dfc31e47dd0f3dd987078693ac7"
+    },
+    {
+      "url": "https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2/resolve/2c4055b12046f11709e9df2c122e59ffbdc2f900/tokenizer_config.json",
+      "bytes": 496,
+      "sha256": "3f5961b9ac86288cccdb97f32fb848d6187c78e1603958c53f3ea1f296b7d8a2"
+    },
+    {
+      "url": "https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2/resolve/2c4055b12046f11709e9df2c122e59ffbdc2f900/tokenizer.json",
+      "bytes": 17082913,
+      "sha256": "b60b6b43406a48bf3638526314f3d232d97058bc93472ff2de930d43686fa441"
+    },
+    {
+      "url": "https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2/resolve/2c4055b12046f11709e9df2c122e59ffbdc2f900/onnx/model_quantized.onnx",
+      "bytes": 118308126,
+      "sha256": "66fc00f5f29afcaff34092e1bdd20008ca3918265a82fb9695a551e510cc4ebc"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://local-ai-smoke.invalid/vendor/transformers-2.17.2.min.js",
+      "credentials": "same-origin"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/ort-wasm-simd.wasm",
+      "credentials": "omit"
+    },
+    {
+      "url": "https://local-ai-smoke.invalid/local-ai-prototypes.json",
+      "credentials": "same-origin"
+    },
+    {
+      "url": "https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2/resolve/2c4055b12046f11709e9df2c122e59ffbdc2f900/tokenizer.json",
+      "credentials": "omit"
+    },
+    {
+      "url": "https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2/resolve/2c4055b12046f11709e9df2c122e59ffbdc2f900/tokenizer_config.json",
+      "credentials": "omit"
+    },
+    {
+      "url": "https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2/resolve/2c4055b12046f11709e9df2c122e59ffbdc2f900/config.json",
+      "credentials": "omit"
+    },
+    {
+      "url": "https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2/resolve/2c4055b12046f11709e9df2c122e59ffbdc2f900/onnx/model_quantized.onnx",
+      "credentials": "omit"
+    }
+  ],
+  "success": true,
+  "seconds": 5.25059
+}

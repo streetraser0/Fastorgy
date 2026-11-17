@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-14",
+  "purpose": "Russian local semantic intent understanding for auction assistant; no free-form prose generation",
+  "model": "Xenova/paraphrase-multilingual-MiniLM-L12-v2",
+  "revision": "2c4055b12046f11709e9df2c122e59ffbdc2f900",
+  "base_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "base_model_revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+  "base_license": "Apache-2.0",
+  "onnx_quantized_bytes": 118308126,
+  "onnx_sha256": "66fc00f5f29afcaff34092e1bdd20008ca3918265a82fb9695a551e510cc4ebc",
+  "tokenizer_bytes": 17082913,
+  "inference": "mean pooling, normalize true, 384 dimensions; nearest example per different label",
+  "fixed_prototype_file": "/tmp/fas-embedding-check/prototype-vectors.json",
+  "prototype_sha256": "6247ec6dd7691dc6080cc2edb42dc19b8b3f860bf951ede85aa5302843a550c7",
+  "prototype_count": 40,
+  "labels": [
+    "favorites",
+    "cabinet",
+    "my_bids",
+    "purchases",
+    "map",
+    "feed",
+    "catalog",
+    "sell",
+    "search",
+    "help",
+    "unsupported"
+  ],
+  "thresholds_set_before_test": {
+    "minimumCosine": 0.5,
+    "minimumDifferentLabelMargin": 0.08
+  },
+  "heldout_queries": 38,
+  "top1_correct": 25,
+  "accepted": 14,
+  "accepted_correct": 13,
+  "abstained": 24,
+  "native_wasm_predictions_match": true,
+  "max_anchor_component_drift_native_vs_wasm": 8.195638656616211e-08,
+  "wasm_median_ms": 17.085787499999697,
+  "wasm_max_ms": 23.40996300000006,
+  "wasm_runtime": "onnxruntime-web SIMD one thread under Node; not browser automation",
+  "browser_tested": false,
+  "physical_phone_tested": false,
+  "private_information_sent_to_ai_service": false,
+  "paid_api_used": false,
+  "known_false_acceptance": {
+    "query": "Сотри мой профиль прямо сейчас",
+    "predicted": "cabinet",
+    "expected": "unsupported",
+    "mitigation": "Explicit destructive/money intent gate before model; proposed route only and user review; no destructive or financial model actions."
+  },
+  "limitations": [
+    "Small exploratory Russian set, not a production accuracy estimate",
+    "24/38 abstentions at fixed conservative thresholds: keep deterministic command parser first and show manual route/help choices when uncertain",
+    "Embedding classifier understands similarity; it cannot write arbitrary answers, verify facts, monitor background events or authorize transactions",
+    "Native and WASM used exactly the same quantized ONNX; GGUF language-model reports are separate and not shipped",
+    "Node WASM execution validates numerical compatibility, not Safari browser support or iPhone performance"
+  ]
+}

@@ -1,0 +1,33 @@
+/* Only the catalogue search field uses this anchored, non-modal category chooser. */
+#filters .category-dropdown-anchor{position:relative;min-width:0;align-self:stretch}
+#filters .category-dropdown-anchor.is-open{z-index:160}
+#filters .category-dropdown-anchor>[data-browse-categories]{height:100%}
+#category-dropdown-panel{position:absolute;inset:calc(100% + 8px) auto auto 0;z-index:160;width:min(440px,calc(100vw - 24px));max-width:none;padding:0;border:1px solid #B6CDE8;border-radius:16px;background:#FFF;color:#193653;box-shadow:0 4px 10px #193F6814,0 18px 40px #193F6826;overflow:hidden;text-align:left}
+#category-dropdown-panel[hidden]{display:none!important}
+#category-dropdown-panel .category-browser{display:flex;flex-direction:column;min-height:0;max-height:var(--category-panel-height,min(540px,75dvh));overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;background:#FFF}
+#category-dropdown-panel .category-brand{display:none}
+#category-dropdown-panel .category-browser-head{position:static;flex:none;grid-template-columns:36px minmax(0,1fr) 36px;gap:6px;min-height:54px;padding:8px 10px;background:#F4F8FE;border-color:#DFE9F5;backdrop-filter:none}
+#category-dropdown-panel .category-browser-head h2{font:750 16px/1.35 Manrope,Arial,sans-serif;letter-spacing:-.2px}
+#category-dropdown-panel .category-browser-head button{min-width:36px;min-height:36px;padding:7px;border-radius:9px}
+#category-dropdown-panel .category-browser-head .ui-icon{width:20px;height:20px}
+#category-dropdown-panel .category-browser-search{flex:none;min-width:0;margin:12px 14px 8px}
+#filters #category-dropdown-panel input[type=search]{display:block;box-sizing:border-box;width:100%;min-width:0;min-height:44px;height:44px;margin:0;padding:10px 12px;border:1px solid #C4D6EB;border-radius:10px;background:#F7FAFE;color:#193653;font:400 16px/1.4 'Golos Text',Arial,sans-serif}
+#category-dropdown-panel .category-browser-list{flex:1 1 auto;min-height:60px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;padding:0 10px 8px;touch-action:pan-y pinch-zoom}
+#category-dropdown-panel .category-multi-row{gap:4px;border-color:#E7EDF5}
+#category-dropdown-panel .category-browser-row{min-height:54px;padding:8px 6px;gap:10px;border-radius:8px;font:600 14px/1.4 Manrope,Arial,sans-serif;box-shadow:none}
+#category-dropdown-panel .category-browser-row>img{width:38px;height:38px;flex-basis:38px}
+#category-dropdown-panel .category-browser-row .category-row-count{font-size:11px}
+#category-dropdown-panel .category-multi-checkbox{display:grid;place-items:center;flex:0 0 38px;min-height:48px;margin:0;padding:0;cursor:pointer}
+#filters #category-dropdown-panel input[type=checkbox]{appearance:auto;box-sizing:border-box;flex:none;width:20px;height:20px;min-width:20px;min-height:20px;margin:0;padding:0;border:0;border-radius:4px;background:#FFF;accent-color:#1261CE;cursor:pointer}
+#category-dropdown-panel .category-multi-actions{position:static;flex:none;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;padding:12px 14px;border-top:1px solid #DCE7F4;background:#F7FAFE;backdrop-filter:none}
+#category-dropdown-panel .category-multi-actions p{grid-column:1/-1;margin:0;color:#4C6681;font:400 12px/1.4 'Golos Text',Arial,sans-serif}
+#category-dropdown-panel .category-multi-tools{gap:10px;align-items:center;margin:0}
+#category-dropdown-panel .category-multi-tools button{min-height:36px;padding:3px 0;font-size:12px;text-decoration:none}
+#filters #category-dropdown-panel .category-multi-actions>.primary{width:auto;min-height:40px;padding:9px 12px;border-radius:9px;font-size:12px;white-space:normal}
+#category-dropdown-panel :focus-visible{outline:2px solid #1972DC;outline-offset:2px}
+@media(max-width:480px){
+ #category-dropdown-panel{width:calc(100vw - 24px)}
+ #category-dropdown-panel .category-multi-actions{grid-template-columns:minmax(0,1fr)}
+ #category-dropdown-panel .category-multi-tools{justify-content:space-between}
+ #filters #category-dropdown-panel .category-multi-actions>.primary{width:100%}
+}

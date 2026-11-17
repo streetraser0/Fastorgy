@@ -1,0 +1,110 @@
+{
+  "title": "ФАС торги: границы платежей, обеспечения и неизменности предмета торгов",
+  "date": "2026-11-14",
+  "scope": "Code/isolated-model audit; no real bank requests, keys, payments, live private D1 reads or user data writes.",
+  "instructions": "AGENTS.md: keep real financial/demo boundaries, do not store tokens, retain form/native-navigation guards; bank integration explicitly deferred.",
+  "provider": {
+    "preferred": "Т-Банк (ранее Тинькофф)",
+    "configured": false,
+    "contract_verified": false,
+    "acquiring_is_not_escrow": true
+  },
+  "current_state": {
+    "server": "Worker permits only /api/metrics/visit and /api/analytics/sales. D1 schema has site_users and sale_events; sale source is always demo.",
+    "payments": "FasPayments offers method selection/sample receipt only: canPay=false, status=unavailable, recipientVerified=false, sampleOnly=true. No PAN/CVV, real payment link, provider request or paid entitlement.",
+    "wallet_collateral": "No wallet, escrow account, reserved balance or bank confirmation exists. deposit is a displayed auction condition. commitDemoBid checks ownership/live state/money-step/local storage, not funding.",
+    "withdrawal": "Client/demo guards reject seller pause/withdraw with actual bid evidence until the protected deadline, preserve original/extended expiry, and lock canonical asset/recipient identity after bids or a final result. Private and bank edit paths share the policy. Published bank prices also stay fixed before the first bid; draft/new prices remain configurable.",
+    "immutable_deadline": "Existing edits preserve ends/financial terms; private anti-sniping can extend ends within 30-day maximum. There is not yet an authoritative server original-expiry/first-accepted-bid record.",
+    "scope_limit": "Local persistence and private platform access are not a shared authenticated auction ledger or escrow authorization."
+  },
+  "findings": [
+    {
+      "id": "PAY-01",
+      "severity": "Production blocker / unimplemented new requirement",
+      "title": "Нет подтверждённого обеспечения до принятия ставки",
+      "repro": "Current client implementation: dist/index.html demoBidError/commitDemoBid. node tests/security-payment-boundaries.cjs verifies that there is no live payment/escrow/bid API, charge, wallet reserve or client paid-state activation. The ordinary demo bid is local simulation; it does not prove any bank funding.",
+      "meaning": "Do not call this a real-funded bid or invent a browser balance. Before live bidding, require an authenticated authoritative server admission/reservation backed by a configured bank product.",
+      "status": "External financial integration explicitly deferred; current demo remains clearly labelled."
+    },
+    {
+      "id": "PAY-02",
+      "severity": "P1 business-integrity gap before real trading",
+      "title": "Ставки привязываются к ID, но продавец мог заменить сам предмет торгов",
+      "repro": "Historical baseline: actual cabinet edit/category picker allowed cars → houses with unchanged lot ID/bids/price/expiry. Reproducible permanent regressions: node tests/bank-identity-lock.cjs and node tests/owner-auction-policy.cjs.",
+      "user_rule": "After first bid: clarifications, photos and documents allowed; the asset itself, price and auction terms remain fixed.",
+      "recommended_scope": [
+        "dist/seller-rules.js shared identity policy",
+        "dist/seller-ui.js editor/publication guard",
+        "dist/index.html bank editor guard",
+        "meaningful seller/bank regressions"
+      ],
+      "status": "Client identity policy and bank guards implemented. bank-identity-lock, bank-editor-state and owner-auction-policy PASS. This is not server enforcement for live trades."
+    },
+    {
+      "id": "PAY-03",
+      "severity": "Provider capability blocker",
+      "title": "Карточный холд Т-Банка не покрывает обычный 30-дневный аукцион",
+      "fact": "Official T-Bank card docs state a hold up to7days including authorization day. The project supports auctions up to30days. Ordinary acquiring is not an escrow service.",
+      "next": "Discuss nominal-account/deal/billing product and legally agreed beneficiary/reservation/release model with T-Bank; obtain explicit duration/settlement/refund capabilities before enabling real bidding.",
+      "status": "Not configured or contractually verified."
+    },
+    {
+      "id": "PAY-04",
+      "severity": "Architecture requirement",
+      "title": "Правила отмены должны проверяться одним серверным writer",
+      "fact": "Current after-bid checks are client/demo protections. LocalStorage cannot enforce the rule across browsers/users, hold funds, or establish a server-authoritative original expiry.",
+      "next": "Persist immutable originalExpiry, firstAcceptedBidAt, canonical version and bid history; transactionally forbid seller pause/withdraw once the first accepted bid exists while the auction is active. Auto-extension cannot be undone by a descriptive edit.",
+      "status": "Server auction integration deferred."
+    }
+  ],
+  "blocking_live_bid_contract": [
+    "No configured/approved bank product or trusted authenticated principal => live admission denied. UI disabled state is only presentation.",
+    "Canonical auction, server clock and version must be live; seller cannot bid on own asset; expiry/step/amount and idempotency checked again in a server transaction.",
+    "Only provider-confirmed, reconciled received/reserved funds can count. A browser flag, return URL, screenshot, request acceptance or analytics row never proves funding.",
+    "Define required coverage explicitly. Funding only a deposit is not a guarantee of the full bid amount. The bank agreement must cover auction and settlement duration, including extensions.",
+    "Reserve per actor/auction/command atomically from available funds minus other reservations. Parallel bids cannot spend the same coverage twice.",
+    "Verify bank events by the supported authentication/signature procedure; deduplicate provider event IDs and commands, reconcile status via bank API, fail closed on stale/unknown/reversed/disputed status.",
+    "Seller recipient/account changes and payout authorization require authenticated server rules and verification. Do not release funds from a browser success page or seller-controlled description.",
+    "First accepted bid freezes the asset identity, price and auction terms; permit only explicit clarifications/photos/documents under the user-approved rule, with audit history.",
+    "After a final server decision, capture/release/refund according to approved bank terms with idempotent state transitions and reconciliation. No client-created real paid/sold state.",
+    "Test insufficient/unknown funds, expired/reversed hold, concurrent reservations/bids, webhook replay/out-of-order delivery, partial failures, stale quote, duplicate submit, forbidden withdrawal, expiry/extension boundaries and asset substitution before live activation."
+  ],
+  "official_sources": [
+    {
+      "url": "https://developer.tbank.ru/eacq/scenarios/payments/nonPCI/card/",
+      "fact": "Ordinary card payment supports single/two-stage; hold duration up to7days.",
+      "consulted": "2026-11-14; official search result retrieved. Direct open timed out/502, not an integration test."
+    },
+    {
+      "url": "https://developer.tbank.ru/docs/products/nominal",
+      "fact": "Nominal-account API describes beneficiaries, deposits, deals and billing; this is relevant for capability discussion, not proof of this project being approved for escrow."
+    },
+    {
+      "url": "https://developer.tbank.ru/docs/api/billing",
+      "fact": "Billing identifies topups and exposes virtual beneficiary balances/holds and deal-operation control. Bank warns against bypassing that billing via other withdrawal channels."
+    },
+    {
+      "url": "https://developer.tbank.ru/docs/api/get-api-v-1-nominal-accounts-deals-dealid-is-valid",
+      "fact": "Deal validation checks deposits against configured amounts and funds on depositor virtual accounts; a status/check alone must not be treated as an atomic local bid reservation."
+    }
+  ],
+  "meaningful_regression": "tests/security-payment-boundaries.cjs tests unavailable financial API routes before any D1 work; real checkout module cannot create charges/paid state/provider calls/card collection or change bids/lot state from a forged funded/paid browser flag.",
+  "not_done": [
+    "Real payment/escrow/wallet implementation",
+    "Provider onboarding or keys",
+    "Bank API/payment calls",
+    "Live transfers/refunds/reservations",
+    "Production database changes",
+    "Claim of complete payment safety or real escrow"
+  ],
+  "regression_commands": [
+    "node tests/security-payment-boundaries.cjs",
+    "node tests/bank-identity-lock.cjs",
+    "node tests/bank-editor-state.cjs",
+    "node tests/owner-auction-policy.cjs",
+    "node tests/payment-ui.cjs",
+    "node tests/payment-integration.cjs",
+    "node tests/auction-integrity.cjs"
+  ],
+  "non_live_enforcement_note": "Rules are meaningful protections for the current demo. A malicious browser still controls its local state; live trading remains blocked by missing financial/backend capabilities, not made secure by these client checks."
+}

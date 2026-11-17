@@ -1,0 +1,46 @@
+{
+  "site": "https://drive-lot-auction.familiarchord.chatgpt.site",
+  "version_number": 65,
+  "version_id": "appgprj_6af4e219966481919933881aab8d0232~appgver_f86d2f5c4de0819188db0c1e554f255a",
+  "source_commit": "cdcec4f63d2a4f0c6d90a5ddf5d4c457efbdcd52",
+  "deployment_id": "appgdep_6af8d662f7308191ac91e08dc7f21e13",
+  "status": "succeeded",
+  "published_utc": "2026-11-14T21:45:21.687356+00:00",
+  "access": {
+    "mode": "custom",
+    "revision": 2,
+    "unchanged": true,
+    "automations": 0
+  },
+  "validation": {
+    "targeted_files": 36,
+    "passed": 36,
+    "failed": 0,
+    "isolated_provider_test_files": 2,
+    "source_unchanged": true,
+    "source_sha256": "6427a7d080c102b22100fb7aa3e62e78ad8dbf1e60ca375bd499b7e8d11dcfb5",
+    "pre_push": "Successful required 100 isolated models and security tests; hook not bypassed.",
+    "audit": "docs/featured-native-carousel-audit-2026-11-14.json",
+    "http_requests": 10,
+    "http_proof": "docs/publication-65-http-verification-2026-11-14.json",
+    "native_checks": 1077,
+    "native_failed": 0
+  },
+  "archive": {
+    "source_path": "releases/fas-torgi-v65-source.zip",
+    "files": 696,
+    "bytes": 14125288,
+    "sha256": "2601a151b840bb9f42840616e5cea8cb39dd6bc6c55ace1ad56ffc59f4ec875c",
+    "verification_checks": 4183,
+    "verification_failed": 0,
+    "apk_path": "releases/fas-torgi-v65-android-demo-debug.apk",
+    "apk_sha256": "b855afdcb83e4796e1c13f66a7d9833baacb582d4ffa1307c617da26a65e77c9",
+    "scope": "Local artifacts; not independent offsite backups."
+  },
+  "limits": [
+    "No physical iPhone/Android gesture or OS-RAM measurement; zero connected devices/emulators.",
+    "Telegram/MAX adapters are disabled preparation, not registered bots or working delivery.",
+    "Messages UI/drafts, listing quotas, bank following and agreement-r2 are separate next-stage worktrees.",
+    "No protected shared auction accounts, verified bank roles, bank escrow/payments or independent failover."
+  ]
+}

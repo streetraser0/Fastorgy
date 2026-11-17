@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="256" viewBox="0 0 768 256" role="img" aria-label="ФАС торги — Федеральная аукционная сеть">
+  <g fill="#0868E8">
+    <path d="M108 59Q113 52 118 59L145 100Q150 108 140 108H86Q76 108 81 100Z"/>
+    <path d="M79 122H147Q152 122 155 127L175 155Q180 163 170 163H56Q46 163 51 155L71 127Q74 122 79 122Z"/>
+    <path d="M43 177H183Q187 177 190 181L205 203Q210 211 200 211H26Q16 211 21 203L36 181Q39 177 43 177Z"/>
+  </g>
+  <text x="223" y="148" fill="#0868E8" font-family="Arial, sans-serif" font-size="93" font-weight="700" font-style="italic" letter-spacing="-3">ФАС торги</text>
+  <text x="229" y="193" fill="#0868E8" font-family="Arial, sans-serif" font-size="27" font-weight="400" letter-spacing=".2">Федеральная аукционная сеть</text>
+</svg>

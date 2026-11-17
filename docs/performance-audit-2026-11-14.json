@@ -1,0 +1,4344 @@
+{
+  "generated_utc": "2026-11-14T13:11:39.286165+00:00",
+  "baseline_release": 59,
+  "baseline_commit": "3f07a8b6a9752052ca0b60257940ff47db22b886",
+  "changes": [
+    "42 content-hashed WebP previews at480/960; all21 originalJPEGfiles remain byte-identical and fullscreen usesoriginals.",
+    "Known demo crop identities/labels/positions remain; network requests use shared canonical image paths instead ofview= duplicates.",
+    "Only first visible covers/active gallery image receive high priority; feed and gallery promote selected frames without replacing forms or scroll state.",
+    "One tapped original warms during the unchanged320ms double-tap window; cancelled/stale interactions release pending work.",
+    "Inactive featured-context reference churn no longer repeats a full inventory scan; inventory/search/bids/location/recommendation/time guards still invalidate.",
+    "Manual filter/category-family preparation occurs once per render, retaining every live/money guard and natural-query matching.",
+    "Existing logo resized2172x724→768x256,362679→53760bytes; all renderedlogoURLs share the same versioned request.",
+    "Static binary decoding uses byte-identical for-loop; strong/weak/list/wildcard ETags return correct304/HEAD without weakening private cache/access."
+  ],
+  "validation": {
+    "files": 174,
+    "passed": 174,
+    "failed": 0,
+    "source_sha256": "05fc4e4f131460544caaa084e1ce62f17abb4c21fcf37941e29aa2fbe4c6bc83",
+    "source_sha256_end": "05fc4e4f131460544caaa084e1ce62f17abb4c21fcf37941e29aa2fbe4c6bc83",
+    "unchanged_during_run": true,
+    "seconds": 254.55,
+    "checks": [
+      {
+        "test": "advanced-filter-pass.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.32
+      },
+      {
+        "test": "appearance-lazy-work.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.39
+      },
+      {
+        "test": "appearance-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.86
+      },
+      {
+        "test": "asset-reports.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.16
+      },
+      {
+        "test": "auction-clock-boundaries.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 16.41
+      },
+      {
+        "test": "auction-direction-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.3
+      },
+      {
+        "test": "auction-ending-window-boundaries.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 15.3
+      },
+      {
+        "test": "auction-history-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 5.82
+      },
+      {
+        "test": "auction-history.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 23.81
+      },
+      {
+        "test": "auction-integrity.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 11.8
+      },
+      {
+        "test": "auction-modes.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.11
+      },
+      {
+        "test": "auction-notifications-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 5.05
+      },
+      {
+        "test": "auction-notifications.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 5.45
+      },
+      {
+        "test": "auction-renewal-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 14.82
+      },
+      {
+        "test": "auction-renewal.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.12
+      },
+      {
+        "test": "auth-dialog.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.8
+      },
+      {
+        "test": "back-swipe.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.28
+      },
+      {
+        "test": "bank-editor-state.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.76
+      },
+      {
+        "test": "brand-origin-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.99
+      },
+      {
+        "test": "buyer-native-descending.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.96
+      },
+      {
+        "test": "buyer-share-return.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.74
+      },
+      {
+        "test": "buyer-tools.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.23
+      },
+      {
+        "test": "car-catalog-data.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.1
+      },
+      {
+        "test": "car-catalog-ui.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.28
+      },
+      {
+        "test": "catalog-page-scroll.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.08
+      },
+      {
+        "test": "catalog-performance.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 52.85
+      },
+      {
+        "test": "catalog-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.75
+      },
+      {
+        "test": "category-browse-roundtrip.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 92.04
+      },
+      {
+        "test": "category-csv.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 8.4
+      },
+      {
+        "test": "category-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 67.28
+      },
+      {
+        "test": "category-keyword-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.66
+      },
+      {
+        "test": "category-multi-select.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 23.98
+      },
+      {
+        "test": "category-native-back.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.06
+      },
+      {
+        "test": "category-picker.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.23
+      },
+      {
+        "test": "category-tree.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.32
+      },
+      {
+        "test": "change-trigger-diagnostics.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.61
+      },
+      {
+        "test": "chinese-model-aliases.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.48
+      },
+      {
+        "test": "commercial-smart-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 11.37
+      },
+      {
+        "test": "countdown.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.07
+      },
+      {
+        "test": "cross-tab-auctions.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 19.96
+      },
+      {
+        "test": "demo-catalog-coverage.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 6.07
+      },
+      {
+        "test": "demo-catalog-preservation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.34
+      },
+      {
+        "test": "demo-description.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.82
+      },
+      {
+        "test": "demo-photo-consistency.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.58
+      },
+      {
+        "test": "demo-seeding-performance.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.1
+      },
+      {
+        "test": "dialog-four-way.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.11
+      },
+      {
+        "test": "dialog-lifecycle.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.2
+      },
+      {
+        "test": "dialog-media.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.11
+      },
+      {
+        "test": "dialog-stack.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.05
+      },
+      {
+        "test": "distance-reuse.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.07
+      },
+      {
+        "test": "distance-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.8
+      },
+      {
+        "test": "doubletap-recommendations.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.47
+      },
+      {
+        "test": "draft-delete.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.4
+      },
+      {
+        "test": "ending-soon.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.43
+      },
+      {
+        "test": "featured-cheap-intent.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.38
+      },
+      {
+        "test": "featured-combinations.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 6.85
+      },
+      {
+        "test": "featured-ending-interest.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.12
+      },
+      {
+        "test": "featured-feed-return.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.78
+      },
+      {
+        "test": "featured-for-you-city.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.32
+      },
+      {
+        "test": "featured-horizontal.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.08
+      },
+      {
+        "test": "featured-live-fallback.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.17
+      },
+      {
+        "test": "featured-lots.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.4
+      },
+      {
+        "test": "featured-performance-cache.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.6
+      },
+      {
+        "test": "featured-recommendations.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.26
+      },
+      {
+        "test": "featured-settings.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.61
+      },
+      {
+        "test": "feed-close-gesture.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.17
+      },
+      {
+        "test": "feed-motion.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.09
+      },
+      {
+        "test": "feed-share.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.93
+      },
+      {
+        "test": "feed-tutorial.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.05
+      },
+      {
+        "test": "footer-navigation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.04
+      },
+      {
+        "test": "gallery-performance.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.64
+      },
+      {
+        "test": "home-navigation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.44
+      },
+      {
+        "test": "identifier-input-boundaries.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.08
+      },
+      {
+        "test": "kamaz-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 30.12
+      },
+      {
+        "test": "keyword-index-lifecycle.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.6
+      },
+      {
+        "test": "keyword-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 51.01
+      },
+      {
+        "test": "keyword-search-prepare.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.41
+      },
+      {
+        "test": "keyword-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.0
+      },
+      {
+        "test": "keyword-work.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.53
+      },
+      {
+        "test": "layout-safety.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.73
+      },
+      {
+        "test": "live-auction-price.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.62
+      },
+      {
+        "test": "local-feed.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.79
+      },
+      {
+        "test": "lot-close-return-routes.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.14
+      },
+      {
+        "test": "lot-discovery-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.68
+      },
+      {
+        "test": "lot-discovery.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.25
+      },
+      {
+        "test": "lot-gestures.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.12
+      },
+      {
+        "test": "lot-map-entry.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.7
+      },
+      {
+        "test": "lot-photo-viewer.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.19
+      },
+      {
+        "test": "lot-presentation-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.18
+      },
+      {
+        "test": "lot-presentation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.11
+      },
+      {
+        "test": "lot-touch-semantics.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.66
+      },
+      {
+        "test": "map-feed-resume.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.21
+      },
+      {
+        "test": "map-lot-return.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 10.81
+      },
+      {
+        "test": "map-projection-work.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.42
+      },
+      {
+        "test": "market-normalization.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.94
+      },
+      {
+        "test": "metrics-backend.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.13
+      },
+      {
+        "test": "mitsubishi-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.58
+      },
+      {
+        "test": "motion.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.09
+      },
+      {
+        "test": "native-back-routing.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.08
+      },
+      {
+        "test": "native-share-boundary.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.05
+      },
+      {
+        "test": "natural-typed-search.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.15
+      },
+      {
+        "test": "notification-click.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.12
+      },
+      {
+        "test": "own-lot-transactions.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.92
+      },
+      {
+        "test": "partner-branding-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.72
+      },
+      {
+        "test": "partner-branding.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.09
+      },
+      {
+        "test": "payment-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.45
+      },
+      {
+        "test": "payment-presentation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.49
+      },
+      {
+        "test": "payment-ui.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.74
+      },
+      {
+        "test": "photo-delivery.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.06
+      },
+      {
+        "test": "photo-viewer-warm.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.19
+      },
+      {
+        "test": "property-map-multi.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.57
+      },
+      {
+        "test": "property-map.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.89
+      },
+      {
+        "test": "pwa-install.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.09
+      },
+      {
+        "test": "quickbar-labels.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.14
+      },
+      {
+        "test": "quickbar.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.14
+      },
+      {
+        "test": "recommendation-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 6.71
+      },
+      {
+        "test": "recommendations.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.53
+      },
+      {
+        "test": "region-geolocation-recovery.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.07
+      },
+      {
+        "test": "render-work.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 5.87
+      },
+      {
+        "test": "responsive-media.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 9.45
+      },
+      {
+        "test": "right-swipe-close.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.3
+      },
+      {
+        "test": "sales-analytics.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.97
+      },
+      {
+        "test": "sales-local-privacy.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.31
+      },
+      {
+        "test": "saved-search-subscription-form.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 10.31
+      },
+      {
+        "test": "search-auto-scope.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 27.87
+      },
+      {
+        "test": "search-city-select.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.44
+      },
+      {
+        "test": "search-context-return.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.71
+      },
+      {
+        "test": "search-empty-availability.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.04
+      },
+      {
+        "test": "search-filter-conflict.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 22.09
+      },
+      {
+        "test": "search-fresh-start.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 22.5
+      },
+      {
+        "test": "search-identifiers.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.29
+      },
+      {
+        "test": "search-intent.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.51
+      },
+      {
+        "test": "search-nearest.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.9
+      },
+      {
+        "test": "search-numeric-validation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.33
+      },
+      {
+        "test": "search-persona-ranges.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.44
+      },
+      {
+        "test": "search-preferences.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.09
+      },
+      {
+        "test": "search-preparation-ui.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.1
+      },
+      {
+        "test": "search-results-layout.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.48
+      },
+      {
+        "test": "search-sort-feedback.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.92
+      },
+      {
+        "test": "search-typos.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.13
+      },
+      {
+        "test": "security-boundaries.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.2
+      },
+      {
+        "test": "security-csp.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.01
+      },
+      {
+        "test": "security-dom.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.31
+      },
+      {
+        "test": "security-inputs.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 7.53
+      },
+      {
+        "test": "security-metrics-work.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.73
+      },
+      {
+        "test": "security-server-resources.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.01
+      },
+      {
+        "test": "seller-async-navigation.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 20.2
+      },
+      {
+        "test": "seller-auction-modes.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 18.19
+      },
+      {
+        "test": "seller-back-gesture.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 16.62
+      },
+      {
+        "test": "seller-contact-privacy.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 5.82
+      },
+      {
+        "test": "seller-current-state.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 6.55
+      },
+      {
+        "test": "seller-dashboard.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.96
+      },
+      {
+        "test": "seller-exit-guards.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 15.6
+      },
+      {
+        "test": "seller-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 44.54
+      },
+      {
+        "test": "seller-location.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 6.32
+      },
+      {
+        "test": "seller-media.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.2
+      },
+      {
+        "test": "seller-options.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 13.69
+      },
+      {
+        "test": "seller-profile-cancel.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.3
+      },
+      {
+        "test": "seller-ratings.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.1
+      },
+      {
+        "test": "seller-rules.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.19
+      },
+      {
+        "test": "seller-workspace-recovery.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 17.63
+      },
+      {
+        "test": "service-worker.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.12
+      },
+      {
+        "test": "smart-fill.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.28
+      },
+      {
+        "test": "static-delivery.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.51
+      },
+      {
+        "test": "storage-favorites.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 25.01
+      },
+      {
+        "test": "subscription-durability.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.34
+      },
+      {
+        "test": "support.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.05
+      },
+      {
+        "test": "up-swipe-close.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 0.11
+      },
+      {
+        "test": "vehicle-search-roundtrip.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 4.26
+      },
+      {
+        "test": "virtual-feed.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.73
+      },
+      {
+        "test": "voice-assistant.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.31
+      },
+      {
+        "test": "voice-intelligence-integration.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 2.4
+      },
+      {
+        "test": "voice-natural-scenarios.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 3.86
+      },
+      {
+        "test": "voice-search-criteria.cjs",
+        "passed": true,
+        "exit_code": 0,
+        "seconds": 1.64
+      }
+    ]
+  },
+  "package": {
+    "public_assets": 240,
+    "worker_bytes": 14221737,
+    "gzip_bytes": 9141896,
+    "gzip_limit_bytes": 10485760,
+    "original_jpegs": 21,
+    "responsive_previews": 42,
+    "native_checks": 993,
+    "native_failures": 0,
+    "apk_signature_verified": true,
+    "artifacts": {
+      "android_build_apk": {
+        "path": "/workspace/sites/drive-lot/mobile/android/app/build/outputs/apk/debug/app-debug.apk",
+        "bytes": 15126593,
+        "sha256": "b7f24e81a83a3337467fad9e5c683ff10ac483a170e3194c18e606a41f207fc5"
+      },
+      "android_release_apk": {
+        "path": "/workspace/sites/drive-lot/releases/fas-torgi-android-demo-debug.apk",
+        "bytes": 15126593,
+        "sha256": "b7f24e81a83a3337467fad9e5c683ff10ac483a170e3194c18e606a41f207fc5"
+      }
+    }
+  },
+  "before_live_http": {
+    "method": "Read-only HTTP from workspace, not Safari/mobile or user-perceived speed",
+    "results": [
+      {
+        "path": "/",
+        "status": 200,
+        "ttfb_ms": 928.3,
+        "total_ms": 929.5,
+        "wire_bytes": 72051,
+        "encoding": "gzip",
+        "content_type": "text/html; charset=utf-8",
+        "cache_control": "no-store, private"
+      },
+      {
+        "path": "/featured-lots.js?v=20261114-combined-modes1",
+        "status": 200,
+        "ttfb_ms": 971.3,
+        "total_ms": 971.7,
+        "wire_bytes": 9096,
+        "encoding": "gzip",
+        "content_type": "text/javascript; charset=utf-8",
+        "cache_control": "private, max-age=3600"
+      },
+      {
+        "path": "/assets/photos/trucks-2.jpg",
+        "status": 200,
+        "ttfb_ms": 1001.6,
+        "total_ms": 1006.6,
+        "wire_bytes": 188705,
+        "encoding": null,
+        "content_type": "image/jpeg",
+        "cache_control": "private, max-age=3600"
+      },
+      {
+        "path": "/assets/brand/fas-torgi-logo.png?v=20261113-brand-cream1",
+        "status": 200,
+        "ttfb_ms": 104.1,
+        "total_ms": 111.3,
+        "wire_bytes": 362679,
+        "encoding": null,
+        "content_type": "image/png",
+        "cache_control": "private, max-age=3600"
+      }
+    ]
+  },
+  "evidence": {
+    "perf-assets-audit": {
+      "summary": {
+        "createdAt": "2026-11-14T12:29:34.736Z",
+        "trackedCount": 197,
+        "worker": {
+          "fileBytes": 11231055,
+          "gzipBytes": 6845946,
+          "embeddedCount": 197,
+          "embeddedPayloadBytes": 8386028
+        },
+        "startup": {
+          "html": {
+            "raw": 266549,
+            "gzip": 72684,
+            "brotli": 58467
+          },
+          "scriptCount": 52,
+          "styleCount": 35,
+          "scriptRawBytes": 985167,
+          "styleRawBytes": 258297,
+          "gzipBytes": 374660,
+          "brotliBytes": 313487,
+          "largest": [
+            {
+              "url": "keyword-search.js?v=20261114-natural-search1",
+              "file": "dist/keyword-search.js",
+              "raw": 264577,
+              "gzip": 66469,
+              "brotli": 54203
+            },
+            {
+              "url": "seller-ui.js?v=20261114-safety-gestures1",
+              "file": "dist/seller-ui.js",
+              "raw": 84317,
+              "gzip": 24855,
+              "brotli": 20812
+            },
+            {
+              "url": "catalog-data.js?v=20261113-deep-review1",
+              "file": "dist/catalog-data.js",
+              "raw": 45461,
+              "gzip": 12582,
+              "brotli": 10721
+            },
+            {
+              "url": "voice-assistant.js?v=20261114-persona-fixes1",
+              "file": "dist/voice-assistant.js",
+              "raw": 44321,
+              "gzip": 14367,
+              "brotli": 12028
+            },
+            {
+              "url": "property-map.js?v=20261114-persona-fixes1",
+              "file": "dist/property-map.js",
+              "raw": 39302,
+              "gzip": 11726,
+              "brotli": 10000
+            },
+            {
+              "url": "seller-rules.js?v=20261113-category-fields1",
+              "file": "dist/seller-rules.js",
+              "raw": 35637,
+              "gzip": 10537,
+              "brotli": 9032
+            },
+            {
+              "url": "seller.css?v=20261113-media-sources1",
+              "file": "dist/seller.css",
+              "raw": 33755,
+              "gzip": 6818,
+              "brotli": 5821
+            },
+            {
+              "url": "search-intent.js?v=20261114-persona-fixes1",
+              "file": "dist/search-intent.js",
+              "raw": 29950,
+              "gzip": 9408,
+              "brotli": 8240
+            }
+          ]
+        },
+        "imageDirs": {
+          "dist/assets/app": {
+            "count": 4,
+            "bytes": 388637
+          },
+          "dist/assets/brand": {
+            "count": 2,
+            "bytes": 429255
+          },
+          "dist/assets/categories": {
+            "count": 12,
+            "bytes": 455062
+          },
+          "dist/assets/photos": {
+            "count": 21,
+            "bytes": 4561356
+          },
+          "dist/vendor/leaflet/images": {
+            "count": 5,
+            "bytes": 6503
+          }
+        },
+        "encodingTotals": {
+          "original": 4561356,
+          "losslessWebP": 19340602,
+          "progressiveJPEG85": 3745910,
+          "fullWebP82": 2742214,
+          "fullAVIF50": 1358819,
+          "webp480": 650658,
+          "webp960": 1877856
+        },
+        "losslessPixelsAllEqual": true
+      },
+      "startup": [
+        {
+          "url": "dialog-lifecycle.js?v=20261114-feed-update1",
+          "file": "dist/dialog-lifecycle.js",
+          "raw": 2777,
+          "gzip": 1227,
+          "brotli": 1012
+        },
+        {
+          "url": "motion.js",
+          "file": "dist/motion.js",
+          "raw": 4820,
+          "gzip": 1818,
+          "brotli": 1542
+        },
+        {
+          "url": "ui-icons.js?v=20261113-media-sources1",
+          "file": "dist/ui-icons.js",
+          "raw": 4175,
+          "gzip": 1569,
+          "brotli": 1369
+        },
+        {
+          "url": "category-tree.js?v=20261114-feed-update1",
+          "file": "dist/category-tree.js",
+          "raw": 11309,
+          "gzip": 4179,
+          "brotli": 3505
+        },
+        {
+          "url": "auction-modes.js",
+          "file": "dist/auction-modes.js",
+          "raw": 9724,
+          "gzip": 3325,
+          "brotli": 2845
+        },
+        {
+          "url": "seller-rules.js?v=20261113-category-fields1",
+          "file": "dist/seller-rules.js",
+          "raw": 35637,
+          "gzip": 10537,
+          "brotli": 9032
+        },
+        {
+          "url": "seller-media.js?v=20261114-safety-gestures1",
+          "file": "dist/seller-media.js",
+          "raw": 24994,
+          "gzip": 7686,
+          "brotli": 6596
+        },
+        {
+          "url": "geo-data.js",
+          "file": "dist/geo-data.js",
+          "raw": 2946,
+          "gzip": 1330,
+          "brotli": 1008
+        },
+        {
+          "url": "demo-profiles.js?v=20261114-natural-search1",
+          "file": "dist/demo-profiles.js",
+          "raw": 8813,
+          "gzip": 3354,
+          "brotli": 2804
+        },
+        {
+          "url": "catalog-data.js?v=20261113-deep-review1",
+          "file": "dist/catalog-data.js",
+          "raw": 45461,
+          "gzip": 12582,
+          "brotli": 10721
+        },
+        {
+          "url": "search-data.js?v=20261113-catalog-map2",
+          "file": "dist/search-data.js",
+          "raw": 1286,
+          "gzip": 782,
+          "brotli": 616
+        },
+        {
+          "url": "search-typos.js?v=20261113-smart-search1",
+          "file": "dist/search-typos.js",
+          "raw": 5872,
+          "gzip": 2290,
+          "brotli": 2010
+        },
+        {
+          "url": "search-identifiers.js?v=20261113-workflow-audit1",
+          "file": "dist/search-identifiers.js",
+          "raw": 7646,
+          "gzip": 2903,
+          "brotli": 2490
+        },
+        {
+          "url": "search-intent.js?v=20261114-persona-fixes1",
+          "file": "dist/search-intent.js",
+          "raw": 29950,
+          "gzip": 9408,
+          "brotli": 8240
+        },
+        {
+          "url": "keyword-search.js?v=20261114-natural-search1",
+          "file": "dist/keyword-search.js",
+          "raw": 264577,
+          "gzip": 66469,
+          "brotli": 54203
+        },
+        {
+          "url": "lot-discovery.js",
+          "file": "dist/lot-discovery.js",
+          "raw": 5275,
+          "gzip": 2052,
+          "brotli": 1821
+        },
+        {
+          "url": "countdown.js",
+          "file": "dist/countdown.js",
+          "raw": 4335,
+          "gzip": 1746,
+          "brotli": 1475
+        },
+        {
+          "url": "auction-renewal.js",
+          "file": "dist/auction-renewal.js",
+          "raw": 6526,
+          "gzip": 2477,
+          "brotli": 2121
+        },
+        {
+          "url": "lot-location.js",
+          "file": "dist/lot-location.js",
+          "raw": 1759,
+          "gzip": 1011,
+          "brotli": 799
+        },
+        {
+          "url": "partner-branding.js?v=20261113-partner1",
+          "file": "dist/partner-branding.js",
+          "raw": 3590,
+          "gzip": 1690,
+          "brotli": 1322
+        },
+        {
+          "url": "recommendations.js?v=20261114-feed-update1",
+          "file": "dist/recommendations.js",
+          "raw": 17174,
+          "gzip": 5595,
+          "brotli": 4955
+        },
+        {
+          "url": "lot-presentation.js?v=20261113-selling-audit1",
+          "file": "dist/lot-presentation.js",
+          "raw": 5067,
+          "gzip": 2265,
+          "brotli": 1845
+        },
+        {
+          "url": "pwa.js?v=20261113-brand-cream1",
+          "file": "dist/pwa.js",
+          "raw": 4251,
+          "gzip": 1964,
+          "brotli": 1526
+        },
+        {
+          "url": "lot-gestures.js?v=20261113-deep-review1",
+          "file": "dist/lot-gestures.js",
+          "raw": 9639,
+          "gzip": 2995,
+          "brotli": 2518
+        },
+        {
+          "url": "category-ui.js?v=20261114-user-audit1",
+          "file": "dist/category-ui.js",
+          "raw": 13933,
+          "gzip": 4596,
+          "brotli": 3872
+        },
+        {
+          "url": "auction-history.js?v=20261114-feed-update1",
+          "file": "dist/auction-history.js",
+          "raw": 19187,
+          "gzip": 6149,
+          "brotli": 5300
+        },
+        {
+          "url": "app-ui.js?v=20261114-user-audit1",
+          "file": "dist/app-ui.js",
+          "raw": 12695,
+          "gzip": 4103,
+          "brotli": 3504
+        },
+        {
+          "url": "car-catalog.js?v=20261113-category-fields1",
+          "file": "dist/car-catalog.js",
+          "raw": 13175,
+          "gzip": 4300,
+          "brotli": 3654
+        },
+        {
+          "url": "smart-fill.js?v=20261113-category-fields1",
+          "file": "dist/smart-fill.js",
+          "raw": 8235,
+          "gzip": 2941,
+          "brotli": 2477
+        },
+        {
+          "url": "seller-ui.js?v=20261114-safety-gestures1",
+          "file": "dist/seller-ui.js",
+          "raw": 84317,
+          "gzip": 24855,
+          "brotli": 20812
+        },
+        {
+          "url": "lot-close-gesture.js?v=20261114-safety-gestures1",
+          "file": "dist/lot-close-gesture.js",
+          "raw": 9572,
+          "gzip": 3265,
+          "brotli": 2808
+        },
+        {
+          "url": "quickbar.js?v=20261114-cabinet-entry1",
+          "file": "dist/quickbar.js",
+          "raw": 10953,
+          "gzip": 3803,
+          "brotli": 3154
+        },
+        {
+          "url": "buyer-tools.js?v=20261114-persona-fixes1",
+          "file": "dist/buyer-tools.js",
+          "raw": 14348,
+          "gzip": 5147,
+          "brotli": 4311
+        },
+        {
+          "url": "feed-close-gesture.js?v=20261114-persona-fixes1",
+          "file": "dist/feed-close-gesture.js",
+          "raw": 6096,
+          "gzip": 2074,
+          "brotli": 1709
+        },
+        {
+          "url": "support.js?v=20261114-safety-gestures1",
+          "file": "dist/support.js",
+          "raw": 12791,
+          "gzip": 4897,
+          "brotli": 3926
+        },
+        {
+          "url": "seller-ratings.js?v=20261113-brand-cream1",
+          "file": "dist/seller-ratings.js",
+          "raw": 10555,
+          "gzip": 4133,
+          "brotli": 3391
+        },
+        {
+          "url": "back-swipe.js?v=20261114-safety-gestures1",
+          "file": "dist/back-swipe.js",
+          "raw": 11808,
+          "gzip": 3842,
+          "brotli": 3308
+        },
+        {
+          "url": "seller-back-gesture.js?v=20261114-safety-gestures1",
+          "file": "dist/seller-back-gesture.js",
+          "raw": 6150,
+          "gzip": 2212,
+          "brotli": 1925
+        },
+        {
+          "url": "voice-assistant.js?v=20261114-persona-fixes1",
+          "file": "dist/voice-assistant.js",
+          "raw": 44321,
+          "gzip": 14367,
+          "brotli": 12028
+        },
+        {
+          "url": "payment-ui.js?v=20261114-category-prices1",
+          "file": "dist/payment-ui.js",
+          "raw": 20487,
+          "gzip": 6341,
+          "brotli": 5310
+        },
+        {
+          "url": "asset-reports.js",
+          "file": "dist/asset-reports.js",
+          "raw": 6679,
+          "gzip": 2827,
+          "brotli": 2247
+        },
+        {
+          "url": "feed-tutorial.js",
+          "file": "dist/feed-tutorial.js",
+          "raw": 4961,
+          "gzip": 2060,
+          "brotli": 1644
+        },
+        {
+          "url": "sales-analytics.js?v=20261113-deep-review1",
+          "file": "dist/sales-analytics.js",
+          "raw": 28346,
+          "gzip": 8808,
+          "brotli": 7490
+        },
+        {
+          "url": "auction-notifications.js?v=20261114-category-prices1",
+          "file": "dist/auction-notifications.js",
+          "raw": 20731,
+          "gzip": 6875,
+          "brotli": 6001
+        },
+        {
+          "url": "catalog-scroll.js",
+          "file": "dist/catalog-scroll.js",
+          "raw": 4389,
+          "gzip": 1682,
+          "brotli": 1441
+        },
+        {
+          "url": "property-map.js?v=20261114-persona-fixes1",
+          "file": "dist/property-map.js",
+          "raw": 39302,
+          "gzip": 11726,
+          "brotli": 10000
+        },
+        {
+          "url": "featured-lots.js?v=20261114-combined-modes1",
+          "file": "dist/featured-lots.js",
+          "raw": 28954,
+          "gzip": 9227,
+          "brotli": 7972
+        },
+        {
+          "url": "lot-photo-viewer.js?v=20261114-feed-update1",
+          "file": "dist/lot-photo-viewer.js",
+          "raw": 12519,
+          "gzip": 3970,
+          "brotli": 3327
+        },
+        {
+          "url": "featured-settings.js?v=20261114-feed-update1",
+          "file": "dist/featured-settings.js",
+          "raw": 9092,
+          "gzip": 2950,
+          "brotli": 2340
+        },
+        {
+          "url": "feed-motion.js?v=20261113-feed-motion1",
+          "file": "dist/feed-motion.js",
+          "raw": 6862,
+          "gzip": 2394,
+          "brotli": 2118
+        },
+        {
+          "url": "home-navigation.js?v=20261114-feed-update1",
+          "file": "dist/home-navigation.js",
+          "raw": 6519,
+          "gzip": 2672,
+          "brotli": 2199
+        },
+        {
+          "url": "footer-navigation.js?v=20261114-footer1",
+          "file": "dist/footer-navigation.js",
+          "raw": 587,
+          "gzip": 354,
+          "brotli": 285
+        },
+        {
+          "url": "design.css",
+          "file": "dist/design.css",
+          "raw": 26021,
+          "gzip": 6626,
+          "brotli": 5775
+        },
+        {
+          "url": "brand-home.css?v=20261113-workflow-audit1",
+          "file": "dist/brand-home.css",
+          "raw": 16366,
+          "gzip": 4491,
+          "brotli": 3817
+        },
+        {
+          "url": "app.css",
+          "file": "dist/app.css",
+          "raw": 18460,
+          "gzip": 4953,
+          "brotli": 4209
+        },
+        {
+          "url": "seller.css?v=20261113-media-sources1",
+          "file": "dist/seller.css",
+          "raw": 33755,
+          "gzip": 6818,
+          "brotli": 5821
+        },
+        {
+          "url": "quickbar.css?v=20261113-my-bids1",
+          "file": "dist/quickbar.css",
+          "raw": 5887,
+          "gzip": 1817,
+          "brotli": 1492
+        },
+        {
+          "url": "categories.css?v=20261114-feed-update1",
+          "file": "dist/categories.css",
+          "raw": 18301,
+          "gzip": 4105,
+          "brotli": 3431
+        },
+        {
+          "url": "motion.css",
+          "file": "dist/motion.css",
+          "raw": 3283,
+          "gzip": 1121,
+          "brotli": 936
+        },
+        {
+          "url": "buyer-tools.css?v=20261114-persona-fixes1",
+          "file": "dist/buyer-tools.css",
+          "raw": 4347,
+          "gzip": 1414,
+          "brotli": 1136
+        },
+        {
+          "url": "scroll.css?v=20261113-catalog-map2",
+          "file": "dist/scroll.css",
+          "raw": 1587,
+          "gzip": 689,
+          "brotli": 542
+        },
+        {
+          "url": "feed-close.css?v=20261114-safety-gestures1",
+          "file": "dist/feed-close.css",
+          "raw": 2092,
+          "gzip": 837,
+          "brotli": 646
+        },
+        {
+          "url": "support.css",
+          "file": "dist/support.css",
+          "raw": 6159,
+          "gzip": 1902,
+          "brotli": 1526
+        },
+        {
+          "url": "seller-ratings.css",
+          "file": "dist/seller-ratings.css",
+          "raw": 4622,
+          "gzip": 1523,
+          "brotli": 1207
+        },
+        {
+          "url": "back-swipe.css?v=20261114-safety-gestures1",
+          "file": "dist/back-swipe.css",
+          "raw": 1710,
+          "gzip": 717,
+          "brotli": 568
+        },
+        {
+          "url": "car-catalog.css",
+          "file": "dist/car-catalog.css",
+          "raw": 1642,
+          "gzip": 618,
+          "brotli": 462
+        },
+        {
+          "url": "smart-fill.css",
+          "file": "dist/smart-fill.css",
+          "raw": 805,
+          "gzip": 403,
+          "brotli": 300
+        },
+        {
+          "url": "voice-assistant.css",
+          "file": "dist/voice-assistant.css",
+          "raw": 4872,
+          "gzip": 1623,
+          "brotli": 1276
+        },
+        {
+          "url": "payment-ui.css?v=20261113-checkout-photo1",
+          "file": "dist/payment-ui.css",
+          "raw": 14377,
+          "gzip": 3680,
+          "brotli": 3068
+        },
+        {
+          "url": "asset-reports.css",
+          "file": "dist/asset-reports.css",
+          "raw": 2359,
+          "gzip": 852,
+          "brotli": 651
+        },
+        {
+          "url": "sales-analytics.css",
+          "file": "dist/sales-analytics.css",
+          "raw": 6336,
+          "gzip": 1878,
+          "brotli": 1516
+        },
+        {
+          "url": "auction-notifications.css?v=20261113-my-bids1",
+          "file": "dist/auction-notifications.css",
+          "raw": 2919,
+          "gzip": 968,
+          "brotli": 783
+        },
+        {
+          "url": "feed-tutorial.css",
+          "file": "dist/feed-tutorial.css",
+          "raw": 3937,
+          "gzip": 1319,
+          "brotli": 1046
+        },
+        {
+          "url": "countdown.css",
+          "file": "dist/countdown.css",
+          "raw": 1497,
+          "gzip": 644,
+          "brotli": 494
+        },
+        {
+          "url": "auction-modes.css",
+          "file": "dist/auction-modes.css",
+          "raw": 1628,
+          "gzip": 658,
+          "brotli": 513
+        },
+        {
+          "url": "property-map.css?v=20261114-feed-update1",
+          "file": "dist/property-map.css",
+          "raw": 13281,
+          "gzip": 3170,
+          "brotli": 2686
+        },
+        {
+          "url": "visual-polish.css?v=20261113-checkout-photo1",
+          "file": "dist/visual-polish.css",
+          "raw": 6111,
+          "gzip": 1967,
+          "brotli": 1618
+        },
+        {
+          "url": "search-results.css?v=20261113-search-layout1",
+          "file": "dist/search-results.css",
+          "raw": 7438,
+          "gzip": 1747,
+          "brotli": 1410
+        },
+        {
+          "url": "featured-lots.css?v=20261114-mobile-two1",
+          "file": "dist/featured-lots.css",
+          "raw": 10076,
+          "gzip": 2641,
+          "brotli": 2168
+        },
+        {
+          "url": "partner-branding.css?v=20261113-partner1",
+          "file": "dist/partner-branding.css",
+          "raw": 2190,
+          "gzip": 838,
+          "brotli": 658
+        },
+        {
+          "url": "lot-presentation.css?v=20261114-persona-fixes1",
+          "file": "dist/lot-presentation.css",
+          "raw": 4171,
+          "gzip": 1325,
+          "brotli": 1070
+        },
+        {
+          "url": "auction-history.css?v=20261114-feed-update1",
+          "file": "dist/auction-history.css",
+          "raw": 2796,
+          "gzip": 906,
+          "brotli": 706
+        },
+        {
+          "url": "lot-photo-viewer.css?v=20261114-feed-update1",
+          "file": "dist/lot-photo-viewer.css",
+          "raw": 4006,
+          "gzip": 1347,
+          "brotli": 1105
+        },
+        {
+          "url": "featured-settings.css?v=20261114-feed-update1",
+          "file": "dist/featured-settings.css",
+          "raw": 4491,
+          "gzip": 1464,
+          "brotli": 1189
+        },
+        {
+          "url": "footer.css?v=20261114-footer1",
+          "file": "dist/footer.css",
+          "raw": 5206,
+          "gzip": 1640,
+          "brotli": 1309
+        },
+        {
+          "url": "layout-safety.css?v=20261114-feed-update1",
+          "file": "dist/layout-safety.css",
+          "raw": 12958,
+          "gzip": 3120,
+          "brotli": 2604
+        },
+        {
+          "url": "brand-contrast.css?v=20261114-feed-update1",
+          "file": "dist/brand-contrast.css",
+          "raw": 2611,
+          "gzip": 1015,
+          "brotli": 821
+        }
+      ],
+      "images": [
+        {
+          "file": "dist/assets/app/apple-touch-icon.png",
+          "bytes": 17435,
+          "width": 180,
+          "height": 180,
+          "format": "png",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "d099ce9bdf3210cda238ed39bf7603c0fbc18c0e5d8be8896f4446ebc2af8645"
+        },
+        {
+          "file": "dist/assets/app/icon-192.png",
+          "bytes": 19744,
+          "width": 192,
+          "height": 192,
+          "format": "png",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "37f7ec3b1f7ae69fe4b05d9fefb89c8d3a9a3ad8ffa8e4a4653a41e97c61e695"
+        },
+        {
+          "file": "dist/assets/app/icon-512.png",
+          "bytes": 175729,
+          "width": 512,
+          "height": 512,
+          "format": "png",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "8f8163758835c8654a838ba667df54ee43320950b44a57009006bf5800f48f84"
+        },
+        {
+          "file": "dist/assets/app/maskable-512.png",
+          "bytes": 175729,
+          "width": 512,
+          "height": 512,
+          "format": "png",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "8f8163758835c8654a838ba667df54ee43320950b44a57009006bf5800f48f84"
+        },
+        {
+          "file": "dist/assets/brand/company-logo-original.jpg",
+          "bytes": 66576,
+          "width": 1206,
+          "height": 795,
+          "format": "jpeg",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": 1,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "e3ceaa8ee9e5149c33a86fb943b7c5f62601cc28bb337170c33c29929912c352"
+        },
+        {
+          "file": "dist/assets/brand/fas-torgi-logo.png",
+          "bytes": 362679,
+          "width": 2172,
+          "height": 724,
+          "format": "png",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "a1ce0024173f1bb617920b9cd4bb7f4abedbcc9c8bd33aa9682df462b10cdb61"
+        },
+        {
+          "file": "dist/assets/categories/animals.webp",
+          "bytes": 37390,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "28fdaf19cbfc432ca46663551133a98f8ed7d5bd7ecc1e1b55e2405df7f9d110"
+        },
+        {
+          "file": "dist/assets/categories/business.webp",
+          "bytes": 38956,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "4c6aa6d47077bd92c08a7d1005dd0fcf3b568e1e50eaa3778e2ef15183e5a34b"
+        },
+        {
+          "file": "dist/assets/categories/electronics.webp",
+          "bytes": 33874,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "45a3902dea153c5e091127408eeeb134c4f731dacc4c88594ccb581d7103d33a"
+        },
+        {
+          "file": "dist/assets/categories/hobby.webp",
+          "bytes": 56804,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "e58718e4d6c8e66c987b09c790745bc50a76caa1614bcc623984c75934c41a6b"
+        },
+        {
+          "file": "dist/assets/categories/home_garden.webp",
+          "bytes": 44670,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "a70818094d631988d4a3f4c785510c388a2b791c3571dc2f12c352386c7620ce"
+        },
+        {
+          "file": "dist/assets/categories/parts.webp",
+          "bytes": 34284,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "1ea92f4e97e9510b2c735a7e3f49edfa2a03a492f72ef60f41a840e8bee926ca"
+        },
+        {
+          "file": "dist/assets/categories/personal.webp",
+          "bytes": 35688,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "060a1a2edeb4a9e0aac95c9c6a51e45a59f2bb5b1e7a3e852b8d9aadcb929005"
+        },
+        {
+          "file": "dist/assets/categories/real_estate.webp",
+          "bytes": 45944,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "1d05b776a1a01b657a91e6ef350d233354bbcae16da58f014da949a54b8df966"
+        },
+        {
+          "file": "dist/assets/categories/services.webp",
+          "bytes": 32374,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "730376b619dcd898f82c7a42f2ac4dd3ad604e5c24e38c092c7baa5080a25851"
+        },
+        {
+          "file": "dist/assets/categories/transport.webp",
+          "bytes": 31638,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "d2b0b8ac45ffde544f745f0687e31ed58f53ef952e9f44f7bba835bd5e114402"
+        },
+        {
+          "file": "dist/assets/categories/vessels.webp",
+          "bytes": 35428,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "619aabe4533cb4fdc1c2b6a1406d27c892f6388ab2db1c9715d7b082a1b0f1b8"
+        },
+        {
+          "file": "dist/assets/categories/work.webp",
+          "bytes": 28012,
+          "width": 320,
+          "height": 320,
+          "format": "webp",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "471483e760926e05fe8f28bdced2ea4e59a9a2eacac63b985b5c196ce8b3da4b"
+        },
+        {
+          "file": "dist/assets/photos/cars-1.jpg",
+          "bytes": 171636,
+          "width": 1200,
+          "height": 800,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "f0aa27dad9b6d6b7a78f7e4e56bcb5a444307f97a283a17c8e1cd821618bffa4"
+        },
+        {
+          "file": "dist/assets/photos/cars-2.jpg",
+          "bytes": 127284,
+          "width": 1200,
+          "height": 800,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "b1d991ab183addbaf9cdcbbd672e73a03d5e49febcba1cba405f2e907baf0099"
+        },
+        {
+          "file": "dist/assets/photos/cars-3.jpg",
+          "bytes": 137780,
+          "width": 1200,
+          "height": 800,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "6399b3ecc848a56eb1518b0b8141406967c029e7094b53990b0836545dc0c7dc"
+        },
+        {
+          "file": "dist/assets/photos/commercial-1.jpg",
+          "bytes": 215607,
+          "width": 1200,
+          "height": 797,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "f3a40280644ac2c63df7563babcffb92a2336a91853232dec42b911541dea505"
+        },
+        {
+          "file": "dist/assets/photos/commercial-2.jpg",
+          "bytes": 219862,
+          "width": 1200,
+          "height": 798,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "c644675d11df665de048a57eae7d79974d29b447cbb743bc045473a4d79922dc"
+        },
+        {
+          "file": "dist/assets/photos/equipment-1.jpg",
+          "bytes": 129184,
+          "width": 1200,
+          "height": 800,
+          "format": "jpeg",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": 1,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "8f24d7652e6dab30ae3d29d724e5d0f3d8983b14abf72ab39c33dc7606499688"
+        },
+        {
+          "file": "dist/assets/photos/equipment-type-compressor.jpg",
+          "bytes": 236306,
+          "width": 1200,
+          "height": 1800,
+          "format": "jpeg",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": 1,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "4388f74a9f91305c32d71ed67f7eb8c7d1bfedfbcc2734e5a5d35b85909f2d7c"
+        },
+        {
+          "file": "dist/assets/photos/equipment-type-forklift.jpg",
+          "bytes": 392534,
+          "width": 1200,
+          "height": 1800,
+          "format": "jpeg",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": 1,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "479b3794db762792b125ad64e16c5487a05cfcbd707a2be061111b083f5bc5b4"
+        },
+        {
+          "file": "dist/assets/photos/equipment-type-generator.jpg",
+          "bytes": 356604,
+          "width": 1200,
+          "height": 1800,
+          "format": "jpeg",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": 1,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "62bd1d53e4ceea131b725b17a52857ded567e042bf0e4bdd9d8f22a56f5c34c7"
+        },
+        {
+          "file": "dist/assets/photos/equipment-type-lathe.jpg",
+          "bytes": 323204,
+          "width": 1200,
+          "height": 1800,
+          "format": "jpeg",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": 1,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "f4f29d0321b35d927c2adb44b857f88c2e5bd3471a97231c762e9441a3e4e24d"
+        },
+        {
+          "file": "dist/assets/photos/equipment-type-server.jpg",
+          "bytes": 120019,
+          "width": 1200,
+          "height": 798,
+          "format": "jpeg",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": 1,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "71e3ccf7729bd8ff16cbf0b1acfb8168c9db8757e49585bad08bbf3436a5ffbe"
+        },
+        {
+          "file": "dist/assets/photos/machinery-1.jpg",
+          "bytes": 235989,
+          "width": 1200,
+          "height": 800,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "2be44440412b8d99f5b933ad779c8d2b63d48421e5e29a4cc08bc3efa6d62672"
+        },
+        {
+          "file": "dist/assets/photos/other-1.jpg",
+          "bytes": 124578,
+          "width": 1200,
+          "height": 801,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "bd8558cc6f76bce82270675f43acc2a1e01a5cdd8ca957c9f4f33ebffa071e9c"
+        },
+        {
+          "file": "dist/assets/photos/other-2.jpg",
+          "bytes": 85997,
+          "width": 1200,
+          "height": 800,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "7353fc35e50310d205f0fab9508dba6b1d9a2abb08458a96833be92b3f57fa32"
+        },
+        {
+          "file": "dist/assets/photos/property-1.jpg",
+          "bytes": 172325,
+          "width": 1200,
+          "height": 796,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "e732fd84014fb037cf83b5c8b6c08094edc4b035b6794403bd3383fb18b90601"
+        },
+        {
+          "file": "dist/assets/photos/property-2.jpg",
+          "bytes": 185760,
+          "width": 1200,
+          "height": 816,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "78f3ce28727a3147a603bd88cfc243c8dfa11f1ba1adf3d1337bcf56298b3d69"
+        },
+        {
+          "file": "dist/assets/photos/trucks-1.jpg",
+          "bytes": 163865,
+          "width": 1200,
+          "height": 795,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "6facb1beccee9cead85057f85f2159939108d684b3e46e74db2d50158c9ce20a"
+        },
+        {
+          "file": "dist/assets/photos/trucks-2.jpg",
+          "bytes": 188705,
+          "width": 1200,
+          "height": 795,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "63f1b717b7f88a6775d807baabf37294f9207d5b9940d5fed5c44b574fc86972"
+        },
+        {
+          "file": "dist/assets/photos/trucks-type-sitrak-c7h.jpg",
+          "bytes": 508571,
+          "width": 1845,
+          "height": 1384,
+          "format": "jpeg",
+          "progressive": false,
+          "hasAlpha": false,
+          "orientation": 1,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "18ca6dedb9c65130a8470a51ae4fea5ec9de6881884b67d67d432557bfe6fda1"
+        },
+        {
+          "file": "dist/assets/photos/vessels-1.jpg",
+          "bytes": 199360,
+          "width": 1200,
+          "height": 800,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "d7dc8e59fab8b05b46d722f0449e56141e53e3dd807b50c9688680e879d894c9"
+        },
+        {
+          "file": "dist/assets/photos/vessels-2.jpg",
+          "bytes": 266186,
+          "width": 1200,
+          "height": 800,
+          "format": "jpeg",
+          "progressive": true,
+          "hasAlpha": false,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": true,
+          "sha256": "58f509b9302e1fd3ef107a2342ba4752594332a72c97d6ff492dc284bd3caf2f"
+        },
+        {
+          "file": "dist/vendor/leaflet/images/layers-2x.png",
+          "bytes": 1259,
+          "width": 52,
+          "height": 52,
+          "format": "png",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "b-w",
+          "hasProfile": false,
+          "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf"
+        },
+        {
+          "file": "dist/vendor/leaflet/images/layers.png",
+          "bytes": 696,
+          "width": 26,
+          "height": 26,
+          "format": "png",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "b-w",
+          "hasProfile": false,
+          "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6"
+        },
+        {
+          "file": "dist/vendor/leaflet/images/marker-icon-2x.png",
+          "bytes": 2464,
+          "width": 50,
+          "height": 82,
+          "format": "png",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528"
+        },
+        {
+          "file": "dist/vendor/leaflet/images/marker-icon.png",
+          "bytes": 1466,
+          "width": 25,
+          "height": 41,
+          "format": "png",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "srgb",
+          "hasProfile": false,
+          "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437"
+        },
+        {
+          "file": "dist/vendor/leaflet/images/marker-shadow.png",
+          "bytes": 618,
+          "width": 41,
+          "height": 41,
+          "format": "png",
+          "progressive": false,
+          "hasAlpha": true,
+          "orientation": null,
+          "space": "b-w",
+          "hasProfile": false,
+          "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da"
+        }
+      ],
+      "encodings": [
+        {
+          "file": "dist/assets/photos/cars-1.jpg",
+          "original": 171636,
+          "width": 1200,
+          "height": 800,
+          "losslessWebP": {
+            "bytes": 609498,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 784
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 125321,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 124
+          },
+          "fullWebP82": {
+            "bytes": 91684,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 138
+          },
+          "fullAVIF50": {
+            "bytes": 44224,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 2023
+          },
+          "webp480": {
+            "bytes": 23132,
+            "width": 480,
+            "height": 320,
+            "encodeMs": 57
+          },
+          "webp960": {
+            "bytes": 63878,
+            "width": 960,
+            "height": 640,
+            "encodeMs": 99
+          }
+        },
+        {
+          "file": "dist/assets/photos/cars-2.jpg",
+          "original": 127284,
+          "width": 1200,
+          "height": 800,
+          "losslessWebP": {
+            "bytes": 490378,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 755
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 81488,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 124
+          },
+          "fullWebP82": {
+            "bytes": 48322,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 117
+          },
+          "fullAVIF50": {
+            "bytes": 24540,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 1298
+          },
+          "webp480": {
+            "bytes": 13356,
+            "width": 480,
+            "height": 320,
+            "encodeMs": 80
+          },
+          "webp960": {
+            "bytes": 33768,
+            "width": 960,
+            "height": 640,
+            "encodeMs": 93
+          }
+        },
+        {
+          "file": "dist/assets/photos/cars-3.jpg",
+          "original": 137780,
+          "width": 1200,
+          "height": 800,
+          "losslessWebP": {
+            "bytes": 538942,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 710
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 104822,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 111
+          },
+          "fullWebP82": {
+            "bytes": 72702,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 119
+          },
+          "fullAVIF50": {
+            "bytes": 35280,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 1556
+          },
+          "webp480": {
+            "bytes": 18580,
+            "width": 480,
+            "height": 320,
+            "encodeMs": 78
+          },
+          "webp960": {
+            "bytes": 51144,
+            "width": 960,
+            "height": 640,
+            "encodeMs": 94
+          }
+        },
+        {
+          "file": "dist/assets/photos/commercial-1.jpg",
+          "original": 215607,
+          "width": 1200,
+          "height": 797,
+          "losslessWebP": {
+            "bytes": 891720,
+            "width": 1200,
+            "height": 797,
+            "encodeMs": 830
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 168690,
+            "width": 1200,
+            "height": 797,
+            "encodeMs": 170
+          },
+          "fullWebP82": {
+            "bytes": 123524,
+            "width": 1200,
+            "height": 797,
+            "encodeMs": 120
+          },
+          "fullAVIF50": {
+            "bytes": 63983,
+            "width": 1200,
+            "height": 797,
+            "encodeMs": 2379
+          },
+          "webp480": {
+            "bytes": 35398,
+            "width": 480,
+            "height": 319,
+            "encodeMs": 58
+          },
+          "webp960": {
+            "bytes": 91592,
+            "width": 960,
+            "height": 638,
+            "encodeMs": 142
+          }
+        },
+        {
+          "file": "dist/assets/photos/commercial-2.jpg",
+          "original": 219862,
+          "width": 1200,
+          "height": 798,
+          "losslessWebP": {
+            "bytes": 890572,
+            "width": 1200,
+            "height": 798,
+            "encodeMs": 701
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 171995,
+            "width": 1200,
+            "height": 798,
+            "encodeMs": 173
+          },
+          "fullWebP82": {
+            "bytes": 130832,
+            "width": 1200,
+            "height": 798,
+            "encodeMs": 145
+          },
+          "fullAVIF50": {
+            "bytes": 60985,
+            "width": 1200,
+            "height": 798,
+            "encodeMs": 2533
+          },
+          "webp480": {
+            "bytes": 35880,
+            "width": 480,
+            "height": 319,
+            "encodeMs": 67
+          },
+          "webp960": {
+            "bytes": 97046,
+            "width": 960,
+            "height": 638,
+            "encodeMs": 145
+          }
+        },
+        {
+          "file": "dist/assets/photos/equipment-1.jpg",
+          "original": 129184,
+          "width": 1200,
+          "height": 800,
+          "losslessWebP": {
+            "bytes": 696524,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 660
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 128265,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 106
+          },
+          "fullWebP82": {
+            "bytes": 90244,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 105
+          },
+          "fullAVIF50": {
+            "bytes": 46331,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 2096
+          },
+          "webp480": {
+            "bytes": 23352,
+            "width": 480,
+            "height": 320,
+            "encodeMs": 53
+          },
+          "webp960": {
+            "bytes": 63846,
+            "width": 960,
+            "height": 640,
+            "encodeMs": 67
+          }
+        },
+        {
+          "file": "dist/assets/photos/equipment-type-compressor.jpg",
+          "original": 236306,
+          "width": 1200,
+          "height": 1800,
+          "losslessWebP": {
+            "bytes": 1179458,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 1689
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 231959,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 185
+          },
+          "fullWebP82": {
+            "bytes": 141172,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 235
+          },
+          "fullAVIF50": {
+            "bytes": 82545,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 3738
+          },
+          "webp480": {
+            "bytes": 38928,
+            "width": 480,
+            "height": 720,
+            "encodeMs": 47
+          },
+          "webp960": {
+            "bytes": 101988,
+            "width": 960,
+            "height": 1440,
+            "encodeMs": 142
+          }
+        },
+        {
+          "file": "dist/assets/photos/equipment-type-forklift.jpg",
+          "original": 392534,
+          "width": 1200,
+          "height": 1800,
+          "losslessWebP": {
+            "bytes": 2053090,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 1929
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 383910,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 266
+          },
+          "fullWebP82": {
+            "bytes": 304866,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 309
+          },
+          "fullAVIF50": {
+            "bytes": 160428,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 5839
+          },
+          "webp480": {
+            "bytes": 70844,
+            "width": 480,
+            "height": 720,
+            "encodeMs": 85
+          },
+          "webp960": {
+            "bytes": 219580,
+            "width": 960,
+            "height": 1440,
+            "encodeMs": 209
+          }
+        },
+        {
+          "file": "dist/assets/photos/equipment-type-generator.jpg",
+          "original": 356604,
+          "width": 1200,
+          "height": 1800,
+          "losslessWebP": {
+            "bytes": 1587428,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 1907
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 339513,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 228
+          },
+          "fullWebP82": {
+            "bytes": 271444,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 278
+          },
+          "fullAVIF50": {
+            "bytes": 126358,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 3923
+          },
+          "webp480": {
+            "bytes": 61788,
+            "width": 480,
+            "height": 720,
+            "encodeMs": 110
+          },
+          "webp960": {
+            "bytes": 190076,
+            "width": 960,
+            "height": 1440,
+            "encodeMs": 353
+          }
+        },
+        {
+          "file": "dist/assets/photos/equipment-type-lathe.jpg",
+          "original": 323204,
+          "width": 1200,
+          "height": 1800,
+          "losslessWebP": {
+            "bytes": 1713628,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 2898
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 317100,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 371
+          },
+          "fullWebP82": {
+            "bytes": 227154,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 321
+          },
+          "fullAVIF50": {
+            "bytes": 116248,
+            "width": 1200,
+            "height": 1800,
+            "encodeMs": 6576
+          },
+          "webp480": {
+            "bytes": 61860,
+            "width": 480,
+            "height": 720,
+            "encodeMs": 99
+          },
+          "webp960": {
+            "bytes": 162074,
+            "width": 960,
+            "height": 1440,
+            "encodeMs": 318
+          }
+        },
+        {
+          "file": "dist/assets/photos/equipment-type-server.jpg",
+          "original": 120019,
+          "width": 1200,
+          "height": 798,
+          "losslessWebP": {
+            "bytes": 485798,
+            "width": 1200,
+            "height": 798,
+            "encodeMs": 1001
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 117272,
+            "width": 1200,
+            "height": 798,
+            "encodeMs": 83
+          },
+          "fullWebP82": {
+            "bytes": 75914,
+            "width": 1200,
+            "height": 798,
+            "encodeMs": 99
+          },
+          "fullAVIF50": {
+            "bytes": 33370,
+            "width": 1200,
+            "height": 798,
+            "encodeMs": 1691
+          },
+          "webp480": {
+            "bytes": 25564,
+            "width": 480,
+            "height": 319,
+            "encodeMs": 39
+          },
+          "webp960": {
+            "bytes": 56770,
+            "width": 960,
+            "height": 638,
+            "encodeMs": 87
+          }
+        },
+        {
+          "file": "dist/assets/photos/machinery-1.jpg",
+          "original": 235989,
+          "width": 1200,
+          "height": 800,
+          "losslessWebP": {
+            "bytes": 856858,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 765
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 181139,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 219
+          },
+          "fullWebP82": {
+            "bytes": 165180,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 156
+          },
+          "fullAVIF50": {
+            "bytes": 74039,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 2414
+          },
+          "webp480": {
+            "bytes": 30450,
+            "width": 480,
+            "height": 320,
+            "encodeMs": 75
+          },
+          "webp960": {
+            "bytes": 108168,
+            "width": 960,
+            "height": 640,
+            "encodeMs": 107
+          }
+        },
+        {
+          "file": "dist/assets/photos/other-1.jpg",
+          "original": 124578,
+          "width": 1200,
+          "height": 801,
+          "losslessWebP": {
+            "bytes": 409060,
+            "width": 1200,
+            "height": 801,
+            "encodeMs": 621
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 89690,
+            "width": 1200,
+            "height": 801,
+            "encodeMs": 114
+          },
+          "fullWebP82": {
+            "bytes": 50732,
+            "width": 1200,
+            "height": 801,
+            "encodeMs": 110
+          },
+          "fullAVIF50": {
+            "bytes": 24722,
+            "width": 1200,
+            "height": 801,
+            "encodeMs": 1368
+          },
+          "webp480": {
+            "bytes": 13536,
+            "width": 480,
+            "height": 320,
+            "encodeMs": 46
+          },
+          "webp960": {
+            "bytes": 36486,
+            "width": 960,
+            "height": 641,
+            "encodeMs": 84
+          }
+        },
+        {
+          "file": "dist/assets/photos/other-2.jpg",
+          "original": 85997,
+          "width": 1200,
+          "height": 800,
+          "losslessWebP": {
+            "bytes": 350812,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 525
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 62175,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 92
+          },
+          "fullWebP82": {
+            "bytes": 32298,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 87
+          },
+          "fullAVIF50": {
+            "bytes": 18468,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 1550
+          },
+          "webp480": {
+            "bytes": 8814,
+            "width": 480,
+            "height": 320,
+            "encodeMs": 45
+          },
+          "webp960": {
+            "bytes": 23188,
+            "width": 960,
+            "height": 640,
+            "encodeMs": 79
+          }
+        },
+        {
+          "file": "dist/assets/photos/property-1.jpg",
+          "original": 172325,
+          "width": 1200,
+          "height": 796,
+          "losslessWebP": {
+            "bytes": 686682,
+            "width": 1200,
+            "height": 796,
+            "encodeMs": 705
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 128844,
+            "width": 1200,
+            "height": 796,
+            "encodeMs": 102
+          },
+          "fullWebP82": {
+            "bytes": 89554,
+            "width": 1200,
+            "height": 796,
+            "encodeMs": 116
+          },
+          "fullAVIF50": {
+            "bytes": 46445,
+            "width": 1200,
+            "height": 796,
+            "encodeMs": 2074
+          },
+          "webp480": {
+            "bytes": 21408,
+            "width": 480,
+            "height": 318,
+            "encodeMs": 61
+          },
+          "webp960": {
+            "bytes": 61468,
+            "width": 960,
+            "height": 637,
+            "encodeMs": 116
+          }
+        },
+        {
+          "file": "dist/assets/photos/property-2.jpg",
+          "original": 185760,
+          "width": 1200,
+          "height": 816,
+          "losslessWebP": {
+            "bytes": 719842,
+            "width": 1200,
+            "height": 816,
+            "encodeMs": 624
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 147205,
+            "width": 1200,
+            "height": 816,
+            "encodeMs": 164
+          },
+          "fullWebP82": {
+            "bytes": 113242,
+            "width": 1200,
+            "height": 816,
+            "encodeMs": 132
+          },
+          "fullAVIF50": {
+            "bytes": 52684,
+            "width": 1200,
+            "height": 816,
+            "encodeMs": 2333
+          },
+          "webp480": {
+            "bytes": 23726,
+            "width": 480,
+            "height": 326,
+            "encodeMs": 68
+          },
+          "webp960": {
+            "bytes": 75540,
+            "width": 960,
+            "height": 653,
+            "encodeMs": 169
+          }
+        },
+        {
+          "file": "dist/assets/photos/trucks-1.jpg",
+          "original": 163865,
+          "width": 1200,
+          "height": 795,
+          "losslessWebP": {
+            "bytes": 570456,
+            "width": 1200,
+            "height": 795,
+            "encodeMs": 1012
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 123308,
+            "width": 1200,
+            "height": 795,
+            "encodeMs": 177
+          },
+          "fullWebP82": {
+            "bytes": 88410,
+            "width": 1200,
+            "height": 795,
+            "encodeMs": 200
+          },
+          "fullAVIF50": {
+            "bytes": 43793,
+            "width": 1200,
+            "height": 795,
+            "encodeMs": 3437
+          },
+          "webp480": {
+            "bytes": 20018,
+            "width": 480,
+            "height": 318,
+            "encodeMs": 94
+          },
+          "webp960": {
+            "bytes": 60722,
+            "width": 960,
+            "height": 636,
+            "encodeMs": 270
+          }
+        },
+        {
+          "file": "dist/assets/photos/trucks-2.jpg",
+          "original": 188705,
+          "width": 1200,
+          "height": 795,
+          "losslessWebP": {
+            "bytes": 792270,
+            "width": 1200,
+            "height": 795,
+            "encodeMs": 913
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 146453,
+            "width": 1200,
+            "height": 795,
+            "encodeMs": 153
+          },
+          "fullWebP82": {
+            "bytes": 112444,
+            "width": 1200,
+            "height": 795,
+            "encodeMs": 190
+          },
+          "fullAVIF50": {
+            "bytes": 57184,
+            "width": 1200,
+            "height": 795,
+            "encodeMs": 2095
+          },
+          "webp480": {
+            "bytes": 24414,
+            "width": 480,
+            "height": 318,
+            "encodeMs": 94
+          },
+          "webp960": {
+            "bytes": 77646,
+            "width": 960,
+            "height": 636,
+            "encodeMs": 185
+          }
+        },
+        {
+          "file": "dist/assets/photos/trucks-type-sitrak-c7h.jpg",
+          "original": 508571,
+          "width": 1845,
+          "height": 1384,
+          "losslessWebP": {
+            "bytes": 1883222,
+            "width": 1845,
+            "height": 1384,
+            "encodeMs": 3307
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 337245,
+            "width": 1845,
+            "height": 1384,
+            "encodeMs": 390
+          },
+          "fullWebP82": {
+            "bytes": 219920,
+            "width": 1845,
+            "height": 1384,
+            "encodeMs": 479
+          },
+          "fullAVIF50": {
+            "bytes": 113676,
+            "width": 1845,
+            "height": 1384,
+            "encodeMs": 6113
+          },
+          "webp480": {
+            "bytes": 38146,
+            "width": 480,
+            "height": 360,
+            "encodeMs": 84
+          },
+          "webp960": {
+            "bytes": 103280,
+            "width": 960,
+            "height": 720,
+            "encodeMs": 162
+          }
+        },
+        {
+          "file": "dist/assets/photos/vessels-1.jpg",
+          "original": 199360,
+          "width": 1200,
+          "height": 800,
+          "losslessWebP": {
+            "bytes": 920198,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 643
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 148448,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 129
+          },
+          "fullWebP82": {
+            "bytes": 112830,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 137
+          },
+          "fullAVIF50": {
+            "bytes": 56046,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 2455
+          },
+          "webp480": {
+            "bytes": 24400,
+            "width": 480,
+            "height": 320,
+            "encodeMs": 67
+          },
+          "webp960": {
+            "bytes": 77726,
+            "width": 960,
+            "height": 640,
+            "encodeMs": 118
+          }
+        },
+        {
+          "file": "dist/assets/photos/vessels-2.jpg",
+          "original": 266186,
+          "width": 1200,
+          "height": 800,
+          "losslessWebP": {
+            "bytes": 1014166,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 671
+          },
+          "losslessPixelsEqual": true,
+          "progressiveJPEG85": {
+            "bytes": 211068,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 160
+          },
+          "fullWebP82": {
+            "bytes": 179746,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 148
+          },
+          "fullAVIF50": {
+            "bytes": 77470,
+            "width": 1200,
+            "height": 800,
+            "encodeMs": 2812
+          },
+          "webp480": {
+            "bytes": 37064,
+            "width": 480,
+            "height": 320,
+            "encodeMs": 80
+          },
+          "webp960": {
+            "bytes": 121870,
+            "width": 960,
+            "height": 640,
+            "encodeMs": 169
+          }
+        }
+      ]
+    },
+    "perf-worker-audit": {
+      "warning": "Node local CPU fixture, not browser, actual network, gateway, or edge TTFB measurement",
+      "embeddedCount": 197,
+      "importMs": 1385.4722160000001,
+      "rows": [
+        {
+          "path": "/assets/photos/trucks-type-sitrak-c7h.jpg",
+          "assetBytes": 508571,
+          "samples": {
+            "get": {
+              "status": 200,
+              "bytes": 508571,
+              "p50ms": 95.6296970000003,
+              "p95ms": 287.9693060000002,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "508571",
+                "etag": "\"18ca6dedb9c65130a8470a51ae4fea5ec9de6881884b67d67d432557bfe6fda1\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "head": {
+              "status": 200,
+              "bytes": 0,
+              "p50ms": 0.023374000000330852,
+              "p95ms": 0.06887100000039936,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "508571",
+                "etag": "\"18ca6dedb9c65130a8470a51ae4fea5ec9de6881884b67d67d432557bfe6fda1\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "strong304": {
+              "status": 304,
+              "bytes": 0,
+              "p50ms": 0.020230000000083237,
+              "p95ms": 0.09842500000013388,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "508571",
+                "etag": "\"18ca6dedb9c65130a8470a51ae4fea5ec9de6881884b67d67d432557bfe6fda1\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "weak": {
+              "status": 200,
+              "bytes": 508571,
+              "p50ms": 79.7522629999994,
+              "p95ms": 160.14544599999954,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "508571",
+                "etag": "\"18ca6dedb9c65130a8470a51ae4fea5ec9de6881884b67d67d432557bfe6fda1\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "list": {
+              "status": 200,
+              "bytes": 508571,
+              "p50ms": 77.02533499999936,
+              "p95ms": 140.68710999999894,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "508571",
+                "etag": "\"18ca6dedb9c65130a8470a51ae4fea5ec9de6881884b67d67d432557bfe6fda1\"",
+                "encoding": null,
+                "vary": null
+              }
+            }
+          }
+        },
+        {
+          "path": "/assets/brand/fas-torgi-logo.png",
+          "assetBytes": 362679,
+          "samples": {
+            "get": {
+              "status": 200,
+              "bytes": 362679,
+              "p50ms": 81.0591170000007,
+              "p95ms": 132.7131959999988,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "362679",
+                "etag": "\"a1ce0024173f1bb617920b9cd4bb7f4abedbcc9c8bd33aa9682df462b10cdb61\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "head": {
+              "status": 200,
+              "bytes": 0,
+              "p50ms": 0.014500999999654596,
+              "p95ms": 0.07527099999970233,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "362679",
+                "etag": "\"a1ce0024173f1bb617920b9cd4bb7f4abedbcc9c8bd33aa9682df462b10cdb61\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "strong304": {
+              "status": 304,
+              "bytes": 0,
+              "p50ms": 0.015002000000094995,
+              "p95ms": 0.058376000000862405,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "362679",
+                "etag": "\"a1ce0024173f1bb617920b9cd4bb7f4abedbcc9c8bd33aa9682df462b10cdb61\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "weak": {
+              "status": 200,
+              "bytes": 362679,
+              "p50ms": 52.883389000000534,
+              "p95ms": 74.75388699999894,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "362679",
+                "etag": "\"a1ce0024173f1bb617920b9cd4bb7f4abedbcc9c8bd33aa9682df462b10cdb61\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "list": {
+              "status": 200,
+              "bytes": 362679,
+              "p50ms": 33.63503599999967,
+              "p95ms": 73.41078899999957,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "362679",
+                "etag": "\"a1ce0024173f1bb617920b9cd4bb7f4abedbcc9c8bd33aa9682df462b10cdb61\"",
+                "encoding": null,
+                "vary": null
+              }
+            }
+          }
+        },
+        {
+          "path": "/keyword-search.js",
+          "assetBytes": 264577,
+          "samples": {
+            "get": {
+              "status": 200,
+              "bytes": 264577,
+              "p50ms": 21.071850999998787,
+              "p95ms": 57.044560000000274,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "264577",
+                "etag": "\"56ba40e77ab099c73f31f3c0bc9a512881e4ca148338cd2ddb968d873878775a\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "head": {
+              "status": 200,
+              "bytes": 0,
+              "p50ms": 0.011356000000887434,
+              "p95ms": 0.06534599999940838,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "264577",
+                "etag": "\"56ba40e77ab099c73f31f3c0bc9a512881e4ca148338cd2ddb968d873878775a\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "strong304": {
+              "status": 304,
+              "bytes": 0,
+              "p50ms": 0.01150700000107463,
+              "p95ms": 0.016625000000203727,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "264577",
+                "etag": "\"56ba40e77ab099c73f31f3c0bc9a512881e4ca148338cd2ddb968d873878775a\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "weak": {
+              "status": 200,
+              "bytes": 264577,
+              "p50ms": 23.89624999999978,
+              "p95ms": 60.63132199999927,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "264577",
+                "etag": "\"56ba40e77ab099c73f31f3c0bc9a512881e4ca148338cd2ddb968d873878775a\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "list": {
+              "status": 200,
+              "bytes": 264577,
+              "p50ms": 22.811464000000342,
+              "p95ms": 57.07945800000016,
+              "headers": {
+                "cache": "private, max-age=3600",
+                "length": "264577",
+                "etag": "\"56ba40e77ab099c73f31f3c0bc9a512881e4ca148338cd2ddb968d873878775a\"",
+                "encoding": null,
+                "vary": null
+              }
+            }
+          }
+        },
+        {
+          "path": "/index.html",
+          "assetBytes": 266549,
+          "samples": {
+            "get": {
+              "status": 200,
+              "bytes": 266549,
+              "p50ms": 18.960838999999396,
+              "p95ms": 55.78440299999966,
+              "headers": {
+                "cache": "no-store, private",
+                "length": "266549",
+                "etag": "\"7aa9dbd51a1508e3fdc392eb113d22a1c4751cbe7f2fa07462900e85770ac377\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "head": {
+              "status": 200,
+              "bytes": 0,
+              "p50ms": 0.012077000001227134,
+              "p95ms": 0.039799000000130036,
+              "headers": {
+                "cache": "no-store, private",
+                "length": "266549",
+                "etag": "\"7aa9dbd51a1508e3fdc392eb113d22a1c4751cbe7f2fa07462900e85770ac377\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "strong304": {
+              "status": 304,
+              "bytes": 0,
+              "p50ms": 0.012509000000136439,
+              "p95ms": 0.01776600000084727,
+              "headers": {
+                "cache": "no-store, private",
+                "length": "266549",
+                "etag": "\"7aa9dbd51a1508e3fdc392eb113d22a1c4751cbe7f2fa07462900e85770ac377\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "weak": {
+              "status": 200,
+              "bytes": 266549,
+              "p50ms": 24.320533999998588,
+              "p95ms": 59.82482399999935,
+              "headers": {
+                "cache": "no-store, private",
+                "length": "266549",
+                "etag": "\"7aa9dbd51a1508e3fdc392eb113d22a1c4751cbe7f2fa07462900e85770ac377\"",
+                "encoding": null,
+                "vary": null
+              }
+            },
+            "list": {
+              "status": 200,
+              "bytes": 266549,
+              "p50ms": 18.405520999996952,
+              "p95ms": 53.687182000001485,
+              "headers": {
+                "cache": "no-store, private",
+                "length": "266549",
+                "etag": "\"7aa9dbd51a1508e3fdc392eb113d22a1c4751cbe7f2fa07462900e85770ac377\"",
+                "encoding": null,
+                "vary": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    "perf-client-audit": {
+      "source": "Baseline read-only audit429e373; implementation on ROOTPERFREADY3f07a8b plus current working tree.",
+      "method": "Controlled Node/V8 CPU and heap measurements in the existing repository harness. Not native browser layout, mobile FPS, actual network or decoded-image memory measurements. Counterfactual changes exist only inside a VM context.",
+      "bootstrap": {
+        "lots": 52870,
+        "mountedCards": 24,
+        "bootMs": [
+          1335.715364,
+          1286.9025219999999,
+          904.3389380000003,
+          943.6648009999999
+        ],
+        "heapDeltaMiB": [
+          79.0615234375,
+          61.660308837890625,
+          61.22941589355469,
+          61.00244140625
+        ],
+        "unchangedRenderMs": [
+          288.8215500000001,
+          302.3338939999999,
+          294.4075299999995,
+          291.43616100000054
+        ],
+        "featuredInitializationMs": [
+          210.76003500000002,
+          214.03765299999986,
+          203.58354999999983
+        ]
+      },
+      "primaryBottleneck": {
+        "function": "dist/index.html: advancedMatches",
+        "evidence": "With every manual advanced field empty, 52,870 lots each rebuild filterFamilies and categorize their family. The empty render still runs all 52,870 live/money validations, so the proposed reduction removes redundant UI criteria work rather than weakening eligibility.",
+        "proposal": "Implemented the bounded transient per-render manual-filter/families snapshot; readAdvancedFilters public/saved shape is unchanged.",
+        "counterfactual": {
+          "method": "In-memory counterfactual only. Actual production advancedMatches body with one per-render has-manual-filters flag and precomputed categories. Keyword intent matching, live lifecycle and financial guards remain unchanged.",
+          "sourceEdited": false,
+          "lots": 52870,
+          "before": [
+            {
+              "case": "empty catalogue",
+              "matches": 52870,
+              "meanMs": 383.27384233333333,
+              "minMs": 310.7894960000001,
+              "counts": {
+                "family": 52871,
+                "live": 52870,
+                "money": 52870,
+                "families": 52870
+              }
+            },
+            {
+              "case": "empty nearest catalogue",
+              "matches": 52870,
+              "meanMs": 367.8637883333334,
+              "minMs": 366.45442500000036,
+              "counts": {
+                "family": 52871,
+                "live": 52870,
+                "money": 52870,
+                "families": 52870
+              }
+            },
+            {
+              "case": "year and fuel cars",
+              "matches": 1066,
+              "meanMs": 49.150613333332934,
+              "minMs": 47.54570899999999,
+              "counts": {
+                "family": 1,
+                "live": 1700,
+                "money": 1700,
+                "families": 1700
+              }
+            },
+            {
+              "case": "natural keyword price/year/gearbox",
+              "matches": 353,
+              "meanMs": 461.4857919999998,
+              "minMs": 453.4682849999999,
+              "counts": {
+                "family": 52871,
+                "live": 52870,
+                "money": 52870,
+                "families": 52870
+              }
+            },
+            {
+              "case": "natural apartment area and rooms",
+              "matches": 1700,
+              "meanMs": 437.25449266666664,
+              "minMs": 416.99183600000015,
+              "counts": {
+                "family": 52871,
+                "live": 52870,
+                "money": 52870,
+                "families": 52870
+              }
+            },
+            {
+              "case": "explicit numeric/radius",
+              "matches": 522,
+              "meanMs": 385.2344069999993,
+              "minMs": 372.2585519999993,
+              "counts": {
+                "family": 52871,
+                "live": 52870,
+                "money": 52870,
+                "families": 52870
+              }
+            }
+          ],
+          "after": [
+            {
+              "case": "empty catalogue",
+              "matches": 52870,
+              "meanMs": 133.23509066666762,
+              "minMs": 132.6150370000014,
+              "counts": {
+                "families": 1,
+                "family": 1,
+                "live": 52870,
+                "money": 52870
+              }
+            },
+            {
+              "case": "empty nearest catalogue",
+              "matches": 52870,
+              "meanMs": 214.60085166666613,
+              "minMs": 193.74791799999912,
+              "counts": {
+                "families": 1,
+                "family": 1,
+                "live": 52870,
+                "money": 52870
+              }
+            },
+            {
+              "case": "year and fuel cars",
+              "matches": 1066,
+              "meanMs": 44.277976333332845,
+              "minMs": 43.623829000000114,
+              "counts": {
+                "families": 1,
+                "family": 1,
+                "live": 1700,
+                "money": 1700
+              }
+            },
+            {
+              "case": "natural keyword price/year/gearbox",
+              "matches": 353,
+              "meanMs": 275.3650486666672,
+              "minMs": 267.3711579999999,
+              "counts": {
+                "families": 1,
+                "family": 1,
+                "live": 52870,
+                "money": 52870
+              }
+            },
+            {
+              "case": "natural apartment area and rooms",
+              "matches": 1700,
+              "meanMs": 222.76913800000088,
+              "minMs": 222.27911400000085,
+              "counts": {
+                "families": 1,
+                "family": 1,
+                "live": 52870,
+                "money": 52870
+              }
+            },
+            {
+              "case": "explicit numeric/radius",
+              "matches": 522,
+              "meanMs": 323.111801666666,
+              "minMs": 315.52905999999894,
+              "counts": {
+                "families": 1,
+                "family": 52871,
+                "live": 52870,
+                "money": 52870
+              }
+            }
+          ]
+        },
+        "equivalence": "Exact IDs and order match in all six cases: empty, nearest, explicit vehicle year+fuel, natural BMW year/gearbox/budget, natural apartment area+rooms, and explicit price/radius. Live and bank money guard call counts are unchanged."
+      },
+      "otherObservations": [
+        "Bootstrap synchronously generates and normalizes all 52,870 local demo objects; four boots show roughly 61–79MiB heap delta. Broad asynchronous generation would require a larger state-management change and is not proposed as a quick rewrite.",
+        "Default clean-load app-ui initialization causes no extra full render in the measured harness.",
+        "Featured initialization adds one 52,870-lot eligibility pass (203–214ms here). Reusing eligibility across unrelated mutations would require careful version/clock invalidation; leave that guard intact in the first bounded patch.",
+        "Photo error fallback loops were not confirmed: featured and buyer thumbnails already use one-shot fallback markers, and the full-photo error handler reports status without re-requesting the image.",
+        "Photo rendering is bounded to the mounted cards. Responsive delivery/request canonicalization belongs to the photo-performance agent."
+      ],
+      "artifacts": [
+        "/tmp/perf-bootstrap-metrics.json",
+        "/tmp/perf-filter-counterfactual.json",
+        "/tmp/perf-boot-stages.json",
+        "/tmp/drive-lot-bootstrap.cpuprofile",
+        "/tmp/perf-bootstrap-after.json"
+      ],
+      "status": "Production index fragments and new regression frozen; parent owns subsequent photo/head/cache integration and full QA.",
+      "implementation": {
+        "base": "3f07a8b / ROOTPERFREADY v59",
+        "files": [
+          "dist/index.html",
+          "tests/advanced-filter-pass.cjs"
+        ],
+        "scope": "Only advancedMatches and the existing per-render manual-filter count/families snapshot fragment. No gallery/card/image/head/cache edits by this agent.",
+        "behavior": "Each render attaches hasManualFilters/categoryFamilies to its transient criteria object. No cross-render cache and no extra metadata in readAdvancedFilters or saved-search records. Direct/saved callers without metadata retain their ordinary criteria evaluation. Keyword intent and every live/money guard remain active.",
+        "tests": [
+          {
+            "file": "tests/advanced-filter-pass.cjs",
+            "result": "PASS"
+          },
+          {
+            "file": "tests/natural-typed-search.cjs",
+            "result": "PASS"
+          },
+          {
+            "file": "tests/search-numeric-validation.cjs",
+            "result": "PASS"
+          },
+          {
+            "file": "tests/category-multi-select.cjs",
+            "result": "PASS"
+          },
+          {
+            "file": "tests/auction-ending-window-boundaries.cjs",
+            "result": "PASS"
+          },
+          {
+            "file": "tests/distance-search.cjs",
+            "result": "PASS"
+          }
+        ]
+      },
+      "productionAfter": {
+        "artifact": "/tmp/perf-bootstrap-after.json",
+        "lots": 52870,
+        "mountedCards": 24,
+        "bootMs": [
+          988.9078460000001,
+          896.7416879999998,
+          667.6666300000002,
+          692.2993819999997
+        ],
+        "unchangedRenderMs": [
+          129.44962600000008,
+          117.46658200000002,
+          102.57036199999993,
+          111.58969799999977
+        ],
+        "medianBootBeforeMs": 1115.2836614999999,
+        "medianBootAfterMs": 794.5205349999998,
+        "medianRenderBeforeMs": 292.9218455,
+        "medianRenderAfterMs": 114.5281399999999,
+        "qualification": "Same controlled harness, small samples; before run included V8 CPU profiling, after did not. Use call-count reduction and equivalent results as primary evidence; these timings do not establish mobile FPS/network performance or retained-memory improvements."
+      }
+    },
+    "photo-performance-summary": {
+      "source": "Read-only audit while root finishes v59; Node VM measurements on inventory52870.",
+      "limitations": [
+        "No browser fallback, physical iPhone, network waterfall or real image decode measurement.",
+        "Counts are generated img src URL identities and possible cold bytes, not actual observed browser requests.",
+        "Node timings include VM/mock DOM overhead and instrumentation; use for relative hotspots and exact call counts only."
+      ],
+      "measurements": {
+        "catalogFirstTwo": {
+          "images": 2,
+          "distinctURLs": 1,
+          "distinctFiles": 1,
+          "lazy": 2,
+          "eager": 0,
+          "highPriority": 0,
+          "responsive": 0,
+          "dimensions": 0,
+          "htmlBytes": 10437,
+          "potentialLocalBytesAcrossDistinctURLs": 655,
+          "urls": [
+            "assets/cars.svg"
+          ],
+          "firstImages": [
+            {
+              "src": "assets/cars.svg",
+              "loading": "lazy",
+              "priority": "auto",
+              "decoding": "async",
+              "srcset": false,
+              "dimensions": false
+            },
+            {
+              "src": "assets/cars.svg",
+              "loading": "lazy",
+              "priority": "auto",
+              "decoding": "async",
+              "srcset": false,
+              "dimensions": false
+            }
+          ]
+        },
+        "catalog24": {
+          "images": 60,
+          "distinctURLs": 13,
+          "distinctFiles": 5,
+          "lazy": 60,
+          "eager": 0,
+          "highPriority": 0,
+          "responsive": 0,
+          "dimensions": 0,
+          "htmlBytes": 164129,
+          "potentialLocalBytesAcrossDistinctURLs": 1802350,
+          "urls": [
+            "assets/cars.svg",
+            "assets/photos/cars-2.jpg",
+            "assets/photos/cars-2.jpg?view=1",
+            "assets/photos/cars-2.jpg?view=2",
+            "assets/photos/cars-3.jpg",
+            "assets/photos/cars-3.jpg?view=1",
+            "assets/photos/cars-3.jpg?view=2",
+            "assets/photos/cars-1.jpg",
+            "assets/photos/cars-1.jpg?view=1",
+            "assets/photos/cars-1.jpg?view=2",
+            "assets/photos/trucks-1.jpg",
+            "assets/photos/trucks-1.jpg?view=1",
+            "assets/photos/trucks-1.jpg?view=2"
+          ],
+          "firstImages": [
+            {
+              "src": "assets/cars.svg",
+              "loading": "lazy",
+              "priority": "auto",
+              "decoding": "async",
+              "srcset": false,
+              "dimensions": false
+            },
+            {
+              "src": "assets/cars.svg",
+              "loading": "lazy",
+              "priority": "auto",
+              "decoding": "async",
+              "srcset": false,
+              "dimensions": false
+            },
+            {
+              "src": "assets/cars.svg",
+              "loading": "lazy",
+              "priority": "auto",
+              "decoding": "async",
+              "srcset": false,
+              "dimensions": false
+            }
+          ]
+        },
+        "feed25": {
+          "images": 63,
+          "distinctURLs": 10,
+          "distinctFiles": 4,
+          "lazy": 63,
+          "eager": 0,
+          "highPriority": 0,
+          "responsive": 0,
+          "dimensions": 0,
+          "htmlBytes": 171448,
+          "potentialLocalBytesAcrossDistinctURLs": 1310755,
+          "urls": [
+            "assets/cars.svg",
+            "assets/photos/cars-2.jpg",
+            "assets/photos/cars-2.jpg?view=1",
+            "assets/photos/cars-2.jpg?view=2",
+            "assets/photos/cars-3.jpg",
+            "assets/photos/cars-3.jpg?view=1",
+            "assets/photos/cars-3.jpg?view=2",
+            "assets/photos/cars-1.jpg",
+            "assets/photos/cars-1.jpg?view=1",
+            "assets/photos/cars-1.jpg?view=2"
+          ],
+          "firstImages": [
+            {
+              "src": "assets/cars.svg",
+              "loading": "lazy",
+              "priority": "auto",
+              "decoding": "async",
+              "srcset": false,
+              "dimensions": false
+            },
+            {
+              "src": "assets/cars.svg",
+              "loading": "lazy",
+              "priority": "auto",
+              "decoding": "async",
+              "srcset": false,
+              "dimensions": false
+            },
+            {
+              "src": "assets/cars.svg",
+              "loading": "lazy",
+              "priority": "auto",
+              "decoding": "async",
+              "srcset": false,
+              "dimensions": false
+            }
+          ]
+        },
+        "openFirstLot": {
+          "images": 2,
+          "distinctURLs": 2,
+          "distinctFiles": 2,
+          "lazy": 1,
+          "eager": 1,
+          "highPriority": 0,
+          "responsive": 0,
+          "dimensions": 0,
+          "htmlBytes": 10326,
+          "potentialLocalBytesAcrossDistinctURLs": 363334,
+          "urls": [
+            "assets/brand/fas-torgi-logo.png?v=20261113-brand-cream1",
+            "assets/cars.svg"
+          ],
+          "firstImages": [
+            {
+              "src": "assets/brand/fas-torgi-logo.png?v=20261113-brand-cream1",
+              "loading": "default-eager",
+              "priority": "auto",
+              "decoding": "auto",
+              "srcset": false,
+              "dimensions": false
+            },
+            {
+              "src": "assets/cars.svg",
+              "loading": "lazy",
+              "priority": "auto",
+              "decoding": "async",
+              "srcset": false,
+              "dimensions": false
+            }
+          ]
+        },
+        "photoBackedExample": {
+          "ids": [
+            100000,
+            100001
+          ],
+          "names": [
+            "Porsche Panamera · 01",
+            "Mercedes-Benz AMG GT · 02"
+          ],
+          "galleryImgNodes": 6,
+          "distinctURLIdentities": 6,
+          "distinctFiles": 2,
+          "coldJPEGBytes": 795192,
+          "deduplicatedRequestBytes": 265064
+        },
+        "renderNoFeaturedVMms": {
+          "samplesMs": [
+            283.86503300000004,
+            348.19930999999997,
+            369.3400319999996,
+            250.6315669999999
+          ],
+          "meanMs": 313.0089854999999
+        },
+        "featuredWarmVM": [
+          {
+            "ms": 2.506652000000031,
+            "calls": {
+              "isLotLive": 12,
+              "current": 12,
+              "image": 12,
+              "lotMediaItem": 12
+            },
+            "cards": 12
+          },
+          {
+            "ms": 1.9677779999997256,
+            "calls": {
+              "isLotLive": 12,
+              "current": 12,
+              "image": 12,
+              "lotMediaItem": 12
+            },
+            "cards": 12
+          },
+          {
+            "ms": 5.995229999999992,
+            "calls": {
+              "isLotLive": 12,
+              "current": 12,
+              "image": 12,
+              "lotMediaItem": 12
+            },
+            "cards": 12
+          },
+          {
+            "ms": 5.826862000000347,
+            "calls": {
+              "isLotLive": 12,
+              "current": 12,
+              "image": 12,
+              "lotMediaItem": 12
+            },
+            "cards": 12
+          }
+        ],
+        "featuredForceVM": [
+          {
+            "ms": 486.11870799999997,
+            "calls": {
+              "isLotLive": 52882,
+              "current": 52882,
+              "image": 12,
+              "lotMediaItem": 12
+            },
+            "cards": 12
+          },
+          {
+            "ms": 483.4918290000005,
+            "calls": {
+              "isLotLive": 52882,
+              "current": 52882,
+              "image": 12,
+              "lotMediaItem": 12
+            },
+            "cards": 12
+          },
+          {
+            "ms": 401.49013099999956,
+            "calls": {
+              "isLotLive": 52882,
+              "current": 52882,
+              "image": 12,
+              "lotMediaItem": 12
+            },
+            "cards": 12
+          },
+          {
+            "ms": 352.0799280000001,
+            "calls": {
+              "isLotLive": 52882,
+              "current": 52882,
+              "image": 12,
+              "lotMediaItem": 12
+            },
+            "cards": 12
+          }
+        ],
+        "renderWithFeaturedDOMVM": [
+          {
+            "ms": 1550.6946129999997,
+            "calls": {
+              "isLotLive": 105752,
+              "current": 105776,
+              "lotMediaItem": 108,
+              "image": 36
+            },
+            "cards": 12
+          },
+          {
+            "ms": 1449.1011909999997,
+            "calls": {
+              "isLotLive": 105752,
+              "current": 105776,
+              "lotMediaItem": 108,
+              "image": 36
+            },
+            "cards": 12
+          },
+          {
+            "ms": 1529.3241450000005,
+            "calls": {
+              "isLotLive": 105752,
+              "current": 105776,
+              "lotMediaItem": 108,
+              "image": 36
+            },
+            "cards": 12
+          },
+          {
+            "ms": 1150.8011239999996,
+            "calls": {
+              "isLotLive": 105752,
+              "current": 105776,
+              "lotMediaItem": 108,
+              "image": 36
+            },
+            "cards": 12
+          }
+        ]
+      },
+      "findings": [
+        {
+          "priority": "high",
+          "summary": "Generated demo crop variants use three request/cache URL identities for one JPEG.",
+          "source": "dist/catalog-data.js:18/100/139; dist/index.html gallery().",
+          "evidence": "Original path, ?view=1 and ?view=2 share one local file; crop is metadata/CSS.",
+          "safe_action": "Keep original media URL identities and entries; canonicalize only the img request URL for exact allowlisted local JPEGs."
+        },
+        {
+          "priority": "high",
+          "summary": "Every gallery and featured preview is lazy/auto, including the currently visible primary lot photo.",
+          "source": "dist/index.html:405 gallery(); dist/featured-lots.js card().",
+          "safe_action": "Only first2 featured previews and active primary lot/feed image eager/high; secondary frames and offscreen cards lazy/low."
+        },
+        {
+          "priority": "high",
+          "summary": "New catalog context object invalidates featured selection cache on every unfiltered render.",
+          "source": "dist/index.html updateCatalogBuyerContext(); dist/featured-lots.js refresh().",
+          "evidence": "Exact105752 live checks/render =2*52870+12, versus12 on warm featured refresh.",
+          "safe_action": "Ignore inactive-context object identity when both old/new contexts inactive; keep source, revision, origin, expiry and active-context invalidation intact."
+        },
+        {
+          "priority": "medium",
+          "summary": "Bundled photographs are full JPEGs for small previews; no srcset.",
+          "evidence": "Most1200px128–384KB; SITRAK1845px508571B; complete originals4.56MB.",
+          "safe_action": "Same-frame480/960WebP previews via generated pure data allowlist helper; originals remain fullscreen/zoom sources."
+        },
+        {
+          "priority": "medium",
+          "summary": "Large original logo uses multiple query identities across main header and hidden eager photo viewer.",
+          "source": "dist/lot-photo-viewer.js header markup vs index.html brand URL.",
+          "evidence": "2172x724 PNG362679B, displayed67–145px; main?v=... and hidden viewer unversioned create two URL identities.",
+          "safe_action": "Retain source image unchanged, deliver correctly sized preview/consistent URL if approved."
+        }
+      ],
+      "cache_notes": {
+        "worker": "Static photos private,max-age3600 +ETag; 304 supported. Preserve private access boundary.",
+        "serviceWorker": "Network-first static allowlist intentionally refuses private CacheStorage; JPEGs are not listed. Do not introduce public/offline private caches as an optimization."
+      },
+      "agreed_future_API": "FasResponsiveMedia.image(url) -> {src,srcset,fullSrcset,originalSrc,width,height}; FasResponsiveMedia.original(url), exact local-photo allowlist; external HTTPS untouched.",
+      "artifacts": [
+        "/tmp/photo-performance-audit.cjs",
+        "/tmp/photo-performance-audit.json",
+        "/tmp/featured-performance-audit.cjs",
+        "/tmp/featured-performance-audit.json"
+      ],
+      "production_edits": false
+    },
+    "perf-package-budget": {
+      "assets": 240,
+      "bytes": 14221629,
+      "gzipBytes": 9141844,
+      "limit": 10485760,
+      "headroom": 1343916,
+      "originalPhotos": 21,
+      "previewCount": 42,
+      "logoBytes": 53760
+    }
+  },
+  "limits": [
+    "Local CPU/VM and byte-size measurements are not physical iPhone/Safari FPS or an end-to-end speed guarantee.",
+    "The HTTP sample is from the workspace and includes hosting/auth/network variance; no universal mobile TTFB claim.",
+    "Preview WebP encoding is intentionally smaller/lossy; full original photos are retained.",
+    "Security, owner isolation, original lot characteristics, current prices and user context are retained; real shared auctions, OTP and payments remain unconnected."
+  ],
+  "publication": {
+    "version": 60,
+    "commit": "13f3442c2a216bbd91867203afc504221d53ea9e",
+    "completed_utc": "2026-11-14T13:22:06.665944+00:00",
+    "url": "https://drive-lot-auction.familiarchord.chatgpt.site",
+    "audience_preserved": true,
+    "pre_push_models": 100
+  },
+  "post_publication_http_read": {
+    "method": "Read-only HTTP from workspace, not Safari/mobile or user-perceived speed",
+    "results": [
+      {
+        "path": "/",
+        "status": 200,
+        "ttfb_ms": 1132.1,
+        "total_ms": 1134.1,
+        "wire_bytes": 72893,
+        "encoding": "gzip",
+        "content_type": "text/html; charset=utf-8",
+        "cache_control": "no-store, private"
+      },
+      {
+        "path": "/assets/brand/fas-torgi-logo.png?v=20261114-photo-perf1",
+        "status": 200,
+        "ttfb_ms": 1117.5,
+        "total_ms": 1118.4,
+        "wire_bytes": 53760,
+        "encoding": null,
+        "content_type": "image/png",
+        "cache_control": "private, max-age=3600"
+      },
+      {
+        "path": "/responsive-media.js",
+        "status": 200,
+        "ttfb_ms": 1116.0,
+        "total_ms": 1116.3,
+        "wire_bytes": 1741,
+        "encoding": "gzip",
+        "content_type": "text/javascript; charset=utf-8",
+        "cache_control": "private, max-age=3600"
+      },
+      {
+        "path": "/assets/photos/trucks-2.jpg",
+        "status": 200,
+        "ttfb_ms": 339.8,
+        "total_ms": 344.5,
+        "wire_bytes": 188705,
+        "encoding": null,
+        "content_type": "image/jpeg",
+        "cache_control": "private, max-age=3600"
+      }
+    ]
+  }
+}

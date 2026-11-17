@@ -1,0 +1,41 @@
+/* Structural regressions for the screenshot's overflow paths. These checks do
+   not replace browser/device layout measurements. */
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const {boot}=require('./helpers/category-seller-harness.cjs');
+const css=fs.readFileSync('dist/layout-safety.css','utf8');
+const html=fs.readFileSync('dist/index.html','utf8');
+const styles=[...html.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g)].map(match=>match[1]);
+const layoutIndex=styles.findLastIndex(file=>file.startsWith('layout-safety.css?'));
+const scopedEnhancements=new Set(['brand-contrast','desktop-web','desktop-dialogs','cabinet-layout','network-intro','region-select','catalog-refresh','lot-actions','desktop-header','desktop-surfaces','desktop-dialog-polish','featured-hot','lot-price-direction','category-dropdown','mobile-cabinet-simple','catalog-sort-dropdown']);
+assert(layoutIndex>=0&&styles.slice(layoutIndex+1).every(file=>scopedEnhancements.has(file.split('?')[0].replace(/\.css$/,''))),'layout protections follow legacy styles; subsequent feature styles are explicitly reviewed and covered by their responsive checks');
+assert(!/maximum-scale|user-scalable\s*=\s*no/i.test(html),'text protection keeps user zoom available');
+assert(/body\.reels #grid \.card-body\s*\{[^}]*position:\s*relative/s.test(css),'feed text stays in its own normal-flow layout area');
+assert(/body\.reels #grid \.card-body\s*\{[^}]*min-width:\s*0/s.test(css),'feed body may shrink inside its viewport');
+assert(/body\.reels #grid \.card h3\s*\{[^}]*white-space:\s*normal[^}]*overflow-wrap:\s*anywhere/s.test(css),'long lot names wrap inside the feed');
+assert(/body\.reels \.reels-header\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/s.test(css),'top actions cannot impose the logo text intrinsic width');
+assert(/body\.reels #grid \.countdown-units\s*\{[^}]*grid-template-columns:\s*repeat\(5,\s*minmax\(0,\s*1fr\)\)/s.test(css),'all five countdown units share the available row');
+assert(/body\.reels #grid \.gallery-hint,[\s\S]*?\.media-label,[\s\S]*?\.gallery-pagination\s*\{\s*display:\s*none/s.test(css),'redundant floating photo hints cannot cover the title');
+assert(/@media\s*\(max-height:\s*480px\)\s*and\s*\(orientation:\s*landscape\)/.test(css),'short landscape has an explicit compact layout');
+assert(/\.admin-grid\s*\{[^}]*minmax\(0,\s*1fr\)/s.test(css),'bank editor tracks do not inherit a min-content width');
+assert(/\.valuation-heading,\s*\.valuation-result\s*\{[^}]*flex-wrap:\s*wrap/s.test(css),'valuation labels and values can move to separate lines');
+assert(/body dialog select,\s*body dialog textarea\s*\{[^}]*font-size:\s*16px\s*!important/s.test(css),'remaining mobile dialog fields avoid Safari small-input zoom');
+assert(fs.readFileSync('dist/sw.js','utf8').includes("['layout-safety.css','text/css']"),'service worker recognizes the final typed stylesheet');
+
+const h=boot({noMedia:true}),now=Date.now();
+const name='Автомобиль Mercedes-Benz '+('длиннаякомплектациябезпробелов'.repeat(5))+' <проверка>',city='Очень длинное название населённого пункта с дополнительным уточнением адреса';
+const lot={id:998731001,name,city,regionCode:'36',category:'cars',subcategory:'cars',brand:'Mercedes-Benz',price:2380000,start:2380000,step:10000,deposit:0,status:'live',startsAt:new Date(now-3600000).toISOString(),ends:new Date(now+6*86400000).toISOString(),bank:'Продавец '+('длинноеназвание'.repeat(6)),year:2020,engine:'Дизель / Бензин',km:'62 000',bids:1234567,demo:true,photoExample:true,tag:'Демонстрационный лот'};
+h.run('cars.push('+JSON.stringify(lot)+')');
+const card=h.run('cardHTML(cars.at(-1))');
+assert(card.includes(h.run('escapeText(cars.at(-1).name)')),'the full long title remains available in generated card content');
+assert(!card.includes('<проверка>'),'long titles cannot inject markup');
+assert(card.includes(city),'long location is not lost while responsive CSS wraps it');
+assert.equal((card.match(/class="countdown-unit"/g)||[]).length,5,'long content retains every labeled countdown unit');
+assert(card.includes('data-countdown-part="seconds"'),'seconds remain present after the previously clipped minute cell');
+assert(card.includes('class="tag">Демонстрационный лот'),'the demonstration disclosure remains in the feed markup');
+assert(card.includes('data-open="'+lot.id+'"'),'the full lot stays accessible from the compact feed');
+h.run('openCar('+lot.id+')');
+const detail=h.node('#modal-content').innerHTML;
+assert(detail.includes(h.run('escapeText(cars.at(-1).name)')),'opening the lot retains the full readable title');
+assert(detail.includes('valuation'),'valuation details remain accessible when the compact feed hides secondary sections');
+console.log('PASS: long card/detail text, all five timer units, final stylesheet cascade, bounded feed/header/editor tracks, mobile field sizing and compact-height guards. Browser geometry is not simulated.');

@@ -1,0 +1,45 @@
+{
+  "site": "https://drive-lot-auction.familiarchord.chatgpt.site",
+  "version_number": 64,
+  "version_id": "appgprj_6af4e219966481919933881aab8d0232~appgver_54528358f3dc8191b899c65bfec0c4df",
+  "source_commit": "6c0df52d7bc8cc77e4b3f6bf7082fabdf42c9696",
+  "deployment_id": "appgdep_6af8cc8eedb481919cea69749fef6f21",
+  "status": "succeeded",
+  "published_utc": "2026-11-14T21:03:25.702297+00:00",
+  "access": {
+    "mode": "custom",
+    "revision": 2,
+    "unchanged": true,
+    "automations": 0
+  },
+  "validation": {
+    "targeted_files": 36,
+    "passed": 36,
+    "failed": 0,
+    "source_unchanged": true,
+    "source_sha256": "873b78c3ae9629911fcf1d04d1854c853a79602b556ce90a2d8aaf604832cf42",
+    "pre_push": "Successful configured pre-push: 100 isolated models and all security files, no bypass.",
+    "audit": "docs/featured-photo-audit-2026-11-14.json",
+    "http_proof": "docs/publication-64-http-verification-2026-11-14.json",
+    "http_requests": 10,
+    "native_checks": 1077,
+    "native_failed": 0
+  },
+  "archive": {
+    "source_path": "releases/fas-torgi-v64-source.zip",
+    "commit_sha": "6c0df52d7bc8cc77e4b3f6bf7082fabdf42c9696",
+    "files": 681,
+    "bytes": 13983791,
+    "sha256": "f9dfa0d5eedcbf02e6e323a6823c66e31e120a971533de6a5e74fd6fb6e70364",
+    "verification_checks": 4093,
+    "verification_failed": 0,
+    "apk_path": "releases/fas-torgi-v64-android-demo-debug.apk",
+    "apk_sha256": "a8fedbc060f866664f1ce2835bf542f7fbe80ab76aee2f306a8767913e400050",
+    "scope": "Local artifacts, not an independent offsite backup."
+  },
+  "limits": [
+    "No physical iPhone/Safari verification.",
+    "v64 used custom photo stepping and visible arrows; the later native-scroll/dots correction is a separate release.",
+    "Real protected server auction accounts, bank payments/escrow and external failover remain disconnected."
+  ]
+}

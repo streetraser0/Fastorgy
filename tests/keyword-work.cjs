@@ -1,0 +1,27 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const root=path.resolve(__dirname,'..'),metrics={terms:0,dictionaries:0,sets:0},context={metrics,console,Set:class extends Set{constructor(values){super(values);metrics.sets++}}};context.window=context;vm.createContext(context);
+for(const file of ['search-typos.js','search-identifiers.js','search-intent.js'])vm.runInContext(fs.readFileSync(path.join(root,'dist',file),'utf8'),context);
+const typos=context.FasSearchTypos;context.FasSearchTypos={...typos,create(...args){metrics.dictionaries++;return typos.create(...args)}};
+// Count matching operations without adding diagnostics to the shipped API.
+const source=fs.readFileSync(path.join(root,'dist/keyword-search.js'),'utf8'),hook='function testTerm(doc,term,dynamicPrice){';
+assert(source.includes(hook));vm.runInContext(source.replace(hook,hook+'metrics.terms++;'),context);
+const S=context.FasKeywordSearch;
+for(const query of ['SITRAK','Toyota RAV4','Тойота РАВ4','4500000','Воронеж'])assert.equal(S.compile(query).corrections.length,0);
+assert.equal(S.compile('cbnhfr').corrections[0].reason,'keyboard-layout');
+assert.equal(metrics.dictionaries,0,'exact words, models, numbers and keyboard-layout fixes skip spelling-index allocation');
+const rows=Array.from({length:250},(_,i)=>({id:700000+i,category:'cars',name:'BMW 530i',brand:'BMW'})),exact=S.compile('SITRAK');
+metrics.terms=0;metrics.sets=0;for(const row of rows)assert(!S.matches(row,exact));assert.equal(metrics.terms,rows.length,'each rejected lot is evaluated once for an unchanged query');assert(metrics.sets<=2,'a common category/flag combination reuses its base tag set across listings');
+metrics.terms=0;assert(!S.matchesText('BMW 530i',exact));assert.equal(metrics.terms,1,'plain-text checks skip the duplicate fallback too');
+const corrected=S.compile('Ситрк');assert.equal(corrected.corrections.length,1);assert.equal(metrics.dictionaries,1,'the first spelling query builds one reusable dictionary');
+assert(S.matches({id:1,category:'trucks',name:'SITRAK C7H',brand:'SITRAK'},corrected),'corrected name matches');
+assert(S.matches({id:2,category:'other',name:'Ситрк',brand:'Other'},corrected),'an exact original spelling remains eligible');
+assert(S.matchesText('Ситрк',corrected));assert(S.matchesText('SITRAK',corrected));
+S.invalidate();S.compile('Ситрк');S.compile('Toyta');assert.equal(metrics.dictionaries,1,'document invalidation preserves the reusable spelling dictionary');
+const powered={id:51,category:'equipment',name:'Компрессор',powerHp:150,pickup:true},plain={id:52,category:'equipment',name:'Компрессор',pickup:true};
+assert(S.matches(powered,'компрессор'));assert(S.matches(plain,'компрессор'));
+assert(S.matches(powered,'150 hp'));assert(!S.matches(plain,'hp'),'a unit tag added to one listing never leaks through a shared base set');
+assert(S.matches(plain,'pickup'));assert(!S.matches({id:53,category:'equipment',name:'Тиски',pickup:false},'pickup'),'public flag combinations remain distinct');
+plain.pickup=false;S.invalidate();assert(!S.matches(plain,'pickup'),'invalidation also refreshes changed public flags');
+const identifier=S.compile('JTNB11HK203123456');assert(identifier.identifier);metrics.terms=0;
+assert(S.matches({id:3,vin:'JTNB11HK203123456'},identifier));assert(!S.matches({id:4,vin:'JTNB11HK2031234567'},identifier));assert.equal(metrics.terms,0,'complete identifiers retain their strict matching path');
+console.log('PASS: exact-query matching performs one pass; known words/layouts defer spelling indexes, shared base tags isolate measure/flag updates, typo variants remain eligible, and strict identifiers bypass keyword matching.');

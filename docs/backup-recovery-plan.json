@@ -1,0 +1,166 @@
+{
+  "status": "DEFERRED: external activation explicitly postponed; planning artifact only",
+  "observed_at": "2026-11-14",
+  "observed_commit": "3f07a8b6a9752052ca0b60257940ff47db22b886",
+  "release_boundary": "Performance v60 is in progress. Do not call this a v60 backup or freeze until PERFREADY2, final commit and validated artifact hashes.",
+  "actions_taken": "Read-only source/config/archive inspection. No private DB rows/export, cloud/domain/plugin connection, deployment, scheduler or production file changes.",
+  "observed": {
+    "deploy": {
+      "manifest": ".openai/hosting.json",
+      "type": "Sites Worker ES module with embedded static assets; binding DB",
+      "build": "scripts/build-worker.mjs",
+      "validate": "scripts/validate-worker.mjs",
+      "generated": [
+        "dist/server/index.js",
+        "dist/.openai/hosting.json",
+        "dist/.openai/drizzle/"
+      ],
+      "generated_outputs_ignored": true
+    },
+    "schema": {
+      "migration": "drizzle/0000_metrics.sql",
+      "journal": "drizzle/meta/_journal.json",
+      "tables": [
+        "site_users",
+        "sale_events"
+      ],
+      "data": "Pseudonymous visit statistics and demonstration sale analytics; no server auction/account/media/escrow tables."
+    },
+    "identity": {
+      "source": "Trusted Sites gateway header oai-authenticated-user-id",
+      "hash": "SHA-256 of fas-site-user:v1: plus the stable authenticated identity",
+      "portability_gate": "An external origin must strip client-supplied identity headers and validate authentication at a trusted gateway. Preserve stable principals/mapping before permitting private D1 access."
+    },
+    "audience": "Private custom audience, confirmed by parent; policy is platform configuration, not included in local source manifest.",
+    "domains": "No custom domain attached, confirmed by parent. The platform-owned .chatgpt.site hostname cannot be independently redirected by this project.",
+    "client_data": {
+      "localStorage": "Seller profile, drafts, local lot metadata, demo bids/purchases, favorites, history, settings and saved searches.",
+      "IndexedDB": "User-uploaded photos/videos, device/browser scoped.",
+      "origin": "A new independent domain has separate browser storage. A server SQL restore cannot migrate these data or provide server authorization.",
+      "native": "Capacitor app ru.fastorgi.app uses bundled www with Android https localhost/iOS capacitor origin; signing/Bundle ID/origin continuity matter."
+    },
+    "existing_artifacts": {
+      "zip": "releases/fas-torgi-mobile-source.zip",
+      "zip_bytes": 10348318,
+      "zip_timestamp_utc": "2026-11-14 12:27:11",
+      "contains": [
+        "worker/index.js",
+        "drizzle migration and journal",
+        "mobile/package-lock.json",
+        "mobile/capacitor.config.json",
+        "dist source/assets"
+      ],
+      "apk": "releases/fas-torgi-android-demo-debug.apk",
+      "apk_bytes": 12960184,
+      "apk_timestamp_utc": "2026-11-14 11:58:41",
+      "git_status": "Release ZIP/APK are ignored; presence is not a verified, encrypted, offsite backup. Neither is asserted to contain in-progress v60 changes.",
+      "ios": "Source project exists; signed production IPA/key material is not present or verified."
+    }
+  },
+  "separate_scopes": [
+    {
+      "kind": "Source/release backup",
+      "includes": [
+        "Pinned Git commit source tree, tracked-path list and per-file hashes",
+        "dist inputs/assets, worker/index.js, build/validation scripts, .openai/hosting.json, all drizzle files",
+        "mobile native projects, package lock, native adapter and configuration",
+        "Optional exact generated Worker/APK artifacts only after matching release verification"
+      ],
+      "excludes": [
+        "Unreviewed dirty working tree",
+        "Tokens, .env, signing private keys, node_modules, platform/user credentials",
+        "Browser profile/private media assumed to be server data"
+      ],
+      "restore_note": "build-worker uses git ls-files. A plain source tar needs its reviewed tracked-path index reconstructed in a fresh local Git repository, or a separately secret-reviewed Git bundle."
+    },
+    {
+      "kind": "D1 snapshot",
+      "includes": [
+        "Owner-obtained consistent native D1 SQL export/snapshot for site_users and sale_events",
+        "Schema/migration version, snapshot timestamp/ID, export checksum and project/binding provenance"
+      ],
+      "constraints": [
+        "Parent owns export tools; this agent did not read/export rows.",
+        "Use a consistent native snapshot, not uncoordinated table pagination during writes.",
+        "Restore into a fresh isolated database; never test import over production.",
+        "This is analytics recovery, not restoration of user accounts/auctions/media."
+      ]
+    },
+    {
+      "kind": "Browser/WebView recovery",
+      "currently_backed_up": false,
+      "requirements": [
+        "Future explicit user-controlled export/import of localStorage metadata plus IndexedDB blobs and reference/owner validation",
+        "Encrypted per-user archives with no tokens and no automatic cross-user restoration",
+        "Same-origin continuity or an explicit authenticated migration; changing domains does not copy browser storage"
+      ],
+      "boundary": "Not provided by the present D1 export/source ZIP."
+    },
+    {
+      "kind": "High availability / standby",
+      "currently_deployed": false,
+      "requirements": [
+        "User-owned stable domain and traffic control independent of primary provider",
+        "Independent origin hosting with compatible Worker/runtime/database/storage bindings",
+        "Trusted identity gateway, stable identity mapping, audience/access policy and tested sessions",
+        "Replication/change-log or a deliberate read-only standby with documented RPO",
+        "Writer fencing, split-brain prevention, idempotency, operational health checks, tested failover/failback"
+      ],
+      "boundary": "An encrypted snapshot is a backup, not a live replica. DNS and session continuity do not guarantee immediate failover; current .chatgpt.site cannot serve as a user-controlled failover hostname."
+    }
+  ],
+  "proposed_future_backup_pipeline": {
+    "activation": "Only after the user connects backup storage/domain/auth infrastructure; explicitly deferred now.",
+    "steps": [
+      "Pin and validate the release commit/artifact hash.",
+      "Create source archive, tracked path/hash manifest and deployment/migration metadata without credentials.",
+      "Parent obtains a consistent D1 export into a private ephemeral staging directory.",
+      "Package source + export + metadata; encrypt client-side with an audited tool such as age using an operator-provided public recipient. Never put the private key in Git, scripts, chat or the backup bucket.",
+      "Upload ciphertext plus ciphertext checksum to independent storage with retention/versioning or immutability and a separate account/failure domain. Verify size/hash/readback.",
+      "Retain recovery keys separately with an offline second custodian; test decrypt/recovery on isolated infrastructure.",
+      "Only expire old ciphertext after a verified new copy and retention policy. Keep operational logs free of rows/tokens."
+    ],
+    "default_targets_not_guarantees": {
+      "source": "After each verified release",
+      "D1": "An hourly snapshot is an initial option only; at most 1h RPO if each job succeeds, not zero loss.",
+      "retention": "Example 24 hourly + 30 daily; owner to approve costs/legal retention later.",
+      "RTO": "Unknown until a full restore + authentication/access drill is measured."
+    },
+    "not_configured": [
+      "Scheduler",
+      "Offsite storage account/bucket",
+      "Encryption recipient/key custody",
+      "Production backup job",
+      "Standby hosting",
+      "DNS failover",
+      "Auth replication/session migration"
+    ]
+  },
+  "recovery_runbook": [
+    "Choose a verified backup ID and capture an incident timestamp. Do not overwrite the primary or silently change private audience.",
+    "Verify ciphertext checksum and decrypt with the offline recovery identity in a private ephemeral environment. Never print raw SQL or keys.",
+    "Verify every manifest hash, original source commit, schema version and D1 snapshot provenance. Check completeness of tables and indexes.",
+    "Reconstruct the source index if using a plain tar: git init, then add exactly the recorded tracked paths in the isolated directory. Rebuild Worker with Node and run scripts/validate-worker.mjs; do not redeploy to the original Site inadvertently.",
+    "Restore SQL into a fresh isolated SQLite/D1-compatible database. Run integrity/schema/constraint checks, aggregate counts and fixture queries without logging rows. Validate source=demo, uniqueness and owner scoping.",
+    "Attach DB binding and configure a trusted auth gateway/audience before exposing the recovered API. With no gateway, keep it private/offline or fail closed; never trust a public caller identity header.",
+    "Test anonymous denied access, authorized user A vs user B isolation, stable identity mapping and unchanged private audience. Confirm no real payments are claimed.",
+    "Test app/static/PWA behavior and media manifests; browser-only drafts/photos require their own archive and cannot be inferred from D1.",
+    "Only after approved independent domain/traffic control exists, fence the old writer, promote the selected single writer, switch traffic and measure session/data continuity. Otherwise perform a controlled manual recovery in supported Sites hosting.",
+    "Record actual RPO/RTO, discrepancies, restore hashes and failback steps. Do not declare instant HA or a successful drill from a code build alone."
+  ],
+  "local_now_without_resources": [
+    "Keep this runbook and a pinned source/artifact manifest proposal.",
+    "Inspect source/migrations/archive inventory without live data.",
+    "After PERFREADY2, verify the exact release source tree and hashes locally.",
+    "Optionally perform a schema-only/synthetic SQLite restore in /tmp; it proves only schema portability, not real data/auth/cloud recovery."
+  ],
+  "deferred_by_user": true,
+  "remaining_information_for_later": [
+    "Approved independent backup storage/region/account and retention budget",
+    "Encryption public recipient and separate key custody",
+    "User-owned domain plus DNS/traffic management rights",
+    "Independent hosting/runtime/DB capabilities",
+    "Authentication/audience export or replacement gateway with stable identity mapping",
+    "Production export mechanism and snapshot-consistency guarantees"
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "generatedUtc": "2026-11-14T16:42:58.083005+00:00",
+  "baselineCommit": "bfcf16772ecffc2735b54d05c2c9f2e6fb08fcfb",
+  "scope": "Three narrow client work-reduction fixes; actual module execution in isolated Node VM browser models. No live HTTP traffic or physical-device measurement.",
+  "before": {
+    "summary": {
+      "workspaceBytes": 400079,
+      "initialParses": 1,
+      "extraParses": 100,
+      "catalogueScans": 1
+    },
+    "voice": {
+      "lots": 52870,
+      "queries": 5,
+      "cityReadsOnUnlocatedQueries": 1057410,
+      "lastAction": "search"
+    },
+    "invalidPreparation": [
+      {
+        "query": "автомобиль до 20 тысяч долларов",
+        "total": 52870,
+        "canonicalError": "Поиск по цене поддерживает рубли. Укажите бюджет в ₽: иностранная валюта автоматически не пересчитывается.",
+        "synchronousLotReads": 52870,
+        "initiallyScheduledChunks": 1,
+        "indexedFieldsAfterAtMostOneChunk": 200,
+        "remainingScheduledChunks": 1
+      },
+      {
+        "query": "автомобиль от 3 млн до 2 млн",
+        "total": 52870,
+        "canonicalError": "Цена: значение «от» не может быть больше «до». Уточните диапазон.",
+        "synchronousLotReads": 52870,
+        "initiallyScheduledChunks": 1,
+        "indexedFieldsAfterAtMostOneChunk": 200,
+        "remainingScheduledChunks": 1
+      },
+      {
+        "query": "квартира от 80 до 40 м²",
+        "total": 52870,
+        "canonicalError": "Площадь: значение «от» не может быть больше «до». Уточните диапазон.",
+        "synchronousLotReads": 52870,
+        "initiallyScheduledChunks": 1,
+        "indexedFieldsAfterAtMostOneChunk": 200,
+        "remainingScheduledChunks": 1
+      }
+    ]
+  },
+  "after": {
+    "summary": {
+      "workspaceBytes": 400079,
+      "initialParses": 1,
+      "extraParses": 0,
+      "catalogueScans": 1
+    },
+    "voice": {
+      "lots": 52870,
+      "queries": 5,
+      "cityReadsOnUnlocatedQueries": 0,
+      "lastAction": "search"
+    },
+    "invalidPreparation": [
+      {
+        "query": "автомобиль до 20 тысяч долларов",
+        "total": 52870,
+        "canonicalError": "Поиск по цене поддерживает рубли. Укажите бюджет в ₽: иностранная валюта автоматически не пересчитывается.",
+        "synchronousLotReads": 0,
+        "initiallyScheduledChunks": 0,
+        "indexedFieldsAfterAtMostOneChunk": 0,
+        "remainingScheduledChunks": 0
+      },
+      {
+        "query": "автомобиль от 3 млн до 2 млн",
+        "total": 52870,
+        "canonicalError": "Цена: значение «от» не может быть больше «до». Уточните диапазон.",
+        "synchronousLotReads": 0,
+        "initiallyScheduledChunks": 0,
+        "indexedFieldsAfterAtMostOneChunk": 0,
+        "remainingScheduledChunks": 0
+      },
+      {
+        "query": "квартира от 80 до 40 м²",
+        "total": 52870,
+        "canonicalError": "Площадь: значение «от» не может быть больше «до». Уточните диапазон.",
+        "synchronousLotReads": 0,
+        "initiallyScheduledChunks": 0,
+        "indexedFieldsAfterAtMostOneChunk": 0,
+        "remainingScheduledChunks": 0
+      }
+    ]
+  },
+  "regressionMeasurements": {
+    "observer": {
+      "workspaceBytes": 400079,
+      "initialWorkspaceParses": 1,
+      "extraParsesFor100Refreshes": 0,
+      "catalogueScans": 1
+    },
+    "scrollFallback": {
+      "workspaceBytes": 400079,
+      "initialWorkspaceParses": 1,
+      "extraParsesFor100Refreshes": 0,
+      "catalogueScans": 1
+    },
+    "voice": {
+      "lots": 52870,
+      "ordinaryQueries": 5,
+      "cityReads": 0
+    },
+    "invalidPreparation": {
+      "lots": 52870,
+      "rejectedQueries": 3,
+      "rowReads": 0,
+      "indexedFieldReads": 0,
+      "scheduledChunks": 0
+    },
+    "validPreparation": {
+      "prepared": 251,
+      "chunks": 3,
+      "cancelledPrepared": 100,
+      "cancelled": true
+    }
+  },
+  "baselineRegressionProof": [
+    {
+      "baselineModule": "marketplace-summary.js",
+      "exitCode": 1,
+      "expectedFailureObserved": true,
+      "assertion": "unchanged default profile lookup does not reparse"
+    },
+    {
+      "baselineModule": "voice-assistant.js",
+      "exitCode": 1,
+      "expectedFailureObserved": true,
+      "assertion": "queries with no fallback location phrase do not walk"
+    },
+    {
+      "baselineModule": "keyword-search.js",
+      "sourceSha256": "56ba40e77ab099c73f31f3c0bc9a512881e4ca148338cd2ddb968d873878775a",
+      "exitCode": 1,
+      "expectedFailureObserved": true,
+      "assertion": "invalid queries do not enumerate a cold 52870-lot catalogue",
+      "observedLotReads": 52870,
+      "baselineContext": "Captured prepare implementation before its early-error guard, replayed with the current canonical parser that supplies clarification errors."
+    }
+  ],
+  "sourceHashes": {
+    "dist/marketplace-summary.js": "4ca8ac81e2e3a01e9213b12f2dbdfa6b020021871fbd763a5f7ea54bcd28aec6",
+    "dist/voice-assistant.js": "c1386db8b4d92f122c3dd5c4602c2fdead4626435ca8ea7bc1e9aeb066218211",
+    "tests/performance-followup-regressions.cjs": "97e44adad525664d2b63ca0b82f34dbcd232ead79248a9e70e58d191f30d092b",
+    "dist/keyword-search.js": "f43e50eead7e0a0c608e363f7ce6823e87bcffa9c0c5782f5ae508595fd8537c"
+  },
+  "validation": {
+    "passed": true,
+    "testFiles": [
+      "performance-followup-regressions.cjs",
+      "marketplace-summary.cjs",
+      "voice-assistant.cjs",
+      "voice-personalization-integration.cjs",
+      "voice-core-actions.cjs",
+      "voice-invocation-auto.cjs",
+      "local-ai.cjs",
+      "search-night-regressions.cjs",
+      "keyword-search-prepare.cjs",
+      "keyword-work.cjs",
+      "keyword-index-lifecycle.cjs",
+      "identifier-input-boundaries.cjs"
+    ],
+    "syntax": [
+      "dist/marketplace-summary.js",
+      "dist/voice-assistant.js"
+    ],
+    "gitDiffCheck": true
+  },
+  "preservedSemantics": [
+    "Summary keeps source/owner/storage checks, exact demo counters, owner-scoped baseline, invalid/missing/schema/storage-denial behavior, and time-boundary invalidation.",
+    "The optional getProfileId adapter keeps its existing behavior.",
+    "Only unchanged raw workspace bytes reuse a parsed owner. Invalid IDs never become an owner.",
+    "Voice shared location parsing runs first, including standard cities.",
+    "All inventory-fallback location phrases and current custom-city resolution remain; no city index/cache was added.",
+    "No price, deadline, filter, sorting, purchase or bid rule changed.",
+    "An invalid canonical intent returns the existing empty-preparation result before identifier result allocation, inventory filtering or task scheduling.",
+    "Valid preparation still yields in bounded chunks, updates progress and matches content; cancellation still stops the remaining work."
+  ],
+  "limits": [
+    "Operation counters describe the given fixtures, not milliseconds saved on a phone.",
+    "The voice baseline replaces only the two targeted modules with their exact saved v61 source; it is not a full application latency benchmark.",
+    "Custom-city location requests may still scan the inventory when the shared location parser has no answer; this preserves their actual matching behavior.",
+    "Large stored workspace bytes still need to be read to detect cross-tab/profile changes; this removes repeated JSON parsing, not storage access.",
+    "Browser rendering, mobile geometry, Safari, microphone and network latency were not exercised.",
+    "Zero row reads/tasks applies only to FasKeywordSearch.prepare on the rejected-query fixtures, not all work performed by a whole page or typed-input UI.",
+    "The third baseline replays the captured pre-guard prepare implementation with current clarification-producing parser semantics; it is not a claim that the published v61 parser already emitted every new error."
+  ],
+  "relatedVoiceValidation": "The same voice source also contains the coordinator-requested canonical error preflight before quantity/money extraction, to preserve original currency/negation errors. Its typed and voice behavior is covered by search-night-regressions.cjs; exact-model compile has priority over the fallback parser."
+}

@@ -1,0 +1,28 @@
+{
+  "createdUtc": "2026-11-14T15:46:33.148991+00:00",
+  "method": "OSV exact npm component version query; not bundle reachability or a complete vulnerability audit",
+  "components": [
+    {
+      "query": {
+        "package": {
+          "name": "@xenova/transformers",
+          "ecosystem": "npm"
+        },
+        "version": "2.17.2"
+      },
+      "vulnerabilities": [],
+      "checked": true
+    },
+    {
+      "query": {
+        "package": {
+          "name": "onnxruntime-web",
+          "ecosystem": "npm"
+        },
+        "version": "1.14.0"
+      },
+      "vulnerabilities": [],
+      "checked": true
+    }
+  ]
+}

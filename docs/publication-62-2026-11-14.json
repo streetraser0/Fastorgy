@@ -1,0 +1,38 @@
+{
+  "version_number": 62,
+  "source_commit": "e7f602ceb1063585ce01fe3a095513a4fff46dec",
+  "site_url": "https://drive-lot-auction.familiarchord.chatgpt.site",
+  "saved_version_id": "appgprj_6af4e219966481919933881aab8d0232~appgver_64482fd8aa308191aa0f802e9eabb84c",
+  "deployment_id": "appgdep_6af8923e64d88191bcb46cc2766de891",
+  "status": "succeeded",
+  "published_utc": "2026-11-14T16:54:36.407666+00:00",
+  "env_revision": 0,
+  "access_mode": "custom",
+  "access_revision": 2,
+  "external_visitors": 1,
+  "audience_changed": false,
+  "schedules_created": false,
+  "http_verification": "docs/publication-62-http-verification-2026-11-14.json",
+  "http_success": true,
+  "limited_readonly_requests": 17,
+  "verification_scope": "Changed files match built bytes, HTML and worker CSP match, preview/logo sizes match. Anonymous site/API403; bypass without identity and spoofed identity401. No production writes, flood or physical browser test.",
+  "source_archive": {
+    "commit": "e7f602ceb1063585ce01fe3a095513a4fff46dec",
+    "archive_bytes": 13774371,
+    "archive_sha256": "9d99b83fbd9fa49e4bfc4abe0cf4db5582b6b0799865ca17e5bb3c2ce63c33db",
+    "expected_file_count": 665,
+    "passed_checks": 3997,
+    "failed_checks": 0
+  },
+  "retained_local_artifacts": {
+    "releases/fas-torgi-v62-source.zip": {
+      "bytes": 13774371,
+      "sha256": "9d99b83fbd9fa49e4bfc4abe0cf4db5582b6b0799865ca17e5bb3c2ce63c33db"
+    },
+    "releases/fas-torgi-v62-android-demo-debug.apk": {
+      "bytes": 15745263,
+      "sha256": "409f128d6aef4b721c0009974271b3874a32171edfa18177bf707fbb7c46f566"
+    }
+  },
+  "artifact_limit": "Versioned local releases and Git/Sites history; not an independent offsite backup of user data."
+}

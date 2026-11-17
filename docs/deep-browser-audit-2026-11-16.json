@@ -1,0 +1,258 @@
+{
+  "date": "2026-11-16",
+  "scope": "Deep isolated browser audit of v75, followed by bounded featured startup reservation and canonical region-return fixture repair.",
+  "method": {
+    "browser": "Installed Chrome / Playwright",
+    "viewports": [
+      {
+        "width": 1366,
+        "height": 1000
+      },
+      {
+        "width": 850,
+        "height": 1000
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "touch": true
+      },
+      {
+        "width": 360,
+        "height": 800,
+        "touch": true
+      }
+    ],
+    "deviceLimit": "Mobile UA and touch emulation on Windows Chrome; no actual Safari, Android device, native APK or WebKit certification.",
+    "writes": "Disposable contexts only. POST/other mutations blocked. Local test draft/IndexedDB changes discarded with context. No published bids/payments.",
+    "startupComparison": "Same current page and CSS except the three bounded loading changes toggled off/on using request interception. Fresh contexts; empty catalogue is a labelled in-memory fixture. Sum of no-recent-input layout-shift entries during initial load; local measurements, not a hosted field metric."
+  },
+  "verified": {
+    "baselineHomeLotCabinetCatalog": [
+      "1366",
+      "850",
+      "390",
+      "360"
+    ],
+    "search": "22 explicit typed/Enter cases over 27 deterministic in-memory lots: colour/body/price/area/rooms/fuel/power/brand/model/multiple words/no results; invalid range keeps previous results.",
+    "filtersAndNavigation": "Actual multiregion OR + subcategory + sorting + reload/reset in four viewports; real photo asset ID100200; viewer paging/zoom/mobile back; bid CTA focus without submit; favorite/share/fullfeed return; visible header dialogs.",
+    "drafts": "1366 and360 isolated photo draft/save/reload/reopen/delete; IndexedDB photo retained; invalid profile blocks leaving and nested return retains fields.",
+    "singleRetry": "One desktop draft-tab action timed out after cancelled profile; complete targeted repeat passed. No reproducible app defect or JS exception from this incident.",
+    "contrast": "Initial computed contrast findings delivered to root; root owns the final contrast/focus and toolbar fixes and their verification."
+  },
+  "startup": [
+    {
+      "width": 1366,
+      "mode": "default",
+      "before": 0.5831563503469833,
+      "after": 0.10101485988356043,
+      "readyCards": 12,
+      "readyInert": false,
+      "readyBusy": null,
+      "readyLoading": false,
+      "pageErrors": [],
+      "overflow": false
+    },
+    {
+      "width": 1366,
+      "mode": "saved-empty",
+      "before": 0.18476399431965287,
+      "after": 0.0017477657900293471,
+      "readyCards": 0,
+      "readyInert": false,
+      "readyBusy": null,
+      "readyLoading": false,
+      "pageErrors": [],
+      "overflow": false
+    },
+    {
+      "width": 1366,
+      "mode": "default-empty",
+      "before": 0.20309687011272268,
+      "after": 0.08357609030050964,
+      "readyCards": 0,
+      "readyInert": false,
+      "readyBusy": null,
+      "readyLoading": false,
+      "pageErrors": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "mode": "default",
+      "before": 0.9210552629392214,
+      "after": 0.2251563544634378,
+      "readyCards": 12,
+      "readyInert": false,
+      "readyBusy": null,
+      "readyLoading": false,
+      "pageErrors": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "mode": "saved-empty",
+      "before": 0.39680618663936373,
+      "after": 0.03289064458689459,
+      "readyCards": 0,
+      "readyInert": false,
+      "readyBusy": null,
+      "readyLoading": false,
+      "pageErrors": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "mode": "default-empty",
+      "before": 0.39549238010446347,
+      "after": 0.12441795227920227,
+      "readyCards": 0,
+      "readyInert": false,
+      "readyBusy": null,
+      "readyLoading": false,
+      "pageErrors": [],
+      "overflow": false
+    }
+  ],
+  "loadingGates": {
+    "loading": {
+      "inert": true,
+      "busy": "true",
+      "reelsDisplay": "none",
+      "restInert": false
+    },
+    "errors": [],
+    "ready": {
+      "inert": false,
+      "busy": null,
+      "width": 390,
+      "viewport": 390,
+      "cards": 12
+    }
+  },
+  "targetedTests": {
+    "initialEight": [
+      "feed-close-gesture.cjs",
+      "feed-return-gestures.cjs",
+      "featured-loading.cjs",
+      "featured-empty-feed.cjs",
+      "featured-lots.cjs",
+      "desktop-featured-personalization.cjs",
+      "featured-performance-cache.cjs",
+      "featured-horizontal.cjs"
+    ],
+    "remaining": [
+      {
+        "file": "featured-cheap-intent.cjs",
+        "status": 0,
+        "ms": 2194
+      },
+      {
+        "file": "featured-combinations.cjs",
+        "status": 0,
+        "ms": 4588
+      },
+      {
+        "file": "featured-desktop-drag.cjs",
+        "status": 0,
+        "ms": 829
+      },
+      {
+        "file": "featured-desktop-wheel.cjs",
+        "status": 0,
+        "ms": 251
+      },
+      {
+        "file": "featured-ending-interest.cjs",
+        "status": 0,
+        "ms": 261
+      },
+      {
+        "file": "featured-feed-return.cjs",
+        "status": 0,
+        "ms": 1534
+      },
+      {
+        "file": "featured-for-you-city.cjs",
+        "status": 0,
+        "ms": 288
+      },
+      {
+        "file": "featured-hot.cjs",
+        "status": 0,
+        "ms": 2745
+      },
+      {
+        "file": "featured-live-fallback.cjs",
+        "status": 0,
+        "ms": 303
+      },
+      {
+        "file": "featured-participate.cjs",
+        "status": 0,
+        "ms": 1861
+      },
+      {
+        "file": "featured-photo-carousel.cjs",
+        "status": 0,
+        "ms": 971
+      },
+      {
+        "file": "featured-recommendations.cjs",
+        "status": 0,
+        "ms": 256
+      },
+      {
+        "file": "featured-settings.cjs",
+        "status": 0,
+        "ms": 249
+      },
+      {
+        "file": "featured-share.cjs",
+        "status": 0,
+        "ms": 176
+      }
+    ],
+    "allPassed": true
+  },
+  "limitations": [
+    "Initial startup shift is reduced, not eliminated (mobile default observed0.225).",
+    "Generated demonstration placeholder images are intentionally disclosed; real image loading was separately verified on lot100200.",
+    "Local analytics requests were deliberately blocked and yield expected console network errors; JavaScript page errors and local asset404s were absent in passed cases.",
+    "Hardware gestures, server auth, real publication/payment and external support/contact actions were not executed.",
+    "Parent owns full-suite results and final cache/version/publication; this report does not claim a complete platform certification."
+  ],
+  "artifacts": {
+    "directory": "deep-browser-audit-v75",
+    "reports": [
+      "baseline-report.json",
+      "search-report.json",
+      "flows-report.json",
+      "forms-report.json",
+      "forms-desktop-repro.json",
+      "contrast-report.json",
+      "featured-loading-comparison.json",
+      "featured-loading-gates.json",
+      "featured-remaining-tests.json"
+    ],
+    "screenshots": [
+      "desktop1366-home.png",
+      "desktop1366-cabinet.png",
+      "desktop1366-lot.png",
+      "iphone390-photo-viewer.png",
+      "android360-editor-photo.png",
+      "featured-loading-mobile390.png",
+      "featured-ready-mobile390.png"
+    ]
+  },
+  "finalReviewedFileSHA256": {
+    "dist/index.html": "3d522a122f98d341d26a3c339c2a708dc1aebb09634334a08e7a449837dffab1",
+    "dist/featured-lots.js": "4dcf42b05709a15a0bd71992819d43ab0b3b2fa9c29a644d338f05b903b2d197",
+    "dist/featured-lots.css": "7287446ce21df0b127dd3be6497e96edbec6871189b7459697748ee1bdb3f324",
+    "tests/feed-close-gesture.cjs": "3e10f7e4b449bdd1f3505315244759b5663afccfae67e2eac0f0c8f4a31664fd",
+    "tests/feed-return-gestures.cjs": "b4d982d78fb7b2365f9d47bd86f1c23953295a14a611cecb752b373b96776d89",
+    "tests/featured-loading.cjs": "e5b812dd4c853e76a98a8142cbbb1f531b8a92b3e5608546e9d660098308c1fa",
+    "tests/featured-empty-feed.cjs": "d5001803eb05e30937a97728905e76966c91e47d6b3fccc9c9446c4929004d8a",
+    "tests/helpers/category-seller-harness.cjs": "f936aae2972429d1faf9254be0c6e4b4577f71059479779bb654e43de11cf559"
+  }
+}

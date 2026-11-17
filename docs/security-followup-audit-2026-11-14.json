@@ -1,0 +1,103 @@
+{
+  "generated_utc": "2026-11-14T16:18:28.643993+00:00",
+  "scope": "Fresh source review and isolated actual browser-module control flow at asynchronous/reentrant profile and preference boundaries. No live requests, accounts, payments, external provider access or browser/device execution.",
+  "baseline_commit": "bfcf16772ecffc2735b54d05c2c9f2e6fb08fcfb",
+  "source_sha256": {
+    "dist/assistant-preferences.js": "b2cbcff3cab5ef3d4bf2f7f16feb83b9dbc9165d44b4f194ff0d7b1936909aef",
+    "dist/local-ai.js": "ad62cca62326f3eb354fb7d2d9cb6c7571d39bd139d00cff8317655d5df587b3",
+    "tests/security-followup-regressions.cjs": "46c7451cbf4c6990c25420299b60f9ab0ba97941a81407e2dabc47fb7ab8e7c5",
+    "tests/local-ai.cjs": "411fa59150b09fcabec02e76d7cbd35ab182b0cddcb74f58558cb6068be941cb"
+  },
+  "baseline_source_sha256": {
+    "dist/assistant-preferences.js": "4d191495f29d077f52636775e64d5ff6ed3bbcdcbcaeee67d6cb768fcb1720aa",
+    "dist/local-ai.js": "e04532f5de03cce34b5d7dba77fc468d24eb2c338795d241a4187fa8cba753ef"
+  },
+  "findings": [
+    {
+      "id": "S62-01",
+      "classification": "Client-side preference cancellation race",
+      "trigger": "A second notification is queued. Another tab mutes speech, enables all-day quiet, disables that event or removes its preference record; the storage event has not arrived when the first utterance ends.",
+      "baseline_observed": "The second phrase still speaks for mute, because drain() checks in-memory values only.",
+      "fixed_behavior": "drain() rereads current profile and persisted preference state before use; missing/invalid records reset to safe defaults while preserving explicitly pending session changes.",
+      "impact_limit": "No bypass of server data access or real financial operation was demonstrated."
+    },
+    {
+      "id": "S62-02",
+      "classification": "Local profile context isolation",
+      "trigger": "The local profile changes while a previous profile notification queue awaits utterance completion, or during a personalization decorator callback.",
+      "baseline_observed": "The next prior-profile phrase speaks; no fresh scope check occurs at the use boundary.",
+      "fixed_behavior": "Profile/generation/ownership is checked before queue use and again after the external decorator; a changed profile clears the old queue."
+    },
+    {
+      "id": "S62-03",
+      "classification": "Stale local preferences control/request",
+      "trigger": "An Alice preferences panel or parsed voice settings request remains after switching the local scope to Bob.",
+      "baseline_observed": "The old control enables Bob speech because setPreference first switches scope and then applies the old control value.",
+      "fixed_behavior": "Rendered panels and parsed preference requests bind their owner. Stale/detached panels cannot change the current owner; stale panels are disabled with an explicit reopen message.",
+      "impact_limit": "This is an isolated local-profile contract; it does not establish a remote authenticated account exploit."
+    },
+    {
+      "id": "S62-04",
+      "classification": "Reentrant cancelled intent proposal",
+      "trigger": "A neural search proposal was prepared for Alice; the ordinary parser discovers the Bob profile and synchronously cancels the controller during Apply.",
+      "baseline_observed": "Actual local-ai.js and assistant-personalization.js terminate the worker and clear the query, but Apply continues and executes the old Alice search anyway.",
+      "fixed_behavior": "Apply refreshes actual personalization scope, then checks proposal identity, epoch, visibility and reviewed query again after the parser callback. Cancelled/stale actions do not execute.",
+      "impact_limit": "Only allowlisted navigation/search was reachable. No model financial commit or arbitrary code execution was demonstrated."
+    },
+    {
+      "id": "S62-05",
+      "classification": "Top-dialog use-boundary guard",
+      "trigger": "A new dialog becomes top while a previous local-AI proposal callback remains queued, including a parser callback opening another dialog.",
+      "baseline_observed": "Without the top-dialog guard, the captured old Apply callback still executes its route/search through the new window.",
+      "fixed_behavior": "Apply requires the local-AI dialog to be the lifecycle top dialog before and after parsing; the new upper window stays open.",
+      "impact_limit": "Tests exercise retained callbacks and real module flow in a DOM model; no claim that native browser inert dialogs permit ordinary pointer clicks."
+    }
+  ],
+  "baseline_differential": {
+    "new_test_exit_code": 1,
+    "expected_first_failure": "mute must stop the already queued second phrase before storage delivery",
+    "confirmed_reproductions": {
+      "queued_mute_spoken_count": 2,
+      "expected_muted_spoken_count": 1,
+      "profile_switch_spoken_count": 2,
+      "expected_switched_spoken_count": 1,
+      "stale_control_enabled_bob": true,
+      "expected_stale_control_enabled_bob": false,
+      "cancelled_old_query_actions": 1,
+      "expected_cancelled_query_actions": 0
+    }
+  },
+  "verification": {
+    "new_regression": "node tests/security-followup-regressions.cjs",
+    "new_regression_passed": true,
+    "neighbor_files_passed": [
+      "assistant-preferences.cjs",
+      "assistant-events-integration.cjs",
+      "assistant-personalization.cjs",
+      "voice-personalization-integration.cjs",
+      "voice-core-actions.cjs",
+      "local-ai.cjs"
+    ],
+    "syntax_and_diff_check": true,
+    "whole_release_suite": "Performed by the parent on its final integrated snapshot; not claimed by this report."
+  },
+  "preserved": [
+    "Workspace raw-byte memoization and no disabled-notification inventory scan",
+    "Opt-in/quiet hours, bounded queue and event deduplication",
+    "Session-only preference choices after a failed durable write",
+    "Current freshly rendered controls and current confirmed safe search remain functional",
+    "Model integrity/URL policy, monetary restrictions and canonical bid confirmation unchanged"
+  ],
+  "limitations": [
+    "Node/DOM models, not physical Safari or actual browser speech scheduling.",
+    "Synthetic local profile IDs and local storage were used; no real user data.",
+    "No new shared real auction backend, authentication or money system was connected.",
+    "This bounded review does not prove absence of all vulnerabilities."
+  ],
+  "top_dialog_negative_probe": {
+    "method": "Remove only top()===dialog from a temporary copy of the otherwise fixed controller; run the unchanged new regression file.",
+    "exit_code": 1,
+    "expected_failure": "a queued old Apply callback cannot navigate through another top dialog"
+  },
+  "peer_review": "An independent performance agent reviewed the prefs/local-AI cancellation and ownership diffs; no new blocker identified. The large workspace raw cache remains intact."
+}

@@ -1,0 +1,1312 @@
+{
+  "generated_utc": "2026-11-14T16:44:38.887013+00:00",
+  "baseline_version": 61,
+  "baseline_source_commit": "bfcf16772ecffc2735b54d05c2c9f2e6fb08fcfb",
+  "baseline_publication_proof": "docs/publication-61-2026-11-14.json",
+  "state": "Verified and published as version62.",
+  "changes": [
+    {
+      "area": "dialogs",
+      "result": "Blank structural padding routes through the canonical top-dialog Back, preserving native controls, media and dirty-form guards.",
+      "evidence": "docs/dialog-blank-back-2026-11-14.md"
+    },
+    {
+      "area": "search",
+      "result": "Separate quantity/budget units and numeric model identifiers; explicit zero mileage; bounded price comparisons; explicit unsupported currency, negation, alternatives and relative-age clarification.",
+      "evidence": "docs/search-followup-audit-2026-11-14.json"
+    },
+    {
+      "area": "profile and AI context",
+      "result": "Queued speech rereads scope and current mute; stale controls/requests stay owner-bound; cancelled AI proposals and non-top dialogs cannot continue execution.",
+      "evidence": "docs/security-followup-audit-2026-11-14.json"
+    },
+    {
+      "area": "dialog journeys",
+      "result": "Escape leaves underlying feed intact; transient dialogs invalidate pending photo opens.",
+      "evidence": "docs/interaction-followup-audit-2026-11-14.json"
+    },
+    {
+      "area": "performance",
+      "result": "Memoized summary profile, no city catalogue pass without location, no indexing an invalid natural query.",
+      "evidence": "docs/performance-followup-audit-2026-11-14.json"
+    },
+    {
+      "area": "map error path",
+      "result": "Invalid query displays canonical clarification before reading/preparing inventory, clears stale rows, and retains origin; a corrected query recovers.",
+      "tests": "tests/property-map.cjs",
+      "baseline_counterfactual": "Replacing the map source with v61 in memory fails the new 0-inventory-read assertion with1!=0."
+    }
+  ],
+  "validation": {
+    "total": 199,
+    "passed": 199,
+    "failed": 0,
+    "seconds": 270.29,
+    "source_sha256": "d2436863de24568ec506e7c14e94f152e21d2b4e718f0b084b07ca7d6abfa84d",
+    "source_sha256_end": "d2436863de24568ec506e7c14e94f152e21d2b4e718f0b084b07ca7d6abfa84d",
+    "source_changed_during_run": false
+  },
+  "functional_models": {
+    "report": "docs/diagnostics-1000-followup-2026-11-14.json",
+    "report_sha256": "a7122c402801c7f773a344418585fda646955ef1d41212197974d8380cdada3e",
+    "source_digest": "0b76ff9ff6319d744a2ff5684aa25aa845b92417c5a7c36b4e28e7b55b75128f",
+    "source_unchanged": true,
+    "seconds": 88.05,
+    "totals": {
+      "completed": 1000,
+      "passed": 1000,
+      "failed": 0,
+      "sellers": 400,
+      "bidders": 400,
+      "buyers": 200,
+      "published": 400,
+      "acceptedBids": 400,
+      "demoPurchases": 160,
+      "watcherChecks": 18240
+    },
+    "scope": "Sequential isolated actual client handlers,20 loaded files; not concurrent visitors and not free-model/device inference."
+  },
+  "build": {
+    "assets": 261,
+    "worker_gzip_bytes": 9764206,
+    "budget_bytes": 10485760,
+    "native_checks": 1077,
+    "native_errors": 0,
+    "native_proof": "docs/native-followup-verification-2026-11-14.json",
+    "android_apk": {
+      "path": "/workspace/sites/drive-lot/releases/fas-torgi-android-demo-debug.apk",
+      "bytes": 15745263,
+      "sha256": "409f128d6aef4b721c0009974271b3874a32171edfa18177bf707fbb7c46f566"
+    },
+    "android_signature": "APK v2 verified; demo debug build."
+  },
+  "preserved": [
+    "No CSS changes in this follow-up; existing two-card feed geometry, buttons, fonts and original photographs retained.",
+    "Explicit bid confirmation and immutable auction identity/terms, phone consent and agreement guards remain.",
+    "Model engine/weights/policy and server financial boundaries unchanged.",
+    "Custom Site audience preserved."
+  ],
+  "limits": [
+    "Node/DOM/SQLite models; no physical iPhone/Safari geometry, pointer handling or acoustic speech test. Owner said they will check the physical device.",
+    "No guarantee of absence of all vulnerabilities, legal liability or interruptions.",
+    "Local 10k/100k account-row test remains independent and does not certify100k simultaneous visitors.",
+    "No real shared server auctions, verified SMS identity, bank escrow or independent failover was connected.",
+    "This is the current autonomous run, not an hourly/nightly monitoring schedule."
+  ],
+  "publication": {
+    "status": "succeeded",
+    "site": "https://drive-lot-auction.familiarchord.chatgpt.site",
+    "version_number": 62,
+    "source_commit": "e7f602ceb1063585ce01fe3a095513a4fff46dec",
+    "deployment_id": "appgdep_6af8923e64d88191bcb46cc2766de891",
+    "published_utc": "2026-11-14T16:54:36.407666+00:00",
+    "proof": "docs/publication-62-2026-11-14.json",
+    "http_verified": true
+  },
+  "validation_scope": [
+    "dist excluding generated output",
+    "tests",
+    "worker",
+    "mobile/scripts and curated source configuration",
+    "scripts",
+    "integrations",
+    "drizzle",
+    "versioned docs/legal"
+  ],
+  "checks": [
+    {
+      "test": "advanced-filter-pass.cjs",
+      "exit_code": 0,
+      "seconds": 2.11,
+      "passed": true
+    },
+    {
+      "test": "appearance-lazy-work.cjs",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "passed": true
+    },
+    {
+      "test": "appearance-search.cjs",
+      "exit_code": 0,
+      "seconds": 3.11,
+      "passed": true
+    },
+    {
+      "test": "asset-reports.cjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "passed": true
+    },
+    {
+      "test": "assistant-events-integration.cjs",
+      "exit_code": 0,
+      "seconds": 2.65,
+      "passed": true
+    },
+    {
+      "test": "assistant-personalization.cjs",
+      "exit_code": 0,
+      "seconds": 0.14,
+      "passed": true
+    },
+    {
+      "test": "assistant-preferences.cjs",
+      "exit_code": 0,
+      "seconds": 0.4,
+      "passed": true
+    },
+    {
+      "test": "auction-cards-mobile.cjs",
+      "exit_code": 0,
+      "seconds": 0.37,
+      "passed": true
+    },
+    {
+      "test": "auction-clock-boundaries.cjs",
+      "exit_code": 0,
+      "seconds": 9.61,
+      "passed": true
+    },
+    {
+      "test": "auction-direction-integration.cjs",
+      "exit_code": 0,
+      "seconds": 6.12,
+      "passed": true
+    },
+    {
+      "test": "auction-ending-window-boundaries.cjs",
+      "exit_code": 0,
+      "seconds": 23.4,
+      "passed": true
+    },
+    {
+      "test": "auction-history-integration.cjs",
+      "exit_code": 0,
+      "seconds": 6.34,
+      "passed": true
+    },
+    {
+      "test": "auction-history.cjs",
+      "exit_code": 0,
+      "seconds": 18.97,
+      "passed": true
+    },
+    {
+      "test": "auction-integrity.cjs",
+      "exit_code": 0,
+      "seconds": 17.39,
+      "passed": true
+    },
+    {
+      "test": "auction-modes.cjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "passed": true
+    },
+    {
+      "test": "auction-notifications-integration.cjs",
+      "exit_code": 0,
+      "seconds": 3.48,
+      "passed": true
+    },
+    {
+      "test": "auction-notifications.cjs",
+      "exit_code": 0,
+      "seconds": 4.16,
+      "passed": true
+    },
+    {
+      "test": "auction-renewal-integration.cjs",
+      "exit_code": 0,
+      "seconds": 16.62,
+      "passed": true
+    },
+    {
+      "test": "auction-renewal.cjs",
+      "exit_code": 0,
+      "seconds": 7.5,
+      "passed": true
+    },
+    {
+      "test": "auth-dialog.cjs",
+      "exit_code": 0,
+      "seconds": 1.7,
+      "passed": true
+    },
+    {
+      "test": "back-swipe.cjs",
+      "exit_code": 0,
+      "seconds": 0.47,
+      "passed": true
+    },
+    {
+      "test": "bank-editor-state.cjs",
+      "exit_code": 0,
+      "seconds": 2.91,
+      "passed": true
+    },
+    {
+      "test": "bank-identity-lock.cjs",
+      "exit_code": 0,
+      "seconds": 6.11,
+      "passed": true
+    },
+    {
+      "test": "brand-origin-search.cjs",
+      "exit_code": 0,
+      "seconds": 2.58,
+      "passed": true
+    },
+    {
+      "test": "buyer-native-descending.cjs",
+      "exit_code": 0,
+      "seconds": 1.8,
+      "passed": true
+    },
+    {
+      "test": "buyer-share-return.cjs",
+      "exit_code": 0,
+      "seconds": 3.71,
+      "passed": true
+    },
+    {
+      "test": "buyer-tools.cjs",
+      "exit_code": 0,
+      "seconds": 0.2,
+      "passed": true
+    },
+    {
+      "test": "car-catalog-data.cjs",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "passed": true
+    },
+    {
+      "test": "car-catalog-ui.cjs",
+      "exit_code": 0,
+      "seconds": 0.62,
+      "passed": true
+    },
+    {
+      "test": "catalog-page-scroll.cjs",
+      "exit_code": 0,
+      "seconds": 0.08,
+      "passed": true
+    },
+    {
+      "test": "catalog-performance.cjs",
+      "exit_code": 0,
+      "seconds": 37.65,
+      "passed": true
+    },
+    {
+      "test": "catalog-search.cjs",
+      "exit_code": 0,
+      "seconds": 3.9,
+      "passed": true
+    },
+    {
+      "test": "category-browse-roundtrip.cjs",
+      "exit_code": 0,
+      "seconds": 85.44,
+      "passed": true
+    },
+    {
+      "test": "category-csv.cjs",
+      "exit_code": 0,
+      "seconds": 6.61,
+      "passed": true
+    },
+    {
+      "test": "category-integration.cjs",
+      "exit_code": 0,
+      "seconds": 44.8,
+      "passed": true
+    },
+    {
+      "test": "category-keyword-search.cjs",
+      "exit_code": 0,
+      "seconds": 0.43,
+      "passed": true
+    },
+    {
+      "test": "category-multi-select.cjs",
+      "exit_code": 0,
+      "seconds": 17.78,
+      "passed": true
+    },
+    {
+      "test": "category-native-back.cjs",
+      "exit_code": 0,
+      "seconds": 0.04,
+      "passed": true
+    },
+    {
+      "test": "category-picker.cjs",
+      "exit_code": 0,
+      "seconds": 0.32,
+      "passed": true
+    },
+    {
+      "test": "category-tree.cjs",
+      "exit_code": 0,
+      "seconds": 1.41,
+      "passed": true
+    },
+    {
+      "test": "change-trigger-diagnostics.cjs",
+      "exit_code": 0,
+      "seconds": 1.18,
+      "passed": true
+    },
+    {
+      "test": "chinese-model-aliases.cjs",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "passed": true
+    },
+    {
+      "test": "commercial-smart-search.cjs",
+      "exit_code": 0,
+      "seconds": 14.16,
+      "passed": true
+    },
+    {
+      "test": "countdown.cjs",
+      "exit_code": 0,
+      "seconds": 0.05,
+      "passed": true
+    },
+    {
+      "test": "cross-tab-auctions.cjs",
+      "exit_code": 0,
+      "seconds": 22.49,
+      "passed": true
+    },
+    {
+      "test": "demo-catalog-coverage.cjs",
+      "exit_code": 0,
+      "seconds": 6.13,
+      "passed": true
+    },
+    {
+      "test": "demo-catalog-preservation.cjs",
+      "exit_code": 0,
+      "seconds": 4.51,
+      "passed": true
+    },
+    {
+      "test": "demo-description.cjs",
+      "exit_code": 0,
+      "seconds": 1.63,
+      "passed": true
+    },
+    {
+      "test": "demo-photo-consistency.cjs",
+      "exit_code": 0,
+      "seconds": 3.15,
+      "passed": true
+    },
+    {
+      "test": "demo-seeding-performance.cjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "passed": true
+    },
+    {
+      "test": "dialog-blank-back.cjs",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "passed": true
+    },
+    {
+      "test": "dialog-four-way.cjs",
+      "exit_code": 0,
+      "seconds": 1.09,
+      "passed": true
+    },
+    {
+      "test": "dialog-journey-regressions.cjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "passed": true
+    },
+    {
+      "test": "dialog-lifecycle.cjs",
+      "exit_code": 0,
+      "seconds": 4.2,
+      "passed": true
+    },
+    {
+      "test": "dialog-media.cjs",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "passed": true
+    },
+    {
+      "test": "dialog-stack.cjs",
+      "exit_code": 0,
+      "seconds": 1.88,
+      "passed": true
+    },
+    {
+      "test": "distance-reuse.cjs",
+      "exit_code": 0,
+      "seconds": 6.89,
+      "passed": true
+    },
+    {
+      "test": "distance-search.cjs",
+      "exit_code": 0,
+      "seconds": 2.24,
+      "passed": true
+    },
+    {
+      "test": "doubletap-recommendations.cjs",
+      "exit_code": 0,
+      "seconds": 2.01,
+      "passed": true
+    },
+    {
+      "test": "draft-delete.cjs",
+      "exit_code": 0,
+      "seconds": 0.4,
+      "passed": true
+    },
+    {
+      "test": "ending-soon.cjs",
+      "exit_code": 0,
+      "seconds": 1.74,
+      "passed": true
+    },
+    {
+      "test": "featured-cheap-intent.cjs",
+      "exit_code": 0,
+      "seconds": 3.64,
+      "passed": true
+    },
+    {
+      "test": "featured-combinations.cjs",
+      "exit_code": 0,
+      "seconds": 5.32,
+      "passed": true
+    },
+    {
+      "test": "featured-ending-interest.cjs",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "passed": true
+    },
+    {
+      "test": "featured-feed-return.cjs",
+      "exit_code": 0,
+      "seconds": 2.99,
+      "passed": true
+    },
+    {
+      "test": "featured-for-you-city.cjs",
+      "exit_code": 0,
+      "seconds": 0.47,
+      "passed": true
+    },
+    {
+      "test": "featured-horizontal.cjs",
+      "exit_code": 0,
+      "seconds": 0.23,
+      "passed": true
+    },
+    {
+      "test": "featured-live-fallback.cjs",
+      "exit_code": 0,
+      "seconds": 0.32,
+      "passed": true
+    },
+    {
+      "test": "featured-lots.cjs",
+      "exit_code": 0,
+      "seconds": 4.12,
+      "passed": true
+    },
+    {
+      "test": "featured-performance-cache.cjs",
+      "exit_code": 0,
+      "seconds": 0.44,
+      "passed": true
+    },
+    {
+      "test": "featured-recommendations.cjs",
+      "exit_code": 0,
+      "seconds": 0.37,
+      "passed": true
+    },
+    {
+      "test": "featured-settings.cjs",
+      "exit_code": 0,
+      "seconds": 0.35,
+      "passed": true
+    },
+    {
+      "test": "feed-close-gesture.cjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "passed": true
+    },
+    {
+      "test": "feed-motion.cjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "passed": true
+    },
+    {
+      "test": "feed-share.cjs",
+      "exit_code": 0,
+      "seconds": 2.85,
+      "passed": true
+    },
+    {
+      "test": "feed-tutorial.cjs",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "passed": true
+    },
+    {
+      "test": "footer-navigation.cjs",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "passed": true
+    },
+    {
+      "test": "gallery-performance.cjs",
+      "exit_code": 0,
+      "seconds": 2.12,
+      "passed": true
+    },
+    {
+      "test": "home-navigation.cjs",
+      "exit_code": 0,
+      "seconds": 5.81,
+      "passed": true
+    },
+    {
+      "test": "identifier-input-boundaries.cjs",
+      "exit_code": 0,
+      "seconds": 2.73,
+      "passed": true
+    },
+    {
+      "test": "integration-contracts.cjs",
+      "exit_code": 0,
+      "seconds": 0.2,
+      "passed": true
+    },
+    {
+      "test": "kamaz-search.cjs",
+      "exit_code": 0,
+      "seconds": 29.05,
+      "passed": true
+    },
+    {
+      "test": "keyword-index-lifecycle.cjs",
+      "exit_code": 0,
+      "seconds": 1.27,
+      "passed": true
+    },
+    {
+      "test": "keyword-integration.cjs",
+      "exit_code": 0,
+      "seconds": 40.3,
+      "passed": true
+    },
+    {
+      "test": "keyword-search-prepare.cjs",
+      "exit_code": 0,
+      "seconds": 1.34,
+      "passed": true
+    },
+    {
+      "test": "keyword-search.cjs",
+      "exit_code": 0,
+      "seconds": 0.81,
+      "passed": true
+    },
+    {
+      "test": "keyword-work.cjs",
+      "exit_code": 0,
+      "seconds": 0.39,
+      "passed": true
+    },
+    {
+      "test": "layout-safety.cjs",
+      "exit_code": 0,
+      "seconds": 2.42,
+      "passed": true
+    },
+    {
+      "test": "live-auction-price.cjs",
+      "exit_code": 0,
+      "seconds": 1.93,
+      "passed": true
+    },
+    {
+      "test": "local-ai.cjs",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "passed": true
+    },
+    {
+      "test": "local-feed.cjs",
+      "exit_code": 0,
+      "seconds": 2.55,
+      "passed": true
+    },
+    {
+      "test": "lot-close-return-routes.cjs",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "passed": true
+    },
+    {
+      "test": "lot-discovery-integration.cjs",
+      "exit_code": 0,
+      "seconds": 1.67,
+      "passed": true
+    },
+    {
+      "test": "lot-discovery.cjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "passed": true
+    },
+    {
+      "test": "lot-gestures.cjs",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "passed": true
+    },
+    {
+      "test": "lot-map-entry.cjs",
+      "exit_code": 0,
+      "seconds": 2.79,
+      "passed": true
+    },
+    {
+      "test": "lot-photo-viewer.cjs",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "passed": true
+    },
+    {
+      "test": "lot-presentation-integration.cjs",
+      "exit_code": 0,
+      "seconds": 3.0,
+      "passed": true
+    },
+    {
+      "test": "lot-presentation.cjs",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "passed": true
+    },
+    {
+      "test": "lot-touch-semantics.cjs",
+      "exit_code": 0,
+      "seconds": 0.32,
+      "passed": true
+    },
+    {
+      "test": "map-feed-resume.cjs",
+      "exit_code": 0,
+      "seconds": 4.01,
+      "passed": true
+    },
+    {
+      "test": "map-lot-return.cjs",
+      "exit_code": 0,
+      "seconds": 10.4,
+      "passed": true
+    },
+    {
+      "test": "map-projection-work.cjs",
+      "exit_code": 0,
+      "seconds": 5.42,
+      "passed": true
+    },
+    {
+      "test": "market-normalization.cjs",
+      "exit_code": 0,
+      "seconds": 1.79,
+      "passed": true
+    },
+    {
+      "test": "marketplace-summary.cjs",
+      "exit_code": 0,
+      "seconds": 0.79,
+      "passed": true
+    },
+    {
+      "test": "metrics-backend.cjs",
+      "exit_code": 0,
+      "seconds": 4.69,
+      "passed": true
+    },
+    {
+      "test": "mitsubishi-search.cjs",
+      "exit_code": 0,
+      "seconds": 3.62,
+      "passed": true
+    },
+    {
+      "test": "model-marketplace-scale.cjs",
+      "exit_code": 0,
+      "seconds": 1.06,
+      "passed": true
+    },
+    {
+      "test": "motion.cjs",
+      "exit_code": 0,
+      "seconds": 0.05,
+      "passed": true
+    },
+    {
+      "test": "native-back-routing.cjs",
+      "exit_code": 0,
+      "seconds": 0.09,
+      "passed": true
+    },
+    {
+      "test": "native-share-boundary.cjs",
+      "exit_code": 0,
+      "seconds": 0.04,
+      "passed": true
+    },
+    {
+      "test": "natural-typed-search.cjs",
+      "exit_code": 0,
+      "seconds": 3.28,
+      "passed": true
+    },
+    {
+      "test": "notification-click.cjs",
+      "exit_code": 0,
+      "seconds": 0.26,
+      "passed": true
+    },
+    {
+      "test": "own-lot-transactions.cjs",
+      "exit_code": 0,
+      "seconds": 5.03,
+      "passed": true
+    },
+    {
+      "test": "owner-auction-policy.cjs",
+      "exit_code": 0,
+      "seconds": 94.26,
+      "passed": true
+    },
+    {
+      "test": "partner-branding-integration.cjs",
+      "exit_code": 0,
+      "seconds": 2.87,
+      "passed": true
+    },
+    {
+      "test": "partner-branding.cjs",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "passed": true
+    },
+    {
+      "test": "payment-integration.cjs",
+      "exit_code": 0,
+      "seconds": 2.34,
+      "passed": true
+    },
+    {
+      "test": "payment-presentation.cjs",
+      "exit_code": 0,
+      "seconds": 0.61,
+      "passed": true
+    },
+    {
+      "test": "payment-ui.cjs",
+      "exit_code": 0,
+      "seconds": 0.4,
+      "passed": true
+    },
+    {
+      "test": "performance-followup-regressions.cjs",
+      "exit_code": 0,
+      "seconds": 2.24,
+      "passed": true
+    },
+    {
+      "test": "photo-delivery.cjs",
+      "exit_code": 0,
+      "seconds": 2.65,
+      "passed": true
+    },
+    {
+      "test": "photo-viewer-warm.cjs",
+      "exit_code": 0,
+      "seconds": 0.17,
+      "passed": true
+    },
+    {
+      "test": "property-map-multi.cjs",
+      "exit_code": 0,
+      "seconds": 0.4,
+      "passed": true
+    },
+    {
+      "test": "property-map.cjs",
+      "exit_code": 0,
+      "seconds": 1.99,
+      "passed": true
+    },
+    {
+      "test": "pwa-install.cjs",
+      "exit_code": 0,
+      "seconds": 0.07,
+      "passed": true
+    },
+    {
+      "test": "quickbar-labels.cjs",
+      "exit_code": 0,
+      "seconds": 0.11,
+      "passed": true
+    },
+    {
+      "test": "quickbar.cjs",
+      "exit_code": 0,
+      "seconds": 0.27,
+      "passed": true
+    },
+    {
+      "test": "recommendation-integration.cjs",
+      "exit_code": 0,
+      "seconds": 6.65,
+      "passed": true
+    },
+    {
+      "test": "recommendations.cjs",
+      "exit_code": 0,
+      "seconds": 1.57,
+      "passed": true
+    },
+    {
+      "test": "region-geolocation-recovery.cjs",
+      "exit_code": 0,
+      "seconds": 0.1,
+      "passed": true
+    },
+    {
+      "test": "render-work.cjs",
+      "exit_code": 0,
+      "seconds": 4.69,
+      "passed": true
+    },
+    {
+      "test": "responsive-media.cjs",
+      "exit_code": 0,
+      "seconds": 8.63,
+      "passed": true
+    },
+    {
+      "test": "right-swipe-close.cjs",
+      "exit_code": 0,
+      "seconds": 0.31,
+      "passed": true
+    },
+    {
+      "test": "sales-analytics.cjs",
+      "exit_code": 0,
+      "seconds": 4.69,
+      "passed": true
+    },
+    {
+      "test": "sales-local-privacy.cjs",
+      "exit_code": 0,
+      "seconds": 1.41,
+      "passed": true
+    },
+    {
+      "test": "saved-search-subscription-form.cjs",
+      "exit_code": 0,
+      "seconds": 10.81,
+      "passed": true
+    },
+    {
+      "test": "search-auto-scope.cjs",
+      "exit_code": 0,
+      "seconds": 28.89,
+      "passed": true
+    },
+    {
+      "test": "search-city-select.cjs",
+      "exit_code": 0,
+      "seconds": 2.58,
+      "passed": true
+    },
+    {
+      "test": "search-context-return.cjs",
+      "exit_code": 0,
+      "seconds": 7.26,
+      "passed": true
+    },
+    {
+      "test": "search-empty-availability.cjs",
+      "exit_code": 0,
+      "seconds": 1.62,
+      "passed": true
+    },
+    {
+      "test": "search-filter-conflict.cjs",
+      "exit_code": 0,
+      "seconds": 13.66,
+      "passed": true
+    },
+    {
+      "test": "search-fresh-start.cjs",
+      "exit_code": 0,
+      "seconds": 17.19,
+      "passed": true
+    },
+    {
+      "test": "search-identifiers.cjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "passed": true
+    },
+    {
+      "test": "search-intent.cjs",
+      "exit_code": 0,
+      "seconds": 0.38,
+      "passed": true
+    },
+    {
+      "test": "search-nearest.cjs",
+      "exit_code": 0,
+      "seconds": 1.78,
+      "passed": true
+    },
+    {
+      "test": "search-night-regressions.cjs",
+      "exit_code": 0,
+      "seconds": 0.72,
+      "passed": true
+    },
+    {
+      "test": "search-numeric-validation.cjs",
+      "exit_code": 0,
+      "seconds": 1.75,
+      "passed": true
+    },
+    {
+      "test": "search-persona-ranges.cjs",
+      "exit_code": 0,
+      "seconds": 2.3,
+      "passed": true
+    },
+    {
+      "test": "search-preferences.cjs",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "passed": true
+    },
+    {
+      "test": "search-preparation-ui.cjs",
+      "exit_code": 0,
+      "seconds": 0.18,
+      "passed": true
+    },
+    {
+      "test": "search-results-layout.cjs",
+      "exit_code": 0,
+      "seconds": 2.65,
+      "passed": true
+    },
+    {
+      "test": "search-sort-feedback.cjs",
+      "exit_code": 0,
+      "seconds": 3.16,
+      "passed": true
+    },
+    {
+      "test": "search-typos.cjs",
+      "exit_code": 0,
+      "seconds": 0.15,
+      "passed": true
+    },
+    {
+      "test": "security-boundaries.cjs",
+      "exit_code": 0,
+      "seconds": 0.24,
+      "passed": true
+    },
+    {
+      "test": "security-csp.cjs",
+      "exit_code": 0,
+      "seconds": 1.35,
+      "passed": true
+    },
+    {
+      "test": "security-dom.cjs",
+      "exit_code": 0,
+      "seconds": 1.9,
+      "passed": true
+    },
+    {
+      "test": "security-followup-regressions.cjs",
+      "exit_code": 0,
+      "seconds": 0.24,
+      "passed": true
+    },
+    {
+      "test": "security-inputs.cjs",
+      "exit_code": 0,
+      "seconds": 4.81,
+      "passed": true
+    },
+    {
+      "test": "security-local-ai-boundary.cjs",
+      "exit_code": 0,
+      "seconds": 0.28,
+      "passed": true
+    },
+    {
+      "test": "security-metrics-work.cjs",
+      "exit_code": 0,
+      "seconds": 0.57,
+      "passed": true
+    },
+    {
+      "test": "security-payment-boundaries.cjs",
+      "exit_code": 0,
+      "seconds": 3.66,
+      "passed": true
+    },
+    {
+      "test": "security-rate-limits.cjs",
+      "exit_code": 0,
+      "seconds": 3.74,
+      "passed": true
+    },
+    {
+      "test": "security-server-resources.cjs",
+      "exit_code": 0,
+      "seconds": 3.06,
+      "passed": true
+    },
+    {
+      "test": "seller-async-navigation.cjs",
+      "exit_code": 0,
+      "seconds": 16.58,
+      "passed": true
+    },
+    {
+      "test": "seller-auction-modes.cjs",
+      "exit_code": 0,
+      "seconds": 15.06,
+      "passed": true
+    },
+    {
+      "test": "seller-back-gesture.cjs",
+      "exit_code": 0,
+      "seconds": 17.77,
+      "passed": true
+    },
+    {
+      "test": "seller-contact-privacy.cjs",
+      "exit_code": 0,
+      "seconds": 10.04,
+      "passed": true
+    },
+    {
+      "test": "seller-current-state.cjs",
+      "exit_code": 0,
+      "seconds": 6.41,
+      "passed": true
+    },
+    {
+      "test": "seller-dashboard.cjs",
+      "exit_code": 0,
+      "seconds": 6.27,
+      "passed": true
+    },
+    {
+      "test": "seller-exit-guards.cjs",
+      "exit_code": 0,
+      "seconds": 26.68,
+      "passed": true
+    },
+    {
+      "test": "seller-integration.cjs",
+      "exit_code": 0,
+      "seconds": 38.46,
+      "passed": true
+    },
+    {
+      "test": "seller-location.cjs",
+      "exit_code": 0,
+      "seconds": 9.7,
+      "passed": true
+    },
+    {
+      "test": "seller-media.cjs",
+      "exit_code": 0,
+      "seconds": 0.26,
+      "passed": true
+    },
+    {
+      "test": "seller-options.cjs",
+      "exit_code": 0,
+      "seconds": 9.79,
+      "passed": true
+    },
+    {
+      "test": "seller-profile-agreement.cjs",
+      "exit_code": 0,
+      "seconds": 1.82,
+      "passed": true
+    },
+    {
+      "test": "seller-profile-cancel.cjs",
+      "exit_code": 0,
+      "seconds": 6.4,
+      "passed": true
+    },
+    {
+      "test": "seller-ratings.cjs",
+      "exit_code": 0,
+      "seconds": 0.29,
+      "passed": true
+    },
+    {
+      "test": "seller-rules.cjs",
+      "exit_code": 0,
+      "seconds": 0.13,
+      "passed": true
+    },
+    {
+      "test": "seller-storefront-return-routes.cjs",
+      "exit_code": 0,
+      "seconds": 8.4,
+      "passed": true
+    },
+    {
+      "test": "seller-storefront.cjs",
+      "exit_code": 0,
+      "seconds": 2.61,
+      "passed": true
+    },
+    {
+      "test": "seller-workspace-recovery.cjs",
+      "exit_code": 0,
+      "seconds": 19.47,
+      "passed": true
+    },
+    {
+      "test": "service-worker.cjs",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "passed": true
+    },
+    {
+      "test": "smart-fill.cjs",
+      "exit_code": 0,
+      "seconds": 0.23,
+      "passed": true
+    },
+    {
+      "test": "static-delivery.cjs",
+      "exit_code": 0,
+      "seconds": 0.22,
+      "passed": true
+    },
+    {
+      "test": "storage-favorites.cjs",
+      "exit_code": 0,
+      "seconds": 25.55,
+      "passed": true
+    },
+    {
+      "test": "subscription-durability.cjs",
+      "exit_code": 0,
+      "seconds": 2.55,
+      "passed": true
+    },
+    {
+      "test": "support.cjs",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "passed": true
+    },
+    {
+      "test": "up-swipe-close.cjs",
+      "exit_code": 0,
+      "seconds": 0.17,
+      "passed": true
+    },
+    {
+      "test": "user-agreement.cjs",
+      "exit_code": 0,
+      "seconds": 0.89,
+      "passed": true
+    },
+    {
+      "test": "vehicle-search-roundtrip.cjs",
+      "exit_code": 0,
+      "seconds": 4.56,
+      "passed": true
+    },
+    {
+      "test": "virtual-feed.cjs",
+      "exit_code": 0,
+      "seconds": 2.47,
+      "passed": true
+    },
+    {
+      "test": "voice-assistant.cjs",
+      "exit_code": 0,
+      "seconds": 1.38,
+      "passed": true
+    },
+    {
+      "test": "voice-core-actions.cjs",
+      "exit_code": 0,
+      "seconds": 3.4,
+      "passed": true
+    },
+    {
+      "test": "voice-intelligence-integration.cjs",
+      "exit_code": 0,
+      "seconds": 1.85,
+      "passed": true
+    },
+    {
+      "test": "voice-invocation-auto.cjs",
+      "exit_code": 0,
+      "seconds": 0.31,
+      "passed": true
+    },
+    {
+      "test": "voice-natural-scenarios.cjs",
+      "exit_code": 0,
+      "seconds": 2.17,
+      "passed": true
+    },
+    {
+      "test": "voice-personalization-integration.cjs",
+      "exit_code": 0,
+      "seconds": 0.12,
+      "passed": true
+    },
+    {
+      "test": "voice-search-criteria.cjs",
+      "exit_code": 0,
+      "seconds": 2.95,
+      "passed": true
+    }
+  ]
+}

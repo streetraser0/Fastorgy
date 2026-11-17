@@ -1,0 +1,11 @@
+/* A real hit surface behind the desktop feed prevents clicks reaching the hidden page. */
+@media (min-width:1025px) and (hover:hover) and (pointer:fine) {
+ html.desktop-web body.reels > .desktop-feed-backdrop:not([hidden]) {
+  position:fixed;
+  inset:0;
+  z-index:99;
+  display:block;
+  background:#101410;
+  cursor:pointer;
+ }
+}

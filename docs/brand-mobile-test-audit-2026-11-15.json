@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-15",
+  "baseline": "10affae27c23238ca9ff6bda804f3b1028dba486",
+  "scope": "Logo, Android/iOS cabinet parity and lot detail layout; final Android empty-selection fix has separate targeted evidence.",
+  "suite": {
+    "artifact": "brand-mobile-full-suite.json",
+    "sha256": "d5b563181f0acebcc4fc6bafe753c1a34a12cb4875f77096b3f27573be5c18aa",
+    "started": "2026-11-15T13:51:51.678Z",
+    "finished": "2026-11-15T14:00:28.568Z",
+    "total": 220,
+    "passed": 219,
+    "sourceUnchanged": true,
+    "sourceDigest": "4a751651ed4eaff3f9b21cd2715cab01825193668c8fa89ff0a942ce68cdb6eb",
+    "failedFiles": [
+      "tests/cross-tab-auctions.cjs"
+    ]
+  },
+  "fixtureCorrection": {
+    "file": "tests/cross-tab-auctions.cjs",
+    "artifact": "brand-mobile-cross-tab-repeat.json",
+    "sha256": "33598365fc62ed8849ba43188e8129ee2bd352b145aa0aec6e6fa6ef0f35f3b8",
+    "status": 0,
+    "sourceUnchangedDuringRun": true,
+    "reason": "Two Date.now() calls could produce a renewal duration just below the one-hour minimum. One captured fixture timestamp preserves the original production behavior and assertion."
+  },
+  "interpretation": "219 of 220 files passed in the full run; the sole failure was corrected in the test fixture and the unchanged assertion passed in a separate repeat. This is not a second full 220-file run.",
+  "browserAudit": "brand-mobile-browser-audit-2026-11-15.json",
+  "followupChecks": [
+    {
+      "scope": "Empty featured feed + share controls",
+      "files": 18,
+      "result": "passed",
+      "documentation": "featured-empty-feed-share-2026-11-15.md"
+    },
+    {
+      "scope": "Photo return and outside-image clicks",
+      "files": 11,
+      "result": "passed",
+      "documentation": "photo-return-fix-2026-11-15.md"
+    },
+    {
+      "scope": "Final engine facts and affected feature/presentation paths",
+      "files": 24,
+      "result": "passed",
+      "documentation": "vehicle-engine-facts-2026-11-15.md"
+    }
+  ],
+  "followupNote": "These bounded suites overlap; their counts must not be summed as unique tests. They cover changes added after the full run. Final model/security pre-push checks are mandatory and gate publication.",
+  "finalNative": {
+    "artifact": "native-build68-final/artifact-verification.json",
+    "sha256": "2893883d8fc5afee10d8057ed2da943f8af9d4e8a956c8239e6c0dc67d83fe04",
+    "sharedFiles": 278,
+    "passed": 1146,
+    "failed": 0,
+    "success": true,
+    "apkSha256": "665f11f623fcc273653b75bec32caf4ceeabb7cbded2346f2fac86df5b12d9e7",
+    "apkBytes": 15716839,
+    "runtimeOnDeviceTested": false,
+    "iosBinaryBuilt": false
+  }
+}

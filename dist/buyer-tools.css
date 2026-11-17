@@ -1,0 +1,22 @@
+/* Optional lot shortcuts and device-local viewing history. */
+.buyer-lot-tools{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:17px 0 21px;min-width:0}
+.buyer-lot-tools>button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:0;min-height:44px;padding:10px 12px;border:1px solid #D4E1F2;border-radius:11px;background:#F2F6FD;color:#0D4CD3;font:700 11px/1.5 Manrope,Arial,sans-serif;white-space:normal;overflow-wrap:anywhere;cursor:pointer;touch-action:manipulation}
+.buyer-lot-tools>button:hover{background:#E7EFFF;border-color:#A7C0E9}.buyer-lot-tools .ui-icon{flex:0 0 18px;width:18px;height:18px}.buyer-lot-tools>small{flex-basis:100%;color:#60758D;font-size:10px;line-height:1.7}
+#modal.buyer-tools-dialog{max-width:780px}
+.buyer-recent-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;flex-wrap:wrap}.buyer-recent-heading>div{min-width:0;flex:1 1 190px}.buyer-recent-heading h2{margin-bottom:0}.buyer-clear{min-height:44px;max-width:100%;padding:9px 12px;border:1px solid #D6E1EF;border-radius:10px;background:#fff;color:#53697D;font:700 11px/1.5 Manrope,Arial,sans-serif;white-space:normal;cursor:pointer}
+.buyer-recent-list{display:grid;gap:10px;margin:22px 0}.buyer-recent-item{display:grid;grid-template-columns:100px minmax(0,1fr) 20px;align-items:center;gap:15px;width:100%;min-width:0;padding:12px;border:1px solid #D8E3F0;border-radius:14px;background:#fff;color:#0B1F33;text-align:left;cursor:pointer;touch-action:manipulation;font-family:Manrope,Arial,sans-serif}
+.buyer-recent-item:hover{background:#F4F8FF;border-color:#9BB9E7}.buyer-recent-item>img{display:block;width:100%;height:80px;object-fit:cover;border-radius:9px;background:#EDF2FA}.buyer-recent-item>span{display:flex;flex-direction:column;gap:5px;min-width:0;overflow-wrap:anywhere}.buyer-recent-item small{color:#60758D;font-size:10px;line-height:1.6}.buyer-recent-item strong{color:#0B1F33;font-size:14px;line-height:1.5;font-weight:700}.buyer-recent-item b{color:#153D7B;font-size:16px;line-height:1.5}.buyer-recent-item>.ui-icon{color:#6A8BB7;width:20px;height:20px}
+.buyer-history-note{color:#60758D;font-size:10px!important;line-height:1.8}.buyer-recent-empty{padding:25px 0;text-align:center}.buyer-recent-empty>.ui-icon{width:38px;height:38px;color:#8AA9D5}.buyer-recent-empty h3{font-size:21px;line-height:1.4}.buyer-recent-empty p{max-width:390px;margin:10px auto 20px}.buyer-copy .outline{min-height:44px;margin-top:10px}.buyer-copy input{min-width:0;max-width:100%;font-size:16px}
+.buyer-lot-tools>button:focus-visible,.buyer-recent-item:focus-visible,.buyer-clear:focus-visible{outline:3px solid #0D4CD3;outline-offset:3px}
+@media(max-width:700px){.buyer-lot-tools{margin:15px 0 19px}.buyer-lot-tools>button{flex:1 1 135px;font-size:10px;padding:10px}.buyer-recent-item{grid-template-columns:80px minmax(0,1fr) 17px;gap:11px;padding:10px}.buyer-recent-item>img{height:76px}.buyer-recent-item strong{font-size:12px}.buyer-recent-item b{font-size:15px}.buyer-recent-item small{font-size:9px}.buyer-recent-item>.ui-icon{width:17px;height:17px}.buyer-recent-heading{gap:8px}.buyer-recent-heading h2{font-size:25px}.buyer-clear{font-size:10px}}
+@media(max-width:360px){.buyer-recent-item{grid-template-columns:64px minmax(0,1fr);gap:10px}.buyer-recent-item>.ui-icon{display:none}.buyer-recent-item>img{height:70px}.buyer-lot-tools>button{flex-basis:100%}}
+
+/* Manual copying stays above the lot and preserves its form and gallery. */
+.buyer-copy-dialog{width:min(480px,calc(100% - 28px));max-width:100%;max-height:85vh;max-height:85dvh;margin:auto;padding:0;border:1px solid #D6E0ED;border-radius:20px;background:#fff;color:#0B1F33;box-shadow:0 24px 80px #071C3C40;overflow-y:auto}
+.buyer-copy-dialog::backdrop{background:#081D3B70}
+.buyer-copy-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;min-width:0}
+.buyer-copy-heading h2{min-width:0;margin:0;overflow-wrap:anywhere}
+.buyer-copy-heading [data-buyer-copy-close]{flex:none;width:44px;min-width:44px;min-height:44px;margin:0;padding:6px;font-size:24px;line-height:1}
+.buyer-copy-dialog .buyer-copy-return{width:100%;min-height:44px;margin-top:12px;white-space:normal}
+.buyer-copy-dialog input{box-sizing:border-box;width:100%;max-width:100%}
+.buyer-copy-dialog[hidden]{display:none!important}

@@ -1,0 +1,16 @@
+# Canonical text bytes keep legal hashes and cross-platform checks reproducible.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.wasm binary
+*.mp4 binary
+*.webm binary
+*.zip binary
+*.apk binary

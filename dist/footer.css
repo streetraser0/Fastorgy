@@ -1,0 +1,45 @@
+/* Quiet footer navigation; all rules stay within the footer. */
+#footer.site-footer{margin:0;padding:0;border-top:1px solid #26384E;background:#102033;color:#BCCADB;font-family:'Golos Text',Arial,sans-serif}
+#footer .footer-main{display:grid;grid-template-columns:minmax(210px,.85fr) minmax(0,1.15fr);align-items:start;gap:28px 70px;padding-top:32px;padding-bottom:26px}
+#footer .footer-identity,#footer .footer-menu,#footer .footer-bottom,#footer .footer-meta{min-width:0}
+#footer .footer-logo-link{position:relative;isolation:isolate;display:block;width:156px;max-width:100%;margin:0 0 8px;padding:0;border:0;background:transparent;box-shadow:none}
+#footer .footer-logo-link>.brand-logo{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 0 .7px #F7F0D599) drop-shadow(0 1px 2px #03142E88)}
+#footer .footer-identity>p{margin:0 0 8px;color:#C9D5E3;font-size:13px;line-height:1.65;overflow-wrap:anywhere}
+#footer .footer-phone{display:inline-flex;align-items:center;min-height:44px;max-width:100%;color:#F0F5FB;font:700 17px/1.5 Manrope,Arial,sans-serif;letter-spacing:0;overflow-wrap:anywhere}
+#footer .footer-terms{display:flex;align-items:center;min-height:44px;max-width:100%;width:fit-content;margin-top:4px;padding:6px 0;color:#DCE6F2;font-size:13px;line-height:1.6;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+#footer .footer-menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 28px;margin:0;padding:0}
+#footer .footer-menu>a,#footer .footer-menu>button{display:flex;align-items:center;min-width:0;max-width:100%;min-height:44px;margin:0;padding:9px 0;border:0;border-radius:0;background:transparent;box-shadow:none;color:#EFF4FA;font:500 15px/1.6 'Golos Text',Arial,sans-serif;text-align:left;text-decoration:none;white-space:normal;overflow-wrap:anywhere;cursor:pointer;touch-action:manipulation}
+#footer .footer-bottom{padding-top:16px;padding-bottom:20px;border-top:1px solid #FFFFFF1A}
+#footer .footer-legal{display:flex;align-items:center;flex-wrap:wrap;gap:0 20px;min-width:0}
+#footer .footer-legal>a{display:inline-flex;align-items:center;min-height:44px;max-width:100%;padding:8px 0;color:#CAD6E5;font-size:13px;line-height:1.6;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+#footer .footer-disclosure{max-width:780px;margin:7px 0 10px;color:#AABACD;font-size:12px;line-height:1.75;overflow-wrap:anywhere}
+#footer .footer-meta{display:flex;align-items:center;flex-wrap:wrap;gap:4px 22px}
+#footer .footer-copyright{margin:0;color:#BBC9DA;font-size:12px;line-height:1.65}
+#footer .footer-statistics{display:inline-flex;align-items:center;min-height:44px;max-width:100%;margin:0 0 0 auto;padding:8px 0;border:0;background:transparent;color:#CAD6E5;font:500 12px/1.6 'Golos Text',Arial,sans-serif;text-align:left;white-space:normal;overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:3px;cursor:pointer;touch-action:manipulation}
+#footer .footer-counter{display:flex;align-items:center;flex:1 1 260px;flex-wrap:wrap;gap:2px 14px;min-width:0;margin:0;padding:0;color:#AABCD0;font-size:12px;line-height:1.6}
+#footer .footer-counter>span{max-width:100%;overflow-wrap:anywhere}
+#footer .footer-counter strong{color:#DCE6F2;font-size:12px;font-weight:700}
+#footer .footer-counter>small{flex-basis:100%;min-width:0;color:#95A9C0;font-size:11px;line-height:1.6;overflow-wrap:anywhere}
+#footer a:hover,#footer button:hover{color:#FFFFFF}
+#footer a:focus-visible,#footer button:focus-visible{outline:2px solid #8DBBFA;outline-offset:4px;border-radius:4px}
+#footer button:disabled{opacity:.55;cursor:default}
+#footer [hidden],#footer [data-install-app][hidden],.app-installed #footer [data-install-app],.native-app #footer [data-install-app]{display:none!important}
+body.reels #footer.site-footer,#footer.site-footer[hidden]{display:none!important}
+@media(max-width:700px){
+ #footer .footer-main{grid-template-columns:minmax(0,1fr);gap:20px;padding-top:27px;padding-bottom:19px}
+ #footer .footer-logo-link{width:150px}
+ #footer .footer-identity>p{font-size:13px;margin-bottom:4px}
+ #footer .footer-phone{font-size:16px}
+ #footer .footer-menu{grid-template-columns:minmax(0,1fr);gap:0}
+ #footer .footer-menu>a,#footer .footer-menu>button{min-height:44px;padding:10px 0;border-bottom:1px solid #FFFFFF12;font-size:16px}
+ #footer .footer-menu>:last-child{border-bottom:0}
+ #footer .footer-bottom{padding-top:12px;padding-bottom:20px}
+ #footer .footer-legal{gap:0 16px}
+ #footer .footer-legal>a{font-size:13px}
+ #footer .footer-disclosure{font-size:12px;margin-top:5px}
+ #footer .footer-meta{gap:3px 16px}
+ #footer .footer-counter{flex-basis:100%;order:3;padding-top:3px}
+ #footer .footer-copyright{font-size:12px}
+ #footer .footer-statistics{font-size:12px}
+}
+/* The shared body offset in quickbar.css already reserves the fixed dock and safe area. */

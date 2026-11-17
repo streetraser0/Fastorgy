@@ -1,0 +1,810 @@
+{
+  "generatedUtc": "2026-11-14T16:40:44.585Z",
+  "scope": "Fresh held-out query cases using actual shared parser, keyword matching, typed input handlers, voice execution, saved searches and isolated fixture inventory. No public inventory/users or physical browser.",
+  "sourceHashes": {
+    "dist/search-intent.js": "0999f81277dce2bb5d9586866b33907b84f9af316b80c2fd5110f4d682c88010",
+    "dist/voice-assistant.js": "c1386db8b4d92f122c3dd5c4602c2fdead4626435ca8ea7bc1e9aeb066218211",
+    "tests/search-night-regressions.cjs": "4116bcc50277cac0961606412b13678054889ce8cf72b685e89e996b1ef4622d",
+    "tests/voice-assistant.cjs": "263836774ab8b73e4564dc8521dfcc16b3bc0acd1c8a3e1080bd74cccc1bc8f3",
+    "tests/helpers/category-seller-harness.cjs": "df1ec4fcb61ae70b51edde9d422b5c8c081c0ae209c7cc6ad9dc7bc6f0245149"
+  },
+  "targetedChecks": [
+    {
+      "file": "tests/search-night-regressions.cjs",
+      "exitCode": 0
+    },
+    {
+      "file": "tests/search-intent.cjs",
+      "exitCode": 0
+    },
+    {
+      "file": "tests/voice-assistant.cjs",
+      "exitCode": 0
+    }
+  ],
+  "positiveCases": [
+    {
+      "query": "квартира 60 м² до 1 млн",
+      "expectedIds": [
+        997630001,
+        997630004,
+        997630005
+      ],
+      "criteria": {
+        "areaMin": 60,
+        "areaMax": 60,
+        "priceMax": 1000000
+      },
+      "actualIntent": {
+        "residual": "квартира",
+        "criteria": {
+          "areaMin": 60,
+          "areaMax": 60,
+          "priceMax": 1000000
+        },
+        "labels": [
+          "Цена: до 1 000 000 ₽",
+          "Площадь: 60 м²"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630001,
+        997630004,
+        997630005
+      ]
+    },
+    {
+      "query": "квартира площадью 60 м² до 1 млн",
+      "expectedIds": [
+        997630001,
+        997630004,
+        997630005
+      ],
+      "criteria": {
+        "areaMin": 60,
+        "areaMax": 60,
+        "priceMax": 1000000
+      },
+      "actualIntent": {
+        "residual": "квартира",
+        "criteria": {
+          "areaMin": 60,
+          "areaMax": 60,
+          "priceMax": 1000000
+        },
+        "labels": [
+          "Цена: до 1 000 000 ₽",
+          "Площадь: 60 м²"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630001,
+        997630004,
+        997630005
+      ]
+    },
+    {
+      "query": "айфон 256 гб до 50 тысяч",
+      "expectedIds": [
+        997630010,
+        997630013
+      ],
+      "criteria": {
+        "storageGbMin": 256,
+        "storageGbMax": 256,
+        "priceMax": 50000
+      },
+      "actualIntent": {
+        "residual": "айфон",
+        "criteria": {
+          "storageGbMin": 256,
+          "storageGbMax": 256,
+          "priceMax": 50000
+        },
+        "labels": [
+          "Цена: до 50 000 ₽",
+          "Накопитель: 256 ГБ"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630010,
+        997630013
+      ]
+    },
+    {
+      "query": "автомобиль 2020 года до 2 млн",
+      "expectedIds": [
+        997630020,
+        997630023
+      ],
+      "criteria": {
+        "yearMin": 2020,
+        "yearMax": 2020,
+        "priceMax": 2000000
+      },
+      "actualIntent": {
+        "residual": "автомобиль",
+        "criteria": {
+          "yearMin": 2020,
+          "yearMax": 2020,
+          "priceMax": 2000000
+        },
+        "labels": [
+          "Цена: до 2 000 000 ₽",
+          "Год: 2020"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630020,
+        997630023
+      ]
+    },
+    {
+      "query": "автомобиль пробег 50000 км до 2 млн",
+      "expectedIds": [
+        997630020,
+        997630021
+      ],
+      "criteria": {
+        "mileageMin": 50000,
+        "mileageMax": 50000,
+        "priceMax": 2000000
+      },
+      "actualIntent": {
+        "residual": "автомобиль",
+        "criteria": {
+          "mileageMin": 50000,
+          "mileageMax": 50000,
+          "priceMax": 2000000
+        },
+        "labels": [
+          "Цена: до 2 000 000 ₽",
+          "Пробег: 50 000 км"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630020,
+        997630021
+      ]
+    },
+    {
+      "query": "станок 10 кВт до 100 тысяч",
+      "expectedIds": [
+        997630030
+      ],
+      "criteria": {
+        "powerKwMin": 10,
+        "powerKwMax": 10,
+        "priceMax": 100000
+      },
+      "actualIntent": {
+        "residual": "станок",
+        "criteria": {
+          "powerKwMin": 10,
+          "powerKwMax": 10,
+          "priceMax": 100000
+        },
+        "labels": [
+          "Цена: до 100 000 ₽",
+          "Мощность: 10 кВт"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630030
+      ]
+    },
+    {
+      "query": "ноутбук ОЗУ 16 ГБ до 100 тысяч",
+      "expectedIds": [
+        997630040
+      ],
+      "criteria": {
+        "ramGbMin": 16,
+        "ramGbMax": 16,
+        "priceMax": 100000
+      },
+      "actualIntent": {
+        "residual": "ноутбук",
+        "criteria": {
+          "ramGbMin": 16,
+          "ramGbMax": 16,
+          "priceMax": 100000
+        },
+        "labels": [
+          "Цена: до 100 000 ₽",
+          "ОЗУ: 16 ГБ"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630040
+      ]
+    },
+    {
+      "query": "пикап с пробегом до200000км до2млн",
+      "expectedIds": [
+        997630024,
+        997630025
+      ],
+      "criteria": {
+        "mileageMax": 200000,
+        "priceMax": 2000000
+      },
+      "actualIntent": {
+        "residual": "пикап",
+        "criteria": {
+          "mileageMax": 200000,
+          "priceMax": 2000000
+        },
+        "labels": [
+          "Цена: до 2 000 000 ₽",
+          "Пробег: до 200 000 км"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630024,
+        997630025
+      ]
+    },
+    {
+      "query": "пикап с пробегом до5000км до2млн",
+      "expectedIds": [
+        997630024
+      ],
+      "criteria": {
+        "mileageMax": 5000,
+        "priceMax": 2000000
+      },
+      "actualIntent": {
+        "residual": "пикап",
+        "criteria": {
+          "mileageMax": 5000,
+          "priceMax": 2000000
+        },
+        "labels": [
+          "Цена: до 2 000 000 ₽",
+          "Пробег: до 5 000 км"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630024
+      ]
+    },
+    {
+      "query": "машина без пробега",
+      "expectedIds": [
+        997630024
+      ],
+      "criteria": {
+        "mileageMin": 0,
+        "mileageMax": 0
+      },
+      "actualIntent": {
+        "residual": "машина",
+        "criteria": {
+          "mileageMax": 0,
+          "mileageMin": 0
+        },
+        "labels": [
+          "Пробег: 0 км"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630024
+      ]
+    },
+    {
+      "query": "айфон 13 256 ГБ до 50 тысяч",
+      "expectedIds": [
+        997630010
+      ],
+      "criteria": {
+        "storageGbMin": 256,
+        "storageGbMax": 256,
+        "priceMax": 50000
+      },
+      "actualIntent": {
+        "residual": "айфон 13",
+        "criteria": {
+          "storageGbMin": 256,
+          "storageGbMax": 256,
+          "priceMax": 50000
+        },
+        "labels": [
+          "Цена: до 50 000 ₽",
+          "Накопитель: 256 ГБ"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630010
+      ]
+    },
+    {
+      "query": "айфон 1 024 ГБ до 100 тысяч",
+      "expectedIds": [
+        997630014
+      ],
+      "criteria": {
+        "storageGbMin": 1024,
+        "storageGbMax": 1024,
+        "priceMax": 100000
+      },
+      "actualIntent": {
+        "residual": "айфон",
+        "criteria": {
+          "storageGbMin": 1024,
+          "storageGbMax": 1024,
+          "priceMax": 100000
+        },
+        "labels": [
+          "Цена: до 100 000 ₽",
+          "Накопитель: 1 024 ГБ"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630014
+      ]
+    },
+    {
+      "query": "тягач Евро 5 2020 года до 2 млн",
+      "expectedIds": [
+        997630050
+      ],
+      "criteria": {
+        "yearMin": 2020,
+        "yearMax": 2020,
+        "priceMax": 2000000
+      },
+      "actualIntent": {
+        "residual": "тягач Евро 5",
+        "criteria": {
+          "yearMin": 2020,
+          "yearMax": 2020,
+          "priceMax": 2000000
+        },
+        "labels": [
+          "Цена: до 2 000 000 ₽",
+          "Год: 2020"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630050
+      ]
+    },
+    {
+      "query": "автомобиль дешевле2000000",
+      "expectedIds": [
+        997630020,
+        997630021,
+        997630023,
+        997630024,
+        997630025,
+        997630026,
+        997630027,
+        997630028
+      ],
+      "criteria": {
+        "priceMax": 2000000
+      },
+      "actualIntent": {
+        "residual": "автомобиль",
+        "criteria": {
+          "priceMax": 2000000
+        },
+        "labels": [
+          "Цена: до 2 000 000 ₽"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630020,
+        997630021,
+        997630023,
+        997630024,
+        997630025,
+        997630026,
+        997630027,
+        997630028
+      ]
+    },
+    {
+      "query": "автомобиль дешевле двух миллионов рублей",
+      "expectedIds": [
+        997630020,
+        997630021,
+        997630023,
+        997630024,
+        997630025,
+        997630026,
+        997630027,
+        997630028
+      ],
+      "criteria": {
+        "priceMax": 2000000
+      },
+      "actualIntent": {
+        "residual": "автомобиль",
+        "criteria": {
+          "priceMax": 2000000
+        },
+        "labels": [
+          "Цена: до 2 000 000 ₽"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630020,
+        997630021,
+        997630023,
+        997630024,
+        997630025,
+        997630026,
+        997630027,
+        997630028
+      ]
+    },
+    {
+      "query": "автомобиль дороже 2 млн",
+      "expectedIds": [
+        997630022,
+        997630028
+      ],
+      "criteria": {
+        "priceMin": 2000000
+      },
+      "actualIntent": {
+        "residual": "автомобиль",
+        "criteria": {
+          "priceMin": 2000000
+        },
+        "labels": [
+          "Цена: от 2 000 000 ₽"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630022,
+        997630028
+      ]
+    },
+    {
+      "query": "car cheaper than two million rubles",
+      "expectedIds": [
+        997630020,
+        997630021,
+        997630023,
+        997630024,
+        997630025,
+        997630026,
+        997630027,
+        997630028
+      ],
+      "criteria": {
+        "priceMax": 2000000
+      },
+      "actualIntent": {
+        "residual": "car",
+        "criteria": {
+          "priceMax": 2000000
+        },
+        "labels": [
+          "Цена: до 2 000 000 ₽"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630020,
+        997630021,
+        997630023,
+        997630024,
+        997630025,
+        997630026,
+        997630027,
+        997630028
+      ]
+    },
+    {
+      "query": "car more expensive than 2000000",
+      "expectedIds": [
+        997630022,
+        997630028
+      ],
+      "criteria": {
+        "priceMin": 2000000
+      },
+      "actualIntent": {
+        "residual": "car",
+        "criteria": {
+          "priceMin": 2000000
+        },
+        "labels": [
+          "Цена: от 2 000 000 ₽"
+        ],
+        "error": ""
+      },
+      "actualKeywordMatches": [
+        997630022,
+        997630028
+      ]
+    }
+  ],
+  "errorCases": [
+    {
+      "query": "автомобиль до 20 тысяч долларов",
+      "intent": {
+        "residual": "автомобиль до 20 тысяч долларов",
+        "criteria": {},
+        "labels": [],
+        "error": "Поиск по цене поддерживает рубли. Укажите бюджет в ₽: иностранная валюта автоматически не пересчитывается."
+      }
+    },
+    {
+      "query": "айфон до 500 евро",
+      "intent": {
+        "residual": "айфон до 500 евро",
+        "criteria": {},
+        "labels": [],
+        "error": "Поиск по цене поддерживает рубли. Укажите бюджет в ₽: иностранная валюта автоматически не пересчитывается."
+      }
+    },
+    {
+      "query": "машина за 20000 USD",
+      "intent": {
+        "residual": "машина за 20000 USD",
+        "criteria": {},
+        "labels": [],
+        "error": "Поиск по цене поддерживает рубли. Укажите бюджет в ₽: иностранная валюта автоматически не пересчитывается."
+      }
+    },
+    {
+      "query": "автомобиль до $20000",
+      "intent": {
+        "residual": "автомобиль до $20000",
+        "criteria": {},
+        "labels": [],
+        "error": "Поиск по цене поддерживает рубли. Укажите бюджет в ₽: иностранная валюта автоматически не пересчитывается."
+      }
+    },
+    {
+      "query": "автомобиль до EUR 20000",
+      "intent": {
+        "residual": "автомобиль до EUR 20000",
+        "criteria": {},
+        "labels": [],
+        "error": "Поиск по цене поддерживает рубли. Укажите бюджет в ₽: иностранная валюта автоматически не пересчитывается."
+      }
+    },
+    {
+      "query": "car under 20 thousand dollars",
+      "intent": {
+        "residual": "car under 20 thousand dollars",
+        "criteria": {},
+        "labels": [],
+        "error": "Поиск по цене поддерживает рубли. Укажите бюджет в ₽: иностранная валюта автоматически не пересчитывается."
+      }
+    },
+    {
+      "query": "phone under 500 euros",
+      "intent": {
+        "residual": "phone under 500 euros",
+        "criteria": {},
+        "labels": [],
+        "error": "Поиск по цене поддерживает рубли. Укажите бюджет в ₽: иностранная валюта автоматически не пересчитывается."
+      }
+    },
+    {
+      "query": "машина дешевлеEUR20000",
+      "intent": {
+        "residual": "машина дешевлеEUR20000",
+        "criteria": {},
+        "labels": [],
+        "error": "Поиск по цене поддерживает рубли. Укажите бюджет в ₽: иностранная валюта автоматически не пересчитывается."
+      }
+    },
+    {
+      "query": "car cheaper than USD20000",
+      "intent": {
+        "residual": "car cheaper than USD20000",
+        "criteria": {},
+        "labels": [],
+        "error": "Поиск по цене поддерживает рубли. Укажите бюджет в ₽: иностранная валюта автоматически не пересчитывается."
+      }
+    },
+    {
+      "query": "car not cheaper than two million rubles",
+      "intent": {
+        "residual": "car not cheaper than two million rubles",
+        "criteria": {},
+        "labels": [],
+        "error": "Уточните цену: укажите положительную границу бюджета «до» или «от» без отрицания."
+      }
+    },
+    {
+      "query": "car no more expensive than 2000000 rubles",
+      "intent": {
+        "residual": "car no more expensive than 2000000 rubles",
+        "criteria": {},
+        "labels": [],
+        "error": "Уточните цену: укажите положительную границу бюджета «до» или «от» без отрицания."
+      }
+    },
+    {
+      "query": "седан или универсал",
+      "intent": {
+        "residual": "седан или универсал",
+        "criteria": {},
+        "labels": [],
+        "error": "Уточните варианты: выберите категории в фильтре или выполните отдельные поиски. Для комнат можно указать диапазон, например «от 1 до 2 комнат»."
+      }
+    },
+    {
+      "query": "квартира 1 или 2 комнаты",
+      "intent": {
+        "residual": "квартира 1 или 2 комнаты",
+        "criteria": {},
+        "labels": [],
+        "error": "Уточните варианты: выберите категории в фильтре или выполните отдельные поиски. Для комнат можно указать диапазон, например «от 1 до 2 комнат»."
+      }
+    },
+    {
+      "query": "седан or универсал",
+      "intent": {
+        "residual": "седан or универсал",
+        "criteria": {},
+        "labels": [],
+        "error": "Уточните варианты: выберите категории в фильтре или выполните отдельные поиски. Для комнат можно указать диапазон, например «от 1 до 2 комнат»."
+      }
+    },
+    {
+      "query": "автомобиль не старше пяти лет",
+      "intent": {
+        "residual": "автомобиль не старше пяти лет",
+        "criteria": {},
+        "labels": [],
+        "error": "Для ограничения возраста укажите год выпуска, например «не старше 2020 года»."
+      }
+    },
+    {
+      "query": "машина моложе 5 лет",
+      "intent": {
+        "residual": "машина моложе 5 лет",
+        "criteria": {},
+        "labels": [],
+        "error": "Для ограничения возраста укажите год выпуска, например «не старше 2020 года»."
+      }
+    },
+    {
+      "query": "car not older than five years",
+      "intent": {
+        "residual": "car not older than five years",
+        "criteria": {},
+        "labels": [],
+        "error": "Для ограничения возраста укажите год выпуска, например «не старше 2020 года»."
+      }
+    },
+    {
+      "query": "седан не красный",
+      "intent": {
+        "residual": "седан не красный",
+        "criteria": {},
+        "labels": [],
+        "error": "Уточните параметр без отрицания: укажите нужный цвет, кузов, топливо или состояние."
+      }
+    },
+    {
+      "query": "седан кроме красного",
+      "intent": {
+        "residual": "седан кроме красного",
+        "criteria": {},
+        "labels": [],
+        "error": "Уточните параметр без отрицания: укажите нужный цвет, кузов, топливо или состояние."
+      }
+    },
+    {
+      "query": "автомобиль не на дизеле",
+      "intent": {
+        "residual": "автомобиль не на дизеле",
+        "criteria": {},
+        "labels": [],
+        "error": "Уточните параметр без отрицания: укажите нужный цвет, кузов, топливо или состояние."
+      }
+    },
+    {
+      "query": "машина не требует ремонта",
+      "intent": {
+        "residual": "машина не требует ремонта",
+        "criteria": {},
+        "labels": [],
+        "error": "Уточните параметр без отрицания: укажите нужный цвет, кузов, топливо или состояние."
+      }
+    },
+    {
+      "query": "машина без пробега по России",
+      "intent": {
+        "residual": "машина без пробега по России",
+        "criteria": {},
+        "labels": [],
+        "error": "Уточните общий пробег автомобиля в километрах: отсутствие пробега по стране или после ремонта не означает нулевой пробег."
+      }
+    }
+  ],
+  "otherVerifiedBehaviors": [
+    "Explicit same-unit and implicit upper-unit ranges are preserved; mixed GB/TB asks for clarification.",
+    "Saved search uses the same exact query/match set and restores its results.",
+    "Manual category remains strict; nearby then distant then unknown position ordering is retained.",
+    "New visits clear prior query and automatic category while keeping favorites.",
+    "Negation-like prose does not prove excluded color or zero mileage.",
+    "Zero mileage excludes unknown mileage; no-mileage-in-a-country requires total mileage clarification.",
+    "Euro emission standards, valid non-negation comparators and unrelated words such as synchronizers/pigeons are not rejected.",
+    "Unlabelled kilometres do not become a rouble budget; legacy voice radius handling/warnings are preserved.",
+    "Grouped1 024GB and grouped monetary amounts remain numeric quantities; iPhone13 is retained as a model."
+  ],
+  "fixes": [
+    {
+      "id": "comparative-budgets",
+      "before": "Cheaper/more-expensive followed by a numeric or word amount could remain a literal word or be mistaken for sorting only.",
+      "after": "RU/EN comparators with an amount become inclusive price bounds using the existing до/от budget convention; bare comparator words remain sort orders. Foreign currency is rejected before conversion."
+    },
+    {
+      "id": "unsupported-alternatives-and-age",
+      "before": "Free-text OR or relative age could look like an empty catalogue.",
+      "after": "Those expressions request explicit categories/ranges or a calendar year, preserving prior results without adding OR or age inference."
+    },
+    {
+      "id": "quantity-budget-boundary",
+      "before": "Exact quantity+unit followed by a bare monetary maximum could absorb the budget as the quantity upper bound.",
+      "after": "Repeated units and explicit ranges remain ranges; separate monetary maximum remains a price criterion."
+    },
+    {
+      "id": "foreign-currency",
+      "before": "Foreign currency amounts could acquire a rouble label or be consumed before voice canonical validation.",
+      "after": "Explicit RU/EN foreign currency amounts return an actionable error with no automatic conversion; voice checks complete canonical input before fallback interpretation."
+    },
+    {
+      "id": "trait-negation",
+      "before": "A negated positive trait could match the unwanted trait when a separate negation word existed in description.",
+      "after": "Unsupported known-trait negation asks for a positive criterion; unrelated noun stems remain ordinary text."
+    },
+    {
+      "id": "zero-mileage",
+      "before": "Без пробега could match unrelated absence/damage prose plus a mileage word.",
+      "after": "Vehicle phrase maps to numeric mileage=0, requires recorded zero and never infers zero from unknown or country-only history."
+    },
+    {
+      "id": "adjacent-model-digits",
+      "before": "iPhone13+256GB could become13256GB; Euro5+2020 could become year2025.",
+      "after": "Non-grouping adjacent digit tokens are separate and iPhone model candidates are not consumed as capacity."
+    }
+  ],
+  "remainingLimitations": [
+    {
+      "query": "седан или универсал",
+      "status": "OR across free-text body alternatives is not implemented; explicit clarification requests filters or separate searches. No OR semantics were added."
+    },
+    {
+      "query": "квартира1 или2комнаты",
+      "status": "Free-text OR room alternatives request clarification; explicit от1до2комнат is supported."
+    },
+    {
+      "query": "автомобиль не старше пяти лет",
+      "status": "Relative age in years explicitly requests a calendar year; use не старше2020года or a year range."
+    }
+  ],
+  "limitations": [
+    "No physical Safari/iPhone, acoustic ASR, network load or production capacity claim.",
+    "Typed/voice tests use isolated fixture records; no matching public assets were invented.",
+    "This is targeted evidence; root performs the complete final suite and publication checks for the assembled release."
+  ]
+}

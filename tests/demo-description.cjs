@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict');
+const {boot}=require('./helpers/category-seller-harness.cjs');
+const h=boot();
+h.context.window.descriptionFixture={description:'Описание <script>attack()</script>\nВторая строка',defects:'<img src=x onerror=alert(1)>',completeness:'Комплект: корпус и кабель',inspection:'По договорённости',deliveryNotes:'Самовывоз'};
+const html=h.run('lotDescriptionHTML(window.descriptionFixture)');
+assert(html.includes('Описание &lt;script&gt;attack()&lt;/script&gt;'));
+assert(html.includes('&lt;img src=x onerror=alert(1)&gt;'));
+assert(!html.includes('<script>')&&!html.includes('<img'));
+for(const text of ['Вторая строка','Комплект: корпус и кабель','По договорённости','Самовывоз'])assert(html.includes(text));
+assert.equal(h.run('lotDescriptionHTML({...window.descriptionFixture,sellerOwnerId:"private-owner"})'),'','private descriptions use the existing seller component exactly once');
+h.run("openCar(cars.find(c=>!c.sellerOwnerId&&c.description).id)");
+assert(h.node('#modal-content').innerHTML.includes('class="lot-description"'),'demo description is rendered in the actual lot dialog');
+console.log('PASS: demo lot descriptions are visible, escaped, complete and do not duplicate private seller descriptions.');

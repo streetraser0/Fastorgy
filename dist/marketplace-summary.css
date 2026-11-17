@@ -1,0 +1,37 @@
+.marketplace-summary{min-height:285px;box-sizing:border-box;margin:28px 0 36px;padding:24px;border:1px solid #dbe4f0;border-radius:20px;background:linear-gradient(130deg,#fff,#f4f7fd);color:#172f43}.marketplace-summary-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}.marketplace-summary-kicker{display:block;color:#617a94;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}.marketplace-summary h2{font-size:20px;line-height:1.3;max-width:430px;margin:0}.marketplace-summary-refresh{border:1px solid #d1ddeb;background:#fff;color:#1651bd;border-radius:11px;font:inherit;font-size:12px;font-weight:750;min-height:40px;padding:8px 13px;cursor:pointer}.marketplace-summary-refresh:focus-visible{outline:3px solid #a5bffc;outline-offset:3px}.marketplace-summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:24px 0 18px}.marketplace-summary-grid>div{min-width:0}.marketplace-summary dt{font-size:12px;color:#64788c;line-height:1.45;margin-bottom:7px}.marketplace-summary dd{font-size:24px;font-weight:800;line-height:1.2;margin:0;overflow-wrap:anywhere;letter-spacing:-.03em}.marketplace-summary-comparison,.marketplace-summary-note{font-size:12px;line-height:1.55;margin:0;color:#687c91}.marketplace-summary-comparison{padding-top:15px;border-top:1px solid #e2e9f2;color:#425e7b;margin-bottom:8px}@media(max-width:640px){.marketplace-summary{min-height:390px;padding:20px;margin:22px 0 28px}.marketplace-summary h2{font-size:18px}.marketplace-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}.marketplace-summary dd{font-size:22px}.marketplace-summary-refresh{padding:8px 10px}}@media(max-width:360px){.marketplace-summary{min-height:430px;padding:16px}.marketplace-summary-heading{gap:10px}.marketplace-summary h2{font-size:17px}.marketplace-summary dd{font-size:20px}}
+
+.marketplace-summary-placeholder dd{color:#d2dce9}.marketplace-summary-placeholder dt{color:#8191a4}
+
+/* One shared calculation serves this toolbar panel and the detailed summary. */
+.marketplace-summary-sources{margin-top:10px;max-width:100ch}
+body:not(.reels) .discovery-catalog>.toolbar>.catalog-counters{grid-column:1/-1;min-width:0;width:100%;box-sizing:border-box;padding:12px 14px 10px;border:1px solid #c8d9ef;border-radius:16px;background:linear-gradient(135deg,#f2f7ff,#fff);box-shadow:inset 0 1px 0 #fff,0 4px 12px #173a6906}
+.catalog-counters-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 16px;margin:0}
+.catalog-counter{min-width:0;padding-left:10px;border-left:2px solid #bfd3f0}
+.catalog-counter dt{margin:0 0 3px;color:#466481;font-size:11px;font-weight:700;line-height:1.3}
+.catalog-counter dd{margin:0;line-height:1.2}
+.catalog-counter-value{display:block;font-size:19px;font-weight:800;letter-spacing:-.025em;font-variant-numeric:tabular-nums;color:#123c76;overflow-wrap:anywhere}
+.catalog-counter[data-catalog-counter=amount] .catalog-counter-value{font-size:17px}
+.catalog-counter-source{display:block;margin-top:3px;font-size:10px;color:#59718b;font-weight:500;line-height:1.3}
+.catalog-counters-note{margin:9px 0 0;color:#58718b;font-size:10px;line-height:1.4}
+.catalog-counters-note a{color:#1458c0;font-weight:700;text-underline-offset:2px}
+.catalog-counters-note a:focus-visible{outline:3px solid #8db7ff;outline-offset:3px;border-radius:3px}
+body.reels .catalog-counters{display:none}
+/* The counters fill the gap between actions as soon as all three groups fit. */
+@media(min-width:1000px){
+ body:not(.reels) .discovery-catalog>.toolbar.has-catalog-counters{grid-template-columns:auto auto minmax(310px,1fr) auto;column-gap:12px;align-items:center}
+ body:not(.reels) .discovery-catalog>.toolbar.has-catalog-counters>.feed-open{grid-column:1;grid-row:1}
+ body:not(.reels) .discovery-catalog>.toolbar.has-catalog-counters>.property-map-launch{grid-column:2;grid-row:1}
+ body:not(.reels) .discovery-catalog>.toolbar.has-catalog-counters>.seller-directory-launch{grid-column:4;grid-row:1}
+ body:not(.reels) .discovery-catalog>.toolbar.has-catalog-counters>.tabs{grid-column:1/3;grid-row:2;align-self:start}
+ body:not(.reels) .discovery-catalog>.toolbar.has-catalog-counters>.sort{grid-column:4;grid-row:2;align-self:start}
+ body:not(.reels) .discovery-catalog>.toolbar.has-catalog-counters>.catalog-counters{grid-column:3;grid-row:1/3}
+ .catalog-counters-grid{gap:10px 8px}
+ .catalog-counter{padding-left:8px}
+ .catalog-counter-value{font-size:18px}
+ .catalog-counter[data-catalog-counter=amount] .catalog-counter-value{font-size:15px}
+}
+@media(max-width:480px){
+ body:not(.reels) .discovery-catalog>.toolbar>.catalog-counters{padding:13px 12px}
+ .catalog-counters-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px 12px}
+ .catalog-counter-source{font-size:10px}
+}

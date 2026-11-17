@@ -1,0 +1,304 @@
+/* Search results are a short, bounded page section; fullscreen reels keep their viewport. */
+body:not(.reels) #lot-results {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 14px;
+  min-width: 0;
+  scroll-margin-top: calc(20px + env(safe-area-inset-top, 0px));
+}
+body:not(.reels) #lot-results h2 {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+#lot-results h2 #result-title {
+  display: inline;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+}
+body:not(.reels) #lot-results #result-count {
+  display: block;
+  margin: 6px 0 0;
+  color: #61758B;
+  font: 500 13px/1.5 'Golos Text', Arial, sans-serif;
+  letter-spacing: normal;
+}
+body:not(.reels) #result-query {
+  grid-column: 1 / -1;
+  min-width: 0;
+  margin: 0;
+  color: #53697D;
+  font-size: 14px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+body:not(.reels) #result-edit {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  max-width: 100%;
+  min-height: 42px;
+  padding: 10px 13px;
+  border: 1px solid #C8D8EB;
+  border-radius: 12px;
+  background: #fff;
+  color: #0D4CD3;
+  font: 600 12px/1.5 'Golos Text', Arial, sans-serif;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body:not(.reels) #lot-results [hidden],
+body:not(.reels) #search-progress[hidden],
+body:not(.reels) #search-progress [hidden] {
+  display: none !important;
+}
+body.search-results-active:not(.reels) #lot-results .live {
+  display: none;
+}
+body.search-results-active:not(.reels) #lot-results h2 {
+  font-size: clamp(23px, 3.5vw, 29px);
+  line-height: 1.3;
+  letter-spacing: -.7px;
+}
+
+/* The toolbar can wrap within the phone width instead of widening the document. */
+body:not(.reels) .toolbar,
+body:not(.reels) .toolbar > *,
+body:not(.reels) .toolbar .tabs {
+  min-width: 0;
+  max-width: 100%;
+}
+body:not(.reels) .toolbar {
+  flex-wrap: wrap;
+}
+body:not(.reels) .toolbar .tabs {
+  flex-wrap: wrap;
+}
+body:not(.reels) .toolbar .tab {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body.search-results-active:not(.reels) .toolbar {
+  justify-content: flex-start;
+  gap: 8px;
+  margin: 16px 0;
+}
+body.search-results-active:not(.reels) .toolbar #open-reels,
+body.search-results-active:not(.reels) .toolbar .property-map-launch {
+  flex: 0 1 auto;
+  width: auto;
+  min-width: 0;
+  min-height: 40px;
+  padding: 9px 12px;
+  border: 1px solid #C8D8EB;
+  border-radius: 11px;
+  background: #fff;
+  box-shadow: none;
+  color: #0D4CD3;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body.search-results-active:not(.reels) .toolbar #sort {
+  width: auto;
+  max-width: 100%;
+  min-height: 40px;
+  margin-left: auto;
+  color: #53697D;
+  font-size: 12px;
+}
+body.search-results-active:not(.reels) .toolbar .tabs {
+  flex: 1 1 auto;
+  gap: 6px;
+}
+body.search-results-active:not(.reels) .toolbar .tab {
+  min-height: 40px;
+  padding: 9px 11px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Zero results offer a next step immediately, without an empty swipe viewport. */
+body.catalog-empty:not(.reels) .toolbar,
+body.catalog-empty:not(.reels) .swipe-bar,
+body.catalog-empty:not(.reels) #more,
+body.catalog-searching:not(.reels) .toolbar,
+body.catalog-searching:not(.reels) .swipe-bar,
+body.catalog-searching:not(.reels) #more,
+body.catalog-search-error:not(.reels) .toolbar,
+body.catalog-search-error:not(.reels) .swipe-bar,
+body.catalog-search-error:not(.reels) #more {
+  display: none !important;
+}
+body.catalog-empty:not(.reels) #grid {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  margin: 0 0 24px;
+  overflow: visible;
+  scroll-snap-type: none;
+  border-radius: 0;
+}
+body.catalog-empty:not(.reels) #grid .empty {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  text-align: left;
+}
+body.catalog-empty:not(.reels) #grid .empty-state {
+  max-width: none;
+  margin: 0;
+  padding: 24px;
+  border: 1px solid #DCE6F2;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 4px 18px #17478E06;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+body.catalog-empty:not(.reels) #grid .empty-state > .ui-icon {
+  width: 34px;
+  height: 34px;
+  margin: 0 0 14px;
+  padding: 0;
+  color: #638BC2;
+}
+body.catalog-empty:not(.reels) #grid .empty-state h3 {
+  max-width: 640px;
+  margin: 0 0 10px;
+  color: #183B5F;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -.5px;
+}
+body.catalog-empty:not(.reels) #grid .empty-state p {
+  max-width: 640px;
+  margin: 0;
+  color: #61758B;
+  font-size: 14px;
+  line-height: 1.75;
+}
+body.catalog-empty:not(.reels) #grid .empty-state-actions {
+  justify-content: flex-start;
+  gap: 9px;
+  margin-top: 20px;
+}
+body.catalog-empty:not(.reels) #grid .empty-state-actions button {
+  min-width: 0;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 11px 15px;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Existing cards remain in the DOM while a prepared search shows its own status. */
+body.catalog-searching:not(.reels) #grid,
+body.catalog-search-error:not(.reels) #grid {
+  display: none !important;
+}
+body:not(.reels) #search-progress {
+  max-width: 100%;
+  margin: 0 0 24px;
+  padding: 22px 24px;
+  border: 1px solid #DCE6F2;
+  border-radius: 18px;
+  background: #fff;
+  color: #244565;
+  box-shadow: 0 4px 18px #17478E06;
+  overflow-wrap: anywhere;
+}
+body:not(.reels) #search-progress strong {
+  display: block;
+  margin: 0;
+  color: #183B5F;
+  font-size: 17px;
+  line-height: 1.5;
+}
+body:not(.reels) #search-progress p {
+  margin: 7px 0 0;
+  color: #61758B;
+  font-size: 13px;
+  line-height: 1.7;
+}
+body:not(.reels) #search-progress button {
+  min-height: 44px;
+  max-width: 100%;
+  margin-top: 16px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body.reels #search-progress {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  /* 16px prevents Safari's input auto-zoom while preserving user pinch zoom. */
+  body .home-search-panel #search,
+  body .home-search-panel .filters input,
+  body .home-search-panel .filters select,
+  body .advanced-grid input,
+  body .advanced-grid select {
+    font-size: 16px;
+  }
+  body:not(.reels) #lot-results {
+    gap: 8px 10px;
+    margin-bottom: 16px;
+    padding-top: 20px;
+  }
+  body:not(.reels) #lot-results h2 {
+    line-height: 1.35;
+  }
+  body:not(.reels) #result-edit {
+    max-width: 108px;
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+  body:not(.reels) #result-query {
+    font-size: 13px;
+  }
+  body.search-results-active:not(.reels) .toolbar .tabs {
+    order: 3;
+    flex-basis: 100%;
+  }
+  body.search-results-active:not(.reels) .toolbar #sort {
+    order: 4;
+    margin-left: 0;
+    font-size: 16px;
+    max-width: 100%;
+  }
+  body.search-results-active:not(.reels) .toolbar #open-reels,
+  body.search-results-active:not(.reels) .toolbar .property-map-launch {
+    flex: 1 1 140px;
+    justify-content: center;
+  }
+  body.catalog-empty:not(.reels) #grid .empty-state,
+  body:not(.reels) #search-progress {
+    padding: 22px 20px;
+    border-radius: 16px;
+  }
+  body.catalog-empty:not(.reels) #grid .empty-state h3 {
+    font-size: 21px;
+  }
+  body.catalog-empty:not(.reels) #grid .empty-state p {
+    font-size: 13px;
+  }
+  body.catalog-empty:not(.reels) #grid .empty-state-actions button {
+    flex: 1 1 180px;
+    font-size: 14px;
+  }
+}
+
+body.catalog-search-error:not(.reels) #result-count { display: none; }

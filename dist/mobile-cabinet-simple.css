@@ -1,0 +1,42 @@
+/* Phone cabinet: one section picker and full-width content. Desktop/tablet
+   sidebar geometry stays with cabinet-layout.css and desktop-web.css. */
+@media(max-width:699px){
+ html.mobile-cabinet #modal.seller-dialog .seller-shell.seller-mobile-simple{padding-inline:max(14px,env(safe-area-inset-left,0px)) max(14px,env(safe-area-inset-right,0px))}
+ html.mobile-cabinet .seller-mobile-simple .seller-desktop-toolbar{gap:10px;margin-bottom:16px;align-items:center}
+ html.mobile-cabinet .seller-mobile-simple .seller-dashboard-heading .eyebrow{display:none}
+ html.mobile-cabinet .seller-mobile-simple .seller-dashboard-heading h2{font-size:24px;line-height:1.25}
+ html.mobile-cabinet .seller-mobile-simple .seller-dashboard-heading p{display:none}
+ html.mobile-cabinet #modal.seller-dialog .seller-mobile-simple .seller-create-button{min-height:42px!important;padding:10px 12px!important;font-size:12px!important;box-shadow:0 4px 10px #1258bd24}
+ html.mobile-cabinet .seller-mobile-simple .seller-mobile-section{display:block;margin:0 0 18px;color:#49627c;font-size:12px;font-weight:600}
+ html.mobile-cabinet .seller-mobile-section>span{display:block;margin-bottom:7px}
+ html.mobile-cabinet .seller-mobile-section>select{display:block;box-sizing:border-box;width:100%;min-width:0;min-height:48px;padding:10px 36px 10px 12px;border:1px solid #b5cce9;border-radius:12px;background-color:#f4f8ff;color:#123c70;font:600 16px/1.4 'Golos Text',Arial,sans-serif}
+ html.mobile-cabinet .seller-mobile-section>select:focus-visible{outline:3px solid #8ab4ef;outline-offset:2px}
+ html.mobile-cabinet .seller-mobile-simple .seller-desktop-layout{display:block}
+ html.mobile-cabinet .seller-mobile-simple .seller-desktop-sidebar{display:none}
+ html.mobile-cabinet .seller-mobile-simple .seller-desktop-main{display:block;width:100%;max-width:100%;min-width:0}
+ html.mobile-cabinet .seller-mobile-simple .seller-list-title{font-size:21px;line-height:1.35;margin:0 0 14px}
+ html.mobile-cabinet .seller-mobile-simple[data-cabinet-section="draft"] .seller-tabs{display:none}
+ html.mobile-cabinet .seller-mobile-simple:not([data-cabinet-section="draft"]) .seller-tabs:not([hidden]){display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px;padding:3px 1px 9px;margin-bottom:10px;scrollbar-width:thin}
+ html.mobile-cabinet .seller-mobile-simple .seller-tabs>button{flex:0 0 auto;min-height:40px;padding:8px 10px;font-size:11px;white-space:nowrap}
+ html.mobile-cabinet .seller-mobile-simple .seller-row{grid-template-columns:58px minmax(0,1fr);gap:10px 12px;padding:13px;border-radius:14px}
+ html.mobile-cabinet .seller-mobile-simple .seller-row>img{width:58px;height:66px;object-fit:cover}
+ html.mobile-cabinet .seller-mobile-simple .seller-row-main h3{font-size:15px;line-height:1.4;margin:5px 0}
+ html.mobile-cabinet .seller-mobile-simple .seller-row-main p{font-size:11px;line-height:1.5}
+ html.mobile-cabinet .seller-mobile-simple .seller-row-actions{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:9px}
+ html.mobile-cabinet .seller-mobile-simple .seller-row-actions>button{flex:1 1 auto;min-height:42px;font-size:12px}
+ html.mobile-cabinet .seller-mobile-simple .seller-row-actions>[data-seller-delete]{flex:0 0 auto;margin-left:auto;padding:8px 10px;color:#9b3c46}
+ html.mobile-cabinet .seller-mobile-simple .seller-empty{padding:28px 14px}
+ html.mobile-cabinet .seller-mobile-simple .seller-mobile-more{margin-top:20px;border:1px solid #ccd9e9;border-radius:13px;background:#f7faff;overflow:hidden}
+ html.mobile-cabinet .seller-mobile-more>summary{min-height:44px;padding:13px 14px;box-sizing:border-box;color:#305375;font-size:13px;font-weight:600;cursor:pointer}
+ html.mobile-cabinet .seller-mobile-more>summary:focus-visible{outline:3px solid #8ab4ef;outline-offset:-3px}
+ html.mobile-cabinet .seller-mobile-more-body{padding:0 13px 14px}
+ html.mobile-cabinet .seller-mobile-more .seller-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 12px;padding:0;border:0}
+ html.mobile-cabinet .seller-mobile-more .seller-shortcuts>button{display:flex;align-items:center;justify-content:center;gap:7px;min-width:0;min-height:42px;padding:8px;font-size:11px}
+ html.mobile-cabinet .seller-mobile-more .seller-help-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:9px;padding:12px 0;margin:0;border:0;border-top:1px solid #dce5ef;background:none;border-radius:0}
+ html.mobile-cabinet .seller-mobile-more .seller-help-footer>div{flex:1 1 130px;min-width:0}
+ html.mobile-cabinet .seller-mobile-more .seller-help-footer strong{font-size:13px}
+ html.mobile-cabinet .seller-mobile-more .seller-help-footer p{font-size:11px;margin:4px 0 0;line-height:1.5}
+ html.mobile-cabinet .seller-mobile-more .seller-help-footer>button{min-height:42px;max-width:100%;font-size:11px;white-space:normal}
+ html.mobile-cabinet .seller-mobile-more :is(.seller-dashboard-notice,.seller-editor-demo){margin:10px 0 0}
+ html.mobile-cabinet .seller-mobile-more :is(.seller-dashboard-notice,.seller-editor-demo)>summary{padding:11px 10px;font-size:11px;line-height:1.5}
+}

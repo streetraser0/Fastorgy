@@ -1,0 +1,527 @@
+{
+  "createdUtc": "2026-11-14T15:55:19.790Z",
+  "workerSha256": "9f70c5a02683ce5f92b352e8c545ebc7d1f2c332ef5a09a3fd4bc5fc658ab7a4",
+  "migrationHashes": {
+    "0000_metrics.sql": "5cbee07105a2b45cb0c2244c997d50c187225e6b2d2fb473223b39dcbc0eca97",
+    "0001_api_rate_limits.sql": "f943d189f9639934f20b889f7e3bf76c3f7677c62ad91b78a50d2b814589a8cd"
+  },
+  "environment": {
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64"
+  },
+  "method": "Actual unchanged Worker handlers and migrations, isolated Python sqlite3 databases with WAL, four persistent local SQLite connections and at most four concurrent Worker calls. Synthetic data never leaves local temporary storage. No HTTP network calls.",
+  "limitations": [
+    "10k/100k are seeded registered-account records, not simultaneous visitors or authenticated production accounts.",
+    "No common real auction, money, bank, delivery or server-account backend exists to certify at this audience.",
+    "Local Node/Python/SQLite timing is not Cloudflare D1 latency, capacity, RPS, mobile rendering or a DDoS test.",
+    "Persistent SQLite processes, WAL and OS caches differ from hosted D1. SQL CPU excludes Node but includes local SQLite work; batch wall includes locking.",
+    "No cold-disk claim: seeding warms caches. Cases are run serially; report p95 is a small bounded-sample descriptive statistic.",
+    "Node memory excludes Python processes; per-process SQLite peaks are reported separately, not summed into a claimed total. The seeding process peak includes fixture construction.",
+    "Approximate SQLite VM steps use a 1000-op progress callback: zero means below/coarser-than sampling resolution, not no database work.",
+    "Recorded database/WAL/SHM file sizes are one local snapshot; WAL checkpointing and connection lifecycle change disk usage."
+  ],
+  "datasets": [
+    {
+      "registeredAccounts": 10000,
+      "seed": {
+        "users": 10000,
+        "sales": 19999,
+        "sparseOnline": 100,
+        "heavyOwnerSales": 10000
+      },
+      "seedElapsedMs": 413.15729899999997,
+      "results": [
+        {
+          "name": "metrics sparse-online GET",
+          "requests": 24,
+          "concurrency": 4,
+          "statuses": {
+            "200": 24
+          },
+          "elapsedMs": 108.01,
+          "requestMedianMs": 5.988341999999989,
+          "requestP95Ms": 22.97971999999993,
+          "nodeCpuMs": 81.237,
+          "db": {
+            "statements": 48,
+            "batches": 48,
+            "batchWallMs": 73.494,
+            "batchCpuMs": 12.439,
+            "approxVmSteps": 4000
+          }
+        },
+        {
+          "name": "sales small-owner page",
+          "requests": 16,
+          "concurrency": 4,
+          "statuses": {
+            "200": 16
+          },
+          "elapsedMs": 22.473,
+          "requestMedianMs": 4.645942999999988,
+          "requestP95Ms": 11.700781000000006,
+          "nodeCpuMs": 17.168,
+          "db": {
+            "statements": 112,
+            "batches": 32,
+            "batchWallMs": 37.383,
+            "batchCpuMs": 5.611,
+            "approxVmSteps": 0
+          }
+        },
+        {
+          "name": "sales max-owner-history page/offset",
+          "requests": 12,
+          "concurrency": 4,
+          "statuses": {
+            "200": 12
+          },
+          "elapsedMs": 476.987,
+          "requestMedianMs": 117.87660900000003,
+          "requestP95Ms": 268.65238,
+          "nodeCpuMs": 30.141,
+          "db": {
+            "statements": 84,
+            "batches": 24,
+            "batchWallMs": 908.256,
+            "batchCpuMs": 349.291,
+            "approxVmSteps": 12746000
+          }
+        },
+        {
+          "name": "metrics existing-account POST",
+          "requests": 16,
+          "concurrency": 4,
+          "statuses": {
+            "200": 16
+          },
+          "elapsedMs": 40.833,
+          "requestMedianMs": 6.8279130000000805,
+          "requestP95Ms": 31.38254700000016,
+          "nodeCpuMs": 12.627,
+          "db": {
+            "statements": 48,
+            "batches": 48,
+            "batchWallMs": 66.231,
+            "batchCpuMs": 8.738,
+            "approxVmSteps": 5000
+          }
+        },
+        {
+          "name": "metrics all-accounts-online GET",
+          "requests": 24,
+          "concurrency": 4,
+          "statuses": {
+            "200": 24
+          },
+          "elapsedMs": 34.506,
+          "requestMedianMs": 2.7107129999999415,
+          "requestP95Ms": 19.738264999999956,
+          "nodeCpuMs": 11.287,
+          "db": {
+            "statements": 48,
+            "batches": 48,
+            "batchWallMs": 51.454,
+            "batchCpuMs": 9.251,
+            "approxVmSteps": 481000
+          }
+        },
+        {
+          "name": "sales exhausted-quota denial",
+          "requests": 16,
+          "concurrency": 4,
+          "statuses": {
+            "429": 16
+          },
+          "elapsedMs": 5.128,
+          "requestMedianMs": 1.1981849999999667,
+          "requestP95Ms": 1.7820449999999255,
+          "nodeCpuMs": 5.357,
+          "db": {
+            "statements": 16,
+            "batches": 16,
+            "batchWallMs": 1.545,
+            "batchCpuMs": 0.473,
+            "approxVmSteps": 1000
+          }
+        },
+        {
+          "name": "unauthenticated rejection",
+          "requests": 16,
+          "concurrency": 4,
+          "statuses": {
+            "401": 16
+          },
+          "elapsedMs": 1.15,
+          "requestMedianMs": 0.2419969999998557,
+          "requestP95Ms": 0.33450199999992947,
+          "nodeCpuMs": 1.354,
+          "db": {
+            "statements": 0,
+            "batches": 0,
+            "batchWallMs": 0,
+            "batchCpuMs": 0,
+            "approxVmSteps": 0
+          }
+        },
+        {
+          "name": "cross-origin rejection",
+          "requests": 16,
+          "concurrency": 4,
+          "statuses": {
+            "403": 16
+          },
+          "elapsedMs": 1.237,
+          "requestMedianMs": 0.30233499999985725,
+          "requestP95Ms": 0.4263180000000375,
+          "nodeCpuMs": 1.823,
+          "db": {
+            "statements": 0,
+            "batches": 0,
+            "batchWallMs": 0,
+            "batchCpuMs": 0,
+            "approxVmSteps": 0
+          }
+        }
+      ],
+      "queryPlans": [
+        {
+          "sql": "SELECT (SELECT COUNT(*) FROM site_users) AS total_users, (SELECT COUNT(*) FROM site_users WHERE last_seen >= ?) AS online_users",
+          "plan": [
+            "SCAN CONSTANT ROW",
+            "SCALAR SUBQUERY 1",
+            "SCAN site_users USING COVERING INDEX site_users_last_seen_idx",
+            "SCALAR SUBQUERY 2",
+            "SEARCH site_users USING COVERING INDEX site_users_last_seen_idx (last_seen>?)"
+          ]
+        },
+        {
+          "sql": "DELETE FROM sale_events WHERE sold_at < ?",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_date_idx (sold_at<?)"
+          ]
+        },
+        {
+          "sql": "SELECT COUNT(*) AS deal_count, CAST(COALESCE(SUM(amount / 1000000), 0) AS TEXT) AS amount_millions, CAST(COALESCE(SUM(amount % 1000000), 0) AS TEXT) AS amount_remainder, SUM(CASE WHEN participant_count IS NOT NULL THEN 1 ELSE 0 END) AS participant_known_deals, COALESCE(SUM(participant_count), 0) AS participant_count FROM sale_events WHERE user_hash = ? AND sold_at >= ?",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_user_date_idx (user_hash=? AND sold_at>?)"
+          ]
+        },
+        {
+          "sql": "SELECT category, MAX(category_label) AS category_label, COUNT(*) AS deal_count, CAST(COALESCE(SUM(amount / 1000000), 0) AS TEXT) AS amount_millions, CAST(COALESCE(SUM(amount % 1000000), 0) AS TEXT) AS amount_remainder, SUM(CASE WHEN participant_count IS NOT NULL THEN 1 ELSE 0 END) AS participant_known_deals, COALESCE(SUM(participant_count), 0) AS participant_count FROM sale_events WHERE user_hash = ? AND sold_at >= ? GROUP BY category ORDER BY category LIMIT ?",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_user_date_idx (user_hash=? AND sold_at>?)",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT SUBSTR(sold_at, 1, 7) AS month, COUNT(*) AS deal_count, CAST(COALESCE(SUM(amount / 1000000), 0) AS TEXT) AS amount_millions, CAST(COALESCE(SUM(amount % 1000000), 0) AS TEXT) AS amount_remainder, SUM(CASE WHEN participant_count IS NOT NULL THEN 1 ELSE 0 END) AS participant_known_deals, COALESCE(SUM(participant_count), 0) AS participant_count FROM sale_events WHERE user_hash = ? AND sold_at >= ? GROUP BY SUBSTR(sold_at, 1, 7) ORDER BY month",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_user_date_idx (user_hash=? AND sold_at>?)",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT id, lot_id, name, category, category_label, region, amount, sold_at, participant_count, bid_count, method FROM sale_events WHERE user_hash = ? AND sold_at >= ? ORDER BY sold_at DESC, id DESC LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_user_date_idx (user_hash=? AND sold_at>?)",
+            "USE TEMP B-TREE FOR LAST TERM OF ORDER BY"
+          ]
+        },
+        {
+          "sql": "SELECT category, MAX(category_label) AS category_label FROM sale_events WHERE user_hash = ? AND sold_at >= ? GROUP BY category ORDER BY category LIMIT ?",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_user_date_idx (user_hash=? AND sold_at>?)",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        }
+      ],
+      "sqliteProcesses": [
+        {
+          "maxRssKiB": 23184,
+          "databaseBytes": 14745600,
+          "walBytes": 14893832,
+          "sharedMemoryBytes": 32768,
+          "onDiskBytes": 29672200
+        },
+        {
+          "maxRssKiB": 13304,
+          "databaseBytes": 14745600,
+          "walBytes": 14893832,
+          "sharedMemoryBytes": 32768,
+          "onDiskBytes": 29672200
+        },
+        {
+          "maxRssKiB": 13336,
+          "databaseBytes": 14745600,
+          "walBytes": 14893832,
+          "sharedMemoryBytes": 32768,
+          "onDiskBytes": 29672200
+        },
+        {
+          "maxRssKiB": 13372,
+          "databaseBytes": 14745600,
+          "walBytes": 14893832,
+          "sharedMemoryBytes": 32768,
+          "onDiskBytes": 29672200
+        }
+      ],
+      "nodeMaxRssKiB": 47972,
+      "nodeRssBytes": 49254400,
+      "checksPassed": true
+    },
+    {
+      "registeredAccounts": 100000,
+      "seed": {
+        "users": 100000,
+        "sales": 109999,
+        "sparseOnline": 1000,
+        "heavyOwnerSales": 10000
+      },
+      "seedElapsedMs": 3201.4787079999996,
+      "results": [
+        {
+          "name": "metrics sparse-online GET",
+          "requests": 24,
+          "concurrency": 4,
+          "statuses": {
+            "200": 24
+          },
+          "elapsedMs": 53.091,
+          "requestMedianMs": 5.504565000000184,
+          "requestP95Ms": 22.182136999999784,
+          "nodeCpuMs": 11.097,
+          "db": {
+            "statements": 48,
+            "batches": 48,
+            "batchWallMs": 53.519,
+            "batchCpuMs": 29.235,
+            "approxVmSteps": 48000
+          }
+        },
+        {
+          "name": "sales small-owner page",
+          "requests": 16,
+          "concurrency": 4,
+          "statuses": {
+            "200": 16
+          },
+          "elapsedMs": 26.661,
+          "requestMedianMs": 5.157631999999467,
+          "requestP95Ms": 11.65395400000034,
+          "nodeCpuMs": 12.06,
+          "db": {
+            "statements": 112,
+            "batches": 32,
+            "batchWallMs": 51.197,
+            "batchCpuMs": 7.128,
+            "approxVmSteps": 0
+          }
+        },
+        {
+          "name": "sales max-owner-history page/offset",
+          "requests": 12,
+          "concurrency": 4,
+          "statuses": {
+            "200": 12
+          },
+          "elapsedMs": 442.884,
+          "requestMedianMs": 117.96071299999949,
+          "requestP95Ms": 277.9160520000005,
+          "nodeCpuMs": 18.187,
+          "db": {
+            "statements": 84,
+            "batches": 24,
+            "batchWallMs": 931.541,
+            "batchCpuMs": 328.51,
+            "approxVmSteps": 12747000
+          }
+        },
+        {
+          "name": "metrics existing-account POST",
+          "requests": 16,
+          "concurrency": 4,
+          "statuses": {
+            "200": 16
+          },
+          "elapsedMs": 52.029,
+          "requestMedianMs": 7.590685000000121,
+          "requestP95Ms": 39.01706400000057,
+          "nodeCpuMs": 12.469,
+          "db": {
+            "statements": 48,
+            "batches": 48,
+            "batchWallMs": 86.188,
+            "batchCpuMs": 18.24,
+            "approxVmSteps": 33000
+          }
+        },
+        {
+          "name": "metrics all-accounts-online GET",
+          "requests": 24,
+          "concurrency": 4,
+          "statuses": {
+            "200": 24
+          },
+          "elapsedMs": 57.311,
+          "requestMedianMs": 6.909674999999879,
+          "requestP95Ms": 25.73528499999975,
+          "nodeCpuMs": 10.555,
+          "db": {
+            "statements": 48,
+            "batches": 48,
+            "batchWallMs": 122.523,
+            "batchCpuMs": 67.907,
+            "approxVmSteps": 4801000
+          }
+        },
+        {
+          "name": "sales exhausted-quota denial",
+          "requests": 16,
+          "concurrency": 4,
+          "statuses": {
+            "429": 16
+          },
+          "elapsedMs": 5.344,
+          "requestMedianMs": 1.1177280000001701,
+          "requestP95Ms": 2.2659899999998743,
+          "nodeCpuMs": 7.051,
+          "db": {
+            "statements": 16,
+            "batches": 16,
+            "batchWallMs": 1.631,
+            "batchCpuMs": 0.516,
+            "approxVmSteps": 0
+          }
+        },
+        {
+          "name": "unauthenticated rejection",
+          "requests": 16,
+          "concurrency": 4,
+          "statuses": {
+            "401": 16
+          },
+          "elapsedMs": 2.347,
+          "requestMedianMs": 0.37508299999990413,
+          "requestP95Ms": 1.5166650000001027,
+          "nodeCpuMs": 2.707,
+          "db": {
+            "statements": 0,
+            "batches": 0,
+            "batchWallMs": 0,
+            "batchCpuMs": 0,
+            "approxVmSteps": 0
+          }
+        },
+        {
+          "name": "cross-origin rejection",
+          "requests": 16,
+          "concurrency": 4,
+          "statuses": {
+            "403": 16
+          },
+          "elapsedMs": 0.847,
+          "requestMedianMs": 0.15404699999999139,
+          "requestP95Ms": 0.38967500000035216,
+          "nodeCpuMs": 1.029,
+          "db": {
+            "statements": 0,
+            "batches": 0,
+            "batchWallMs": 0,
+            "batchCpuMs": 0,
+            "approxVmSteps": 0
+          }
+        }
+      ],
+      "queryPlans": [
+        {
+          "sql": "SELECT (SELECT COUNT(*) FROM site_users) AS total_users, (SELECT COUNT(*) FROM site_users WHERE last_seen >= ?) AS online_users",
+          "plan": [
+            "SCAN CONSTANT ROW",
+            "SCALAR SUBQUERY 1",
+            "SCAN site_users USING COVERING INDEX site_users_last_seen_idx",
+            "SCALAR SUBQUERY 2",
+            "SEARCH site_users USING COVERING INDEX site_users_last_seen_idx (last_seen>?)"
+          ]
+        },
+        {
+          "sql": "DELETE FROM sale_events WHERE sold_at < ?",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_date_idx (sold_at<?)"
+          ]
+        },
+        {
+          "sql": "SELECT COUNT(*) AS deal_count, CAST(COALESCE(SUM(amount / 1000000), 0) AS TEXT) AS amount_millions, CAST(COALESCE(SUM(amount % 1000000), 0) AS TEXT) AS amount_remainder, SUM(CASE WHEN participant_count IS NOT NULL THEN 1 ELSE 0 END) AS participant_known_deals, COALESCE(SUM(participant_count), 0) AS participant_count FROM sale_events WHERE user_hash = ? AND sold_at >= ?",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_user_date_idx (user_hash=? AND sold_at>?)"
+          ]
+        },
+        {
+          "sql": "SELECT category, MAX(category_label) AS category_label, COUNT(*) AS deal_count, CAST(COALESCE(SUM(amount / 1000000), 0) AS TEXT) AS amount_millions, CAST(COALESCE(SUM(amount % 1000000), 0) AS TEXT) AS amount_remainder, SUM(CASE WHEN participant_count IS NOT NULL THEN 1 ELSE 0 END) AS participant_known_deals, COALESCE(SUM(participant_count), 0) AS participant_count FROM sale_events WHERE user_hash = ? AND sold_at >= ? GROUP BY category ORDER BY category LIMIT ?",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_user_date_idx (user_hash=? AND sold_at>?)",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT SUBSTR(sold_at, 1, 7) AS month, COUNT(*) AS deal_count, CAST(COALESCE(SUM(amount / 1000000), 0) AS TEXT) AS amount_millions, CAST(COALESCE(SUM(amount % 1000000), 0) AS TEXT) AS amount_remainder, SUM(CASE WHEN participant_count IS NOT NULL THEN 1 ELSE 0 END) AS participant_known_deals, COALESCE(SUM(participant_count), 0) AS participant_count FROM sale_events WHERE user_hash = ? AND sold_at >= ? GROUP BY SUBSTR(sold_at, 1, 7) ORDER BY month",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_user_date_idx (user_hash=? AND sold_at>?)",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        },
+        {
+          "sql": "SELECT id, lot_id, name, category, category_label, region, amount, sold_at, participant_count, bid_count, method FROM sale_events WHERE user_hash = ? AND sold_at >= ? ORDER BY sold_at DESC, id DESC LIMIT ? OFFSET ?",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_user_date_idx (user_hash=? AND sold_at>?)",
+            "USE TEMP B-TREE FOR LAST TERM OF ORDER BY"
+          ]
+        },
+        {
+          "sql": "SELECT category, MAX(category_label) AS category_label FROM sale_events WHERE user_hash = ? AND sold_at >= ? GROUP BY category ORDER BY category LIMIT ?",
+          "plan": [
+            "SEARCH sale_events USING INDEX sale_events_user_date_idx (user_hash=? AND sold_at>?)",
+            "USE TEMP B-TREE FOR GROUP BY"
+          ]
+        }
+      ],
+      "sqliteProcesses": [
+        {
+          "maxRssKiB": 75364,
+          "databaseBytes": 93028352,
+          "walBytes": 93627032,
+          "sharedMemoryBytes": 196608,
+          "onDiskBytes": 186851992
+        },
+        {
+          "maxRssKiB": 13400,
+          "databaseBytes": 93028352,
+          "walBytes": 93627032,
+          "sharedMemoryBytes": 196608,
+          "onDiskBytes": 186851992
+        },
+        {
+          "maxRssKiB": 13388,
+          "databaseBytes": 93028352,
+          "walBytes": 93627032,
+          "sharedMemoryBytes": 196608,
+          "onDiskBytes": 186851992
+        },
+        {
+          "maxRssKiB": 13328,
+          "databaseBytes": 93028352,
+          "walBytes": 93627032,
+          "sharedMemoryBytes": 196608,
+          "onDiskBytes": 186851992
+        }
+      ],
+      "nodeMaxRssKiB": 50020,
+      "nodeRssBytes": 50860032,
+      "checksPassed": true
+    }
+  ],
+  "workerSha256After": "9f70c5a02683ce5f92b352e8c545ebc7d1f2c332ef5a09a3fd4bc5fc658ab7a4",
+  "sourceUnchanged": true,
+  "success": true
+}

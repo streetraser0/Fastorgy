@@ -1,0 +1,55 @@
+/* Feed settings stay in their block and use ordinary keyboard/native scrolling. */
+#featured-lots .featured-heading.featured-settings-enabled {
+ display:grid;
+ grid-template-columns:minmax(0,1fr) auto auto auto;
+ align-items:center;
+ gap:10px;
+}
+.featured-settings {position:relative;grid-column:4;min-width:0;justify-self:end}
+.featured-settings-toggle,.featured-settings-close {
+ display:grid;place-items:center;flex:none;width:40px;height:40px;min-width:40px;
+ padding:8px;border:1px solid #CFDDEE;border-radius:12px;background:#fff;color:#0D4CD3;cursor:pointer;touch-action:manipulation;
+}
+.featured-settings-toggle svg {display:block;width:22px;height:22px;fill:currentColor}
+.featured-settings-toggle[aria-expanded="true"] {border-color:#0D4CD3;background:#EAF1FF;box-shadow:0 0 0 3px #0D4CD30D}
+.featured-settings-panel {
+ position:absolute;inset-inline-end:0;top:calc(100% + 10px);z-index:45;
+ width:min(352px,calc(100vw - 32px));max-width:calc(100vw - 32px);max-height:70vh;max-height:min(620px,70dvh);
+ padding:18px;overflow-y:auto;border:1px solid #D8E3F0;border-radius:20px;background:#fff;
+ box-shadow:0 18px 50px #173A6A26,0 4px 12px #173A6A0D;color:#243C5B;
+}
+.featured-settings-panel[hidden] {display:none!important}
+.featured-settings-head {display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px;min-width:0}
+.featured-settings-head h3 {margin:0;font:800 18px/1.4 Manrope,Arial,sans-serif;overflow-wrap:anywhere}
+.featured-settings-close {width:34px;height:34px;min-width:34px;padding:6px;border-color:#E0E7F1;background:#F6F8FC}
+.featured-settings-route {
+ display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-width:0;min-height:62px;
+ padding:12px 0;border:0;border-bottom:1px solid #E4EAF3;background:transparent;color:#243C5B;text-align:left;cursor:pointer;
+}
+.featured-settings-route>span {display:grid;gap:3px;min-width:0;max-width:100%}
+.featured-settings-route strong {font-size:14px;line-height:1.45}
+.featured-settings-route span span,.featured-settings-route small {font-size:12px;line-height:1.5;color:#61758B;overflow-wrap:anywhere;white-space:normal}
+.featured-settings-route>.ui-icon {width:18px;height:18px;flex:none;color:#7C91AB}
+.featured-settings-panel form {margin:17px 0 0;min-width:0}
+.featured-settings-prices {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;min-width:0;margin:0 0 14px;padding:0;border:0}
+.featured-settings-prices legend {margin:0 0 8px;padding:0;font-size:14px;font-weight:700;line-height:1.5}
+.featured-settings-prices label,.featured-settings-radius {display:grid;gap:6px;min-width:0;margin:0;color:#53697D;font-size:12px;line-height:1.5}
+.featured-settings-radius {font-size:14px;font-weight:600}
+.featured-settings-panel input,.featured-settings-panel select {
+ display:block;box-sizing:border-box;min-width:0;width:100%;max-width:100%;min-height:46px;margin:0;padding:10px 11px;
+ border:1px solid #CAD8E9;border-radius:11px;background:#F7F9FD;color:#243C5B;font:400 16px/1.45 'Golos Text',Arial,sans-serif;
+}
+.featured-settings-panel select {padding-inline-end:28px}
+.featured-settings-panel input::placeholder {color:#8A9BAE;font-size:13px}
+.featured-settings-panel .featured-settings-apply {display:block;width:100%;min-height:46px;margin:16px 0 0;padding:11px 12px;border-radius:12px;font-size:14px;line-height:1.5;white-space:normal}
+.featured-settings-error {margin:12px 0 0;color:#AD294A;font-size:12px;line-height:1.6;overflow-wrap:anywhere}
+.featured-settings-footer {display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 14px;margin-top:13px}
+.featured-settings-footer button {min-width:0;max-width:100%;min-height:36px;padding:5px 0;border:0;background:transparent;color:#0D4CD3;font:600 12px/1.5 'Golos Text',Arial,sans-serif;white-space:normal;overflow-wrap:anywhere;text-align:left;cursor:pointer}
+.featured-settings button:focus-visible,.featured-settings input:focus-visible,.featured-settings select:focus-visible {outline:2px solid #0D4CD3;outline-offset:3px}
+@media (max-width:700px) {
+ #featured-lots .featured-heading.featured-settings-enabled {grid-template-columns:minmax(0,1fr) 40px;gap:10px}
+ #featured-lots .featured-settings-enabled>.featured-arrows {display:none}
+ #featured-lots .featured-settings-enabled>#home-open-feed {grid-column:1/-1;grid-row:2;width:100%;justify-self:stretch}
+ .featured-settings {grid-column:2;grid-row:1}
+ .featured-settings-panel {padding:16px;border-radius:18px}
+}

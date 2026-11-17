@@ -1,0 +1,163 @@
+{
+  "created_utc": "2026-11-14T16:04:12.444221+00:00",
+  "method": "13 serial read-only requests; no production writes, flood or model download. Workspace HTTP is not physical Safari latency.",
+  "results": [
+    {
+      "path": "/",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 278159,
+      "ttfb_ms": 1119.1,
+      "total_ms": 1128.5,
+      "nosniff": "nosniff",
+      "cache_control": "no-store, private",
+      "body_sha256_matches_build": true,
+      "html_csp_matches_build": true
+    },
+    {
+      "path": "/terms.html",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 35272,
+      "ttfb_ms": 338.0,
+      "total_ms": 338.2,
+      "nosniff": "nosniff",
+      "cache_control": "no-store, private",
+      "body_sha256_matches_build": true,
+      "html_csp_matches_build": true
+    },
+    {
+      "path": "/privacy.html",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 21918,
+      "ttfb_ms": 473.6,
+      "total_ms": 473.8,
+      "nosniff": "nosniff",
+      "cache_control": "no-store, private",
+      "body_sha256_matches_build": true,
+      "html_csp_matches_build": true
+    },
+    {
+      "path": "/local-ai-worker.js",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 8137,
+      "ttfb_ms": 263.9,
+      "total_ms": 264.9,
+      "nosniff": "nosniff",
+      "cache_control": "private, max-age=3600",
+      "body_sha256_matches_build": true,
+      "worker_csp_matches_build": true
+    },
+    {
+      "path": "/local-ai.js",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 16482,
+      "ttfb_ms": 423.6,
+      "total_ms": 423.7,
+      "nosniff": "nosniff",
+      "cache_control": "private, max-age=3600",
+      "body_sha256_matches_build": true
+    },
+    {
+      "path": "/vendor/transformers-2.17.2.min.js",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 897938,
+      "ttfb_ms": 81.5,
+      "total_ms": 95.6,
+      "nosniff": "nosniff",
+      "cache_control": "private, max-age=3600",
+      "body_sha256_matches_build": true
+    },
+    {
+      "path": "/local-ai-prototypes.json",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 325775,
+      "ttfb_ms": 102.5,
+      "total_ms": 115.3,
+      "nosniff": "nosniff",
+      "cache_control": "private, max-age=3600",
+      "body_sha256_matches_build": true
+    },
+    {
+      "path": "/assets/photos/responsive/cars-1-480-33aec037c453.webp",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 23132,
+      "ttfb_ms": 65.4,
+      "total_ms": 65.6,
+      "nosniff": "nosniff",
+      "cache_control": "private, max-age=3600",
+      "body_sha256_matches_build": true
+    },
+    {
+      "path": "/assets/brand/fas-torgi-logo.png",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 200,
+      "bytes": 53760,
+      "ttfb_ms": 104.1,
+      "total_ms": 105.8,
+      "nosniff": "nosniff",
+      "cache_control": "private, max-age=3600",
+      "body_sha256_matches_build": true
+    },
+    {
+      "path": "/",
+      "authorized_bypass": false,
+      "spoof_identity": false,
+      "status": 403,
+      "bytes": 17,
+      "ttfb_ms": 33.8,
+      "total_ms": 34.0,
+      "nosniff": null,
+      "cache_control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+    },
+    {
+      "path": "/api/metrics/visit",
+      "authorized_bypass": false,
+      "spoof_identity": false,
+      "status": 403,
+      "bytes": 17,
+      "ttfb_ms": 45.9,
+      "total_ms": 46.0,
+      "nosniff": null,
+      "cache_control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+    },
+    {
+      "path": "/api/metrics/visit",
+      "authorized_bypass": true,
+      "spoof_identity": false,
+      "status": 401,
+      "bytes": 154,
+      "ttfb_ms": 75.4,
+      "total_ms": 75.5,
+      "nosniff": "nosniff",
+      "cache_control": "no-store, private"
+    },
+    {
+      "path": "/api/metrics/visit",
+      "authorized_bypass": true,
+      "spoof_identity": true,
+      "status": 401,
+      "bytes": 154,
+      "ttfb_ms": 272.0,
+      "total_ms": 272.2,
+      "nosniff": "nosniff",
+      "cache_control": "no-store, private"
+    }
+  ],
+  "success": true
+}

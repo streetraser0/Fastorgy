@@ -1,0 +1,533 @@
+{
+  "date": "2026-11-15",
+  "baseline": "10affae27c23238ca9ff6bda804f3b1028dba486",
+  "scope": "Post-v67 logo, shared desktop/mobile cabinet, and desktop three-column / mobile stacked lot details.",
+  "method": {
+    "browser": "Installed Google Chrome controlled by Playwright in isolated contexts.",
+    "server": "Loopback static dist preview; local assets served with gzip; hosted API intentionally responds 401.",
+    "storage": "Fresh per-case browser storage. Local draft and photo created by the visible UI, then restored after reload.",
+    "devices": "Desktop 1366x900; iPhone UA/touch at 320x740 and 390x844; Android UA/touch at 320x740, 390x844 and 412x915; simulated native bridge/class for Android 412 and iOS 390.",
+    "preserved": "Existing v67 evidence was not overwritten. No production data, accounts, or remote deployments were modified."
+  },
+  "runs": [
+    {
+      "artifact": "brand-mobile-browser/cabinet-brand/report.json",
+      "sha256": "041ac2491952842566831cd8a37dca8ed402d938d9878d842370d8e9be4b00b3",
+      "phases": [
+        "brand",
+        "cabinet"
+      ],
+      "started": "2026-11-15T13:40:30.349Z",
+      "finished": "2026-11-15T13:41:54.474Z",
+      "passed": 8,
+      "total": 8,
+      "javascriptErrors": 0,
+      "failedRequests": 0,
+      "cases": [
+        {
+          "name": "desktop1366",
+          "viewport": [
+            1366,
+            900
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 2907
+        },
+        {
+          "name": "ios320",
+          "viewport": [
+            320,
+            740
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 2421
+        },
+        {
+          "name": "ios390",
+          "viewport": [
+            390,
+            844
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 2395
+        },
+        {
+          "name": "android320",
+          "viewport": [
+            320,
+            740
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 2354
+        },
+        {
+          "name": "android390",
+          "viewport": [
+            390,
+            844
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 2511
+        },
+        {
+          "name": "android412",
+          "viewport": [
+            412,
+            915
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 2230
+        },
+        {
+          "name": "native-android412",
+          "viewport": [
+            412,
+            915
+          ],
+          "emulatedNative": true,
+          "passed": true,
+          "readyMs": 2311
+        },
+        {
+          "name": "native-ios390",
+          "viewport": [
+            390,
+            844
+          ],
+          "emulatedNative": true,
+          "passed": true,
+          "readyMs": 2345
+        }
+      ],
+      "parity": [
+        {
+          "a": "ios320",
+          "b": "android320",
+          "equal": true
+        },
+        {
+          "a": "ios390",
+          "b": "android390",
+          "equal": true
+        },
+        {
+          "a": "ios390",
+          "b": "native-ios390",
+          "equal": true
+        },
+        {
+          "a": "android412",
+          "b": "native-android412",
+          "equal": true
+        }
+      ]
+    },
+    {
+      "artifact": "brand-mobile-browser/lot/report.json",
+      "sha256": "867e406c1d14f86cab8540ed5e2fdcf06dc32deec013d510f2322e81ff193fde",
+      "phases": [
+        "lot"
+      ],
+      "started": "2026-11-15T13:50:44.104Z",
+      "finished": "2026-11-15T13:52:41.185Z",
+      "passed": 8,
+      "total": 8,
+      "javascriptErrors": 0,
+      "failedRequests": 0,
+      "cases": [
+        {
+          "name": "desktop1366",
+          "viewport": [
+            1366,
+            900
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 2642
+        },
+        {
+          "name": "ios320",
+          "viewport": [
+            320,
+            740
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 2730
+        },
+        {
+          "name": "ios390",
+          "viewport": [
+            390,
+            844
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 2783
+        },
+        {
+          "name": "android320",
+          "viewport": [
+            320,
+            740
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 2874
+        },
+        {
+          "name": "android390",
+          "viewport": [
+            390,
+            844
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 5488
+        },
+        {
+          "name": "android412",
+          "viewport": [
+            412,
+            915
+          ],
+          "emulatedNative": false,
+          "passed": true,
+          "readyMs": 2539
+        },
+        {
+          "name": "native-android412",
+          "viewport": [
+            412,
+            915
+          ],
+          "emulatedNative": true,
+          "passed": true,
+          "readyMs": 2813
+        },
+        {
+          "name": "native-ios390",
+          "viewport": [
+            390,
+            844
+          ],
+          "emulatedNative": true,
+          "passed": true,
+          "readyMs": 3440
+        }
+      ],
+      "parity": []
+    }
+  ],
+  "verified": [
+    "Loaded logo with accessible name and preserved aspect ratio in light header, dark feed and original-photo viewer.",
+    "Cabinet sidebar/main layout without horizontal overflow, single draft tab and bottom disclosure, actual text/photo persistence through reload.",
+    "Invalid dirty profile cannot navigate away; nested voice settings return retains entered profile fields.",
+    "Exact cabinet geometry equality for iOS/Android at 320 and 390; web/native simulation equality for iOS 390 and Android 412.",
+    "Desktop lot media/details/offer columns and mobile photo/title/offer/facts order; visible submit control and functioning price stepper without placing a bid.",
+    "Actual local original photograph loaded, zoom/reset and nested Back retain lot, visible lot Back closes it.",
+    "No page/modal horizontal overflow and no JavaScript exceptions in either completed run."
+  ],
+  "regression": {
+    "command": "node tests/lot-detail-decorators.cjs",
+    "passed": 4,
+    "total": 4,
+    "description": "Actual openCar markup with strict DOM insertBefore contract: new layout, new layout without seller links, legacy flat layout, and legacy nested-price layout. Repeated decoration preserves price/form nodes and avoids duplicate controls.",
+    "fixedIssue": "New nested lot wrappers exposed NotFoundError in buyer-tools/seller-ratings insertion; messages fallback had the same assumption. Production fix uses actual parent and inserts auxiliary controls in facts column."
+  },
+  "reproduce": {
+    "prerequisites": "Node.js, available Playwright package and Chrome. Set FAS_PLAYWRIGHT_MODULE and FAS_BROWSER_EXECUTABLE if not discoverable; no dependency installation is performed by the runner.",
+    "powershell": [
+      "$env:FAS_BRAND_MOBILE_PHASES = 'brand,cabinet'",
+      "$env:FAS_BROWSER_REPORT_DIR = 'test-results/brand-mobile/cabinet-brand'",
+      "node scripts/diagnostics/brand-mobile-checkup.cjs",
+      "$env:FAS_BRAND_MOBILE_PHASES = 'lot'",
+      "$env:FAS_BROWSER_REPORT_DIR = 'test-results/brand-mobile/lot'",
+      "node scripts/diagnostics/brand-mobile-checkup.cjs",
+      "node tests/lot-detail-decorators.cjs"
+    ],
+    "optionalCaseFilter": "FAS_BROWSER_CASES=desktop1366,ios320,android412"
+  },
+  "sourceFingerprints": [
+    {
+      "file": "scripts/diagnostics/brand-mobile-checkup.cjs",
+      "sha256": "a30a7544a482ecd6be82adcc831a28f95630c96f30913e83f1bd9836b4b3065c"
+    },
+    {
+      "file": "tests/lot-detail-decorators.cjs",
+      "sha256": "c302fa4be34be8d0947309f4b9305bde51b9fd0e065e9f44916b23da8564e07d"
+    },
+    {
+      "file": "scripts/diagnostics/android-feed-checkup.cjs",
+      "sha256": "d2a146f2e84f34e5d671884407b39d1976e92c6e1578f6d88af30eb80d3db323"
+    },
+    {
+      "file": "scripts/diagnostics/featured-share-checkup.cjs",
+      "sha256": "d5d82444d0a30ddaad751147480b1bf81aed3c74a42ec4fedbf2d517c7a1abc4"
+    },
+    {
+      "file": "scripts/diagnostics/photo-gesture-checkup.cjs",
+      "sha256": "61ec9a450f032df383a23c313ed19bca08a1395c39fd2960db77832d2702edaa"
+    },
+    {
+      "file": "scripts/diagnostics/vehicle-engine-checkup.cjs",
+      "sha256": "5a2e88a4c6153414a0df874a58ae413fef05edc988f7cc45872806ec66f664e3"
+    }
+  ],
+  "selectedArtifacts": [
+    "brand-mobile-browser/cabinet-brand/desktop1366-home.png",
+    "brand-mobile-browser/cabinet-brand/ios390-feed-brand.png",
+    "brand-mobile-browser/cabinet-brand/android320-cabinet.png",
+    "brand-mobile-browser/cabinet-brand/native-android412-cabinet.png",
+    "brand-mobile-browser/lot/desktop1366-lot.png",
+    "brand-mobile-browser/lot/desktop1366-photo-brand.png",
+    "brand-mobile-browser/lot/ios320-lot.png"
+  ],
+  "limitations": [
+    "All mobile cases use Chromium UA/viewport/touch emulation. These results do not establish actual iOS Safari/WebKit, physical device, or installed native package behavior.",
+    "Native cases simulate Capacitor/native-app gates; actual Android emulator/APK verification is a separate audit.",
+    "Hosted authentication/API, server database, real payments/bids, production service worker upgrade, and deployment were not tested.",
+    "Readability checks combine screenshot inspection and dimensions/accessible names; this is not a comprehensive accessibility audit.",
+    "readyMs records local navigation-to-ready duration, not a controlled performance comparison or production speed guarantee.",
+    "Brand/cabinet and lot were recorded as two bounded runs; the lot run occurred after the decorator bug fix. Raw reports and selected screenshots live in the named external artifact folders, not in the Git repository."
+  ],
+  "androidFeedRegression": {
+    "beforeFix": {
+      "reproduced": "Fresh Android: tap Дешевле, then Вся лента. Also saved [low] and [low,ending]. Trusted click reaches handler, feed stays closed with no new feedback.",
+      "scope": "Reproduced both in current local source and published v67; exact user-device cause not established.",
+      "artifacts": [
+        "brand-mobile-browser/android-feed/report.json",
+        "brand-mobile-browser/android-feed-empty/report.json",
+        "brand-mobile-browser/android-feed-ui-empty/report.json"
+      ]
+    },
+    "afterFix": {
+      "artifact": "brand-mobile-browser/android-feed-fixed/report.json",
+      "sha256": "b016687be5b78e33c46c7510420e6e1927b200f372f56db1ccf39d47e40c1289",
+      "started": "2026-11-15T14:10:17.057Z",
+      "finished": "2026-11-15T14:10:58.791Z",
+      "passed": 5,
+      "total": 5,
+      "cases": [
+        {
+          "name": "android-fresh-low",
+          "passed": true,
+          "javascriptErrors": 0
+        },
+        {
+          "name": "android-saved-low",
+          "passed": true,
+          "javascriptErrors": 0
+        },
+        {
+          "name": "android-saved-low-ending",
+          "passed": true,
+          "javascriptErrors": 0
+        },
+        {
+          "name": "ios-nonempty",
+          "passed": true,
+          "javascriptErrors": 0
+        },
+        {
+          "name": "desktop-nonempty",
+          "passed": true,
+          "javascriptErrors": 0
+        }
+      ],
+      "method": "Isolated Google Chrome, trusted Playwright touch/mouse input; mobile UA/viewport emulation, service workers allowed; real locally served application; no real Android/iOS device."
+    },
+    "behavior": "Empty selection produces a toast and visible Изменить условия action. Settings open only on a second explicit tap. Opening/closing settings preserves modes, category/search filters, region and recent history. Explicitly toggling Дешевле off allows a nonempty feed to open; no automatic reset or unrelated-lot substitution.",
+    "controls": "Three Android cases (fresh UI low, saved low, saved low+ending) plus iOS and desktop nonempty controls passed.",
+    "command": "Set FAS_BROWSER_BASE_URL to an active local preview; node scripts/diagnostics/android-feed-checkup.cjs",
+    "screenshots": [
+      "brand-mobile-browser/android-feed-fixed/android-fresh-low-feedback.png",
+      "brand-mobile-browser/android-feed-fixed/android-fresh-low-settings.png",
+      "brand-mobile-browser/android-feed-fixed/android-saved-low-ending-opened.png"
+    ]
+  },
+  "featuredShare": {
+    "artifact": "brand-mobile-browser/featured-share/report.json",
+    "sha256": "c454b352e35268e5270e104c3c5a5bb17b158400f7f33e2068a2e133da986dc9",
+    "started": "2026-11-15T14:12:52.359Z",
+    "finished": "2026-11-15T14:13:00.424Z",
+    "passed": 2,
+    "total": 2,
+    "cases": [
+      {
+        "name": "android320",
+        "passed": true,
+        "javascriptErrors": 0
+      },
+      {
+        "name": "android390",
+        "passed": true,
+        "javascriptErrors": 0
+      }
+    ],
+    "method": "Isolated Chrome with Android UA/touch emulation; trusted touchscreen taps; real clipboard fallback. OS share boundary is simulated as unsupported at 320 and absent at 390; no external recipient or native share sheet.",
+    "behavior": "Android 320/390: share control is at least 44x44, below heart with a gap, inside the photo and receives trusted touch. Actual clipboard contains the HTTPS canonical lot URL. Sharing preserves region, recent history, modes, carousel position and the existing lot/feed state.",
+    "limitation": "Native share-sheet boundary is simulated as unsupported at 320 and absent at 390. Clipboard write/read is real. No external recipient, OS share UI or physical device is exercised.",
+    "command": "Set FAS_BROWSER_BASE_URL to an active local preview; node scripts/diagnostics/featured-share-checkup.cjs",
+    "screenshots": [
+      "brand-mobile-browser/featured-share/android320-share.png",
+      "brand-mobile-browser/featured-share/android390-share.png"
+    ]
+  },
+  "photoGestures": {
+    "artifact": "brand-mobile-browser/photo-gestures/report.json",
+    "sha256": "d35b2ead1aab9f48a365ab96aabe08d75c34484da1a6121b197c8a8181cb631a",
+    "started": "2026-11-15T14:15:22.644Z",
+    "finished": "2026-11-15T14:15:35.515Z",
+    "passed": 2,
+    "total": 2,
+    "method": "Isolated Chrome with trusted mouse/CDP touch gestures. Android UA/touch emulation, not physical hardware. Real house lot 100200 and its photos; one temporary data-SVG portrait image in the isolated DOM tests object-fit letterbox geometry.",
+    "cases": [
+      {
+        "name": "android390",
+        "passed": true,
+        "javascriptErrors": 0,
+        "checks": [
+          "Trusted left/previous/first-photo-back swipes",
+          "Pull-down at 100% closes only viewer",
+          "Zoomed native pan changes scroll and retains viewer",
+          "Portrait object-fit letterbox returns only to lot"
+        ],
+        "pan": {
+          "before": [
+            98,
+            168
+          ],
+          "after": [
+            98,
+            83
+          ]
+        }
+      },
+      {
+        "name": "desktop1366",
+        "passed": true,
+        "javascriptErrors": 0,
+        "checks": [
+          "Photo click, inside-to-outside drag and right click retain viewer; Escape retains lot",
+          "Portrait object-fit letterbox returns only to lot"
+        ]
+      }
+    ],
+    "command": "Set FAS_BROWSER_BASE_URL to an active local preview; node scripts/diagnostics/photo-gesture-checkup.cjs",
+    "screenshots": [
+      "brand-mobile-browser/photo-gestures/android390-portrait.png",
+      "brand-mobile-browser/photo-gestures/desktop1366-portrait.png"
+    ],
+    "limitations": "Real house lot and original photos are used for paging, zoom and swipe tests. Portrait orientation uses one temporary data-SVG replacement of the open image only inside the isolated test DOM; no source/data files changed. This does not establish physical-device or WebKit gesture behavior."
+  },
+  "vehicleEngineFacts": {
+    "artifact": "brand-mobile-browser/vehicle-engine/report.json",
+    "sha256": "cca13dc8eda552c3398158bc025a1bdc1d33a0345d0b78c98548e6705ef88d1a",
+    "started": "2026-11-15T14:22:57.132Z",
+    "finished": "2026-11-15T14:23:17.251Z",
+    "passed": 4,
+    "total": 4,
+    "method": "Isolated Google Chrome; iOS/Android UA and touch/viewport emulation. Same real demo car object in every layout; explicit missing/EV/unit fixtures read only through the public helper API. No source data or real device modified.",
+    "source": {
+      "id": 1042,
+      "name": "BMW 5 серии · 530i",
+      "category": "cars",
+      "fuel": "petrol",
+      "engine": "2.0 л / Бензин",
+      "engineVolume": null,
+      "powerHp": 184,
+      "powerKw": null
+    },
+    "expected": {
+      "type": "Бензиновый",
+      "volume": "2 л",
+      "power": "184 л.с. / 135,3 кВт"
+    },
+    "cases": [
+      {
+        "name": "ios390",
+        "passed": true,
+        "javascriptErrors": 0,
+        "values": {
+          "type": [
+            "Бензиновый"
+          ],
+          "volume": [
+            "2 л"
+          ],
+          "power": [
+            "184 л.с. / 135,3 кВт"
+          ]
+        },
+        "overflow": false
+      },
+      {
+        "name": "android390",
+        "passed": true,
+        "javascriptErrors": 0,
+        "values": {
+          "type": [
+            "Бензиновый"
+          ],
+          "volume": [
+            "2 л"
+          ],
+          "power": [
+            "184 л.с. / 135,3 кВт"
+          ]
+        },
+        "overflow": false
+      },
+      {
+        "name": "desktop1366",
+        "passed": true,
+        "javascriptErrors": 0,
+        "values": {
+          "type": [
+            "Бензиновый"
+          ],
+          "volume": [
+            "2 л"
+          ],
+          "power": [
+            "184 л.с. / 135,3 кВт"
+          ]
+        },
+        "overflow": false
+      },
+      {
+        "name": "android320",
+        "passed": true,
+        "javascriptErrors": 0,
+        "values": {
+          "type": [
+            "Бензиновый"
+          ],
+          "volume": [
+            "2 л"
+          ],
+          "power": [
+            "184 л.с. / 135,3 кВт"
+          ]
+        },
+        "overflow": false
+      }
+    ],
+    "verified": "Same actual demo lot1042 across iOS390, Android390, desktop1366 and Android320; explicit legacy 2.0 л unit retained as 2 л, 184 metric hp converted to135.3 kW with labelled conversion. Legacy fuel/power detail rows absent. Missing values remain Не указано; EV volume Не применим; house helper excluded; explicit2.5L/150hp fixture accurate.",
+    "limitation": "Free-form engine description in the catalogue summary is preserved separately by production code. This audit proves absence of duplicate fuel/power detail rows, not removal of all legacy free text. Mobile engines are Chromium UA emulation, not native iOS/Android builds.",
+    "command": "Set FAS_BROWSER_BASE_URL to active local preview; node scripts/diagnostics/vehicle-engine-checkup.cjs",
+    "screenshots": [
+      "brand-mobile-browser/vehicle-engine/android390-engine.png",
+      "brand-mobile-browser/vehicle-engine/ios390-engine.png",
+      "brand-mobile-browser/vehicle-engine/android320-engine.png",
+      "brand-mobile-browser/vehicle-engine/desktop1366-engine.png"
+    ]
+  }
+}
