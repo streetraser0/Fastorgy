@@ -384,7 +384,7 @@ function emptyResultsHTML(availability=null){if(tab==='fav')return `<div class="
 function lotSummaryHTML(c,options={}){
  const engineFacts=window.FasVehicleEngineFacts?.summaryHTML(c)||'',facts=window.FasLotPresentation?.html(c,options);if(!facts)return '<div class="spec"><span>'+lotSpecs(c)+'</span></div>'+engineFacts;
  const engine=typeof c.engine==='string'?c.engine.trim():'';
- return facts+(engine&&!facts.includes(escapeText(engine))?'<div class="spec"><span>'+escapeText(engine)+'</span></div>':'')+engineFacts;
+ return facts+(engine&&!engineFacts&&!facts.includes(escapeText(engine))?'<div class="spec"><span>'+escapeText(engine)+'</span></div>':'')+engineFacts;
 }
 function lotCardValueHTML(c){return assessMarket(c).available?valuationHTML(c):''}
 function lotCardActionLabel(c){return isOwnLot(c)?'Моё объявление':isDescendingAuction(c)?'Купить по текущей цене':'Участвуйте в торгах'}

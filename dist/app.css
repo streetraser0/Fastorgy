@@ -46,3 +46,16 @@ body{background:#F5F7FA;color:#0B1F33}.top{background:#FFFFFFF5;border-color:#E2
 /* Status disclosure sits above the logo so the abbreviation is never read as a government affiliation. */
 .site-disclosure{margin:0;padding:6px max(16px,env(safe-area-inset-right,0px)) 6px max(16px,env(safe-area-inset-left,0px));background:#FFF4D6;color:#5A4300;border-bottom:1px solid #F1DFA6;font:600 12px/1.4 Manrope,Arial,sans-serif;text-align:center;text-wrap:balance}
 @media(max-width:560px){.site-disclosure{font-size:11px;padding-block:5px}}
+
+/* Grid cards: the photo note stacks under the lot status tag instead of covering it. */
+body:not(.reels) #grid .car-photo:has(> .tag) .media-label{top:46px}
+/* Footer: the approved blue logo sits on a light plate so it reads on the dark footer without a blurry glow. */
+#footer a.footer-logo-link{background:#F4F8FF;border-radius:14px;padding:10px 14px;box-sizing:border-box}
+#footer a.footer-logo-link>img.brand-logo{filter:none}
+/* Desktop dialog label colour must not paint empty rating stars as if the seller had five stars. */
+html.desktop-web #modal .rating-inline-options>label{color:#D4DBE5}
+html.desktop-web #modal .rating-inline-options>label.is-filled,html.desktop-web #modal .rating-inline-options>label:has(input:checked){color:#EBAA20}
+/* Lot dialog: the distance panel already offers "Показать расстояние"; the duplicate link beside the city is hidden. */
+#modal:has(.lot-distance-panel) .purchase-location>.distance-setup{display:none!important}
+/* The bottom quick bar is hidden on wider screens; without it the page needs no reserved space under the footer. */
+body.has-quick-access:not(.reels):not(.quick-access-visible){padding-bottom:0}
